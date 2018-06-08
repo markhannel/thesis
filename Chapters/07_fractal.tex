@@ -1,0 +1,684 @@
+\chapter{Holographic Characterization of Colloidal Fractal Aggregates}
+\label{ch:fractal}
+
+\section{Introduction}
+
+In-line holographic microscopy images of micrometer-scale fractal
+aggregates can be interpreted with an effective-sphere model
+to obtain each aggregate's size and the population-averaged fractal dimension.
+We demonstrate this technique experimentally using
+model fractal clusters of polystyrene nanoparticles and 
+fractal protein aggregates composed of bovine serum albumin and
+bovine pancreas insulin \cite{wang16a}.
+
+Holograms of micrometer-scale colloidal spheres
+obtained with in-line holographic video microscopy
+can be analyzed with the Lorenz-Mie theory of light
+scattering to obtain each sphere's radius and refractive index,
+typically with part-per-thousand precision \cite{lee07a,krishnatreya14}.
+Characterizing a single sphere requires a few milliseconds
+on a standard computer \cite{yevick14}, which is fast enough that several
+thousand spheres can be characterized in under ten minutes.
+Analyzing holograms of aspherical particles and colloidal
+clusters is substantially more challenging \cite{fung12},
+particularly if no information is available \emph{a priori}
+about the particles' geometry.
+We previously have demonstrated that the Lorenz-Mie analysis
+developed for homogeneous spheres also yields useful
+characterization data for porous spheres \cite{cheong11,wang15a}, 
+dimpled spheres \cite{hannel15}, and protein aggregates \cite{wang16}.
+The last of these applications treats each irregularly-shaped protein
+aggregate as an effective sphere composed of the aggregate
+itself and the fluid medium filling its pores.
+Here, we develop an effective-sphere formalism for
+Lorenz-Mie microscopy of fractal aggregates and
+demonstrate its efficacy through measurements on model
+systems.
+
+Detecting and characterizing micrometer-scale aggregates
+is useful both for fundamental research and also for solving 
+real-world problems.
+Protein aggregation, for example, is a critical concern
+for the biopharmaceutical industry because it limits
+the efficacy of protein-based drugs and can induce harmful
+immunogenic responses in patients \cite{wang05}.
+Information on the concentration, size distribution and morphology of protein
+aggregates provides guidance for formulating stable products and for
+avoiding adverse clinical outcomes.
+Conventional light-scattering techniques do not work well
+for particles in the relevant size range \cite{panchal14}, and cannot
+distinguish aggregates of interest from other contaminants
+commonly found in commercial formulations.
+Similar detection and characterization challenges arise in
+the precision slurries used by the semiconductor manufacturing
+for chemical-mechanical planarization \cite{basim02}.
+As a particle-resolved measurement technique, holographic
+characterization naturally differentiates micrometer-scale
+particles by size and composition \cite{yevick14}.
+The effective-sphere model extends these capabilities
+to include assessment of particle morphology without
+sacrificing speed or ease of use.
+
+\section{Lorenz-Mie characterization}
+\label{sec:lorenzmiecharacterization}
+
+\begin{figure}[!t]
+  \centering
+  \includegraphics[width=0.9\columnwidth]{hvm_schematic1}
+  \caption[Schematic representation of Lorenz-Mie characterization]
+  {(a) Lorenz-Mie characterization.  A colloidal sample
+    flowing down a microfluidic channel is illuminated by a collimated
+    laser beam.  Light scattered by a colloidal particle in the stream
+    is collected by an objective lens and projected by a tube lens onto the sensor of
+    a video camera, where it interferes with the unscattered portion
+    of the beam to create a hologram.  (b) The experimentally recorded hologram for a
+    typical colloidal polystyrene aggregate.  (c) Fit of the hologram
+    in (b) to the Lorenz-Mie prediction from Eq.~\eqref{eq:lorenzmie}.}
+  \label{fig:hvmschematic}
+\end{figure}
+
+Lorenz-Mie characterization, depicted schematically in
+Fig.~\ref{fig:hvmschematic}(a),
+is based on in-line holographic video microscopy \cite{sheng06},
+in which the sample is illuminated with a collimated laser beam.
+Light scattered by a particle interferes with the remainder of the
+illumination in the focal plane of a microscope.
+The intensity $I(\vec{r})$ of the magnified interference pattern is
+recorded with a conventional video camera for analysis.
+A typical example is shown in Fig.~\ref{fig:hvmschematic}(b).
+Each holographic snapshot is corrected for the camera's
+dark count, $I_d$, and is normalized by the
+background intensity in the field of view, $I_0(\vec{r})$,
+to obtain \cite{lee07,lee07a,krishnatreya14}
+\begin{equation}
+  \label{eq:normalization}
+  b(\vec{r}) = \frac{I(\vec{r}) - I_d}{I_0(\vec{r}) - I_d}.
+\end{equation}
+The normalized hologram then is fit to the prediction
+\cite{lee07a}
+\begin{equation}
+  \label{eq:lorenzmie}
+  b(\vec{r}) 
+  = 
+  \abs{\hat{x} 
+    + 
+    e^{-i k z_p} \vec{f}_s(k(\vec{r} - \vec{r}_p)\vert a_p, n_p)}^2,
+\end{equation}
+where $k$ is the wavenumber of light in the medium,
+$\vec{r}_p$ is the position of the particle's center relative
+to the center of the microscope's focal plane, and
+$\vec{f}_s(k \vec{r} \vert a_p, n_p)$ is the Lorenz-Mie function
+that describes scattering of the incident wave by a sphere of radius $a_p$
+and refractive index $n_p$ \cite{bohren83,mishchenko02}.
+The form of Eq.~\eqref{eq:lorenzmie} is appropriate for a beam
+propagating along $\hat{z}$ that is linearly polarized along $\hat{x}$.
+Fitting Eq.~(\ref{eq:lorenzmie}), pixel by pixel,
+to the normalized hologram of a sphere yields the sphere's three-dimensional position, 
+its radius and its refractive index \cite{lee07a}.
+Fig.~\ref{fig:hvmschematic}(c) presents the result of fitting to the
+experimental hologram from Fig.~\ref{fig:hvmschematic}(b).
+
+The custom-built holographic microscope used for this study
+illuminates the sample with the collimated beam from
+a solid state laser (Coherent Cube)
+operating at a vacuum wavelength of $\lambda = \SI{447}{\nm}$.
+The sample flows through the observation volume in 
+microfluidic channel created by bonding
+the edges of a number 1.5 glass microscope cover slip to the face of a
+standard glass microscope slide.
+This sample cell is mounted on a translation stage (Prior, Proscan II)
+in the focal plane of an oil-immersion objective lens
+(Nikon, Plan Apo, $100\times$, numerical aperture 1.45).
+Light collected by the objective lens is relayed by an achromatic
+tube lens to a video camera (NEC, TI-324AII), which records its
+intensity 30 times per second with an effective magnification
+of \SI{135}{\nm\per pixel}.
+Each video frame is a \SI{640 x 480}{pixel} measurement of $I(\vec{r})$
+with a resolution of \SI{8}{bits\per pixel}.
+Features associated with dispersed particles are identified in
+digitized holographic images \cite{krishnatreya14a} 
+and are analyzed with Eqs.~\eqref{eq:normalization} and \eqref{eq:lorenzmie}
+using methods that have been described in detail elsewhere
+\cite{yevick14,krishnatreya14}.
+The example in Fig.~\ref{fig:hvmschematic}(b) is a 
+\SI{201 x 201}{pixel} region of interest cropped from the
+normalized hologram, $b(\vec{r})$, obtained from $I(\vec{r})$
+according to Eq.~\eqref{eq:normalization}.
+
+All principal results were reproduced using a second instrument based 
+on a $40\times$ air objective 
+(Nikon Plan Fluor, numerical aperture 0.75)
+operating at a vacuum wavelength of \SI{532}{\nm} 
+(Thorlabs, CPS532 \SI{4.5}{\milli\watt})
+with an effective magnification of \SI{120}{\nm\per pixel}
+on an Allied Vision Mako U-130B camera.
+This camera yields \SI{1280 x 1024}{pixel} images with
+\SI{8}{bits \per pixel}.
+Samples flow through this instrument in prefabricated microfluidic
+channels with \SI{100}{\um} path length (Ibidi, $\mu$Slide VI,
+uncoated).
+Flow is driven by a syringe pump (New Era Systems, NE 100).
+This reduces the possibility that instrumental artifacts
+might have influenced the scaling relationships reported here.
+
+A colloidal sample is characterized by placing a \SI{100}{\micro\liter}
+aliquot in the reservoir at one end of the microfluidic channel and
+drawing it through with a small pressure gradient.
+The resulting Poiseuille flow has a peak speed along its axis 
+of $v = \SI{150}{\um\per\second}$, which is small enough
+to avoid artifacts due to motion blurring \cite{cheong09,dixon11}
+and allows each particle to be recorded several times
+during its transit.
+Given a concentration on the order of
+\SI{e7}{particles\per\milli\liter},
+a few thousand particles will pass through the observation volume
+in \SI{5}{\minute}.
+
+\begin{figure}[!b]
+  \centering
+  \includegraphics[width=0.8\columnwidth]{track1_5}
+  \caption[Tracking a colloidal polystyrene aggregate]
+  {Tracking and characterizing a colloidal polystyrene
+    aggregate.  (a) Eight holographic snapshots at \SI{1/15}{\second}
+    intervals of an aggregate moving from the bottom of the microscope's field of
+    view to the top at $v = \SI{120}{\um\per\second}$.  
+    The scale bar represents \SI{20}{\um} in the imaging plane.
+    (b) Fit values for the radius, $a_p$, and refractive index,
+    $n_p$, obtained from the sequence of sixteen
+    holograms recorded at \SI{1/30}{\second} intervals during the
+    aggregate's \SI{0.5}{\second} transit.  Error bars
+    represent uncertainties in the fit values.  Results from the
+    images in (a) are plotted as circles and are interleaved with
+    intervening results that are plotted as squares.
+    Symbols are colored
+    by time, as indicated by circles superimposed on the images.}
+  \label{fig:track}
+\end{figure}
+
+A single snapshot of an individual colloidal particle can be analyzed
+in several milliseconds using standard computer hardware
+\cite{cheong09,yevick14}.
+Characterization data therefore can be acquired in real time
+as particles flow down the microfluidic channel \cite{cheong09}.
+The images in Fig.~\ref{fig:track}(a) show eight stages of the transit
+of a typical polystyrene aggregate at \SI{1/15}{\second} intervals.
+The resulting time series of position and characterization data 
+can be linked into a trajectory using maximum
+likelihood methods \cite{crocker96,cheong09}.
+The scatter plot in Fig.~\ref{fig:track}(b) shows the 
+estimated values for the radius and refractive index obtained 
+at each stage of the aggregate's
+trajectory, recorded at \SI{1/30}{\second} intervals.
+These results can be combined
+into a trajectory-averaged estimate for the associated particle's characteristics.
+
+When this measurement technique is applied to 
+spherical particles, the standard deviation of the
+trajectory-averaged characteristics is comparable to the
+single-measurement precision \cite{cheong09,krishnatreya14}.
+Results for the irregularly-shaped aggregate in Fig.~\ref{fig:track}
+vary more substantially.
+The standard deviation of the radius,
+$\Delta a_p = \SI{0.04}{\um}$ is a factor of 10 larger
+than the single-measurement precision.
+The standard deviation of the refractive index, by contrast,
+is comparable to the single particle precision,
+$\Delta n_p = \num{0.002}$.
+It is possible that the variation in apparent size occurs because
+the aggregate is irregularly shaped, tumbles as it travels, and
+so presents different-sized projections to the instrument.
+We develop this interpretation in the next section.
+
+\section{Effective sphere model}
+\label{sec:effectivespheremodel}
+
+Rather than attempting to generalize Eq.~(\ref{eq:lorenzmie})
+to account for the detailed structure of
+random colloidal aggregates, we instead
+analyze their holograms with Eq.~(\ref{eq:lorenzmie}) itself
+and interpret the results with effective medium theory
+\cite{aspnes82,choy99}.
+The radius, $a_p^\ast$, and refractive index,
+$n_p^\ast$, obtained from such a fit then characterize
+an effective sphere enclosing both the fractal aggregate
+and also the intercalated fluid medium.
+The goal of the present work is to establish a relationship
+between the measured properties of the effective sphere and
+the underlying properties of the actual aggregate.
+This relationship then enables Lorenz-Mie microscopy to
+probe the morphology of fractal
+aggregates without incurring the computational burden of
+detailed modeling.
+
+For simplicity,
+we assume that a fractal aggregate of fractal dimension $D$
+is composed of identical spherical monomers, each of radius $a_0$
+and refractive index $n_0$.
+The aggregate is immersed in a medium of refractive index $n_m$
+that fills the pores.
+Provided that both the monomers and the pores are
+substantially smaller than the wavelength of light,
+this composite structure may be modeled as a continuous
+medium whose refractive index, $n_p$, is given by the
+Maxwell Garnett relation \cite{aspnes82},
+\begin{subequations}
+  \label{eq:gradientindex}
+\begin{equation}
+  L(n_p) = \phi_p \, L(n_0),
+\end{equation}
+where $\phi_p$ is the volume fraction of monomers in the sphere and
+\begin{equation}
+  L(n) = \frac{n^2 - n_m^2}{n^2 + 2 n_m^2}
+\end{equation}
+is the Lorentz-Lorenz factor.
+\end{subequations}
+
+The number of monomers within radius $r$ of a fractal aggregate's
+center is
+\begin{equation}
+  \label{eq:number}
+  N(r) = \left(\frac{r}{a_0}\right)^D, 
+\end{equation}
+and the associated volume fraction is
+\begin{equation}
+  \label{eq:internalvolumefraction}
+  \phi(r) = \frac{a_0^3}{r^3} N(r) = \left(\frac{r}{a_0}\right)^{D-3}.
+\end{equation}
+For a particle of radius $a_p$, the overall volume fraction is
+\begin{equation}
+  \label{eq:volumefraction}
+  \phi_p \equiv \phi(a_p) = \left(\frac{a_p}{a_0}\right)^{D-3}.
+\end{equation}
+From this and the Maxwell Garnett relation, we obtain an
+expression for the cluster's effective refractive index,
+\begin{equation}
+  \label{eq:np}
+  n_p
+  =
+  \sqrt{
+    \frac{1 + 2 L(n_0) \phi_p}{1 - L(n_0) \phi_p}
+  }.
+\end{equation}
+This result also may be expressed as a scaling 
+relationship between the radius of a fractal aggregate and 
+its effective refractive index,
+\begin{equation}
+  \label{eq:scalingprediction}
+  \ln L(n_p) - \ln L(n_0)
+  =
+  (D - 3) 
+  \ln\left(\frac{a_p}{a_0}\right).
+\end{equation}
+In a population of aggregates grown under comparable
+conditions, Eq.~\eqref{eq:scalingprediction}
+can be used to estimate the population-averaged
+fractal dimension, $D$.
+
+Equation~\eqref{eq:np} treats a cluster as a
+homogeneous medium.  In fact, the density of monomers
+decreases with scale, and therefore with radius within the
+cluster.  As discussed in the Appendix, the associated 
+radial gradient in the refractive index has little influence 
+on practical measurements of clusters' effective characteristics.
+We, therefore, ignore the clusters' 
+spatial inhomogeneity in the discussion that follows.
+
+\section{Comparison between effective medium theory formulas}
+
+As discussed Chapter~\ref{ch:EMT}, there are three equations available for calculate the  effective refractive index for the fractal aggregate. We choose to use Maxwell Garnett formula in this work because each aggregate is a fractal structure consisting of nanometer scale polystyrene spheres embedded in the medium. For the experimental parameters used in this work, however, the numerical difference of the three formulas is close to the resolution of holographic microscopy. 
+
+\begin{figure}[!t]
+  \centering
+  \includegraphics[width=0.6\textwidth]{emt3}
+  \caption[Effective medium theory comparison]
+    {The ratio between the effective refractive indexes of polystyrene aggregates 
+    calculated from different formulas, as following: the ratio of (a) Lorentz-Lorenz 
+    relation, (b) Maxwell Garnett relation using polystyrene particle as the host medium 
+    and (c) Bruggeman relation to Maxwell Garnett relation using water as the host 
+    medium, which is the calculation used in Section.~\ref{sec:effectivespheremodel}.}
+  \label{fig:emt3}
+\end{figure}
+
+Fig.~\ref{fig:emt3} shows the ratio of three alternative effective medium modeling to the 
+Maxwell Garnett relation we used in Section.~\ref{sec:effectivespheremodel}. The three 
+cases are: (1) the Lorentz-Lorenz equation; (2) the Maxwell Garnett 
+relation for an inverted "aggregate" of water in polystyrene; 
+(3) the Bruggeman relation. 
+In all calculations, $\phi_p$ represents the volume fraction of polystyrene particles, and $1-\phi_p$ is the volume fraction of water 
+contained in the effective sphere. 
+The value of refractive indexes for polystyrene and water are all same in each 
+case, where $n_0 = 1.59$ and $n_m = 1.34$. The largest discrepancy is from Lorentz-Lorenz equation. The two methods differ by 0.2\% at volume fraction $\phi_p = 0.5$. The main peak in the size distribution of aggregate is at $a_p = \SI{600}{\nm}$. Using the fractal dimension $D = 1.75$, the volume fraction of polystyrene particles in the main population of aggregates is $\phi_p = (\SI{600}{\nm}/\SI{80}{\nm}) ^ {(1.75 - 3)} = 0.08$. This volume fraction corresponds to a 0.06\% difference in the effective refractive index, which is less than one part per thousand in the value of refractive index. The difference is beyond the resolution of the technique, which suggests that the choice of effective medium theory formula does not affect our analysis.
+
+\section{Effective-sphere model for stratified spheres}
+\label{sec:gradientindexspheres}
+
+The effective-sphere model 
+treats an aggregate as if the monomers were distributed uniformly
+within it.
+In fact, the marginal volume fraction decreases with distance $r$ 
+from the center of the aggregate as
+\begin{equation}
+  \label{eq:surfacevolumefraction}
+  \phi_s(r) = \frac{\frac{4}{3} \pi a_0^3}{4 \pi r^2} \frac{dN}{dr}
+  =  \frac{D}{3} \left( \frac{r}{a_0} \right)^{D - 3} .
+\end{equation}
+This corresponds to a radial variation of the effective refractive index
+described by
+\begin{equation}
+  \label{eq:grip}
+  n(r) = n_m \, \sqrt{\frac{1 + 2 L(n_0) \phi_s(r)}{1 - L(n_0) \phi_s(r)}}.
+\end{equation}
+Unless the entire aggregate is smaller than the wavelength of light,
+this radial structure might be expected to influence results 
+obtained by applying effective medium theory to holograms of fractal aggregates.
+
+To assess this influence,
+we use the effective-sphere model to analyze synthetic holograms
+of gradient-index particles with refractive-index profiles
+described by Eq.~\eqref{eq:grip}.
+These holograms are computed by replacing
+$\vec{f}_s(k\vec{r}\vert a_p, n_p)$ in
+Eq.~\eqref{eq:lorenzmie} 
+with the corresponding generalized Lorenz-Mie 
+result for a stratified sphere \cite{yang03,pena09,gouesbet11}
+whose layers have refractive indexes given by Eq.~\eqref{eq:grip}.
+The number of layers is chosen to converge the computed intensities
+to within \SI{1}{\percent} at each pixel.
+This typically occurs with layer thicknesses comparable
+to $\pi / (5 k)$.
+A similar approach has proved successful for Luneburg spheres
+and other particles with continuous radial refractive index profiles
+\cite{selmke15}.
+The hologram is then fit to the Lorenz-Mie model
+from Eq.~\eqref{eq:lorenzmie} for the effective sphere's radius,
+$a_p^\ast$, and refractive index, $n_p^\ast$.
+These parameters then can be compared with the true radius of
+the stratified sphere, $a_p$, and the sphere-averaged refractive
+index, $n_p$,
+obtained from Eq.~\eqref{eq:scalingprediction}.
+
+\begin{figure}[!t]
+  \centering
+  \includegraphics[width=1.0\textwidth]{stratified3}
+  \caption[Effective-sphere model for gradient-index spheres]
+  {Performance of the effective-sphere model for
+    gradient-index spheres.
+    (a) Effective radius, $a_p^\ast$, as a function of the stratified
+    sphere's outer radius, $a_p$.  The dashed diagonal line
+    indicates ideal agreement.
+    (b) Effective refractive index, $n_p^\ast$, as a function of
+    sphere radius.  The dashed curve indicates the sphere-averaged
+    refractive index, $n_p$.
+    (c) Scaling plot of the data, plotted according to
+    Eq.~\eqref{eq:scalingprediction}.  The dashed diagonal
+    line is obtained for the true values of radius and refractive
+    index.}
+  \label{fig:stratified}
+\end{figure}
+
+Fig.~\ref{fig:stratified} shows the performance 
+of the effective-sphere model 
+for particles with $D = \num{1.75}$, $a_0 = \SI{80}{\nm}$ and $n_0 = \num{1.585}$
+in a medium with $n_m = \num{1.340}$.
+These parameters are chosen to model fractal polystyrene aggregates
+dispersed in water \cite{majolino89,zhou91,wu13}.
+The effective sphere's radius, Fig.~\ref{fig:stratified}(a), 
+and refractive index, Fig.~\ref{fig:stratified}(b),
+both track the true values, albeit with systematic offsets.
+They quite closely satisfy the anticipated scaling form predicted
+by Eq.~\eqref{eq:scalingprediction} with a slope consistent
+with the input fractal dimension, as can be seen in
+Fig.~\ref{fig:stratified}(c).
+
+Comparable results are obtained with different values of the
+fractal dimension.
+The gradient-index structure of fractal aggregates therefore does
+not substantially diminish the ability of the effective-sphere model
+to estimate such particles' fractal dimension.
+Although the gradient-index model does not address the influence
+of real aggregates' branched structure, it lends additional confidence
+to the proposal that Lorenz-Mie characterization usefully assesses
+the properties of such objects.
+
+\section{Experimental studies of fractal aggregates of polystyrene nanospheres}
+\label{sec:psaggregates}
+
+The data in Fig.~\ref{fig:fractal} were obtained for \num{2727}
+colloidal fractal aggregates grown under conditions conducive
+to diffusion-limited cluster aggregation (DLCA) \cite{meakin88,majolino89,zhou91}. Each polystyrene nanoparticle is in Brownian motion. When two particles colloid and fall into the Van der Waals potential well, they bind rigidly into a particular configuration. The aggregates also diffuse randomly and bind to each other when they collide.
+The primary particles are monodisperse polystyrene spheres with
+a mean radius of $a_0 = \SI{80}{\nm}$ 
+(Thermo Scientific, catalog number 5016A, 10\% w/w).
+
+Aggregation was initiated by dispersing these particles in
+\SI{0.5}{M} NaCl solution at a concentration of
+\num{5e-5} by weight.
+After one hour, the dispersion was diluted by a factor of \num{20}
+with deionized water to stop further aggregation.
+The resulting sample was then analyzed immediately, before
+the aggregates might have time to restructure \cite{aubert86,zhou91}.
+
+Each data point in Fig.~\ref{fig:fractal}(a) represents the
+characteristics of a single colloidal particle obtained from a
+trajectory such as the example in Fig.~\ref{fig:track}.
+The plot symbols'
+size is comparable to the numerical uncertainty in the fit parameters.
+Each point is colored according to the relative probability density,
+$P(a_p^\ast,n_p^\ast)$, of measurements according to the color bar
+inset into Fig.~\ref{fig:fractal}(a).
+
+The effective sphere model works well for aggregates with radii
+smaller than \SI{2}{\um}.
+Despite their irregular shapes, these objects are small enough
+that their holograms display the radial symmetry typical of
+spheres.
+This can be seen in Fig.~\ref{fig:fractal}(b).
+The reduced $\chi^2$ statistics for fits such as
+Fig.~\ref{fig:fractal}(c) typically
+fall within ten percent of unity, suggesting that the fit
+parameters reliably reflect the aggregates properties.
+
+\begin{figure}[t!]
+  \centering
+  \includegraphics[width=0.6\columnwidth]{fractal6a}
+  \caption[Characterization of polystyrene fractal aggregates]
+    {Characterization data for a population of polystyrene
+    fractal aggregates. (a) Scatter plot of the effective radius,
+    $a_p^\ast$, and refractive index, $n_p^\ast$, of \num{2727}
+    aggregates, including the example from Fig.~\ref{fig:hvmschematic}(a).
+    Each plot symbol reflects the properties of one aggregate, and
+    is colored by the relative probability density of measurements, 
+    $P(a_p^\ast,n_p^\ast)$.  The solid (blue) curve is the prediction of
+    Eq.~\eqref{eq:scalingprediction} using the fractal dimension
+    $D = \num{1.75}$ for diffusion-limited cluster aggregation,
+    and no other adjustable parameters.
+    (b) The same data replotted for comparison with the scaling
+    prediction from Eq.~\eqref{eq:scalingprediction}.
+    According to the effective-sphere model, the rescaled data are
+    expected to fall along the solid (blue) line.
+    Inset: Scanning electron microscope image of a typical aggregate.
+    Scale bar indicates \SI{1}{\um}.
+  }
+  \label{fig:fractal}
+\end{figure}
+
+Larger aggregates are
+reliably detected and counted by the feature identification algorithm \cite{krishnatreya14a},
+but are poorly characterized by the effective-sphere model
+\cite{wang16}.
+Their holograms are more substantially asymmetric, and the
+reduced $\chi^2$ statistic for these fits typically exceeds
+\num{10}.
+It is not surprising, therefore, that the estimated
+characteristics for aggregates with $a_p > \SI{2.5}{\um}$
+do not follow the trend expected for fractal aggregates, their refractive indexes
+falling below the scaling prediction.
+
+The solid curve in Fig.~\ref{fig:fractal}(a) shows the prediction from
+Eq.~\eqref{eq:scalingprediction} for $n_p(a_p)$, with no adjustable
+parameters.
+In addition to the monomers' radius, the effective-sphere model
+is parametrized by the monomers' refractive index and the
+clusters' fractal dimension.
+The former, $n_0 = \num{1.59(1)}$, was obtained from
+holographic characterization studies
+of emulsion-polymerized polystyrene spheres
+\cite{lee07a,cheong09,xiao10a,cheong11}.
+The latter, $D = \num{1.75(3)}$, was obtained from 
+independent light-scattering
+studies on aggregates grown under comparable conditions
+\cite{aubert86,majolino89,zhou91,sorensen01,wu13}, and
+is consistent with expectations for DLCA \cite{weitz85,sorensen01}.
+
+Fig.~\ref{fig:fractal}(b) shows the same data replotted to emphasize
+the scaling prediction from Eq.~\eqref{eq:scalingprediction}.
+Agreement with the effective sphere model is quite good
+for particles with apparent radii smaller than 
+$a_p^\ast = \SI{2}{\um}$.
+Because fractals' pore size increases with scale, larger aggregates
+presumably do not satisfy the requirements of effective medium
+theory and so are not so well described by the effective-sphere model.
+
+The scanning electron microscope image inset into
+Fig.~\ref{fig:fractal}(b) shows a typical vacuum-dried
+aggregate.  This image resolves the individual spheres,
+whose arrangement is consistent with the irregular branched
+structure inferred from holographic characterization of
+similar samples.  Although details of the structure undoubtedly
+were altered during drying, the presence of voids at multiple
+scales within the cluster is consistent with a fractal dimension
+smaller than \num{2}.
+
+The model's success for smaller clusters supports the contention
+that Eq.~\eqref{eq:scalingprediction} can be useful
+for measuring the population-averaged fractal
+dimension of micrometer-scale fractal clusters.
+We next apply this approach to characterize aggregates of
+two model proteins whose cluster morphologies have
+been independently established.
+This application not only serves to verify the effective-sphere
+model for fractal clusters, 
+but also illustrates the utility of Lorenz-Mie
+microscopy for measuring the size distribution and morphology
+of protein aggregates, a subject of considerable interest in
+biology \cite{morris09}
+and of substantial practical importance in pharmaceutical manufacturing \cite{wang99a}.
+
+\section{Experimental studies of protein aggregates}
+\label{sec:protein}
+
+\begin{figure}[!t]
+  \centering
+  \includegraphics[width=0.6\columnwidth]{protein4}
+  \caption[Scaling prediction of protein aggregates]
+    {Scaling prediction of Eq.~\eqref{eq:scalingprediction} for the Lorenz-Mie 
+    characterization of insulin aggregates showed in Fig.~\ref{fig:hologram} and 
+    BSA aggregates results combined from Fig.~\ref{fig:bsa_runs}(a) and Fig.~
+    \ref{fig:bsa_runs}(b).
+    Radii are measured relative to the arbitrary scale, $a_0 = \SI{1}{\um}$.
+    Each point represents the properties of a single colloidal
+    particle and is colored according to the local density of
+    measurements.
+    Superimposed (red) lines corresponds to the best-fit
+    fractal dimension for each sample, with dashed lines indicating 
+    a range of \num{+-0.1}.
+    (a) Bovine pancreas insulin.  
+    The data are consistent with $D = \num{1.5(1)}$.
+    (b) Bovine serum albumin.  The distribution is consistent with 
+    $D = \num{1.1(1)}$.}
+  \label{fig:protein}
+\end{figure}
+
+Like the colloidal nanoparticles considered in the previous section,
+proteins in solution also have a tendency to aggregate \cite{morris09}.
+Some of the resulting macromolecular structures perform important biological
+functions.  Others cause diseases.
+Protein aggregation is a principal failure mechanism for biopharmaceutical
+formulations not only because clustered proteins are less effective as
+therapeutic agents, but also because they can elicit dangerous immune
+responses \cite{wang99a}.
+We previously have demonstrated that inline holographic video 
+microscopy can detect protein aggregates in solution, and can
+distinguish them from such common contaminants as silicone oil
+droplets \cite{wang16}.
+Here, we apply the effective-sphere model to study the aggregates'
+morphology by estimating their fractal dimension.
+
+\subsection{Bovine insulin}
+
+The data in Fig.~\ref{fig:protein}(a) are the scaling prediction of 
+Eq.~\eqref{eq:scalingprediction} for the Lorenz-Mie characterization of insulin aggregates showed in Fig.~\ref{fig:hologram}.
+Because the effective monomer radius is not known \emph{a priori},
+radii in Fig.~\ref{fig:protein} are scaled by an arbitrary factor,
+$a_0 = \SI{1}{\um}$.  This choice does not affect the
+estimate for $D$.
+
+The main distribution of single-particle characteristics follows the
+scaling prediction quite well, and has a slope consistent with
+a fractal dimension of $D = \num{1.5}$.  This is denoted in
+Fig.~\ref{fig:protein}(a) by a solid (red) line superimposed on the
+data.
+
+Dashed lines in this plot show equivalent results for fractal
+dimensions $D = \num{1.4}$ and $D = \num{1.6}$.
+The proposal that bovine insulin forms branched fractal aggregates
+is consistent with independent measurements of such aggregates'
+morphology using atomic-force microscopy \cite{siposova12}.
+
+In addition to the main distribution of points,
+Fig.~\ref{fig:protein}(a) features an outlying cluster of large-size
+aggregates comparable to those in Fig.~\ref{fig:fractal}.
+It also includes a cluster of small particles
+with low refractive indexes.
+These latter features appear to correspond to 
+globular aggregates that are distinct from the
+fractal clusters of interest here.
+
+\subsection{Bovine serum albumin}
+
+The data in Fig.~\ref{fig:protein}(b) are the scaling prediction of Eq.~\eqref{eq:scalingprediction} for the Lorenz-Mie characterization of BSA aggregates results combined from Fig.~\ref{fig:bsa_runs}(a) and Fig.~\ref{fig:bsa_runs}(b).
+The results for BSA aggregates with radii smaller than \SI{2}{\um}
+agree well with the scaling prediction from
+Eq.~\eqref{eq:scalingprediction},
+this time with an apparent fractal dimension of $D = \num{1.1}$,
+as indicated by the solid (red) line superimposed on the
+data in Fig.~\ref{fig:protein}(b).
+The nearly linear structure suggested by this low fractal dimension
+is consistent with atomic force microscopy images of 
+BSA aggregates \cite{omichi14}.
+
+\section{Conclusions}
+
+The results 
+presented in this chapter demonstrate that Lorenz-Mie microscopy can provide useful insights
+into the properties of micrometer-scale fractal aggregates.
+Holograms of micrometer-scale colloidal fractal
+aggregates can be interpreted with
+the effective-sphere model presented in
+Sec.~\ref{sec:effectivespheremodel}
+to estimate an aggregate's size
+and effective refractive index.
+These particle-resolved data, in turn, can be pooled
+to estimate the population-averaged fractal dimension.
+The effective-sphere model therefore extends
+the particle-characterization capabilities of
+Lorenz-Mie microscopy to irregularly branched
+objects.
+
+The success of the effective-sphere model in 
+characterizing ramified protein aggregates lends
+additional support to the earlier proposal \cite{wang16}
+that Lorenz-Mie characterization meaningfully assesses
+such aggregates' sizes.
+It therefore establishes Lorenz-Mie microscopy as a
+method for sizing protein aggregates, characterizing
+their morphology, and differentiating them from 
+other types of colloidal particles.
+
+This work also provides a baseline against which
+more detailed approaches to holographic characterization
+of fractal structures may be compared.
+Future extensions based on machine-learning techniques \cite{yevick14}
+or direct modeling of the spatial distribution of 
+dielectric material \cite{fung12} thus can be tested directly using
+the methods described here.

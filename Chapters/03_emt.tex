@@ -1,0 +1,100 @@
+\chapter{Effective Medium Theory}
+\label{ch:EMT}
+
+\section{Introduction}
+
+Lorenz-Mie theory is an exact solution to Maxwell's equations that describe the scattering of an electromagnetic plane wave by a homogeneous sphere. 
+In reality, no colloidal particles in experimental systems are perfect spheres. 
+For many cases of interesting deviations from homogeneity and sphercity are small enough that the Lorenz-Mie fitter does a very good job of characterizing the paticles' properties yielding results in excellent agreement with independent measurements. The Lorenz-Mie solution does not apply, however, to inhomogeneous or aspherical particles. 
+We still can take advantage of holographic microscopy's single particle resolution by analyzing holographic features with generalization to the light scattering theory such as  discrete dipole approximation (DDA) \cite{draine94} or T-matrix method \cite{mishchenko96,waterman65}. 
+These are general methods, however, are computationally expensive. 
+An alternative approach is to fit recorded holograms with the Lorenz-Mie prediction for ideal spheres and then to interpret the results with effective medium theory. 
+The effective medium approximation is a method for estimating the average properties of a heterogeneous medium. It can be used, for example, to obtain a composite system's elastic modulus, its conductivity $\sigma$,  its dielectric function $\epsilon$, \textit{etc}. This last case is useful for assessing a sphere's light-scattering properties.
+
+\section{Lorentz-Lorenz equation}
+\label{sec:ll}
+
+The Lorentz-Lorenz equation, also known as the Clausius-Mossotti relation, relates the macroscopic dielectric constant $\epsilon$ of a material system to the microscopic  polarizability $\alpha$ of the molecules that make it up. The relation has been used for instance by Einstein in 1910 in his treatment of critical opalescence \cite{einstein1910}. Its derivation first identifies the sum of the applied field $\vec{E}$ and the polarization field $\vec{P}$ of the molecule dipoles in a cavity of the material volume as the Lorentz local field, 
+\begin{equation}
+\label{eq:Lorentzlocalfield}
+\vec{E}_{loc} = \vec{E} + \frac{4\pi}{3} \vec{P}.
+\end{equation}
+This expression neglects possible contribution for quadrupoles and higher order multipoles \cite{jackson75, aspnes82}. 
+The local field gives rise to the polarization field by polarizing the molecules, given a density $\rho$ of molecules per unit volume,
+\begin{equation}
+\vec{P} = \rho \alpha \vec{E}_{loc}.
+\end{equation}
+The third step is to write the macroscopic definition of dielectric constant,
+\begin{equation}
+\epsilon \vec{E} = \vec{E} + 4 \pi \vec{P}.
+\end{equation} 
+Then we are able to arrive at the Clausius-Mossotti relation
+\begin{equation}
+\label{eq:cm}
+\frac{\epsilon -1}{\epsilon +2} = \frac{4\pi}{3} \rho \alpha.
+\end{equation}
+For non-magnetic materials, $\epsilon = n^2$, so that Eq~\eqref{eq:cm} leads to the Lorentz-Lorenz equation
+\begin{equation}
+\frac{n^2 - 1}{n^2 + 2} = \frac{4\pi}{3} \rho \alpha,
+\end{equation}
+where $n$ is the refractive index of the material.
+
+The Lorentz-Lorenz equation can be used to identify the effective refractive index.
+For a homogeneously linear mixture of two constituents with polarizabilities of $\alpha_a$ and $\alpha_b$:
+\begin{equation}
+\vec{P} = (\rho_a \alpha_a + \rho_b \alpha_b) \vec{E}_{loc},
+\end{equation}
+where $\rho_a$ and $\rho_b$ are the number density of types $a$ and $b$ respectively.
+The dielectric function of the mixture can be calculated as before
+\begin{equation}
+\label{eq:mixedalpha}
+\frac{\epsilon -1}{\epsilon +2} = \frac{4\pi}{3} (\rho_a \alpha_a + \rho_b \alpha_b).
+\end{equation}
+It is convenient to rewrite Eq.~(\ref{eq:mixedalpha}) in terms of the dielectric function $\epsilon_a$ and $\epsilon_b$ of the pure phases $a$ and $b$,
+\begin{equation}
+\label{eq:mixedepsilon}
+\frac{\epsilon - 1}{\epsilon + 2} = f_a \frac{\epsilon_a - 1}{\epsilon_a + 2} + f_b \frac{\epsilon_b - 1}{\epsilon_b + 2},
+\end{equation}
+where $f_i$ represents the volume fraction of the $i$th phase.
+By replacing $\epsilon$ with $n^2$, Eq.~(\ref{eq:mixedepsilon}) is the Lorentz-Lorenz effective medium expression. It can obviously be generalized to systems containing more than two phases in a linear fashion.
+
+\section{Heterogeneous systems}
+\subsection{Maxwell Garnett formula}
+
+We next consider the case where heterogeneous materials consist of microscopic regions that are small compare to the wavelength of light but still large enough to possess their own dielectric identity. For example, suppose a spherical inclusion of dielectric constant $\epsilon_a$ is embedded in a medium of dielectric constant $\epsilon_b$, and $f_a$, $f_b$ are the volume fraction occupied by the two phases of the system, similarly as Eq.~(\ref{eq:mixedepsilon}), we may have the Maxwell-Garnett formula \cite{garnett1904, garnett1906, choy99}
+\begin{equation}
+\label{eq:maxwellgarnett}
+\frac{\epsilon/\epsilon_b - 1}{\epsilon/\epsilon_b + 2} = f_a \frac{\epsilon_a/\epsilon_b - 1}{\epsilon_a/\epsilon_b + 2} + f_b \frac{\epsilon_b/\epsilon_b - 1}{\epsilon_b/\epsilon_b + 2} = f_a \frac{\epsilon_a/\epsilon_b - 1}{\epsilon_a/\epsilon_b + 2},
+\end{equation}
+where $\epsilon$ is the effective dielectric constant. 
+Note that choosing phase $a$ to be the host yields a different expression,
+\begin{equation}
+\frac{\epsilon/\epsilon_a - 1}{\epsilon/\epsilon_a + 2} = f_b \frac{\epsilon_b/\epsilon_a - 1}{\epsilon_b/\epsilon_a + 2}.
+\end{equation}
+It seems to be a conflict here since the decision of which phase we wish to consider as the host is just a matter of choice. This asymmetry in the results is particularly drastic when the difference between the dielectric constant of the two materials is large.  The Maxwell Garnett formula is derived under the assumption that the inclusions are spherical as well, but it is a valid approximation for inclusions of any shape as long as the medium is spatially uniform and isotropic on average.
+
+\subsection{Bruggeman formula}
+
+In Maxwell Garnett relation, if the medium is chosen as the host, then volume fraction of phase $a$ should be small compare to the volume fraction of the medium, $f_a << 0.5$. When the volume faction of the two phases are comparable, then Bruggeman formula is a better choice. The inclusions is considered as being embedded in the effective medium itself. Bruggeman treats the two composites in a symmetric fashion \cite{bruggeman35,choy99}
+\begin{equation}
+\label{eq:bruggeman}
+\frac{\epsilon/\epsilon - 1}{\epsilon/\epsilon + 2} = 0 = f_a \frac{\epsilon_a/\epsilon - 1}{\epsilon_a/\epsilon + 2} + f_b \frac{\epsilon_b/\epsilon - 1}{\epsilon_b/\epsilon + 2}.
+\end{equation}
+Bruggeman formula is symmetric with respect to all medium components and does not treat any one of them differently. Therefore, it can be applied to multiple composites with arbitrary volume fractions without causing obvious contradictions \cite{markel16}
+\begin{equation}
+\sum \limits_{n=1}^N f_n \frac{\epsilon_n/\epsilon - 1}{\epsilon_n/\epsilon + 2} = 0.
+\end{equation}
+
+
+\section{Further discussions about all three expressions}
+
+Maxwell Garnett result follows from a coated-sphere configuration, where inclusions of phase $a$ are completely surrounded by material of phase $b$ and two phases are mixed on a random basis. The detailed micro-morphology has also entered implicitly through the assumptions that the inclusions were spherical and non-interacting. There assumptions are hardly satisfied in actually heterogeneous materials, which generally have a random and complex form. The shape of the particles or aggregates determines how effectively they are screened, which affects the microscopic polarizations and fields, which in turn determines the functional relationship between the effective dielectric function $\epsilon$ and the dielectric functions of the constituents.
+
+Eq.~(\ref{eq:mixedepsilon}), Eq.~(\ref{eq:maxwellgarnett}) and Eq.~(\ref{eq:bruggeman}) have the same general form \cite{aspnes82}
+\begin{equation}
+\label{eq:general}
+\frac{\epsilon/\epsilon_h - 1}{\epsilon/\epsilon_h + 2} = f_a \frac{\epsilon_a/\epsilon_h - 1}{\epsilon_a/\epsilon_h + 2} + f_b \frac{\epsilon_b/\epsilon_h - 1}{\epsilon_a/\epsilon_h + 2},
+\end{equation}
+where $\epsilon_h$ is the dielectric function of a host medium. Thus $\epsilon_h$ equals 1 for Lorentz-Lorenz equation, $\epsilon_a$ or $\epsilon_b$ for Maxwell Garnett formula and $\epsilon$ for Bruggeman formula.
+
+Later in Chapter~\ref{ch:fractal}, we will see that for the parameters in my experimental systems, the results of three formulas differ by less than 0.2\%, which is around the resolution of the technique.

@@ -1,0 +1,159 @@
+%Packages to use
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage[nottoc]{tocbibind}
+\usepackage[toc,page]{appendix}
+% citations
+
+\usepackage{cite}
+
+\usepackage{geometry}               % See geometry.pdf to learn the
+                                    % layout options. There are lots.
+\usepackage{caption}
+\captionsetup{font={stretch=1.5}}
+\usepackage{color}
+\usepackage{xcolor}
+\usepackage{subcaption}  % Emma added it
+\usepackage{amsmath,textcomp}
+\usepackage{amssymb}
+\usepackage{bm,upgreek}
+\usepackage{enumerate}
+\usepackage[utf8]{inputenc}
+
+%\usepackage{fixmath}
+%\usepackage[super,sort&compress,comma]{natbib} 
+%\usepackage[version=3]{mhchem}
+%\usepackage{times,mathptmx}
+%\usepackage{sectsty}
+%\usepackage{balance}
+%\usepackage{lastpage}
+%\usepackage[format=plain,justification=raggedright,singlelinecheck=false,font=small,labelfont=bf,labelsep=space]{caption} 
+%\usepackage{fancyhdr}
+%\pagestyle{fancy}
+
+%%%Jan Smreck packages
+\usepackage{latexsym}
+\usepackage{amsfonts}
+\usepackage{hhline}
+%%%%
+\usepackage[separate-uncertainty=true,multi-part-units=single,per=slash,range-phrase=--,range-units=brackets,per-mode=symbol-or-fraction]{siunitx}
+%\DeclareSIUnit{u}{\mu}
+\usepackage{url}
+\usepackage{indentfirst}
+\usepackage{suffix}
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{parskip}
+%% Controls spacing between lines (\doublespacing, \onehalfspacing,
+%% etc.):
+\usepackage{setspace}
+\usepackage{hyperref}
+\hypersetup{
+	colorlinks,
+        citecolor=blue,
+        urlcolor=black
+}
+\usepackage[labelfont=bf]{caption}		%boldface caption labels
+
+%\usepackage{xcolor,soul}
+%	\sethlcolor{purple}
+%\newcommand{\colorcomment}[1]{ {\color{white}\hl{  \bf #1 }}}
+%modifying colors for links
+%\colorlet{linkequation}{red}
+%\usepackage[colorlinks=true,citecolor=blue,linkcolor=purple,urlcolor=black]{hyperref}
+%\newcommand*{\SavedEqref}{}
+%\let\SavedEqref\eqref
+%\renewcommand*{\eqref}[1]{%
+%	\begingroup
+%	\hypersetup{
+%		linkcolor=linkequation,
+%		linkbordercolor=linkequation,
+%	}%
+%	\SavedEqref{#1}%
+%	\endgroup
+%}
+
+
+
+
+%Define new commands
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\renewcommand{\figurename}{\small{Fig.}~}
+\renewcommand{\vec}[1]{\boldsymbol{#1}}
+\newcommand{\oldvec}[1]{\vec{#1}}
+%\renewcommand{\vec}[1]{\mathbf{#1}}
+\newcommand{\uvec}[1]{\boldsymbol{\hat{#1}}}
+\newcommand{\abs}[1]{\left\vert #1 \right\vert}
+\newcommand{\imaginary}[1]{\Im\left\{ #1 \right\}}
+\newcommand{\real}[1]{\Re\left\{ #1 \right\}}
+
+\newcommand{\vecr}{\left(\vec{r}\right)}
+\newcommand{\basisj}{\hat{e}_j}
+\newcommand{\basis}{\left\{\basisj\right\}}
+\newcommand\vectorpotential{\vec{A}\left(\vec{r},t\right)}
+\WithSuffix\newcommand\vectorpotential*{\vec{A}^\ast\left(\vec{r},t\right)}
+\newcommand{\electricfield}{\vec{E}\left(\vec{r},t\right)}
+\WithSuffix\newcommand\electricfield*{\vec{E}^\ast\left(\vec{r},t\right)}
+\newcommand{\magneticfield}{\vec{H}(\vec{r},t)}
+\WithSuffix\newcommand\magneticfield*{\vec{H}^\ast\left(\vec{r},t\right)}
+\newcommand{\amplitude}{u\vecr}
+\newcommand{\ph}{\varphi}
+\newcommand{\phj}{\ph_j}
+\newcommand{\phase}{\ph\vecr}
+\newcommand{\phasej}{\phj\vecr}
+\newcommand{\pol}{\varepsilon}
+\newcommand{\polj}{\pol_j}
+\newcommand\polarization{\hat{\pol}\vecr}
+\WithSuffix\newcommand\polarization*{\hat{\pol}^\ast\vecr}
+\newcommand{\polarizationj}{\polj\vecr}
+\WithSuffix\newcommand\polarizationj*{\polj^\ast\vecr}
+\newcommand{\intensity}{I\vecr}
+\newcommand{\action}{\mathcal{I}\vecr}
+\newcommand{\momentum}{\vec{g}\vecr}
+\newcommand{\spin}{\vec{s}}
+\newcommand{\spindensity}{\spin\vecr}
+\newcommand{\helicity}{\pmb{\sigma}\vecr}
+\newcommand{\wavevector}{\vec{q}\vecr}
+\newcommand{\wavenumber}{q\vecr}
+\newcommand{\propagation}{\hat{q}\vecr}
+%\newcommand{\orbitaldensity}{\vec{\ell}\vecr}
+\newcommand{\orbitaldensity}{\pmb{\ell}\vecr}
+\newcommand{\orbital}{\vec{\ell}\vecr}
+\newcommand{\Lagr}{\mathcal{L}}
+
+\newcommand{\mytilde}{\raise.17ex\hbox{$\scriptstyle\mathtt{\sim}$}}
+\newcommand{\pos}{\left(\mathbf{r} \right)}
+\newcommand{\bigN}[1]{\vec{N}_{nm}^{(#1)}(k\vec{r})}
+\newcommand{\bigM}[1]{\vec{M}_{nm}^{(#1)}(k\vec{r})}
+
+%Commands used by Jan Smreck for making list of appendices
+\newcommand\listappendixname{List of Appendices}
+\newcommand\appcaption[1]{%
+  \addcontentsline{app}{section}{#1}}
+\makeatletter
+\newcommand\listofappendices{%
+  \chapter*{\listappendixname}\@starttoc{app}}
+\makeatother
+
+%Commands hide a chapter from the table of contents
+% from the following forum post:
+% http://tex.stackexchange.com/questions/20543/excluding-chapters-from-toc-in-ams
+\DeclareRobustCommand{\gobblefive}[5]{}
+\newcommand*{\SkipTocEntry}{\addtocontents{toc}{\gobblefive}}
+
+\makeatletter % Need for anything that contains an @ command 
+\renewcommand{\maketitle} % Redefine maketitle to conserve space
+{ \begingroup \vskip 10pt \begin{center} \large {\bf \@title}
+	\vskip 10pt \large \@author \hskip 20pt \@date \end{center}
+  \vskip 10pt \endgroup \setcounter{footnote}{0} }
+\makeatother % End of region containing @ commands
+\renewcommand{\labelenumi}{(\alph{enumi})} % Use letters for enumerate
+% \DeclareMathOperator{\Sample}{Sample}
+\let\vaccent=\v % rename builtin command \v{} to \vaccent{}
+\renewcommand{\v}[1]{\ensuremath{\mathbf{#1}}} % for vectors
+\newcommand{\gv}[1]{\ensuremath{\mbox{\boldmath$ #1 $}}} 
+% for vectors of Greek letters
+\newcommand{\uv}[1]{\ensuremath{\mathbf{\hat{#1}}}} % for unit vector
+\newcommand{\avg}[1]{\left< #1 \right>} % for average

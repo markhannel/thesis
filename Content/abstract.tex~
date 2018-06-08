@@ -1,0 +1,53 @@
+\chapter*{Abstract}
+\addcontentsline{toc}{chapter}{Abstract}
+\label{ch:abstract}
+
+Colloidal systems that are out of chemical and mechanical equilibrium 
+usually exhibit interesting transitions in their properties. Holographic 
+video microscopy can measure the properties of individual colloidal 
+particles precisely enough to track subtle transformations and rapidly 
+enough to monitor real-time process. This ability offers valuable and 
+previously unavailable insights into the mechanisms of mutable colloidal 
+systems undergoing chemical and physical reactions. This thesis 
+illustrates and demonstrates those capabilities through experiments on 
+mutable colloidal systems, and presents models for such transition 
+processes by applying statistical physics principles and effective 
+medium theory.
+
+In the first case, we investigate the chemical synthesis process of 
+monodisperse samples of crosslinked polydimethylsiloxane (PDMS) spheres. 
+The measured time dependence of these spheres' most probable radius can 
+be modeled by a modified LaMer model for colloidal growth. The 
+polydispersity's time evolution is consistent with the assumptions made 
+in the growth model. The joint distribution of size and refractive index 
+also reveals a small proportion of undersized, lower-density spheres. 
+Trends in the distribution's time evolution offer insights into their 
+origin and growth mechanism. Applied over longer time periods, 
+holographic characterization also tracks how the newly-synthesized 
+spheres age, and illuminates the aging mechanism.
+
+We also discover in another system that colloidal spheres synthesized as 
+polymer gels swell by absorbing soluble molecules from solution.
+The resulting change in size can be monitored with nanometer
+precision using holographic video microscopy.
+When the absorbate is chemically similar to the polymer matrix,
+swelling is driven primarily by the entropy of mixing, and
+is limited by the elastic energy of the polymer matrix and the surface 
+tension of the swelling sphere.
+We demonstrate through a combination of holographic optical trapping and 
+holographic video microscopy techniques that the degree of swelling of a 
+single polymer bead can be used to measure the monomer concentration
+\emph{in  situ}
+with spatial resolution comparable to the size of the sphere.
+The change in the probe's size and refractive index can be used to extract the absorbate refractive index based on an effective medium theory analysis.
+
+Lastly, we demonstrate how holographic video microscopy can be used to 
+detect, count and characterize individual micrometer-scale protein 
+aggregates and polystyrene fractal aggregates as they flow down a 
+microfluidic channel in their native solution. Holographic 
+characterization provides results of radius and refractive index of the 
+aggregates, and can be interpreted with an effective-sphere model to 
+obtain the population-averaged fractal dimension. A simulation on the 
+stratified gradient-index model are performed to check the validity of 
+the fractal analysis. Holographic video 
+microscopy also offers insights into the morphology of these aggregates. 
