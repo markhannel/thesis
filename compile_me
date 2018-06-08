@@ -3,3 +3,4 @@ bibtex thesis.aux
 pdflatex thesis.tex
 pdflatex thesis.tex
 rm *.aux *.bbl *.blg *.lof *.log *.lot *.out *.toc
+rm Chapters/*.aux
