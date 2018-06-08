@@ -1,0 +1,77 @@
+\chapter{Accounting for the Vectorial Nature of Light Propagation}
+\label{ch:debye}
+
+
+\section{Introduction}
+The structures and dynamics of soft matter systems are often micrometer in 
+scale. In addition, smaller features of interest can be examined with micrometer
+scale probes. Since visible wavelengths are on the order of a micrometer, such 
+systems are ripe to be investigated with visible wavelength microscopy 
+techniques.
+
+Conventional microscopy has been ubiquitously used to investigate soft matter systems. However, bright field illumination provides amplitude-only information as phase information has been averaged away. Some phase-based techniques are simply used to increase contrast in images. However, techniques like Holographic Video microscopy make full use of phase information contributing to image formation at the camera plane.
+
+Here we explore how the optical train perturbs the usual paradigm for image formation in holgraphic video microscopy. 
+
+Previous HVM studies utilized the time-old assumption of conventional 
+microscopy: up to units of measure, the image formed in the image plane is 
+identical to the image formed in the specimen plane. While this assumption is 
+not strictly true, especially in the case of the coherent illumination, it was good enough to perform unprecedented measurements of particles in situ as well as
+refractometry.
+
+In the present study, we sweat the details present in propagating the electric fields from the specimen plane to the imaging plane through the optical train. In doing so, we hope to improve the precision and accuracy of holographic video microscopy.
+
+\section{Optical Model}
+Holographic video microscopy takes advantage of coherent illumination in order
+to preserve phase information. Besides the choice of illumination, our HVM setup can be reduced to the four components of conventional microscopy: the sample, an objective, a tube lens and a camera.
+
+Figure 1 represents the physical situation underlying our experimental technqiue. A colloidal sphere with radius $a_p$ and refractive index $n_p$ is contained in a volume of fluid with refractive index $n_m$. The dilute colloidal suspension is contained between a coverslip and glass slide of refractive index $1.5$ (for now we neglect the effect of the coverslip). An incident wave of coherent illumination stimulates the colloidal sphere into radiating a spherical wave described by the Lorenz-mie theory. The scattered wave and incident wave continue propagating towards the camera plane.
+
+A distance $z_p + f$ away from the colloidal sphere, the two waves enter the objective pupil. The objective relays the two waves to the tube lens through infinity space. The tube lens refocuses the waves such that they arrive at the imaging plane magnified.
+
+Our optical model makes use of the debye-wolf integral formalism. By computing the angular spectrum present at the tube lens plane, we compute the electric fields present at the imaging plane. Owing to the linearity of our optical system,
+we consider the incident field and scattered field separately. We summarize the physical steps necessary for each wave before discussing the details in section 3 and section 4.
+
+Since the incident field propagates parallel to the optical axis, we will assume that the incident field is only laterally magnified and phase shifted as it traverses the optical system.
+\begin{enumerate}
+\item[1.] Account for the phase displacement on the object side of the objective.
+\item[2.] Account for the position independent lateral magnification.
+\item[3.] Account for the phase displacement on the image side of the tube lens.
+\end{enumerate}
+The scattered wave does not propagate parallel to the optical axis and is therefore battered by the objective and tube lens. We will assume the objective is not a piece of shit and obeys the abbe-sine condition. In addition, we will trust that the objective obeys the conservation of energy for all rays which enter it's pupil.
+\begin{enumerate}
+\item[1.] Compute the angular spectrum of the scattered field on a spherical surface in the far-field.
+\item[2.] Apply the apodization caused by the entrance pupil of the objective.
+\item[3.] Account for the direction dependent magnfication. This induces changes in amplitude, phase and direction (thus polarization).
+\item[4.] Compute the electric fields present at the imaging plane from the angular spectrum in step 3.
+\end{enumerate}
+
+Finally the resulting image is computed with via the poynting vector integrated over pixels.
+
+\begin{equation*}
+  I = \left | E_{inc} + E_{s} \right |^2 
+\end{equation*}
+
+\section{Propagation of the Incident Field}
+Git'er done boyo.
+
+\section{Propagation of the Scattered Field}
+
+Blah blah.
+
+\section{Image formation}
+
+Images brah.
+
+\section{Fitting to Experimental Data}
+
+More work.
+
+\section{Discussion}
+
+Not much to discuss yet.
+
+\section{Conclusion}
+
+
+
