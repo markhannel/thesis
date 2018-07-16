@@ -6,6 +6,9 @@
 % Diagrams depicting the physical processes
 % sequentially.j
 
+\newcommand{\einc}{\vec{E}_{\text{inc}}}
+\newcommand{\escat}{\vec{E}_{\text{s}}}
+\newcommand{\eadd}{\vec{E}_{\text{add}}}
 \section{The Advent of Holography}
 
 % Review of literature and historical perspective.
@@ -14,15 +17,35 @@
 
 \section{Holographic Video Microscopy}
 
+
 Holographic Video Microscopy differs from
 traditional microscopy techniques by preserving,
 collecting, and making quantitative use of phase
-information.
+information; this information is
+%Traditional microscopy utilizes
+%incoherent illumination and therefore all
+%phase information is 
 \subsection{Broad Overview}
 
 % The importance of phase information retrieval.
 
-% 
+%
+
+% Sample preparation.
+% Cleaning and dilution of sample necessary
+% due to the depth of FOV.
+
+\begin{eqnarray}
+  I &=& \abs{\einc + \escat}^2\\
+    &=& \abs{\einc}^2 + \einc\cdot\escat^* + \einc^*\cdot\escat + \abs{\escat}^2\\
+    &=& \abs{\einc}^2 + 2\Re\left \{\einc\cdot\escat^*\right \} + \abs{\escat}^2
+\end{eqnarray}
+
+\begin{eqnarray*}
+  I &=& \abs{\einc + \escat + \eadd}^2\\
+    &=& \abs{\einc}^2 + 2\Re\left \{\einc\cdot\escat^*\right \} + \abs{\escat}^2
+\end{eqnarray*}
+
 
 \subsection{Illumination}
 
