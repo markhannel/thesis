@@ -16,7 +16,7 @@
 
 
 \section{Holographic Video Microscopy}
-
+\label{ch:hvm:sec:hvm}
 
 Holographic Video Microscopy differs from
 traditional microscopy techniques by preserving,
@@ -26,6 +26,7 @@ information; this information is
 %incoherent illumination and therefore all
 %phase information is 
 \subsection{Broad Overview}
+\label{ch:hvm:sec:hvm:ssec:overview}
 
 % The importance of phase information retrieval.
 
@@ -48,19 +49,83 @@ information; this information is
 
 
 \subsection{Illumination}
-
+\label{ch:hvm:sec:hvm:ssec:illumination}
 
 
 \subsection{Scattering}
-
+\label{ch:hvm:sec:hvm:ssec:scattering}
   
 
 \subsection{Collection and Refocusing}
 
 \subsection{Digital Recording}
+\label{ch:hvm:sec:hvm:ssec:digitalrec}
+
+% What are digital images. How are digital images recorded?
+% Why are you telling them such things?
+% How is it that digital images do not record intensity?
+
+Images in science are ubiquitous; by sampling the intensity over an exposure
+period, a single image encodes a bevy of spatial information that is ripe
+for qualitative and quantitative analysis. Historically, researchers would
+extract this information by hand. Jean-Perrin used a projector, pen and a paper to originally
+measure the diffusion of a polymer bead. Crystallographers such as %FIXME: Add reference.
+traced photographs of crystalline diffraction patterns by hand. Presently researchers utilize
+digital cameras to record and digitize images as arrays of values. 
+
+We utilize a digital camera to record holograms. To fit our experimental holograms to
+theory and to simulate our digital recordings it is necessary to have a basic
+understanding digital images. In this section we will 
+
+\subsubsection{Digitizing Images}
+\label{ch:hvm:sec:hvm:ssec:digitalrec:sssec:digitizing}
+
+Modern digital cameras employ an array of photon detectors to measure the
+average intensity over the sensor surface. Each photon detector, referred to as a pixel,
+utilizes the photoelectric effect to convert photons into excited electrons.
+The excited electrons at each pixel are counted, sometimes to single precision, and
+then digitized into $8$-, $12$-, or even $16$-bit integers. Because the number of
+excited electrons is proportional to the number of photons, and the the number of
+photons is in turn proportional to the intensity of the of the image at the
+sensor surface, the array of electron counts serves as a proxy for the intensity
+of the image.
+
+With millions of pixels and the capacity to count tens of thousands of electrons at each pixel,
+digital cameras are an engineering marvel. For our purposes, we will review a few of the physical
+details of a single pixel to explain important imaging effects such as dark counts, saturation,
+and the digitization procedure.
+
+Pixels are designed to accurately count the number of electrons that are
+excited by incident photons within a given exposure period. A number of physical constraints
+limit the accuracy of each pixels.
+
+During an exposure period, $N_p$ photons of a particular wavelength arrive at a pixel
+surface. Some fraction of the incident photons are converted to excited electrons
+with a wavelength dependent probability known as the quantum efficiency. To be properly
+counted, these excited electrons must survive until the counting procedure has
+accounted for their presence. To this end, each pixel is doped to increase the lifetime
+of excited electrons. In addition, the excited electrons must remain in the bulk so that
+they are not grounded; for this purpose, a biased field is applied. % FIXME: What about mirror charges?
+
+During the exposure period, a number of electrons can be thermally excited (as opposed to
+photonically excited) and will be included in the count. These erroneously
+counted electrons are referred to as a dark count. Measuring the average dark count of a
+camera is as easy as recording the average image while an opaque object is blocking the
+camera's sensor. Note that the dark count will increase with the length of the exposure
+period.
+
+% The number of electrons that can be negative.. scientific cameras have a non-zero
+% floor to maintain gaussian-errors.
+% Saturation occurs because the relation number of excited electrons per
+% number of incident photons becomes non-linear. The largest number of reported
+% electrons is the highest level
+
 
 \section{The Inverse Problem}
 
 \subsection{Feature Detection}
+
+After appropriately normalizing an image, it is necessary to detect if any holographic
+features are in the field of view. 
 
 \subsection{Characterizing Holograms}
