@@ -13,42 +13,84 @@
 
 \section{Overview}
 
-In this chapter, we will review the details 
-underlying the theory and experimental implementation
-of holographic video microscopy. Whenever possible,
-extraneous details that detract from our narrative
-will be relegated to the appendix or be given 
-primary source citations.
+%In this chapter, we will review the salient details 
+%underlying the theory and experimental implementation
+%of holographic video microscopy. Whenever possible,
+%extraneous details that detract from our narrative
+%will be relegated to the appendix or be given 
+%primary source citations.
 
 
-\section{Holographic Video Microscopy}
+Holographic video microscopy illuminates a sample of scatterers with
+coherent illumination in order to preserve phase information. 
+The resulting scattering pattern is then
+fit to an appropriate light scattering theory to measure physical properties
+of each scatterer, primarily their size, refractive index, and
+three-dimensional position.
+
+In this chapter, we will acquaint the reader with our primary experimental
+setup and in so doing outline the salient physical processes underlying
+HVM. We will then describe the Lorenz-Mie theory of light
+scattering and discuss the limited validity of common assumptions.
+We will then discuss our implementation our image analysis before
+concluding with a number of exciting applications of holographic video
+microscopy.
+
+
+\section{Experimental Setup}
 \label{ch:hvm:sec:hvm}
 
+A diagram of our custom-built in-line holographic microscope
+is provided in Fig.~%\ref{fig:hvm_01}.
+Our setup illuminates
+the sample plane with a blue ($\SI{447}{nm}$ vacuum wavelength),
+linearly polarized laser beam (Coherent Cube). The beam's
+$\SI{25}{\mW}$ of power is spread over the $\SI{3}{\mm}$ beam
+diameter, producing a peak irradiance of approximately
+$\SI{0.88}{\mW / \mm^2}$. Before scattering through the
+sample, the beam passes through a quarter-wave plate and a
+polarizing beam splitter (ThorLabs CCM1-PBS251) to enable
+beam attenuation and to optionally provide bright-field
+illumination.
+
+The coherent illumination and scattered light are collected by a
+standard microscope objective (Nikon Plan Apo, $\num{100}$x,
+numerical aperture $\num{1.45}$, oil immersion) and then focused
+by a $\SI{200}{\mm}$ lens onto a greyscale digital camera
+(NEC TI-324AII). The digital camera digitizes the resulting intensity
+patterns to $8$-bits per pixel at $\SI{29.97}{frames / \sec}$ and relays the
+resulting array of information to either a DVR (Pioneer 520HS) to record
+on a DVD or directly to the hard disk of a personal computer.
+Each pixel in the $\si{640 x 480}$ array of pixels has a width of
+$\SI{13.5}{\um}$. After $100$x magnification, a pixel in the
+image has an effective size of $\SI{0.135}{\um}$.
+
+% Description of trapping?
 
 
-Holographic video microscopy is one of several
-digital holographic microscopy (DHM) techniques.
-DHM differs from traditional bright-field microscopy
-by preserving, collecting, and making quantitative use of phase
-information. In most variants of DHM, each recorded
-wavefront can be numerically reconstructed, or rather
-{\it un}-propagated, all the way back to a scattering event
-to produce an image of the scatterer. By reconstructing
-several planes around the scatterer, each hologram
-can provide insight into the topography of each scatter
-in the field of view.
+  % BLURB connecting HVM to DHM
+%Holographic video microscopy is one of several
+%digital holographic microscopy (DHM) techniques.
+%DHM differs from traditional bright-field microscopy
+%by preserving, collecting, and making quantitative use of phase
+%information. In most variants of DHM, each recorded
+%wavefront can be numerically reconstructed, or rather
+%{\it un}-propagated, all the way back to a scattering event
+%to produce an image of the scatterer. By reconstructing
+%several planes around the scatterer, each hologram
+%can provide insight into the topography of each scatter
+%in the field of view.
 
-Holographic video microscopy differs from DHM by analytically
-fitting the scatter's properties to the resulting
+%Holographic video microscopy differs from DHM by analytically
+%fitting the scatter's properties to the resulting
 
 
-\subsection{Broad Theoretical Overview}
+\subsection{Image formation}
 \label{ch:hvm:sec:hvm:ssec:overview}
 
-A holographic video microscope illuminates a sample
-with coherent illumination. The illumination and resulting
-scattered light are collected and refocused to a camera at
-which point their fields in sum form the recorded image.
+The scatterers responsible for the resulting holographic image
+have their physical properties encoded in the image. To extract
+this wealth of information, we will fit account 
 
 
 \begin{equation}
@@ -68,15 +110,9 @@ which point their fields in sum form the recorded image.
 \end{eqnarray*}
 
 
-\subsection{Illumination}
-\label{ch:hvm:sec:hvm:ssec:illumination}
-
-
 \subsection{Scattering}
 \label{ch:hvm:sec:hvm:ssec:scattering}
   
-
-\subsection{Collection and Refocusing}
 
 \subsection{Digital Recording}
 \label{ch:hvm:sec:hvm:ssec:digitalrec}
