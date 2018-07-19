@@ -2,41 +2,59 @@
 \label{ch:hvm}
 
 % Suggested figures.
-% Select Historical contributions.
 % Diagrams depicting the physical processes
-% sequentially.j
+% sequentially.
+% The setup.
 
 \newcommand{\einc}{\vec{E}_{\text{inc}}}
 \newcommand{\escat}{\vec{E}_{\text{s}}}
 \newcommand{\eadd}{\vec{E}_{\text{add}}}
 
 
-\section{The Advent of Holography}
+\section{Overview}
 
-% Review of literature and historical perspective.
-
+In this chapter, we will review the details 
+underlying the theory and experimental implementation
+of holographic video microscopy. Whenever possible,
+extraneous details that detract from our narrative
+will be relegated to the appendix or be given 
+primary source citations.
 
 
 \section{Holographic Video Microscopy}
 \label{ch:hvm:sec:hvm}
 
-Holographic Video Microscopy differs from
-traditional microscopy techniques by preserving,
-collecting, and making quantitative use of phase
-information; this information is
-%Traditional microscopy utilizes
-%incoherent illumination and therefore all
-%phase information is 
-\subsection{Broad Overview}
+
+
+Holographic video microscopy is one of several
+digital holographic microscopy (DHM) techniques.
+DHM differs from traditional bright-field microscopy
+by preserving, collecting, and making quantitative use of phase
+information. In most variants of DHM, each recorded
+wavefront can be numerically reconstructed, or rather
+{\it un}-propagated, all the way back to a scattering event
+to produce an image of the scatterer. By reconstructing
+several planes around the scatterer, each hologram
+can provide insight into the topography of each scatter
+in the field of view.
+
+Holographic video microscopy differs from DHM by analytically
+fitting the scatter's properties to the resulting
+
+
+\subsection{Broad Theoretical Overview}
 \label{ch:hvm:sec:hvm:ssec:overview}
 
-% The importance of phase information retrieval.
+A holographic video microscope illuminates a sample
+with coherent illumination. The illumination and resulting
+scattered light are collected and refocused to a camera at
+which point their fields in sum form the recorded image.
 
-%
 
-% Sample preparation.
-% Cleaning and dilution of sample necessary
-% due to the depth of FOV.
+\begin{equation}
+  \label{eq:incidentfield}
+  \einc(\vec{r}) = u_0(\vec{r}) \, e^{i \varphi_0(\vec{r})} \, e^{i k z} \, \hat{x},
+\end{equation}
 
 \begin{eqnarray}
   I &=& \abs{\einc + \escat}^2\\
@@ -122,14 +140,50 @@ period.
 % number of incident photons becomes non-linear. The largest number of reported
 % electrons is the highest level
 
+% A number of approximations come to mind with the LM theory.
+% Approximation of radial component
+% Approximation of functional form (Hankel function)
+% Approximation of polarization
 
-\section{The Inverse Problem}
+
+\section{Implementing Holographic Video Microscopy}
+
+In this section we will describe the details of our microscope and
+the experimental methods that were implemented in the ensuing chapters.
+
+
+
+\subsection{Instrumentation}
+
+We
+% Illumination
+% Objective
+% Tube lens
+% Camera
+
+
+\subsection{Sample Preparation}
+
+% Colloidal Synthesis.
+% Flow Cells.
+% Sealed Samples.
+
+
+
+\subsection{Image Analysis}
+
+% Normalization.
+% Detecting and Localizing Features
+% Fitting with Levinberg-Marquardt
+% Mention Dimiduk's Bayesian analysis.
 
 \subsection{Feature Detection}
 
 After appropriately normalizing an image, it is necessary to detect if any holographic
 features are in the field of view. 
 
-\subsection{Characterizing Holograms}
 
 \section{Applications of HVM}
+
+% Broad uses exemplified in this thesis.
+% Uses elsewhere
