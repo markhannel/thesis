@@ -88,27 +88,50 @@ image has an effective size of $\SI{0.135}{\um}$.
 \subsection{Image formation}
 \label{ch:hvm:sec:hvm:ssec:overview}
 
-The scatterers responsible for the resulting holographic image
-have their physical properties encoded in the image. To extract
-this wealth of information, we will fit account 
-
+The incident illumination may be approximated as a plane wave propagating
+in the $+z$ direction, 
 
 \begin{equation}
   \label{eq:incidentfield}
-  \einc(\vec{r}) = u_0(\vec{r}) \, e^{i \varphi_0(\vec{r})} \, e^{i k z} \, \hat{x},
+  \einc(\vec{r}) = E_0,  e^{i \varphi_0(\vec{r})} \, e^{i kz} \, \hat{x},
 \end{equation}
 
+with magnitude $E_0$, phase $\varphi_0$, and wavenumber
+$k =\frac{2\pi n_m}{\lambda}$. All of the waves considered here
+propagate with a time dependence of $e^{i \omega t}$. However,
+our measurements will be time averaged over the course of an exposure period
+of at least $\SI{10}{\micro\sec}$. As we will be imaging with $\SI{447}{nm}$ blue
+light ( $\omega \approx \SI{670}{THz}$), our time average will include
+nearly \num{7} billion oscillations. We will therefore suppress the time
+dependence in all of our waves.
+
+It is a general principle of linear, homogeneous media that the magnitude of the
+scattered wave be proportional to the magnitude of the illuminating wave.
+We therefore model the scattered field as
+
+\begin{equation}
+  \label{eq:incidentfield}
+  \escat(\vec{r}) = E_0, \vec{f_s} \left ( k \left ( \vec{r} - \vec{r_p} \right ) \right ) ,
+\end{equation}
+
+The image formed in the focal plane of the objective is sum of the electric fields
+squared (assuming a non-magnetic medium $\mu_r=1$),
+
+
 \begin{eqnarray}
-  I &=& \abs{\einc + \escat}^2\\
-    &=& \abs{\einc}^2 + \einc\cdot\escat^* + \einc^*\cdot\escat + \abs{\escat}^2\\
-    &=& \abs{\einc}^2 + 2\Re\left \{\einc\cdot\escat^*\right \} + \abs{\escat}^2
+  I &=& n_mc\epsilon_0\abs{\einc + \escat}^2\\
+    &=& n_mc\epsilon_0\left ( \abs{\einc}^2 + \einc\cdot\escat^* + \einc^*\cdot\escat + \abs{\escat}^2 \right ) \\
+    &=& n_mc\epsilon_0\left (\abs{\einc}^2 + 2\Re\left \{\einc\cdot\escat^*\right \} + \abs{\escat}^2 \right )
 \end{eqnarray}
 
-\begin{eqnarray*}
-  I &=& \abs{\einc + \escat + \eadd}^2\\
-    &=& \abs{\einc}^2 + 2\Re\left \{\einc\cdot\escat^*\right \} + \abs{\escat}^2
-\end{eqnarray*}
+where $n_m$ is the refractive index of the medium, $c$ is the speed of light in a vacuum
+and $\epsilon_0$ is the vacuum permittivity.
 
+The contributions of the terms in equation %FIXME: reference to 2.5 but don't use eqnarray
+are depicted in Fig.~% cite figure.
+The first term provides a 
+% Discussion of DC terms? Does DC Stand for duty cycle?
+% Pull out E_0?
 
 \subsection{Scattering}
 \label{ch:hvm:sec:hvm:ssec:scattering}
