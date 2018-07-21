@@ -111,21 +111,18 @@ We therefore model the scattered field as
 
 \begin{equation}
   \label{eq:incidentfield}
-  \escat(\vec{r}) = E_0, \vec{f_s} \left ( k \left ( \vec{r} - \vec{r_p} \right ) \right ) ,
+  \escat(\vec{r}) = E_0 \vec{f_s} \left ( k \left ( \vec{r} - \vec{r_p} \right ) \right ) ,
 \end{equation}
 
-The image formed in the focal plane of the objective is sum of the electric fields
-squared (assuming a non-magnetic medium $\mu_r=1$),
-
-
+The image formed in the focal plane of the objective is proportional to
+the sum of the electric fields squared,
 \begin{eqnarray}
   I &=& n_mc\epsilon_0\abs{\einc + \escat}^2\\
     &=& n_mc\epsilon_0\left ( \abs{\einc}^2 + \einc\cdot\escat^* + \einc^*\cdot\escat + \abs{\escat}^2 \right ) \\
     &=& n_mc\epsilon_0\left (\abs{\einc}^2 + 2\Re\left \{\einc\cdot\escat^*\right \} + \abs{\escat}^2 \right )
 \end{eqnarray}
-
 where $n_m$ is the refractive index of the medium, $c$ is the speed of light in a vacuum
-and $\epsilon_0$ is the vacuum permittivity.
+$\epsilon_0$ is the vacuum permittivity, and we've assumed the medium is non-magnetic ($\mu_r=1$).
 
 The contributions of the terms in equation %FIXME: reference to 2.5 but don't use eqnarray
 are depicted in Fig.~% cite figure.
