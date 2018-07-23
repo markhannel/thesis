@@ -122,17 +122,83 @@ the sum of the electric fields squared,
     &=& n_mc\epsilon_0\left (\abs{\einc}^2 + 2\Re\left \{\einc\cdot\escat^*\right \} + \abs{\escat}^2 \right )
 \end{eqnarray}
 where $n_m$ is the refractive index of the medium, $c$ is the speed of light in a vacuum
-$\epsilon_0$ is the vacuum permittivity, and we've assumed the medium is non-magnetic ($\mu_r=1$).
+$\epsilon_0$ is the vacuum permittivity, and we've assumed the medium is non-magnetic
+($\mu_r=1$).
 
-The contributions of the terms in equation %FIXME: reference to 2.5 but don't use eqnarray
-are depicted in Fig.~% cite figure.
-The first term provides a 
+The relative contributions of the terms in equation %FIXME: reference to 2.5 but don't use eqnarray
+are depicted in Fig.~\ref{fig:three_contributions} for a $\SI{1.0}{\um}$ polystyrene
+sphere ($n = 1.59$) a distance of $\SI{12}{\um}$ above an imaging plane with pixel
+size $\SI{0.135}{\um}$.
+The first term $\abs{\einc}^2$ is constant over the field of view and
+incorporates no phase information. The third term 
+$\abs{\escat}^2$ is also phase-less but is not constant over the field of view.
+The second term, $2\Re\left \{\einc\cdot\escat^*\right \}$, contributes the
+oscillatory interference pattern from the relative phase of the incident
+beam and the scattered wave.
 % Discussion of DC terms? Does DC Stand for duty cycle?
 % Pull out E_0?
+% Discuss relative sizes of terms.
+
+\begin{figure}
+  \centering
+  \includegraphics[width=\textwidth]{hvm_three_contributions}
+  \caption{Depicting the three contributions to a holographic image.}
+  \label{fig:three_contributions}
+\end{figure}
+
+
+
 
 \subsection{Scattering}
 \label{ch:hvm:sec:hvm:ssec:scattering}
-  
+
+With the exception of chapter %\chapref{ch:dimpled}, our study will
+focus exclusively on spherical scatterers. The Lorenz-Mie theory
+constitutes an exact solution for a plane wave scattering off of a
+dielectric sphere in a homogeneous medium.
+
+\begin{equation}
+\label{eq:scatteredfield}
+  \vec{f}_s(k \vec{r}) = \sum_{n=1}^\infty \, f_n \, \left(
+    i a_n \, \vec{N}^{(3)}_{e1n}(k \vec{r}) - b_n \,
+    \vec{M}^{(3)}_{o1n}(k \vec{r})
+    \right),
+\end{equation}
+where $f_n=i^n (2n+1)/[n(n+1)]$, and $\vec{M}^{(3)}_{o1n}(\vec{x})$ and 
+$\vec{N}^{(3)}_{e1n}(\vec{x})$ are the vector spherical harmonics,
+\begin{equation}
+    \vec{M}^{(3)}_{o1n}(\vec{x}) = \frac{\cos\phi}{\sin\theta} \,
+  P^1_n(\cos\theta) \, j_n(x) \, \uvec{\theta}
+  - \sin\phi \, \frac{dP^1_n(\cos\theta)}{d\theta} \, j_n(x) \, \uvec{\phi},
+\end{equation}
+and
+\begin{multline}
+  \vec{N}^{(3)}_{e1n}(\vec{x}) = n(n+1) \, \cos\phi
+  \,P^1_n(\cos\theta) \, \frac{j_n(x)}{x} \, \uvec{r} \\
+  + \cos\phi \, \frac{dP^1_n(\cos\theta)}{d\theta} \,
+  \frac{1}{x} \frac{d}{dx}\left[x j_n(x)\right] \, \uvec{\theta} \\
+  - \frac{\sin\phi}{\sin\theta} \, P^1_n(\cos\theta) \,
+  \frac{1}{x}\frac{d}{dx}\left[x j_n(x)\right] \, \uvec{\phi}.
+\end{multline}
+Here, $P^1_n(\cos\theta)$ is the associated Legendre polynomial of the
+first kind, and $j_n(kr)$ is the spherical Bessel function of the
+first kind of order $n$.
+The expansion coefficients in Eq.~(\ref{eq:scatteredfield}) are given
+by \cite{bohren83}
+\begin{equation}
+  a_n = \frac{m^2 j_n(mka_p) \left[ka_p \, j_n(ka_p)\right]^\prime -
+    j_n(ka_p) \left[mka_p \, j_n(mka)\right]^\prime}{
+    m^2 j_n(mka_p) \left[ka_p \, h^{(1)}_n(ka_p)\right]^\prime -
+    h^{(1)}_n(ka_p) \left[mka_p \, j_n(mka_p)\right]^\prime},
+\end{equation}
+and
+\begin{equation}
+\label{eq:bn}
+  b_n = \frac{j_n(mka_p) \left[ka_p \, j_n(ka_p)\right]^\prime -
+    j_n(ka_p) \left[mka_p \, j_n(m ka_p)\right]^\prime}{
+    j_n(mka_p) \left[ka_p \, h^{(1)}_n(ka_p)\right]^\prime -
+    h^{(1)}_n(ka_p) \left[mka_p \, j_n(mka_p)\right]^\prime},
+\end{equation}
 
 \subsection{Digital Recording}
 \label{ch:hvm:sec:hvm:ssec:digitalrec}
