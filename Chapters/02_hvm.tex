@@ -9,7 +9,7 @@
 \newcommand{\einc}{\vec{E}_{\text{inc}}}
 \newcommand{\escat}{\vec{E}_{\text{s}}}
 \newcommand{\eadd}{\vec{E}_{\text{add}}}
-
+\def\Plus{\texttt{+}}
 
 \section{Overview}
 
@@ -21,19 +21,20 @@
 %primary source citations.
 
 
-Holographic video microscopy illuminates a sample of scatterers with
-coherent illumination in order to preserve phase information. 
-The resulting scattering pattern is then
-fit to an appropriate light scattering theory to measure physical properties
-of each scatterer, primarily their size, refractive index, and
-three-dimensional position.
+%Holographic video microscopy illuminates a sample of scatterers with
+%coherent illumination in order to preserve phase information.
+Holographic video microscopy (HVM) utilizes coherent
+illumination to preserve phase information.
+Each image is then fit to an appropriate light scattering
+theory to measure physical properties of each scatterer, primarily
+their size, refractive index, and three-dimensional position.
 
-In this chapter, we will acquaint the reader with our primary experimental
-setup and in so doing outline the salient physical processes underlying
-HVM. We will then describe the Lorenz-Mie theory of light
-scattering and discuss the limited validity of common assumptions.
-We will then discuss our implementation our image analysis before
-concluding with a number of exciting applications of holographic video
+In this chapter, we acquaint the reader with our primary experimental
+HVM setup and in so doing outline the salient physical processes underlying
+our technique. We then describe the Lorenz-Mie theory of light
+scattering, % and discuss the validity of common assumptions.
+discuss our implementation of image analysis, and 
+conclude with a number of applications of holographic video
 microscopy.
 
 
@@ -46,7 +47,7 @@ Our setup illuminates
 the sample plane with a blue ($\SI{447}{nm}$ vacuum wavelength),
 linearly polarized laser beam (Coherent Cube). The beam's
 $\SI{25}{\mW}$ of power is spread over the $\SI{3}{\mm}$ beam
-diameter, producing a peak irradiance of approximately
+diameter, producing a average irradiance of approximately
 $\SI{0.88}{\mW / \mm^2}$. Before scattering through the
 sample, the beam passes through a quarter-wave plate and a
 polarizing beam splitter (ThorLabs CCM1-PBS251) to enable
@@ -58,12 +59,18 @@ standard microscope objective (Nikon Plan Apo, $\num{100}$x,
 numerical aperture $\num{1.45}$, oil immersion) and then focused
 by a $\SI{200}{\mm}$ lens onto a greyscale digital camera
 (NEC TI-324AII). The digital camera digitizes the resulting intensity
-patterns to $8$-bits per pixel at $\SI{29.97}{frames / \sec}$ and relays the
+pattern to $8$-bits per pixel at $\SI{29.97}{frames / \sec}$ and relays the
 resulting array of information to either a DVR (Pioneer 520HS) to record
 on a DVD or directly to the hard disk of a personal computer.
 Each pixel in the $\si{640 x 480}$ array of pixels has a width of
 $\SI{13.5}{\um}$. After $100$x magnification, a pixel in the
 image has an effective size of $\SI{0.135}{\um}$.
+
+Each recorded image documents the interference between the incident
+electric field and the resulting scattered waves. By fitting
+to a theory of light scattering, we will measure the physical
+properties of the scatterers contributing to the scattered fields
+at the focal plane of the objective.
 
 % Description of trapping?
 
@@ -84,42 +91,56 @@ image has an effective size of $\SI{0.135}{\um}$.
 %Holographic video microscopy differs from DHM by analytically
 %fitting the scatter's properties to the resulting
 
+\begin{figure}
+  \centering
+  \includegraphics[width=\textwidth]{hvm_image_formation}
+  \caption{A time series depicting the image formation process. (a) the incident
+    electric field propagates in the $+\hat{z}$ direction. (b) the
+    incident field passes through a spherical scatterer causing a
+    spherically expanding scattered wave in response. (c) the incident
+    field and the scattered field combine at the focal plane to produce
+    an image.}
+  \label{fig:image_formation}
+\end{figure}
+
 
 \subsection{Image formation}
 \label{ch:hvm:sec:hvm:ssec:overview}
 
-The incident illumination may be approximated as a plane wave propagating
-in the $+z$ direction, 
-
+The image formation process at the focal plane of the objective
+is depicted in Fig.~\ref{fig:image_formation}. Fig.~\ref{fig:image_formation}(a)
+shows the coherent illumination, or incident field $\einc$, propagating in the $+\hat{z}$ direction
+through the sample and toward the focal plane of the objective. We model the incident field
+as a plane wave, 
 \begin{equation}
   \label{eq:incidentfield}
-  \einc(\vec{r}) = E_0,  e^{i \varphi_0(\vec{r})} \, e^{i kz} \, \hat{x},
+  \einc(\vec{r}) = E_0\,  e^{i \varphi_0(\vec{r})} \, e^{i kz} \, \hat{x},
 \end{equation}
-
 with magnitude $E_0$, phase $\varphi_0$, and wavenumber
 $k =\frac{2\pi n_m}{\lambda}$. All of the waves considered here
 propagate with a time dependence of $e^{i \omega t}$. However,
-our measurements will be time averaged over the course of an exposure period
-of at least $\SI{10}{\micro\sec}$. As we will be imaging with $\SI{447}{nm}$ blue
-light ( $\omega \approx \SI{670}{THz}$), our time average will include
-nearly \num{7} billion oscillations. We will therefore suppress the time
+our measurements of intensity will be time averaged over the course of an exposure period
+of at least $\SI{10}{\us}$. As we will be imaging with $\SI{447}{nm}$ blue
+light ($\omega \approx \SI{670}{THz}$), our time average will include
+nearly \num{7} billion oscillations. We will therefore safely suppress the time
 dependence in all of our waves.
 
-It is a general principle of linear, homogeneous media that the magnitude of the
-scattered wave be proportional to the magnitude of the illuminating wave.
-We therefore model the scattered field as
+As the incident illumination propagates freely through the sample, scatterers
+with a refractive index mismatch with the medium will emit a diverging scattered wave,
+$\escat$ in response. Fig.~\ref{fig:image_formation}(b) depicts the incident
+field and resulting scattered field propagating toward the focal plane.
+For the scatterers of interest in this study, the scattered field is dominated by
+forward scattering and absorb a negligible amount of the incident field.
 
-\begin{equation}
-  \label{eq:incidentfield}
-  \escat(\vec{r}) = E_0 \vec{f_s} \left ( k \left ( \vec{r} - \vec{r_p} \right ) \right ) ,
-\end{equation}
 
-The image formed in the focal plane of the objective is proportional to
-the sum of the electric fields squared,
+The incident field and scattered field continue propagating and eventually pass through
+the focal plane, as depicted in Fig.~\ref{fig:image_formation}. The intensity of the image
+formed in the focal plane can be described as
+\newcommand{\preint}{\frac{n_mc\epsilon_0}{2}}
 \begin{eqnarray}
-  I &=& n_mc\epsilon_0\abs{\einc + \escat}^2\\
-    &=& n_mc\epsilon_0\left ( \abs{\einc}^2 + \einc\cdot\escat^* + \einc^*\cdot\escat + \abs{\escat}^2 \right ) \\
-    &=& n_mc\epsilon_0\left (\abs{\einc}^2 + 2\Re\left \{\einc\cdot\escat^*\right \} + \abs{\escat}^2 \right )
+  I &=& \preint\abs{\einc + \escat}^2\\
+    &=& \preint\left ( \abs{\einc}^2 + \einc\cdot\escat^* + \einc^*\cdot\escat + \abs{\escat}^2 \right ) \\
+    &=& \preint\left (\abs{\einc}^2 + 2\Re\left \{\einc\cdot\escat^*\right \} + \abs{\escat}^2 \right )
 \end{eqnarray}
 where $n_m$ is the refractive index of the medium, $c$ is the speed of light in a vacuum
 $\epsilon_0$ is the vacuum permittivity, and we've assumed the medium is non-magnetic
@@ -139,6 +160,8 @@ beam and the scattered wave.
 % Pull out E_0?
 % Discuss relative sizes of terms.
 
+
+
 \begin{figure}
   \centering
   \includegraphics[width=\textwidth]{hvm_three_contributions}
@@ -147,15 +170,24 @@ beam and the scattered wave.
 \end{figure}
 
 
-
-
 \subsection{Scattering}
 \label{ch:hvm:sec:hvm:ssec:scattering}
 
-With the exception of chapter %\chapref{ch:dimpled}, our study will
-focus exclusively on spherical scatterers. The Lorenz-Mie theory
-constitutes an exact solution for a plane wave scattering off of a
-dielectric sphere in a homogeneous medium.
+It is a general principle of linear, homogeneous media that the magnitude of the
+scattered wave be proportional to the magnitude of the illuminating wave.
+We therefore model the scattered field as
+
+\begin{equation}
+  \label{eq:incidentfield}
+  \escat(\vec{r}) = E_0(\vec{r_p})\, \vec{f_s} \left ( k \left ( \vec{r} - \vec{r_p} \right ) \right ) ,
+\end{equation}
+
+With the exception of \autoref{ch:dimpled}, our study will
+focus exclusively on spherical scatterers. 
+
+%The Lorenz-Mie theory
+%constitutes an exact solution for a plane wave scattering off of a
+%dielectric sphere in a homogeneous medium.
 
 \begin{equation}
 \label{eq:scatteredfield}
