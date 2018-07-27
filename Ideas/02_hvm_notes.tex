@@ -1,0 +1,47 @@
+Chapter 2 big goals:
+
+Introduce HVM from a theory perspective and an experimental perspective.
+Give an intuition for why HVM works and best practices.
+
+Outline the setup.
+
+Theory Guidelines
+ General scattering | Einc + Escat |^2
+ - the mixed term has the relative phase information between
+   the scattered and incident fields. This information is manifested
+   as an interference pattern.
+
+ Lorenz-Mie solution has a number of properties
+ - For the particle's of interest, namely low refractive index, non-absorbative
+ spheres, the scattered field primarily scatterers light forward. Under this
+ assumption, the two E_s terms must average to zero owing to energy conservation.
+ - The scattering coefficient have
+ Mo1n and Ne1n are naturally functions of $n_m$ but not $a_p$ and $n_p$.. the basis
+ for the vector spherical harmonics need not know about the scatterer. The scattering
+ coefficients are in fact a function of $n_m$, $n_p$ and $a_p$. The scattering coefficients
+ have
+
+ - scatterer properties r_p, a_p, n_p
+ - medium: n_m
+ - Incident beam  $\lambda$
+ - This solution works as is for absorptive media and particles and can easily
+ extended to layered particles.
+
+
+Sample prep.
+
+Sample density needs to be in a certain range.
+- Flow cell ~few particles per FOV
+- Sealed Sample ~1 particle per many FOV's
+
+Illumination.
+
+Not too high.. you'll saturate the image.
+Not too low... you want a high signal to noise ratio.
+
+Automated fitting of holographic features.
+
+Detect and Localize holographic features.
+- Include caveats: overlapping holograms, aggregates, and other coherent scattering sources.
+- Sub-pixel precision paradox
+- 
