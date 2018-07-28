@@ -37,7 +37,7 @@ position and radius, and part-per-thousand precision for the refractive index.
 
 In this chapter, we acquaint the reader with our primary experimental
 HVM setup and in so doing outline the salient physical processes underlying
-our technique. We then describe the Lorenz-Mie theory of light
+the technique. We then describe the Lorenz-Mie theory of light
 scattering, % and discuss the validity of common assumptions.
 discuss our implementation of image analysis, and 
 conclude with a number of applications of holographic video
@@ -53,7 +53,7 @@ Our setup illuminates
 the sample plane with a blue ($\SI{447}{nm}$ vacuum wavelength),
 linearly polarized laser beam (Coherent Cube). The beam's
 $\SI{25}{\mW}$ of power is spread over the $\SI{3}{\mm}$ beam
-diameter, producing a average irradiance of approximately
+diameter, producing an average irradiance of approximately
 $\SI{0.88}{\mW / \mm^2}$. Before scattering through the
 sample, the beam passes through a quarter-wave plate and a
 polarizing beam splitter (ThorLabs CCM1-PBS251) to enable
@@ -117,7 +117,7 @@ The image formation process at the focal plane of the objective
 is depicted in Fig.~\ref{fig:image_formation}. Fig.~\ref{fig:image_formation}(a)
 shows the coherent illumination, or incident field $\einc$, propagating in the $+\hat{z}$ direction
 through the sample and toward the focal plane of the objective. We model the incident field
-as a plane wave, 
+as a plane wave polarized in the $\hat{x}$ direction, 
 \begin{equation}
   \label{eq:incidentfield}
   \einc(\vec{r}) = E_0\,  e^{i \varphi_0(\vec{r})} \, e^{i kz} \, \hat{x},
@@ -128,15 +128,16 @@ propagate with a time dependence of $e^{i \omega t}$. However,
 our measurements of intensity will be time averaged over the course of an exposure period
 of at least $\SI{10}{\us}$. As we will be imaging with $\SI{447}{nm}$ blue
 light ($\omega \approx \SI{670}{THz}$), our time average will include
-nearly \num{7} billion oscillations. We will therefore safely suppress the time
+nearly \num{7} billion full cycles. We will therefore safely suppress the time
 dependence in all of our waves.
 
 As the incident illumination propagates freely through the sample, scatterers
 with a refractive index mismatch with the medium will emit a diverging scattered wave,
-$\escat$ in response. Fig.~\ref{fig:image_formation}(b) depicts the incident
+$\escat$, in response. Fig.~\ref{fig:image_formation}(b) depicts the incident
 field and resulting scattered field propagating toward the focal plane.
 For the scatterers of interest in this study, the scattered field is dominated by
-forward scattering and absorb a negligible amount of the incident field.
+forward scattering and the scatterer will absorb a negligible amount of the
+incident wave.
 
 
 The incident field and scattered field continue propagating and eventually pass through
@@ -149,7 +150,7 @@ formed in the focal plane can be described as
     &=& \preint\left (\abs{\einc}^2 + 2\Re\left \{\einc\cdot\escat^*\right \} + \abs{\escat}^2 \right )
 \end{eqnarray}
 where $n_m$ is the refractive index of the medium, $c$ is the speed of light in a vacuum
-$\epsilon_0$ is the vacuum permittivity, and we've assumed the medium is non-magnetic
+$\epsilon_0$ is the vacuum permittivity, and we've assumed medium is non-magnetic
 ($\mu_r=1$).
 
 The relative contributions of the terms in equation %FIXME: reference to 2.5 but don't use eqnarray
@@ -159,9 +160,8 @@ size $\SI{0.135}{\um}$.
 The first term $\abs{\einc}^2$ is constant over the field of view and
 incorporates no phase information. The third term 
 $\abs{\escat}^2$ is also phase-less but is not constant over the field of view.
-The second term, $2\Re\left \{\einc\cdot\escat^*\right \}$, contributes the
-oscillatory interference pattern from the relative phase of the incident
-beam and the scattered wave.
+The second term, $2\Re\left \{\einc\cdot\escat^*\right \}$, contributes spatially-varying
+interference pattern from the relative phase of the incident beam and the scattered wave.
 % Discussion of DC terms? Does DC Stand for duty cycle?
 % Pull out E_0?
 % Discuss relative sizes of terms.
@@ -171,7 +171,10 @@ beam and the scattered wave.
 \begin{figure}
   \centering
   \includegraphics[width=\textwidth]{hvm_three_contributions}
-  \caption{Depicting the three contributions to a holographic image.}
+  \caption{Depicting the three contributions to a holographic image. (a) the
+    resulting intensity from a micron-sized scatterer above the focal plane.
+    (b) The three contributions shown separately. (c) the magnitude of intensity
+  for each term normalized by the intensity of the incident field.}
   \label{fig:three_contributions}
 \end{figure}
 
@@ -187,6 +190,11 @@ We therefore model the scattered field as
   \label{eq:incidentfield}
   \escat(\vec{r}) = E_0(\vec{r_p})\, \vec{f_s} \left ( k \left ( \vec{r} - \vec{r_p} \right ) \right ) ,
 \end{equation}
+where $E_0(\vec{r_p}$ is the average intensity illuminating the scatterer at $\vec{r_p}$,
+and $\vec{f_s}$ describes how the particle $s$ scatters $\hat{x}$-polarized light.
+Note that nature of $\vec{f_s}$ depends heavily on the shape and composition
+of the scatterer.
+
 
 With the exception of \autoref{ch:dimpled}, our study will
 focus exclusively on spherical scatterers. 
@@ -203,7 +211,7 @@ focus exclusively on spherical scatterers.
     \right),
 \end{equation}
 where $f_n=i^n (2n+1)/[n(n+1)]$, and $\vec{M}^{(3)}_{o1n}(\vec{x})$ and 
-$\vec{N}^{(3)}_{e1n}(\vec{x})$ are the vector spherical harmonics,
+$\vec{N}^{(3)}_{e1n}(\vec{x})$ are the vector spherical harmonics,x
 \begin{equation}
     \vec{M}^{(3)}_{o1n}(\vec{x}) = \frac{\cos\phi}{\sin\theta} \,
   P^1_n(\cos\theta) \, j_n(x) \, \uvec{\theta}
