@@ -9,7 +9,6 @@
 \newcommand{\einc}{\vec{E}_{\text{inc}}}
 \newcommand{\escat}{\vec{E}_{\text{s}}}
 \newcommand{\eadd}{\vec{E}_{\text{add}}}
-\def\Plus{\texttt{+}}
 
 \section{Overview}
 
@@ -24,7 +23,7 @@
 %Holographic video microscopy illuminates a sample of scatterers with
 %coherent illumination in order to preserve phase information.
 Holographic video microscopy (HVM) utilizes coherent
-illumination to measure physical properties of micron-sized particles,
+illumination to measure properties of micron-sized particles,
 primarily their size, refractive index, and three-dimensional position.
 By imaging a sample with coherent illumination, the normally averaged-away
 phase information is preserved and contributes to the intensity variations
@@ -144,24 +143,25 @@ The incident field and scattered field continue propagating and eventually pass 
 the focal plane, as depicted in Fig.~\ref{fig:image_formation}. The intensity of the image
 formed in the focal plane can be described as
 \newcommand{\preint}{\frac{n_mc\epsilon_0}{2}}
-\begin{eqnarray}
-  I &=& \preint\abs{\einc + \escat}^2\\
-    &=& \preint\left ( \abs{\einc}^2 + \einc\cdot\escat^* + \einc^*\cdot\escat + \abs{\escat}^2 \right ) \\
-    &=& \preint\left (\abs{\einc}^2 + 2\Re\left \{\einc\cdot\escat^*\right \} + \abs{\escat}^2 \right )
-\end{eqnarray}
+\begin{align}
+  I &= \preint\abs{\einc + \escat}^2\\
+    &= \preint\left ( \abs{\einc}^2 + \einc\cdot\escat^* + \einc^*\cdot\escat + \abs{\escat}^2 \right ) \\
+    &= \preint\left (\abs{\einc}^2 + 2\Re\left \{\einc\cdot\escat^*\right \} + \abs{\escat}^2 \right ) \label{eq:image_formation}
+\end{align}
 where $n_m$ is the refractive index of the medium, $c$ is the speed of light in a vacuum
 $\epsilon_0$ is the vacuum permittivity, and we've assumed medium is non-magnetic
 ($\mu_r=1$).
 
-The relative contributions of the terms in equation %FIXME: reference to 2.5 but don't use eqnarray
+The relative contributions of the terms in Eq.~\ref{eq:image_formation}
 are depicted in Fig.~\ref{fig:three_contributions} for a $\SI{1.0}{\um}$ polystyrene
 sphere ($n = 1.59$) a distance of $\SI{12}{\um}$ above an imaging plane with pixel
 size $\SI{0.135}{\um}$.
 The first term $\abs{\einc}^2$ is constant over the field of view and
 incorporates no phase information. The third term 
 $\abs{\escat}^2$ is also phase-less but is not constant over the field of view.
-The second term, $2\Re\left \{\einc\cdot\escat^*\right \}$, contributes spatially-varying
-interference pattern from the relative phase of the incident beam and the scattered wave.
+The second term, $2\Re\left \{\einc\cdot\escat^*\right \}$, contributes the
+spatially-varying interference pattern from the relative phase of the incident
+beam and the scattered wave and the intensity variations of the scattered wave.
 % Discussion of DC terms? Does DC Stand for duty cycle?
 % Pull out E_0?
 % Discuss relative sizes of terms.
@@ -195,9 +195,20 @@ and $\vec{f_s}$ describes how the particle $s$ scatters $\hat{x}$-polarized ligh
 Note that nature of $\vec{f_s}$ depends heavily on the shape and composition
 of the scatterer.
 
+%FIXME: Add rift about the spherical scatterer being parameterized by a_p, n_p, x, y, z
 
-With the exception of \autoref{ch:dimpled}, our study will
-focus exclusively on spherical scatterers. 
+With the exception of \autoref{ch:dimpled}, our study will focus exclusively on
+spherical scatterers. The Lorenz-Mie theory offers an exact solution for
+the case of a spherical scatterer illuminated with $\hat{x}$-polarized light.
+We will provide a minimalist account of the Lorenz-Mie theory to provide intuition
+for the scattered wave's dependence on the spherical scatters properties; a thorough
+account is provided in reference %FIXME: Add reference to Bohren.
+
+\subsubsection{Lorenz-Mie Theory}
+\label{ch:hvm:sec:hvm:ssec:scattering:sssec:lm_theory}
+
+
+
 
 %The Lorenz-Mie theory
 %constitutes an exact solution for a plane wave scattering off of a
@@ -224,7 +235,7 @@ and
   + \cos\phi \, \frac{dP^1_n(\cos\theta)}{d\theta} \,
   \frac{1}{x} \frac{d}{dx}\left[x j_n(x)\right] \, \uvec{\theta} \\
   - \frac{\sin\phi}{\sin\theta} \, P^1_n(\cos\theta) \,
-  \frac{1}{x}\frac{d}{dx}\left[x j_n(x)\right] \, \uvec{\phi}.
+  \frac{1}{x}\frac{d}{dx}\left[x j_n(x)\right] \, \uvec{\phi}
 \end{multline}
 Here, $P^1_n(\cos\theta)$ is the associated Legendre polynomial of the
 first kind, and $j_n(kr)$ is the spherical Bessel function of the
@@ -245,6 +256,66 @@ and
     j_n(mka_p) \left[ka_p \, h^{(1)}_n(ka_p)\right]^\prime -
     h^{(1)}_n(ka_p) \left[mka_p \, j_n(mka_p)\right]^\prime},
 \end{equation}
+
+
+% Note that the inplane position of the image 
+
+\subsection{Image Analysis}
+
+We analyze each of our recorded images to extract information about the particles
+scattering light into the field of view.  Because the scattered wave's electric
+field approximately decays as $~\frac{1}{r}$, each scatterer's influence on the
+resulting image can effectively be isolated to a sub-region of the image; we will
+regard each of these sub-regions as holographic features.  Given an experimental
+image, our task will be to isolate these holographic features and fit each
+to the Lorenz-Mie theory.
+
+The entire image analysis procedure is depicted in Fig.~%FIXME
+Image normalization is a necessary pre-processing step; additional
+electric fields arrive in the focal plane and the digitization procedure
+of the camera must be accounted for. We therefore fit to a normalized
+image $b(x,y)$ as
+\begin{align}
+  b(x,y) &= \frac{ I(x,y) - I_d(x,y)}{ I_{bg}(x,y) - I_d(x,y)} 
+\end{align}
+
+where $I(x,y)$ is the measure intensity,
+$I_{bg}(x,y)$ is the background intensity,
+$I_d(x,y)$ is the dark count of the camera.
+Fig.~%FIXME
+
+The normalized image may or may not contain holographic features. In addition,
+our estimate of the center of a holographic feature will serve as an initial guess
+for the inplane position of the associated scatterer. We refer to these two tasks as
+feature detection and feature localization. A common heuristic is to condense the
+extended holographic features into localized blobs and then to use a standard
+centroid finding algorithm on the transformed image. In this way, the centers
+of each blob will correspond to the center of a holographic feature. Fig.~%FIXME
+summarizes this heuristic algorithm. An in-depth study of this algorithm, as well
+as machine-learning alternatives will be presented in \autoref{ch:cascade}.
+
+We fit each localized holographic feature to the Lorenz-Mie theory
+via a non-linear least squares fitting algorithm known as the Levenberg-Marquardt
+algorithm, otherwise known as damped least-squares. The Levenberg-Marquardt
+algorithm interpolates between the gradient descent (a damped first order algorithm)
+and the Gauss-Newton algorithm (a second order algorithm directed towards the nearest
+minimum). As with many fitting algorithms, this method will generally find a local
+minima which may not be a global minima. The fitting procedure will
+progressively find model parameters which minimize the chi-square difference
+with the experimental image. The procedure terminates when one of three
+conditions are met:
+\begin{enumerate}
+\item the magnitude of the gradient drops below a threshold
+\item the iterative change in chi-square drops below some threshold
+\item a maximum number of iterations is exceeded
+\end{enumerate}
+The final model parameters are interpreted as the actual parameters of the
+scatterer.
+
+\section{Applications}
+
+
+
 
 \subsection{Digital Recording}
 \label{ch:hvm:sec:hvm:ssec:digitalrec}
