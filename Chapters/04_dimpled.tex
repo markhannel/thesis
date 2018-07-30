@@ -2,18 +2,13 @@
 \label{ch:dimpled}
 
 \section{Introduction}
-
-Holographic snapshots of colloidal spheres can be interpreted
-with the Lorenz-Mie theory of light scattering to measure
-an individual sphere's three-dimensional position,
-size and refractive index \cite{lee07a}.
-When applied to dielectric spheres with near-ideal sphericity
-and smoothness, this technique yields nanometer-scale
-precision for the position and radius 
-\cite{lee07a,cheong10a,moyses13,krishnatreya14} 
-and part-per-thousand precision for the refractive index 
-\cite{lee07a,shpaisman12}.
-Here, we demonstrate that this technique yields similarly precise 
+In this chapter we call into question the assumption that the scatterer is
+spherical:
+how will deviations from sphericity affect our results if we model
+the scatterer as a perfect sphere? We will present a series of
+experimental and simulated results from fitting holographic features of
+imperfect spheres with the Lorenz-Mie theory.
+In so doing, we demonstrate that this technique yields similarly precise 
 and meaningful results for imperfect spheres, provided that their
 deviation from sphericity is not too pronounced.
 
@@ -36,6 +31,7 @@ deviation from sphericity is not too pronounced.
 \end{figure*}
 
 \section{Synthesizing TPM particles}
+
 
 Our model system for this work consists of monodisperse
 colloidal particles synthesized through emulsion polymerization of
@@ -162,7 +158,7 @@ and the refractive index to within 3 parts per thousand
 The data in Fig.~\ref{fig:singleparticle}(e) show results obtained for
 a typical TPM sphere localized in an optical trap that was
 projected through the microscope's objective lens using the
-holographic optical trapping technique \cite{dufresne98,*grier03}.
+holographic optical trapping technique \cite{dufresne98,grier03}.
 The spread in values is comparable to the numerically
 estimated uncertainty in the individual fits,
 $a_p = \SI{0.790(3)}{\um}$ and $n_p = \num{1.445(1)}$,
@@ -183,7 +179,7 @@ Analytical results are available for just a few special cases.
 For more general cases, numerical methods are required, 
 such as the discrete dipole approximation (DDA) \cite{draine94}. 
 Even with highly optimized implementations \cite{yurkin11}, however,
-such approaches are computationally intensive \cite{fung12,*perry12,*wang14using}.
+such approaches are computationally intensive \cite{fung12,perry12,wang14using}.
 If an object's departure from sphericity is small enough, and if the
 influence of the non-ideality on the recorded hologram is sufficiently well
 localized within the recorded image, Lorenz-Mie analysis
@@ -209,7 +205,7 @@ SEM analysis suggests that the sample-averaged radius of the
 dimpled spheres is \SI{0.75(5)}{\um}, which is slightly smaller
 than the result obtained holographically.
 Similar discrepancies have been noted in previous studies
-\cite{yamada85,*cermola87},
+\cite{yamada85,cermola87},
 and reasonably may be explained by changes
 induced by preparing the spheres for SEM observation.
 
@@ -304,8 +300,7 @@ random orientation in the channel.
 
 To assess the extent of the distortions that can be handled with the
 idealized model for holographic characterization, we apply the
-discrete-dipole approximation 
-\cite{draine94,yurkin11,fung12,*perry12,*wang14using}
+discrete-dipole approximation \cite{draine94,yurkin11,fung12,perry12,wang14using}
 to compute holograms of 
 dimpled spheres, and then analyze the resulting synthetic data
 with the same software used to analyze experimental data.
