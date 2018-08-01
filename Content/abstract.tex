@@ -1,3 +1,82 @@
 \chapter*{Abstract}
 \addcontentsline{toc}{chapter}{Abstract}
 \label{ch:abstract}
+
+
+Colloidal systems exhibit a range of interesting behaviors that
+underlie many commercial and industrial applications, and continue
+to gainfully employ academics. Often these systems are comprised of
+micron-sized constituents whose properties, namely their
+size, refractive index, and three-dimensional position, can be measured
+by holographic video microscopy (HVM). This thesis validates the effective
+sphere model for HVM, thereby demonstrating the efficacy of the
+Lorenz-Mie model outside the domain of perfect spherical scatters;
+furthermore we develop machine-learning implements for robust feature
+detection and characterization, and consequently enable the analysis of
+dense, heterogeneous samples; finally we apply this technique to
+isolate the effect certain reaction environments have on the
+synthesis of TPM spheres.
+
+Despite the ubiquity of the spherical approximation, many colloidal
+systems are compromised of aspherical particles such as rods,
+aggregates, and dimpled spheres.
+Given their departure from
+ideal sphericity, to what extent can we model their light scattering
+properties with the Lorenz-Mie model?
+We experimentally demonstrate the effectiveness of the Lorenz-Mie model
+in characterizing dimpled spheres:
+should the dimple comprise less than \num{5}\% of the total sphere volume,
+the resulting size, and position measurements incur
+less than \num{2}\% error, while the refractive index suffers a modest \num{0.1}\%
+error. Utilizing the discrete dipole
+approximation, we simulate the scattering patterns of a myriad of
+dimpled sphere geometries and find our experimental results are
+typical for modest dimple sizes.
+%As the effective sphere model
+%represents a zeroth-order approximation for light scattering off
+%non-spherical geometries, we expect that the Lorenz-Mie model can be
+%applied generally to non-spherical scatterers with a not-too pronounced
+%departure from ideal sphericity.
+
+Heterogeneous samples pose a host of problems for automated
+image analysis. Heuristics for detecting and localizing holographic
+features typically employ a threshold which may overlook weaker
+scatters or may identify several false positive in the vicinity of
+overlapping features; dense, heterogeneous samples
+particularly fall prey to these issues. To mitigate these constraints, we
+develop two machine-learning implements, namely convolutional
+neural networks and cascade classifiers, to reduce the number of
+false negatives and false positives. After successfully isolating
+features, it is necessary to provide a sufficiently close initial
+estimate of the scatterer's properties. Given a heterogeneous sample
+with disparate scatterer properties, a single {\it a priori}
+estimate may not suffice. We demonstrate that support vector machines
+provide estimates of a scatterer's size, refractive index, and
+position that are not only sufficient for boot-strapping subsequent
+Lorenz-Mie analysis, but are accurate enough for low-precision
+applications.
+
+Methods for synthesizing colloidal spheres are often sensitive
+to a multitude of protocol choices and environmental conditions. We
+utilize HVM to investigate the synthesis of 3-methacryloxypropyl
+trimethoxysilane (TPM) spheres. Specifically, we synthesize numerous
+batches of TPM spheres under varied conditions and measure the
+resulting size and refractive index distributions. From this analysis,
+we quantify and consequently corroborate the assertions of previous
+work on TPM synthesis.
+
+
+%HVM and pursuit of quantitative microscopy. Inherent assumptions
+%and hang ups.
+%This thesis validates and extends the domain of applicability for holographic characterization,
+%and presents novel methods for analysis that enable new applications.
+
+%Assumptions: Sphericity and vectorial nature of light propagation. Sphericity
+% enables the effective sphere model.
+
+%Analysis: Feature detection and localization. Enables analysis of denser flows, at a faster
+%rate and with fewer false positives. Real time detection for automated trapping.
+%ML for characterization. Automates and provides robust initial parameter estimation.
+%Enables analysis of heterogeneous samples.
+
+%Characterizing colloidal synthesis:  Utilizing HVM we will 
