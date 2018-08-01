@@ -7,12 +7,12 @@
 %% Replace the title, name, advisor name, graduation date and
 %% dedication below with your own. Graduation months must be January,
 %% May or September.
-\newcommand{\thesistitle}{Closing the Loop: Holographic Feeback
+\newcommand{\thesistitle}{Closing the Loop: Holographic Feedback
 for Soft-Matter Processes}
 \newcommand{\thesisauthor}{Mark D. Hannel}
 \newcommand{\thesisadvisor}{David G. Grier}
 \newcommand{\graddate}{September, 2018}
-
+\usepackage{fancyhdr}
 \usepackage{graphicx}
 \graphicspath{{./Figures/}}
 
@@ -88,18 +88,21 @@ for Soft-Matter Processes}
     %%%%%% Title page %%%%%%%%%%%
     \input{Content/titlepage}
     \newpage
+    
     %%%%%% Copyright %%%%%%%%%%%    
     \input{Content/copyright}
     \doublespacing
-
     \newpage
+    
     %%%%%%%%%%%%% Blank page %%%%%%%%%%%%%%%%%%
     \thispagestyle{empty}
     \vspace*{0in}
     \newpage
+    
     %%%%%% Copyright %%%%%%%%%%%
     \input{Content/dedication}
     \newpage
+    
     %%%%%% Acknowledgments %%%%%%%%%%%
     \input{Content/acknowledgments}
     

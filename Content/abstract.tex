@@ -3,40 +3,66 @@
 \label{ch:abstract}
 
 
-Colloidal systems exhibit a range of interesting behaviors that
-underlie many commercial and industrial applications, and continue
-to gainfully employ academics. Often these systems are comprised of
-micron-sized constituents whose properties, namely their
-size, refractive index, and three-dimensional position, can be measured
-by holographic video microscopy (HVM). This thesis validates the effective
-sphere model for HVM, thereby demonstrating the efficacy of the
-Lorenz-Mie model outside the domain of perfect spherical scatters;
-furthermore we develop machine-learning implements for robust feature
-detection and characterization, and consequently enable the analysis of
-dense, heterogeneous samples; finally we apply this technique to
-isolate the effect certain reaction environments have on the
-synthesis of TPM spheres.
+\fancypagestyle{abstract_style}
+{
+\fancyhf{}
+\lhead{{\bf Title: }\thesistitle\\
+  {\bf Author: } \thesisauthor\\
+  {\bf Advisor: } \thesisadvisor}
+}
 
-Despite the ubiquity of the spherical approximation, many colloidal
-systems are compromised of aspherical particles such as rods,
+%\thispagestyle{abstract_style}
+
+Colloidal systems exhibit a range of interesting behaviors that
+underlie many fundamental processes and industrial applications.
+Often these systems are comprised of
+micrometer-sized constituents whose properties, namely their
+size, refractive index, and three-dimensional position, can be measured
+by holographic video microscopy (HVM).
+The availability of this wealth of particle-resolved information
+has inspired research activities around the world, and has rapidly
+been adopted by industry.
+Previous implementations of HVM have relied on \emph{ad hoc}
+models and simplifying assumptions to extract information from
+recorded holograms.
+This thesis provides a firm foundation for the technique both by
+advancing the theory of image formation in holographic microscopy
+and also by reporting a suite of validation measurements
+that establish the limits of precision and accuracy that can be
+obtained from measurements based on holograms.
+
+A particular focus of this work is to introduce and validate
+the effective sphere model that extends the benefits of holographic
+characterization to aspherical particles without incurring
+an exorbitant cost in computational complexity.
+In developing the effective sphere model, we furthermore 
+introduce machine-learning implementations for fast and robust feature
+detection and characterization.  These techniques enable us to
+analyze dense and heterogeneous samples that ordinarily are
+not amenable to optical characterization.
+Finally, we apply our techniques to guide the design of colloidal
+synthesis protocols, with a particular application to 
+monodisperse spheres of 3-(trimethoxysilyl) propyl methacrylate
+(TPM).
+
+The effective sphere model proves to be an effective approach
+to assess the properties of colloidal
+systems compromised of aspherical particles such as rods,
 aggregates, and dimpled spheres.
-Given their departure from
-ideal sphericity, to what extent can we model their light scattering
-properties with the Lorenz-Mie model?
-We experimentally demonstrate the effectiveness of the Lorenz-Mie model
-in characterizing dimpled spheres:
-should the dimple comprise less than \num{5}\% of the total sphere volume,
-the resulting size, and position measurements incur
-less than \num{1}\% error, while the refractive index suffers a modest \num{0.1}\%
-error. Utilizing the discrete dipole
+This line of inquiry addresses the question:
+``To what extent does the Lorenz-Mie theory for light scattering
+by spheres apply to aspherical and inhomogeneous colloidal particles?''
+As a model system with a well-defined departure from sphericity,
+we experimentally apply the effective sphere model to
+characterizing dimpled spheres.
+These studies demonstrate that standard holographic characterization
+techniques yield a particle's radius to within \SI{1}{\percent} error
+and its refractive index to within \SI{0.1}{\percent}
+when the dimple comprises less than \SI{5}{\percent} of sphere's total volume.
+Utilizing the discrete dipole
 approximation, we simulate the scattering patterns of a myriad of
 dimpled sphere geometries and find our experimental results are
 typical for modest dimple sizes.
-%As the effective sphere model
-%represents a zeroth-order approximation for light scattering off
-%non-spherical geometries, we expect that the Lorenz-Mie model can be
-%applied generally to non-spherical scatterers with a not-too pronounced
-%departure from ideal sphericity.
 
 Heterogeneous samples pose a host of problems for automated
 image analysis. Heuristics for detecting and localizing holographic
@@ -44,26 +70,30 @@ features typically employ a threshold which may overlook weaker
 scatters or may identify several false positive in the vicinity of
 overlapping features; dense, heterogeneous samples
 particularly fall prey to these issues. To mitigate these constraints, we
-develop two machine-learning implements, namely convolutional
+develop two machine-learning implementations, namely convolutional
 neural networks and cascade classifiers, to reduce the number of
-false negatives and false positives. After successfully isolating
-features, it is necessary to provide a sufficiently close initial
-estimate of the scatterer's properties. Given a heterogeneous sample
-with disparate scatterer properties, a single {\it a priori}
-estimate may not suffice. We demonstrate that support vector machines
+false negative and false positive defections. 
+Further characterization of a detected particle's properties require
+sufficiently close initial parameter estimates so that the applied
+fitting algorithm can converge to a global minimum.
+ Given a heterogeneous sample
+with disparate scatterer properties, a single \emph{a priori}
+estimate may not suffice. We demonstrate that a class of machine-learning
+algorithms known as support vector machines can be trained to
 provide estimates of a scatterer's size, refractive index, and
-position that are not only sufficient for boot-strapping subsequent
-Lorenz-Mie analysis, but are accurate enough for low-precision
-applications.
+position that are not only sufficient for bootstrapping subsequent
+Lorenz-Mie analysis, but are accurate enough in themselves
+for many end-use applications.
 
 Methods for synthesizing colloidal spheres are often sensitive
 to a multitude of protocol choices and environmental conditions. We
-utilize HVM to investigate the synthesis of 3-methacryloxypropyl
-trimethoxysilane (TPM) spheres. Specifically, we synthesize numerous
-batches of TPM spheres under varied conditions and measure the
-resulting size and refractive index distributions. From this analysis,
-we quantify and consequently corroborate the assertions of previous
-work on TPM synthesis.
+utilize HVM to investigate the synthesis of TPM spheres.
+Specifically, we synthesize TPM spheres under a wide array of
+conditions and apply holographic particle characterization to measure the
+resulting distributions of particle size and refractive index.
+The unique wealth of information provided by holographic characterization
+enables us to assess directly how processing protocols influence
+particles' final properties.
 
 
 %HVM and pursuit of quantitative microscopy. Inherent assumptions
