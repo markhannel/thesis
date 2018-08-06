@@ -32,7 +32,8 @@ are encoded in this phase information and can be extracted by fitting
 the resulting intensity patterns to an appropriate light scattering theory.
 For non-absorbing dielectric spheres between $\num{1}$-$\SI{10}{\um}$,
 this technique yields nanometer-scale precision for the three-dimensional
-position and radius, and part-per-thousand precision for the refractive index\cite{krishnatreya14}.
+position and radius, and part-per-thousand precision for the refractive
+index\cite{krishnatreya14}.
 
 In this chapter, we acquaint the reader with our primary experimental
 HVM setup and in so doing outline the salient physical processes underlying
@@ -159,7 +160,7 @@ formed in the focal plane can be described as
     &= \preint\left (\abs{\einc}^2 + 2\Re\left \{\einc\cdot\escat^*\right \} + \abs{\escat}^2 \right ) \label{eq:image_formation}
 \end{align}
 where $n_m$ is the refractive index of the medium, $c$ is the speed of light in a vacuum,
-$\epsilon_0$ is the vacuum permittivity, and we've assumed medium is non-magnetic
+$\epsilon_0$ is the vacuum permittivity, and we've assumed the medium is non-magnetic
 ($\mu_r=1$).
 
 The relative contributions of the terms in Eq.~\ref{eq:image_formation}
@@ -179,10 +180,10 @@ beam and the scattered wave and the intensity variations of the scattered wave.
 \subsection{Scattering}
 \label{ch:hvm:sec:hvm:ssec:scattering}
 
-It is a general principle of linear, homogeneous media that the magnitude of the
-scattered wave be proportional to the magnitude of the illuminating wave.
-We therefore model the scattered field as
-
+It is a general principle of scattering in linear, homogeneous media
+that the magnitude of the scattered wave be proportional to the
+magnitude of the illuminating wave. We therefore model the scattered
+field as
 \begin{equation}
   \label{eq:incidentfield}
   \escat(\vec{r}) = E_0(\vec{r_p})\, \vec{f_s} \left ( k \left ( \vec{r} - \vec{r_p} \right ) \right ) ,
@@ -192,29 +193,30 @@ and $\vec{f_s}$ describes how the particle $s$ scatters $\hat{x}$-polarized ligh
 Note that nature of $\vec{f_s}$ depends heavily on the shape and composition
 of the scatterer.
 
-%FIXME: Add rift about the spherical scatterer being parameterized by a_p, n_p, x, y, z
-
 With the exception of \autoref{ch:dimpled}, our study will focus exclusively on
 spherical scatterers. The Lorenz-Mie theory offers an exact solution for
 the case of a spherical scatterer illuminated with $\hat{x}$-polarized light.
 We will provide a minimalist account of the Lorenz-Mie theory to provide intuition
 for the scattered wave's dependence on the spherical scatters properties; a thorough
-account is provided in reference %FIXME: Add reference to Bohren.
+account is provided in reference \cite{bohren83}.
+
 \subsubsection{Lorenz-Mie Theory}
 \label{ch:hvm:sec:hvm:ssec:scattering:sssec:lm_theory}
 
 We begin with a homogeneous, dielectric sphere of radius $a_p$ and refractive
-index $n_p$ situated in a medium with refractive index $n_m$. We
-define a spherical coordinate system whose origin coincides with
+index $n_p$ situated in a medium with refractive index $n_m$ at a position
+$r_p$. We define a spherical coordinate system whose origin coincides with
 the sphere as depicted in Fig. %FIXME
 The incident beam is modeled as a plane wave of the form
 Eq.~\ref{eq:incidentfield} which propagates toward
 the scatterer from the $-\hat{z}$ direction. The scattering event
 leads to three fields, namely the incident field, an external scattered
 field, and an internal scattered field, all of which must match boundary conditions
-at the surface of the sphere. We will assume that the surface of the
-particle is charge-free and current-free\footnote{Ref.~\ref{bohren83} makes a brief
-  claim that the effect of charge on the surface should be negligible.}.
+at the surface of the sphere.  Based on the work of J. Kla\u{c}ka et. al.~\cite{klacka07},
+we conclude that for micrometer sized particles imaged with visible light, the electrostatic
+potential at the surface of the sphere would have to be implausibly high ($\SI{E8}{V}$)
+before any surface charge or current would affect the resulting image. Therefore,
+we safely adopt the usual assumption of a charge-free and current-free surface.
 
 Descriptions of the internal and external scattered fields are most easily
 expressed as spherical vector fields. Vector spherical harmonics
@@ -388,17 +390,12 @@ and a dynamic range, one would estimate the maximum relative intensity
 that is expected over the course of the  experiment and then modulate the
 intensity to ensure the image is never saturated.
 
-A high numerical aperture (NA) objective ensures that the high frequency scattered
-light contributes to the final image. However, for most the scatterers considered
-in this thesis, the majority of the light is scattered at lower spatial
-frequencies. Sambelini reports using a $\num{0.3}$ NA objective to track
-colloidal particles trapped in a diamond anvil cell. With this low-NA
-objective, it was necessary to account for the clipping of
-high spatial frequency in order to reasonably fit each holographic
-feature.%FIXME. Quantitative. Add the bit amount Sambelini/padget diamond anvil.
-
-% IF OBJECTIVE NA IS LOW, HIGH SPATIAL FREQUENCIES GET CUT. SAMBELINI/PADGET DIAMOND ANVIL
-
+A high numerical aperture (NA) objective ensures that large-angle scattered
+light contributes to the final image. In all of our Saglimbeni et. al. report using a
+$\num{0.3}$ NA objective to track colloidal particles trapped in a diamond
+anvil cell\cite{saglimbeni16}. With this low-NA objective, it was necessary
+to account for the clipping of high spatial frequency in order to reasonably
+fit each holographic feature. For consistency, 
 
 \subsection{Sample Preparation}
 
