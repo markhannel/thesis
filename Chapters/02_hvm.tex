@@ -32,7 +32,7 @@ are encoded in this phase information and can be extracted by fitting
 the resulting intensity patterns to an appropriate light scattering theory.
 For non-absorbing dielectric spheres between $\num{1}$-$\SI{10}{\um}$,
 this technique yields nanometer-scale precision for the three-dimensional
-position and radius, and part-per-thousand precision for the refractive index.
+position and radius, and part-per-thousand precision for the refractive index\cite{krishnatreya14}.
 
 In this chapter, we acquaint the reader with our primary experimental
 HVM setup and in so doing outline the salient physical processes underlying
@@ -141,8 +141,6 @@ dependence in all of our waves.
   \label{fig:three_contributions}
 \end{figure}
 
-
-
 As the incident illumination propagates freely through the sample, scatterers
 with a refractive index mismatch with the medium will emit a diverging scattered wave,
 $\escat$, in response. Fig.~\ref{fig:image_formation}(b) depicts the incident
@@ -150,7 +148,6 @@ field and resulting scattered field propagating toward the focal plane.
 For the scatterers of interest in this study, the scattered field is dominated by
 forward scattering and the scatterer will absorb a negligible amount of the
 incident wave.
-
 
 The incident field and scattered field continue propagating and eventually pass through
 the focal plane, as depicted in Fig.~\ref{fig:image_formation}. The intensity of the image
@@ -178,8 +175,6 @@ beam and the scattered wave and the intensity variations of the scattered wave.
 % Discussion of DC terms? Does DC Stand for duty cycle?
 % Pull out E_0?
 % Discuss relative sizes of terms.
-
-
 
 \subsection{Scattering}
 \label{ch:hvm:sec:hvm:ssec:scattering}
@@ -262,29 +257,52 @@ first kind, and $j_n(\rho)$ is the spherical Bessel function of the
 first kind of order $n$.
 The expansion coefficients $a_n$ and $b_n$ in Eq.~(\ref{eq:scatteredfield})
 are given by \cite{bohren83}
+
 \begin{equation}
-  a_n = \frac{m^2 j_n(mka_p) \left[ka_p \, j_n(ka_p)\right]^\prime -
-    j_n(ka_p) \left[mka_p \, j_n(mka)\right]^\prime}{
-    m^2 j_n(mka_p) \left[ka_p \, h^{(1)}_n(ka_p)\right]^\prime -
-    h^{(1)}_n(ka_p) \left[mka_p \, j_n(mka_p)\right]^\prime},
+  \label{eq:an}
+  a_n = \frac{n_p^2 \, j_n(x_p) \left[x_m \, j_n(x_m)\right]^\prime -
+    n_m^2 \, j_n(x_m) \left[x_p \, j_n(x_p)\right]^\prime}{
+    n_p^2 \, j_n(x_p) \left[x_m \, h^{(1)}_n(x_m)\right]^\prime -
+    n_m^2 \, h^{(1)}_n(x_m) \left[x_p \, j_n(x_p)\right]^\prime},
 \end{equation}
 and
 \begin{equation}
 \label{eq:bn}
-  b_n = \frac{j_n(mka_p) \left[ka_p \, j_n(ka_p)\right]^\prime -
-    j_n(ka_p) \left[mka_p \, j_n(m ka_p)\right]^\prime}{
-    j_n(mka_p) \left[ka_p \, h^{(1)}_n(ka_p)\right]^\prime -
-    h^{(1)}_n(ka_p) \left[mka_p \, j_n(mka_p)\right]^\prime},
+  b_n = \frac{j_n(x_p) \left[x_m \, j_n(x_m)\right]^\prime -
+    j_n(x_m) \left[x_p \, j_n(x_p)\right]^\prime}{
+    j_n(x_p) \left[x_m \, h^{(1)}_n(x_m)\right]^\prime -
+    h^{(1)}_n(x_m) \left[x_p \, j_n(x_p)\right]^\prime},
 \end{equation}
+%\begin{equation}
+%  a_n = \frac{m^2 j_n(mka_p) \left[ka_p \, j_n(ka_p)\right]^\prime -
+%    j_n(ka_p) \left[mka_p \, j_n(mka_p)\right]^\prime}{
+%    m^2 j_n(mka_p) \left[ka_p \, h^{(1)}_n(ka_p)\right]^\prime -
+%    h^{(1)}_n(ka_p) \left[mka_p \, j_n(mka_p)\right]^\prime},
+%\end{equation}
+%and
+%\begin{equation}
+%\label{eq:bn}
+%  b_n = \frac{j_n(mka_p) \left[ka_p \, j_n(ka_p)\right]^\prime -
+%    j_n(ka_p) \left[mka_p \, j_n(m ka_p)\right]^\prime}{
+%    j_n(mka_p) \left[ka_p \, h^{(1)}_n(ka_p)\right]^\prime -
+%    h^{(1)}_n(ka_p) \left[mka_p \, j_n(mka_p)\right]^\prime},
+%\end{equation}
 where $^\prime$ denotes the derivative of the function with respect
-to the argument in parentheses and $m=\frac{n_p}{n_m}$. The infinite
-sum in Eq.~\ref{eq:scatterfield} can be safely truncated after
-$ka_p + 4 (ka_p)^{\frac{1}{2}} + 2$ terms.
+to the argument in parentheses and $x_m = \frac{2\pi n_m}{\lambda} a_p$
+and $x_p = \frac{2\pi n_p}{\lambda} a_p$ are the reduced particle size according
+to the medium and to the particle respectively. The infinite
+sum in Eq.~\ref{eq:scatteredfield} can be safely truncated after
+$x_m + 4x_m^{\frac{1}{2}} + 2$ terms.
 
 A few comments will aid our intuition. The vector spherical harmonics
 do not depend on the scatterer's properties; the scatterer's influence
-on the external scattered field is completely relegated to the coefficients
-dictating 
+on the external scattered field is completely contained in the coefficients.
+As one would expect, the coefficients $a_n$ and $b_n$ identically converge to
+zero as $n_p$ approaches $n_m$ (i.e. - the limit of no dielectric mismatch).
+The termination condition depends only on $n_m$ and $a_p$. Given a medium
+refractive index of $1.33$, the number of terms varies from approximately
+$50$ for a $\SI{1}{\um}$ sphere to $\num{240}$ for a $\SI{10}{\um}$ sphere.
+% Should n_p = n_m.. these computations would be a waste!
 
 
 \subsection{Image Analysis}
@@ -298,20 +316,22 @@ image, our task will be to isolate these holographic features and fit each
 to the Lorenz-Mie theory.
 
 The entire image analysis procedure is depicted in Fig.~%FIXME
-Image normalization is a necessary pre-processing step; additional
-electric fields arrive in the focal plane and the digitization procedure
-of the camera must be accounted for. We therefore fit to a normalized
-image $b(x,y)$ as
+Image normalization is a necessary pre-processing step; Normalizing
+the image eliminates the incident beam's magnitude $\abs{\einc}^2$
+as a fitting parameter, mitigates the contributions of additional
+scatterers, and accounts for the digitization procedure of the camera.
+We therefore fit to a normalized image $b(x,y)$ as
 \begin{align}
   b(x,y) &= \frac{ I(x,y) - I_d(x,y)}{ I_{bg}(x,y) - I_d(x,y)} 
 \end{align}
-where $I(x,y)$ is the measure intensity,
+where $I(x,y)$ is the measured intensity (e.g. - raw image),
 $I_{bg}(x,y)$ is the background intensity,
 $I_d(x,y)$ is the dark count of the camera.
 Fig.~%FIXME
+demonstrates the effect of normalization.
 
 The normalized image may or may not contain holographic features. In addition,
-our estimate of the center of a holographic feature will serve as an initial guess
+our estimate of the center of a holographic feature will serve as an initial estimate
 for the inplane position of the associated scatterer. We refer to these two tasks as
 feature detection and feature localization. A common heuristic is to condense the
 extended holographic features into localized blobs and then to use a standard
@@ -336,38 +356,48 @@ conditions are met:
 \item a maximum number of iterations is exceeded
 \end{enumerate}
 The final model parameters are interpreted as the actual parameters of the
-scatterer.
-
-% Mention Dimiduk's bayesian inference.
+scatterer. This procedure is repeated through an entire video sequence.
 
 \section{Best Practices}
 
 Choices in instrumentation, sample preparation, and analysis may impact
 the resulting parameter estimates. In this section we outline considerations
-and best practices for achieving optimal results.
+and best practices for achieving optimal results by maximizing the
+resulting signal-to-noise ratio (SNR) of the image.
 
 \subsection{Instrumentation}
 
 Our inline holographic microscope is simply a compound microscope with
 coherent illumination and therefore requires only a few pieces of equipment:
 a coherent illumination source, an objective, a tube lens, and a digital
-camera
+camera. The choice of equipment and their relative settings will
+ultimately set the signal-to-noise ratio of each holographic feature.
 
-The objective and tube lens magnify and relay the focal plane image to the
-camera. 
+The objective and tube lens are designed to magnify and relay the
+focal plane image to the camera. The size of a pixel in the resulting image
+must accordingly be calibrated. We utilize a micron-sized ruler %FIXME
+to measure the size of a single pixel. The magnification of the image
+reduces the intensity by a factor of the magnification squared yet
+we want to maximize the signal in the recorded image.
+For our the dynamic range and exposure
+period of the digital camera sets a lower and upper bound for intensity
+of light arriving at the camera surface. To increase the signal-to-noise
+ratio, it is desirable to maximize the intensity of the image without
+saturating any one pixel of the camera. Given an exposure period
+and a dynamic range, one would estimate the maximum relative intensity
+that is expected over the course of the  experiment and then modulate the
+intensity to ensure the image is never saturated.
 
-A high numerical aperture objective insures that the high frequency scattered
+A high numerical aperture (NA) objective ensures that the high frequency scattered
 light contributes to the final image. However, for most the scatterers considered
-in this thesis wherein the majority of the light is scattered at lower spatial
-frequencies. %FIXME. Quantitative. Add the bit amount Sambelini/padget diamond anvil.
+in this thesis, the majority of the light is scattered at lower spatial
+frequencies. Sambelini reports using a $\num{0.3}$ NA objective to track
+colloidal particles trapped in a diamond anvil cell. With this low-NA
+objective, it was necessary to account for the clipping of
+high spatial frequency in order to reasonably fit each holographic
+feature.%FIXME. Quantitative. Add the bit amount Sambelini/padget diamond anvil.
 
-
-
-% Illumination
-% Objective
 % IF OBJECTIVE NA IS LOW, HIGH SPATIAL FREQUENCIES GET CUT. SAMBELINI/PADGET DIAMOND ANVIL
-% Tube lens
-% Camera
 
 
 \subsection{Sample Preparation}
@@ -379,7 +409,7 @@ illumination, the longitudinal resolution is limited either by the
 coherence length of the laser or the signal-to-noise ratio of the
 recorded intensity: in practice the longitudinal resolution far
 exceeds the sample height. For this reason, HVM samples must be
-diluted relative to their volume of the sample above the field
+diluted relative to the volume of the sample above the field
 of view rather than the area. In our setup, the field of view
 subtends a $\SI{80}{\um}$x$\SI{65}{\um}$ area and a sealed sample
 or flow cell has a depth of approximately $\SI{20}{\um}$. Therefore,
@@ -388,17 +418,10 @@ one scatterer in the field of view.
 
 The long coherence length of the laser has another effect: every
 smudge and defect scatters light into the field of view. Cleaning
-the glass surfaces can mitigate some of this unwanted scattered
-light. We chemically clean our microscope slides and cover slips
+the glass surfaces can mitigate some of this unwanted scattering.
+We chemically clean our microscope slides and cover slips
 by immersing each in methanol and then isopropyl alcohol. Immediately
 after the glass is dried by blowing nitrogen over the surface.
-
-\subsection{Feature Detection}
-
-After appropriately normalizing an image, it is necessary to detect if any holographic
-features are in the field of view.
-
-\subsection{Image Analysis}
 
 
 \section{Applications of HVM}
@@ -422,9 +445,3 @@ The utility of HVM extends beyond the academic domain as several commercial
 applications have been established. Cheong et.al assess the quality of dairy
 products; Wang et al. gauges the progress of colloidal synthesis reactions;
 Yevick et al. demonstrate the use of HVM in heterogeneous samples.
-
-
-
-
-% Broad uses exemplified in this thesis.
-% Uses elsewhere
