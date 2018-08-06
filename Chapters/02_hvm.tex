@@ -130,6 +130,19 @@ light ($\omega \approx \SI{670}{THz}$), our time average will include
 nearly \num{7} billion full cycles. We will therefore safely suppress the time
 dependence in all of our waves.
 
+
+\begin{figure}
+  \centering
+  \includegraphics[width=\textwidth]{hvm_three_contributions}
+  \caption{Depicting the three contributions to a holographic image. (a) the
+    resulting intensity from a micron-sized scatterer above the focal plane.
+    (b) The three contributions shown separately. (c) the magnitude of intensity
+  for each term normalized by the intensity of the incident field.}
+  \label{fig:three_contributions}
+\end{figure}
+
+
+
 As the incident illumination propagates freely through the sample, scatterers
 with a refractive index mismatch with the medium will emit a diverging scattered wave,
 $\escat$, in response. Fig.~\ref{fig:image_formation}(b) depicts the incident
@@ -168,17 +181,6 @@ beam and the scattered wave and the intensity variations of the scattered wave.
 
 
 
-\begin{figure}
-  \centering
-  \includegraphics[width=\textwidth]{hvm_three_contributions}
-  \caption{Depicting the three contributions to a holographic image. (a) the
-    resulting intensity from a micron-sized scatterer above the focal plane.
-    (b) The three contributions shown separately. (c) the magnitude of intensity
-  for each term normalized by the intensity of the incident field.}
-  \label{fig:three_contributions}
-\end{figure}
-
-
 \subsection{Scattering}
 \label{ch:hvm:sec:hvm:ssec:scattering}
 
@@ -203,13 +205,30 @@ the case of a spherical scatterer illuminated with $\hat{x}$-polarized light.
 We will provide a minimalist account of the Lorenz-Mie theory to provide intuition
 for the scattered wave's dependence on the spherical scatters properties; a thorough
 account is provided in reference %FIXME: Add reference to Bohren.
-
 \subsubsection{Lorenz-Mie Theory}
 \label{ch:hvm:sec:hvm:ssec:scattering:sssec:lm_theory}
 
+We begin with a homogeneous, dielectric sphere of radius $a_p$ and refractive
+index $n_p$ situated in a medium with refractive index $n_m$. We
+define a spherical coordinate system whose origin coincides with
+the sphere as depicted in Fig. %FIXME
+The incident beam is modeled as a plane wave of the form
+Eq.~\ref{eq:incidentfield} which propagates toward
+the scatterer from the $-\hat{z}$ direction. The scattering event
+leads to three fields, namely the incident field, an external scattered
+field, and an internal scattered field, all of which must match boundary conditions
+at the surface of the sphere. We will assume that the surface of the
+particle is charge-free and current-free\footnote{Ref.~\ref{bohren83} makes a brief
+  claim that the effect of charge on the surface should be negligible.}.
 
-
-
+Descriptions of the internal and external scattered fields are most easily
+expressed as spherical vector fields. Vector spherical harmonics
+form a basis of the solutions to Maxwell's equations in free space in
+spherical coordinates.
+The Lorenz-Mie solution amounts to expressing the incident beam as
+a sum of vector spherical harmonics and matching the boundary conditions
+at the surface of the spherical scatterer. After matching the boundary
+conditions,the resulting external scattering function is
 %The Lorenz-Mie theory
 %constitutes an exact solution for a plane wave scattering off of a
 %dielectric sphere in a homogeneous medium.
@@ -221,27 +240,28 @@ account is provided in reference %FIXME: Add reference to Bohren.
     \vec{M}^{(3)}_{o1n}(k \vec{r})
     \right),
 \end{equation}
-where $f_n=i^n (2n+1)/[n(n+1)]$, and $\vec{M}^{(3)}_{o1n}(\vec{x})$ and 
-$\vec{N}^{(3)}_{e1n}(\vec{x})$ are the vector spherical harmonics,x
+where $f_n=i^n (2n+1)/[n(n+1)]$, and $\vec{M}^{(3)}_{o1n}(k\vec{r})$ and 
+$\vec{N}^{(3)}_{e1n}(k\vec{r})$ are the vector spherical harmonics,
 \begin{equation}
-    \vec{M}^{(3)}_{o1n}(\vec{x}) = \frac{\cos\phi}{\sin\theta} \,
-  P^1_n(\cos\theta) \, j_n(x) \, \uvec{\theta}
-  - \sin\phi \, \frac{dP^1_n(\cos\theta)}{d\theta} \, j_n(x) \, \uvec{\phi},
+    \vec{M}^{(3)}_{o1n}(k\vec{r}) = \frac{\cos\phi}{\sin\theta} \,
+  P^1_n(\cos\theta) \, j_n(\rho) \, \uvec{\theta}
+  - \sin\phi \, \frac{dP^1_n(\cos\theta)}{d\theta} \, j_n(\rho) \, \uvec{\phi},
 \end{equation}
 and
 \begin{multline}
-  \vec{N}^{(3)}_{e1n}(\vec{x}) = n(n+1) \, \cos\phi
-  \,P^1_n(\cos\theta) \, \frac{j_n(x)}{x} \, \uvec{r} \\
+  \vec{N}^{(3)}_{e1n}(k\vec{r}) = n(n+1) \, \cos\phi
+  \,P^1_n(\cos\theta) \, \frac{j_n(\rho)}{\rho} \, \uvec{r} \\
   + \cos\phi \, \frac{dP^1_n(\cos\theta)}{d\theta} \,
-  \frac{1}{x} \frac{d}{dx}\left[x j_n(x)\right] \, \uvec{\theta} \\
+  \frac{1}{\rho} \frac{d}{d\rho}\left[ j_n(\rho)\right] \, \uvec{\theta} \\
   - \frac{\sin\phi}{\sin\theta} \, P^1_n(\cos\theta) \,
-  \frac{1}{x}\frac{d}{dx}\left[x j_n(x)\right] \, \uvec{\phi}
+  \frac{1}{\rho}\frac{d}{d\rho}\left[\rho j_n(\rho)\right] \, \uvec{\phi}
 \end{multline}
-Here, $P^1_n(\cos\theta)$ is the associated Legendre polynomial of the
-first kind, and $j_n(kr)$ is the spherical Bessel function of the
+Here, $\rho = kr$ is the reduced radial coordinate,
+$P^1_n(\cos\theta)$ is the associated Legendre polynomial of the
+first kind, and $j_n(\rho)$ is the spherical Bessel function of the
 first kind of order $n$.
-The expansion coefficients in Eq.~(\ref{eq:scatteredfield}) are given
-by \cite{bohren83}
+The expansion coefficients $a_n$ and $b_n$ in Eq.~(\ref{eq:scatteredfield})
+are given by \cite{bohren83}
 \begin{equation}
   a_n = \frac{m^2 j_n(mka_p) \left[ka_p \, j_n(ka_p)\right]^\prime -
     j_n(ka_p) \left[mka_p \, j_n(mka)\right]^\prime}{
@@ -256,9 +276,16 @@ and
     j_n(mka_p) \left[ka_p \, h^{(1)}_n(ka_p)\right]^\prime -
     h^{(1)}_n(ka_p) \left[mka_p \, j_n(mka_p)\right]^\prime},
 \end{equation}
+where $^\prime$ denotes the derivative of the function with respect
+to the argument in parentheses and $m=\frac{n_p}{n_m}$. The infinite
+sum in Eq.~\ref{eq:scatterfield} can be safely truncated after
+$ka_p + 4 (ka_p)^{\frac{1}{2}} + 2$ terms.
 
+A few comments will aid our intuition. The vector spherical harmonics
+do not depend on the scatterer's properties; the scatterer's influence
+on the external scattered field is completely relegated to the coefficients
+dictating 
 
-% Note that the inplane position of the image 
 
 \subsection{Image Analysis}
 
@@ -278,7 +305,6 @@ image $b(x,y)$ as
 \begin{align}
   b(x,y) &= \frac{ I(x,y) - I_d(x,y)}{ I_{bg}(x,y) - I_d(x,y)} 
 \end{align}
-
 where $I(x,y)$ is the measure intensity,
 $I_{bg}(x,y)$ is the background intensity,
 $I_d(x,y)$ is the dark count of the camera.
@@ -322,9 +348,20 @@ and best practices for achieving optimal results.
 
 \subsection{Instrumentation}
 
-Inline holographic microscopy requires on a few pieces of equipment:
+Our inline holographic microscope is simply a compound microscope with
+coherent illumination and therefore requires only a few pieces of equipment:
 a coherent illumination source, an objective, a tube lens, and a digital
-camera. The combination 
+camera
+
+The objective and tube lens magnify and relay the focal plane image to the
+camera. 
+
+A high numerical aperture objective insures that the high frequency scattered
+light contributes to the final image. However, for most the scatterers considered
+in this thesis wherein the majority of the light is scattered at lower spatial
+frequencies. %FIXME. Quantitative. Add the bit amount Sambelini/padget diamond anvil.
+
+
 
 % Illumination
 % Objective
@@ -335,12 +372,26 @@ camera. The combination
 
 \subsection{Sample Preparation}
 
-% Colloidal Synthesis.
-% Flow Cells.
-% Sealed Samples.
+Bright-field microscopy has a limited longitudinal resolution known as a
+depth of focus. For magnifications of $\num{40}$x or higher, the depth
+of focus is less than or equal to $\SI{1.0}{\um}$. With coherent
+illumination, the longitudinal resolution is limited either by the
+coherence length of the laser or the signal-to-noise ratio of the
+recorded intensity: in practice the longitudinal resolution far
+exceeds the sample height. For this reason, HVM samples must be
+diluted relative to their volume of the sample above the field
+of view rather than the area. In our setup, the field of view
+subtends a $\SI{80}{\um}$x$\SI{65}{\um}$ area and a sealed sample
+or flow cell has a depth of approximately $\SI{20}{\um}$. Therefore,
+a sample number density of $\SI{1E7}{\per\ml}$ would amount to
+one scatterer in the field of view.
 
-
-
+The long coherence length of the laser has another effect: every
+smudge and defect scatters light into the field of view. Cleaning
+the glass surfaces can mitigate some of this unwanted scattered
+light. We chemically clean our microscope slides and cover slips
+by immersing each in methanol and then isopropyl alcohol. Immediately
+after the glass is dried by blowing nitrogen over the surface.
 
 \subsection{Feature Detection}
 
