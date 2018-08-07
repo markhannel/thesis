@@ -9,25 +9,48 @@
 
 
 \section{Introduction}
-The structures and dynamics of soft matter systems are often micrometer in 
-scale. In addition, smaller features of interest can be examined with micrometer
-scale probes. Since visible wavelengths are on the order of a micrometer, such 
-systems are ripe to be investigated with visible wavelength microscopy 
-techniques.
 
-Conventional microscopy has been ubiquitously used to investigate soft matter systems. However, bright field illumination provides amplitude-only information as phase information has been averaged away. Some phase-based techniques are simply used to increase contrast in images. However, techniques like Holographic Video microscopy make full use of phase information contributing to image formation at the camera plane.
 
-Here we explore how the optical train perturbs the usual paradigm for image formation in holgraphic video microscopy. 
+%The Lorenz-Mie Scattering theory has been applied in a host of contexts:
+%dust particles in space, dynamic and static light scattering, color spectra
+%through mists, etc.
 
-Previous HVM studies utilized the time-old assumption of conventional 
-microscopy: up to units of measure, the image formed in the image plane is 
-identical to the image formed in the specimen plane. While this assumption is 
-not strictly true, especially in the case of the coherent illumination, it was good enough to perform unprecedented measurements of particles in situ as well as
-refractometry.
+%The structures and dynamics of soft matter systems are often micrometer in 
+%scale. In addition, smaller features of interest can be examined with micrometer
+%scale probes. Since visible wavelengths are on the order of a micrometer, such 
+%systems are ripe to be investigated with visible wavelength microscopy 
+%techniques.
 
-In the present study, we sweat the details present in propagating the electric fields from the specimen plane to the imaging plane through the optical train. In doing so, we hope to improve the precision and accuracy of holographic video microscopy.
+%Conventional microscopy has been ubiquitously used to investigate soft matter systems. However, bright field illumination provides amplitude-only information as phase information has been averaged away. Some phase-based techniques are simply used to increase contrast in images. However, techniques like Holographic Video microscopy make full use of phase information contributing to image formation at the camera plane.
 
-\section{Optical Model}
+The model for image formation outlined in \autoref{ch:hvm} provides a full
+vectorial treatment of the propagation of the incident beam and the scattered
+wave up to the focal plane of the objective. From there, it is assumed that the
+objective and tube lens simply magnify and relay the intensity pattern from
+the focal plane to the camera plane.
+This is a base assumption of traditional microscopy and is not unfounded; optics
+manufacturers are economically incentivized to produce optics which accurately image
+the specimen plane. However, these optics are optimized for incoherent imaging of
+specimens in the focal plane;
+how well does this venerable assumption hold for coherent imaging of out-of-plane
+scatterers?
+
+In this chapter, we will account for the propagation of the electric fields from
+the specimen plane to the imaging plane. Our model includes the
+refraction, reflection, and angular demagnification of the fields as they propagate
+through the objective and tube lens before arriving at the camera plane.
+We will attempt a full vectorial treatment throughout and will
+validate any scalar wave approximations made along the way. In many ways our work
+parallels and extends the work of Izen and Ovyrn\cite{izen00} and the work of
+\c{C}apo\u{g}lu\cite{capoglu12}. In particular, we adopt follow the format of the
+former and adopt the mathematical conventions and machinery of the latter.
+While our work primarily serves to justify the scalar wave propagation of the
+image through the optical train, we also hope to probe any possible limitations
+of HVM set by collecting, refocusing, and recording the confluence of the incident
+beam and scattered wave.
+
+
+\section{Modeling the Optical Train}
 Holographic video microscopy takes advantage of coherent illumination in order
 to preserve phase information. Besides the choice of illumination, our HVM setup can be reduced to the four components of conventional microscopy: the sample, an objective, a tube lens and a camera.
 
