@@ -10,28 +10,15 @@
 
 \section{Introduction}
 
-
-%The Lorenz-Mie Scattering theory has been applied in a host of contexts:
-%dust particles in space, dynamic and static light scattering, color spectra
-%through mists, etc.
-
-%The structures and dynamics of soft matter systems are often micrometer in 
-%scale. In addition, smaller features of interest can be examined with micrometer
-%scale probes. Since visible wavelengths are on the order of a micrometer, such 
-%systems are ripe to be investigated with visible wavelength microscopy 
-%techniques.
-
-%Conventional microscopy has been ubiquitously used to investigate soft matter systems. However, bright field illumination provides amplitude-only information as phase information has been averaged away. Some phase-based techniques are simply used to increase contrast in images. However, techniques like Holographic Video microscopy make full use of phase information contributing to image formation at the camera plane.
-
 The model for image formation outlined in \autoref{ch:hvm} provides a full
 vectorial treatment of the propagation of the incident beam and the scattered
 wave up to the focal plane of the objective. From there, it is assumed that the
 objective and tube lens simply magnify and relay the intensity pattern from
 the focal plane to the camera plane.
 This is a base assumption of traditional microscopy and is not unfounded; optics
-manufacturers are economically incentivized to produce optics which accurately image
-the specimen plane. However, these optics are optimized for incoherent imaging of
-specimens in the focal plane;
+manufacturers are economically incentivized to produce quality optics which
+accurately image the specimen plane. However, these optics are optimized for
+incoherent imaging of specimens in the focal plane;
 how well does this venerable assumption hold for coherent imaging of out-of-plane
 scatterers?
 
@@ -42,7 +29,7 @@ through the objective and tube lens before arriving at the camera plane.
 We will attempt a full vectorial treatment throughout and will
 validate any scalar wave approximations made along the way. In many ways our work
 parallels and extends the work of Izen and Ovyrn\cite{izen00} and the work of
-\c{C}apo\u{g}lu\cite{capoglu12}. In particular, we adopt follow the format of the
+\c{C}apo\u{g}lu\cite{capoglu12} et al. In particular, we adopt follow the format of the
 former and adopt the mathematical conventions and machinery of the latter.
 While our work primarily serves to justify the scalar wave propagation of the
 image through the optical train, we also hope to probe any possible limitations
@@ -52,18 +39,33 @@ beam and scattered wave.
 
 \section{Modeling the Optical Train}
 
-In the previous chapter, we detailed the 
-Besides the choice of illumination, our HVM setup can be reduced to the four components
-of conventional microscopy: the sample, an objective, a tube lens and a camera.
+%% %FIXME maybe provide a super BRIEF recap of LM up to the focal plane?
+%Figure 1 represents the physical situation underlying our experimental technique.
+%A colloidal sphere with radius $a_p$ and refractive index $n_p$ is contained
+%in a volume of fluid with refractive index $n_m$. The dilute colloidal suspension
+%is contained between a coverslip and glass slide of refractive index $1.5$
+%(for now we neglect the effect of the coverslip). An incident wave of coherent
+%illumination stimulates the colloidal sphere into radiating a spherical wave
+%described by the Lorenz-mie theory. The scattered wave and incident wave continue
+%propagating towards the camera plane.
 
-Figure 1 represents the physical situation underlying our experimental technique.
-A colloidal sphere with radius $a_p$ and refractive index $n_p$ is contained
-in a volume of fluid with refractive index $n_m$. The dilute colloidal suspension
-is contained between a coverslip and glass slide of refractive index $1.5$
-(for now we neglect the effect of the coverslip). An incident wave of coherent
-illumination stimulates the colloidal sphere into radiating a spherical wave
-described by the Lorenz-mie theory. The scattered wave and incident wave continue
-propagating towards the camera plane.
+The optical train for our holographic microscope is quite simple.
+Besides a coherent illumination source, our setup can be reduced to the four
+main components of conventional microscopy: the sample, an objective,
+a tube lens, and a camera. In the previous chapter, we described the
+scattering of a plane wave by a spherical scatterer up to the focal plane
+of the objective. We will now evaluate the scattered field and the plane
+wave at several interfaces along the optical axis. Referring to
+Figure %FIXME
+we will perform the following calculations:
+\begin{enumerate}
+\item Evaluate the scattered field at the entrance pupil of the objective.
+\item Account for the  $z$ displacement of the particle away from the focal
+  plane of the objective.
+\item Compute the scattered field at the exit pupil of the objective by accounting
+  for the angular demagnification imposed by the objective.
+\end{enumerate}
+
 
 A distance $z_p + f$ away from the colloidal sphere, the two waves enter the
 objective pupil. The objective relays the two waves to the tube lens through
