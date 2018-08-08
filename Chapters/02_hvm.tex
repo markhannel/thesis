@@ -1,34 +1,18 @@
 \chapter{Holographic Video Microscopy}
 \label{ch:hvm}
 
-% Suggested figures.
-% Diagrams depicting the physical processes
-% sequentially.
-% The setup.
-
 \newcommand{\einc}{\vec{E}_{\text{inc}}}
 \newcommand{\escat}{\vec{E}_{\text{s}}}
 \newcommand{\eadd}{\vec{E}_{\text{add}}}
 
 \section{Overview}
 
-%In this chapter, we will review the salient details 
-%underlying the theory and experimental implementation
-%of holographic video microscopy. Whenever possible,
-%extraneous details that detract from our narrative
-%will be relegated to the appendix or be given 
-%primary source citations.
-
-
-%Holographic video microscopy illuminates a sample of scatterers with
-%coherent illumination in order to preserve phase information.
-Holographic video microscopy (HVM) utilizes coherent
-illumination to measure properties of micron-sized particles,
+Holographic video microscopy (HVM) uses coherent
+illumination to measure properties of micrometer-sized particles,
 primarily their size, refractive index, and three-dimensional position.
-By imaging a sample with coherent illumination, the normally averaged-away
-phase information is preserved and contributes to the intensity variations
-in the resulting image. The physical properties of individual scatterers
-are encoded in this phase information and can be extracted by fitting
+Coherent imaging preserves the phase information that is averaged-away
+in conventional incoherent image. The physical properties of individual
+scatterers are encoded in this phase information and can be extracted by fitting
 the resulting intensity patterns to an appropriate light scattering theory.
 For non-absorbing dielectric spheres between $\num{1}$-$\SI{10}{\um}$,
 this technique yields nanometer-scale precision for the three-dimensional
@@ -38,7 +22,7 @@ index\cite{krishnatreya14}.
 In this chapter, we acquaint the reader with our primary experimental
 HVM setup and in so doing outline the salient physical processes underlying
 the technique. We then describe the Lorenz-Mie theory of light
-scattering, % and discuss the validity of common assumptions.
+scattering that provides the basis for our analytical technique,
 discuss our implementation of image analysis, and 
 conclude with a number of applications of holographic video
 microscopy.
@@ -46,18 +30,16 @@ microscopy.
 \section{Experimental Setup}
 \label{ch:hvm:sec:hvm}
 
-A diagram of our custom-built in-line holographic microscope
-is provided in Fig.~\ref{fig:hvm_setup}.
-Our setup illuminates
-the sample plane with a blue ($\SI{447}{nm}$ vacuum wavelength),
-linearly polarized laser beam (Coherent Cube). The beam's
-$\SI{25}{\mW}$ of power is spread over the $\SI{3}{\mm}$ beam
-diameter, producing an average irradiance of approximately
-$\SI{0.88}{\mW / \mm^2}$. Before scattering through the
-sample, the beam passes through a quarter-wave plate and a
-polarizing beam splitter (ThorLabs CCM1-PBS251) to enable
-beam attenuation and to optionally provide bright-field
-illumination.
+Fig.~\ref{fig:hvm_setup} presents our custom-built in-line holographic
+microscope. Our setup illuminates the sample plane with a blue
+($\SI{447}{nm}$ vacuum wavelength), linearly polarized laser beam
+(Coherent Cube). The beam's $\SI{25}{\mW}$ of power is spread over
+the $\SI{3}{\mm}$ beam diameter, producing an average irradiance
+of $\SI{0.88}{\mW / \mm^2}$. Before illuminating the sample, the beam
+passes through a quarter-wave plate and a polarizing beam splitter
+(ThorLabs CCM1-PBS251) to direct the beam's linear polarization, to
+enable beam attenuation and to provide an optical pathway for
+optional bright-field illumination.
 
 
 \begin{figure}
@@ -68,16 +50,16 @@ illumination.
 \end{figure}
 
 
-The coherent illumination and scattered light are collected by a
-standard microscope objective (Nikon Plan Apo, $\num{100}$x,
+The coherent illumination and light scattered by the sample are collected by a
+standard microscope objective (Nikon Plan Apo, $\num{100}\times$,
 numerical aperture $\num{1.45}$, oil immersion) and then focused
-by a $\SI{200}{\mm}$ lens onto a greyscale digital camera
+by a $\SI{200}{\mm}$ tube lens onto a grayscale digital camera
 (NEC TI-324AII). The digital camera digitizes the resulting intensity
 pattern to $8$-bits per pixel at $\SI{29.97}{frames / \sec}$ and relays the
-resulting array of information to either a DVR (Pioneer 520HS) to record
+resulting array of data to either a DVR (Pioneer 520HS) to record
 on a DVD or directly to the hard disk of a personal computer.
-Each pixel in the $\si{640 x 480}$ array of pixels has a width of
-$\SI{13.5}{\um}$. After $100$x magnification, a pixel in the
+Each pixel in the $\si{640\times 480}$ array of pixels has a width of
+$\SI{13.5}{\um}$. After $100\times$ magnification, a pixel in the
 image has an effective size of $\SI{0.135}{\um}$.
 
 Each recorded image documents the interference between the incident
@@ -144,7 +126,7 @@ dependence in all of our waves.
   \centering
   \includegraphics[width=\textwidth]{hvm_three_contributions}
   \caption{Depicting the three contributions to a holographic image. (a) the
-    resulting intensity from a micron-sized scatterer above the focal plane.
+    resulting intensity from a micrometer-sized scatterer above the focal plane.
     (b) The three contributions shown separately. (c) the magnitude of intensity
   for each term normalized by the intensity of the incident field.}
   \label{fig:three_contributions}
@@ -403,7 +385,7 @@ ultimately set the signal-to-noise ratio of each holographic feature.
 
 The objective and tube lens are designed to magnify and relay the
 focal plane image to the camera. The size of a pixel in the resulting image
-must accordingly be calibrated. We utilize a micron-sized ruler %FIXME
+must accordingly be calibrated. We utilize a micrometer-sized ruler %FIXME
 to measure the size of a single pixel. The magnification of the image
 reduces the intensity by a factor of the magnification squared yet
 we want to maximize the signal in the recorded image.
@@ -457,7 +439,8 @@ as the microscopic interactions that govern their behavior.
 
 Krishnatreya et al. utilized the technique to measure Boltzmann's constant from the
 size and three dimensional trajectory of a single sedimenting sphere;
-Saglimbeni et al. observed the compression of individual micron-sized spheres
+Saglimbeni et al. observed the compression of individual micrometer-sized
+spheres
 undergoing increased pressure in a diamond anvil cell; By using a sphere
 of known size and refractive index, Shpaisman et al demonstrated HVM as an
 approach for ``spatially resolved microrefractometry''; Fung et al. measured
