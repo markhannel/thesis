@@ -43,12 +43,11 @@ discuss our implementation of image analysis, and
 conclude with a number of applications of holographic video
 microscopy.
 
-
 \section{Experimental Setup}
 \label{ch:hvm:sec:hvm}
 
 A diagram of our custom-built in-line holographic microscope
-is provided in Fig.~%\ref{fig:hvm_01}.
+is provided in Fig.~\ref{fig:hvm_setup}.
 Our setup illuminates
 the sample plane with a blue ($\SI{447}{nm}$ vacuum wavelength),
 linearly polarized laser beam (Coherent Cube). The beam's
@@ -59,6 +58,15 @@ sample, the beam passes through a quarter-wave plate and a
 polarizing beam splitter (ThorLabs CCM1-PBS251) to enable
 beam attenuation and to optionally provide bright-field
 illumination.
+
+
+\begin{figure}
+  \centering
+  \includegraphics[width=\textwidth]{hvm_setup}
+  \caption{A schematic of an inline holographic video microscope.}
+  \label{fig:hvm_setup}
+\end{figure}
+
 
 The coherent illumination and scattered light are collected by a
 standard microscope objective (Nikon Plan Apo, $\num{100}$x,
@@ -203,10 +211,20 @@ account is provided in reference \cite{bohren83}.
 \subsubsection{Lorenz-Mie Theory}
 \label{ch:hvm:sec:hvm:ssec:scattering:sssec:lm_theory}
 
+\begin{figure}
+  \centering
+  \includegraphics[width=0.5\columnwidth]{hvm_spherical_coords}
+  \caption{Spherical coordinates for describing the Lorenz-Mie theory.
+    The origin of the coordinate system rests at the center of the
+    spherical scatterer. For viewing ease, the positive $\uvec{z}$ direction
+  is depicted upwards, the opposite of Fig.~\ref{fig:image_formation}.}
+  \label{fig:hvm_spherical_coords}
+\end{figure}
+
 We begin with a homogeneous, dielectric sphere of radius $a_p$ and refractive
 index $n_p$ situated in a medium with refractive index $n_m$ at a position
 $r_p$. We define a spherical coordinate system whose origin coincides with
-the sphere as depicted in Fig. %FIXME
+the sphere as depicted in Fig.~\ref{fig:hvm_spherical_coods}
 The incident beam is modeled as a plane wave of the form
 Eq.~\ref{eq:incidentfield} which propagates toward
 the scatterer from the $-\hat{z}$ direction. The scattering event
@@ -317,7 +335,16 @@ regard each of these sub-regions as holographic features.  Given an experimental
 image, our task will be to isolate these holographic features and fit each
 to the Lorenz-Mie theory.
 
-The entire image analysis procedure is depicted in Fig.~%FIXME
+
+\begin{figure}
+  \centering
+  \includegraphics[width=\textwidth]{hvm_image_analysis}
+  \caption{A schematic of an inline holographic video microscope.}
+  \label{fig:image_analysis}
+\end{figure}
+
+
+The entire image analysis procedure is depicted in Fig.~\ref{fig:image_analysis}.
 Image normalization is a necessary pre-processing step; Normalizing
 the image eliminates the incident beam's magnitude $\abs{\einc}^2$
 as a fitting parameter, mitigates the contributions of additional
@@ -329,8 +356,7 @@ We therefore fit to a normalized image $b(x,y)$ as
 where $I(x,y)$ is the measured intensity (e.g. - raw image),
 $I_{bg}(x,y)$ is the background intensity,
 $I_d(x,y)$ is the dark count of the camera.
-Fig.~%FIXME
-demonstrates the effect of normalization.
+Fig.~\ref{fig:image_analysis}(a) demonstrates the effect of normalization.
 
 The normalized image may or may not contain holographic features. In addition,
 our estimate of the center of a holographic feature will serve as an initial estimate
@@ -338,7 +364,7 @@ for the inplane position of the associated scatterer. We refer to these two task
 feature detection and feature localization. A common heuristic is to condense the
 extended holographic features into localized blobs and then to use a standard
 centroid finding algorithm on the transformed image. In this way, the centers
-of each blob will correspond to the center of a holographic feature. Fig.~%FIXME
+of each blob will correspond to the center of a holographic feature. Fig.~\ref{fig:image_analysis}(b)
 summarizes this heuristic algorithm. An in-depth study of this algorithm, as well
 as machine-learning alternatives will be presented in \autoref{ch:cascade}.
 
