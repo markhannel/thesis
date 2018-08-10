@@ -1,20 +1,25 @@
-\chapter{Holographic characterization of imperfect colloidal spheres}
+\chapter{Characterizing imperfect colloidal spheres}
 \label{ch:dimpled}
 
 \section{Introduction}
-In this chapter we call into question the assumption that the scatterer is
-spherical:
-how will deviations from sphericity affect our results if we model
-the scatterer as a perfect sphere? We will present a series of
-experimental and simulated results from fitting holographic features of
-imperfect spheres with the Lorenz-Mie theory.
-In so doing, we demonstrate that this technique yields similarly precise 
+In the previous chapters we have modeled colloidal particles as homogeneous
+dielectric spheres. Many naturally-occurring and synthetically-made particles
+approximate these constraints as surface tension favors a spherical
+geometry and a dielectric mismatch with the medium favors homogeneous inclusions. 
+However, as holographic video microscopy reports the radius of micrometer sized
+spheres with nanometer-scale precision, we must call into question the assumption that
+the scatterer is spherical: how will deviations from a spherical geometry affect our
+results?
+
+We will present a series of experimental and simulated results from fitting
+holographic features of imperfect spheres with the Lorenz-Mie theory.
+Our work demonstrates that HVM yields similarly precise 
 and meaningful results for imperfect spheres, provided that their
-deviation from sphericity is not too pronounced.
+deviation from sphericity is not too pronounced. 
 
 \begin{figure*}[t]
   \centering
-  \includegraphics[width=0.8\textwidth]{dimpled_figure1}
+  \includegraphics[width=\textwidth]{dimpled_figure1}
   \caption{(a) Scanning electron micrograph of a colloidal TPM sphere and 
     (b) a dimpled sphere.  Scale bars represent \SI{500}{\nm}.
     (c) and (d) Corresponding holograms for
@@ -32,6 +37,11 @@ deviation from sphericity is not too pronounced.
 
 \section{Synthesizing TPM particles}
 
+To experimentally investigate the effect of modeling aspherical scatterers
+as spheres, we synthesize three populations of colloidal particles: ideal spheres,
+spheres with a small dimple, and spheres with a large dimple.
+Each population will be analyzed with HVM by modeling each scatterer
+with the Lorenz-Mie theory.
 
 Our model system for this work consists of monodisperse
 colloidal particles synthesized through emulsion polymerization of
@@ -40,9 +50,9 @@ Depending on how they are made, these particles can take the form
 of spheres, as shown in Fig.~\ref{fig:singleparticle}(a), or dimpled
 spheres, as shown in Fig.~\ref{fig:singleparticle}(b), in which both
 the sphere radius and dimple dimensions are drawn from narrow
-distributions.
+distributions. 
 
-The two types of particles are synthesized through similar pathways.
+Ideal spheres and dimpled spheres are synthesized through similar pathways.
 TPM oil, which ordinarily is insoluble in water,
 undergoes hydrolysis in a basic environment (pH $> 9$) and becomes
 water soluble.
@@ -85,76 +95,19 @@ characterization because their departure from sphericity is well defined.
 
 \section{Characterizing Spherical and Aspherical Colloidal Particles}
 
-We prepared these particles for holographic characterization
-by dispersing them in water at a volume fraction of
+In this section we characterize a sample of individual ideal spheres and
+a sample of dimpled spheres. We prepared each sample for holographic characterization
+by diluting their respective stock solution in water to a volume fraction of
 \num{e-5} and introduced into a \SI{50}{\um}-thick gap between a
-glass microscope slide and a cover slip.
-The sample is sealed and mounted on the stage of a custom-built
-holographic microscope \cite{lee07,lee07a}, which illuminates
-it with a collimated laser beam at a vacuum wavelength
-of $\lambda = \SI{447}{\nm}$ (Coherent Cube).
-An illuminated particle scatters some of the laser light to the focal plane
-of a microscope objective lens (Nikon Plan Apo, $100\times$, numerical
-aperture 1.4, oil immersion) where it interferes with the unscattered portion
-of the beam.  The interference pattern is relayed by the objective lens
-and a tube lens to a video camera (NEC TI-324A), which records its intensity at
-\SI{29.97}{frames\per\second} 
-with a calibrated magnification of \SI{135}{\nm\per pixel}.
-The camera's \SI{0.1}{\ms} exposure time is short enough to avoid
-blurring of the interference pattern due to particle motion \cite{cheong09,dixon11}.
-The illumination is linearly polarized with its axis of polarization aligned
-to within \SI{1}{\degree} with the $\hat{x}$ axis of the camera.
-
-Each video frame is a hologram of the particles in the
-\SI{86 x 65}{\um} field of view.
-The images in Fig.~\ref{fig:singleparticle}(c) and \ref{fig:singleparticle}(d)
-are typical holograms of a sphere and a dimpled sphere, respectively.
-They each subtend \SI[product-units=single]{150 x 150}{pixels} and 
-are cropped from the camera's \SI[product-units=single]{640 x 480}{pixel} field of view.
-Such holograms then can be analyzed 
-\cite{lee07a,cheong09,cheong10a,krishnatreya14a} with predictions of the
-Lorenz-Mie theory of light scattering \cite{bohren83,mishchenko02} 
-to estimate the particle's radius, $a_p$ and refractive index, $n_p$.
-Specifically, we process a recorded image $I(\vec{r})$ by subtracting off the
-camera's dark count, $I_d(\vec{r})$ and normalizing by a background image,
-$I_0(\vec{r})$,
-that is recorded with no particles in the field of view:
-\begin{equation}
-  \label{eq:normalized}
-  b(\vec{r}) 
-  =
-  \frac{I(\vec{r}) - I_d(\vec{r})}{I_0(\vec{r}) - I_d(\vec{r})}.
-\end{equation}
-Assuming that gradients in the amplitude and phase of the illumination
-are small over the scale of the particle, the normalized hologram of
-a particle located at $\vec{r}_p$ relative to the center of the microscope's
-focal plane may be modeled as \cite{lee07a,krishnatreya14}
-\begin{equation}
-  \label{eq:lorenzmie}
-  b(\vec{r}) 
-  =
-  \abs{
-    \hat{x} + e^{-i k z_p} \, \vec{f}_s(k(\vec{r} - \vec{r}_p))
-  }^2,
-\end{equation}
-where $k = 2 \pi n_m / \lambda$ is the wave number of the light in a medium
-of refractive index $n_m$, and where $\vec{f}_s(k\vec{r})$ 
-describes how the particle scatters $\hat{x}$-polarized light.
+glass microscope slide and a cover slip. 
 
 
-If the particle may be modeled as
+As reviewed in \autoref{ch:hvm}, if the particle may be modeled as
 an ideal isotropic sphere, then $\vec{f}_s(k\vec{r})$ is
-the Lorenz-Mie scattering function \cite{bohren83,mishchenko02},
-which is parameterized by the particle's radius and refractive index.
-Fitting Eq.~\eqref{eq:lorenzmie} to a measured hologram
+the Lorenz-Mie scattering function \cite{bohren83,mishchenko02}.
+Fitting to a measured hologram
 therefore yields the particle's three-dimensional position $\vec{r}_p$,
 its radius $a_p$ and its refractive index $n_p$.
-Previous studies on model colloidal spheres have confirmed that
-these fits converge reliably for micrometer-scale spheres, and yield
-the radius with a precision better than 5 nanometers 
-\cite{lee07a,moyses13,krishnatreya14}
-and the refractive index to within 3 parts per thousand 
-\cite{shpaisman12,moyses13}.
 The data in Fig.~\ref{fig:singleparticle}(e) show results obtained for
 a typical TPM sphere localized in an optical trap that was
 projected through the microscope's objective lens using the
@@ -209,8 +162,6 @@ Similar discrepancies have been noted in previous studies
 and reasonably may be explained by changes
 induced by preparing the spheres for SEM observation.
 
-
-
 The extent to which a dimpled sphere's hologram may be described
 with an ideal sphere's scattering function depends on the dimple's
 orientation.
@@ -245,7 +196,6 @@ When the dimple is directed along the axis, however, distortions to
 the scattering pattern are symmetric about the axis and thus affect
 the fits more strongly.
 
-\section{Determining Tolerable Asphericity}
 
 The success of an idealized model for describing light scattering by a
 dimpled sphere may be explained at least heuristically by treating
@@ -256,6 +206,10 @@ scale roughly as their respective volumes.
 If the dimple's volume is only a small fraction of the
 sphere's, and if, furthermore, the dimple's contribution is asymmetric,
 the perturbation should be negligible.
+
+
+\section{Determining Tolerable Asphericity}
+
 
 \begin{figure}[!t]
   \centering
@@ -386,8 +340,13 @@ previously documented success with real-world samples.
 This study suggests that small amounts of surface roughness have
 little influence on the results obtained by fitting to the theory
 for light scattering by ideal spheres.
-These observations therefore broaden the domain of applicability of
-holographic characterization.
+Conversely, we have demonstrated the use of the Lorenz-Mie theory
+as an effective sphere model for aspherical particles. For micrometer
+sized particles whose geometry differs modestly from a sphere,
+fitting to the Lorenz-Mie theory will provide an effective size and
+composition.
+These observations therefore validate the use of the Lorenz-Mie theory
+and broaden the domain of applicability of holographic characterization.
 
 This work was supported primarily by the MRSEC program of the National
 Science Foundation through Grant Number DMR-1420073, in part by the NSF
