@@ -33,7 +33,9 @@ microscopy.
 Fig.~\ref{fig:hvm_setup} presents our custom-built in-line holographic
 microscope. Our setup illuminates the sample plane with a blue
 ($\SI{447}{nm}$ vacuum wavelength), linearly polarized laser beam
-(Coherent Cube). The beam's $\SI{25}{\mW}$ of power is spread over
+(Coherent Cube) to within \SI{1}{\degree} of the horizontal
+axis of the camera. 
+The beam's $\SI{25}{\mW}$ of power is spread over
 the $\SI{3}{\mm}$ beam diameter, producing an average irradiance
 of $\SI{0.88}{\mW / \mm^2}$. Before illuminating the sample, the beam
 passes through a quarter-wave plate and a polarizing beam splitter
@@ -65,7 +67,7 @@ image has an effective size of $\SI{0.135}{\um}$.
 Each recorded image documents the interference between the incident
 electric field and the resulting scattered waves. By fitting
 to a theory of light scattering, we will measure the physical
-properties of the scatterers contributing to the scattered fields
+properties of the scatterers contributing to the scattered field
 at the focal plane of the objective.
 
 % Description of trapping?
@@ -105,20 +107,20 @@ at the focal plane of the objective.
 
 The image formation process at the focal plane of the objective
 is depicted in Fig.~\ref{fig:image_formation}. Fig.~\ref{fig:image_formation}(a)
-shows the coherent illumination, or incident field $\einc$, propagating in the $+\hat{z}$ direction
+shows the coherent illumination, or incident field $\einc (\vec{r})$, propagating in the $+\hat{z}$ direction
 through the sample and toward the focal plane of the objective. We model the incident field
 as a plane wave polarized in the $\hat{x}$ direction, 
 \begin{equation}
   \label{eq:incidentfield}
   \einc(\vec{r}) = E_0\,  e^{i \varphi_0(\vec{r})} \, e^{i kz} \, \hat{x},
 \end{equation}
-with magnitude $E_0$, phase $\varphi_0$, and wavenumber
-$k =\frac{2\pi n_m}{\lambda}$. All of the waves considered here
-propagate with a time dependence of $e^{i \omega t}$. However,
-our measurements of intensity will be time averaged over the course of an exposure period
-of at least $\SI{10}{\us}$. As we will be imaging with $\SI{447}{nm}$ blue
+with magnitude $E_0$, phase profile $\varphi_0(\vec{r})$, and wavenumber
+$k = 2\pi n_m/\lambda$. All of the waves considered here
+propagate with a time dependence of $e^{-i \omega t}$. Measurements of
+the light's intensity are time averaged over the duration of the camera's exposure
+period of at least $\SI{10}{\us}$. As we will be imaging with $\SI{447}{nm}$ blue
 light ($\omega \approx \SI{670}{THz}$), our time average will include
-nearly \num{7} billion full cycles. We will therefore safely suppress the time
+nearly \num{7} billion full cycles. We will therefore safely neglect the time
 dependence in all of our waves.
 
 
@@ -127,17 +129,17 @@ dependence in all of our waves.
   \includegraphics[width=\textwidth]{hvm_three_contributions}
   \caption{Depicting the three contributions to a holographic image. (a) the
     resulting intensity from a micrometer-sized scatterer above the focal plane.
-    (b) The three contributions shown separately. (c) the magnitude of intensity
+    (b) the three contributions shown separately. (c) the magnitude of intensity
   for each term normalized by the intensity of the incident field.}
   \label{fig:three_contributions}
 \end{figure}
 
 As the incident illumination propagates freely through the sample, scatterers
-with a refractive index mismatch with the medium will emit a diverging scattered wave,
-$\escat$, in response. Fig.~\ref{fig:image_formation}(b) depicts the incident
+whose refractive index differs from the medium's will emit a diverging scattered wave,
+$\escat(\vec{r})$, in response. Fig.~\ref{fig:image_formation}(b) depicts the incident
 field and resulting scattered field propagating toward the focal plane.
 For the scatterers of interest in this study, the scattered field is dominated by
-forward scattering and the scatterer will absorb a negligible amount of the
+forward scattering and the scatterer absorbs a negligible proportion of the
 incident wave.
 
 The incident field and scattered field continue propagating and eventually pass through
@@ -145,22 +147,22 @@ the focal plane, as depicted in Fig.~\ref{fig:image_formation}. The intensity of
 formed in the focal plane can be described as
 \newcommand{\preint}{\frac{n_mc\epsilon_0}{2}}
 \begin{align}
-  I &= \preint\abs{\einc + \escat}^2\\
+  I(\vec{r}) &= \preint\abs{\einc + \escat}^2\\
     &= \preint\left ( \abs{\einc}^2 + \einc\cdot\escat^* + \einc^*\cdot\escat + \abs{\escat}^2 \right ) \\
     &= \preint\left (\abs{\einc}^2 + 2\Re\left \{\einc\cdot\escat^*\right \} + \abs{\escat}^2 \right ) \label{eq:image_formation}
 \end{align}
 where $n_m$ is the refractive index of the medium, $c$ is the speed of light in a vacuum,
-$\epsilon_0$ is the vacuum permittivity, and we've assumed the medium is non-magnetic
+$\epsilon_0$ is the vacuum permittivity. We assumed that the medium is non-magnetic
 ($\mu_r=1$).
 
-The relative contributions of the terms in Eq.~\ref{eq:image_formation}
+The relative contributions of the terms in Eq.~\eqref{eq:image_formation}
 are depicted in Fig.~\ref{fig:three_contributions} for a $\SI{1.0}{\um}$ polystyrene
 sphere ($n = 1.59$) a distance of $\SI{12}{\um}$ above an imaging plane with pixel
 size $\SI{0.135}{\um}$.
-The first term $\abs{\einc}^2$ is constant over the field of view and
-incorporates no phase information. The third term 
-$\abs{\escat}^2$ is also phase-less but is not constant over the field of view.
-The second term, $2\Re\left \{\einc\cdot\escat^*\right \}$, contributes the
+The first term, $\abs{\einc}^2$ is constant over the field of view and
+incorporates no phase information. The third term,
+$\abs{\escat(\vec{r})}^2$, is also real-valued but is not constant over the field of view.
+The second term, $2\Re\left \{\einc\cdot\escat^*(\vec{r})\right \}$, contributes the
 spatially-varying interference pattern from the relative phase of the incident
 beam and the scattered wave and the intensity variations of the scattered wave.
 % Discussion of DC terms? Does DC Stand for duty cycle?
@@ -170,25 +172,35 @@ beam and the scattered wave and the intensity variations of the scattered wave.
 \subsection{Scattering}
 \label{ch:hvm:sec:hvm:ssec:scattering}
 
-It is a general principle of scattering in linear, homogeneous media
+It is a general principle of scattering in linear homogeneous media
 that the magnitude of the scattered wave be proportional to the
 magnitude of the illuminating wave. We therefore model the scattered
 field as
 \begin{equation}
-  \label{eq:incidentfield}
-  \escat(\vec{r}) = E_0(\vec{r_p})\, \vec{f_s} \left ( k \left ( \vec{r} - \vec{r_p} \right ) \right ) ,
+  \label{eq:gen_scattered}
+  \escat(\vec{r}) = E_0(\vec{r}_p)\, \vec{f}_s \left ( k \left ( \vec{r} - \vec{r}_p \right ) \right ) ,
 \end{equation}
-where $E_0(\vec{r_p})$ is the average intensity illuminating the scatterer at $\vec{r_p}$,
-and $\vec{f_s}$ describes how the particle $s$ scatters $\hat{x}$-polarized light.
-Note that nature of $\vec{f_s}$ depends heavily on the shape and composition
+where $E_0(\vec{r}_p)$ is the amplitude of the wave illuminating the scatterer at $\vec{r}_p$,
+and $\vec{f}_s(\vec{r})$ describes how the particle $s$ scatters $\hat{x}$-polarized light.
+Note that nature of $\vec{f}_s(\vec{r})$ depends inherently on the shape and composition
 of the scatterer.
 
+When the scattered field is adequately described by \eqref{eq:gen_scattered}, the
+image in the focal plane linearly scales with the incident field intensity $\abs{\einc}^2$,
+\begin{equation}
+  \label{eq:gen_norm}
+  I(\vec{r}) = \abs{\einc}^2\abs{\uvec{x} + \vec{f}_s(k(\vec{r}-\vec{r}_p))}^2
+\end{equation}
+
+
 With the exception of \autoref{ch:dimpled}, our study will focus exclusively on
-spherical scatterers. The Lorenz-Mie theory offers an exact solution for
-the case of a spherical scatterer illuminated with $\hat{x}$-polarized light.
-We will provide a minimalist account of the Lorenz-Mie theory to provide intuition
-for the scattered wave's dependence on the spherical scatters properties; a thorough
+spherical scatterers. The Lorenz-Mie theory offers an exact solution for $\vec{f}_s(\vec{r})$
+in the case of a spherical scatterer illuminated with $\hat{x}$-polarized light.
+We will provide a brief overview of the Lorenz-Mie theory to build intuition
+for the scattered wave's dependence on the spherical scatter's properties; an exhaustive
 account is provided in reference \cite{bohren83}.
+
+
 
 \subsubsection{Lorenz-Mie Theory}
 \label{ch:hvm:sec:hvm:ssec:scattering:sssec:lm_theory}
@@ -206,26 +218,26 @@ account is provided in reference \cite{bohren83}.
 We begin with a homogeneous, dielectric sphere of radius $a_p$ and refractive
 index $n_p$ situated in a medium with refractive index $n_m$ at a position
 $r_p$. We define a spherical coordinate system whose origin coincides with
-the sphere as depicted in Fig.~\ref{fig:hvm_spherical_coods}
+the sphere as depicted in Fig.~\ref{fig:hvm_spherical_coords}
 The incident beam is modeled as a plane wave of the form
-Eq.~\ref{eq:incidentfield} which propagates toward
+\eqref{eq:incidentfield} which propagates toward
 the scatterer from the $-\hat{z}$ direction. The scattering event
 leads to three fields, namely the incident field, an external scattered
 field, and an internal scattered field, all of which must match boundary conditions
-at the surface of the sphere.  Based on the work of J. Kla\u{c}ka et. al.~\cite{klacka07},
-we conclude that for micrometer sized particles imaged with visible light, the electrostatic
-potential at the surface of the sphere would have to be implausibly high ($\SI{E8}{V}$)
-before any surface charge or current would affect the resulting image. Therefore,
-we safely adopt the usual assumption of a charge-free and current-free surface.
+at the surface of the sphere.  Based on the work of Kla\u{c}ka \emph{et al}~\cite{klacka07},
+we conclude that the electrostatic
+potential at the surface of a micrometer-scale sphere would have to be implausibly high
+($\SI{E8}{V}$) before surface charge or current would appreciably affect the scattering
+of visible light and therefore a recorded image. Therefore,
+we adopt the usual assumption of a charge-free and current-free surface.
 
-Descriptions of the internal and external scattered fields are most easily
-expressed as spherical vector fields. Vector spherical harmonics
-form a basis of the solutions to Maxwell's equations in free space in
-spherical coordinates.
-The Lorenz-Mie solution amounts to expressing the incident beam as
+The internal and external fields in the vicinity of a sphere are most naturally
+expressed as an expansion in vector spherical harmonics. Vector spherical harmonics
+provide an orthonormal basis for the solutions to Maxwell's wave equations in free space.
+The Lorenz-Mie solution amounts to expressing the incident plane wave as
 a sum of vector spherical harmonics and matching the boundary conditions
 at the surface of the spherical scatterer. After matching the boundary
-conditions,the resulting external scattering function is
+conditions\cite{bohren83,mishchenko96}, the resulting external scattering function is
 %The Lorenz-Mie theory
 %constitutes an exact solution for a plane wave scattering off of a
 %dielectric sphere in a homogeneous medium.
@@ -293,17 +305,20 @@ where $^\prime$ denotes the derivative of the function with respect
 to the argument in parentheses and $x_m = \frac{2\pi n_m}{\lambda} a_p$
 and $x_p = \frac{2\pi n_p}{\lambda} a_p$ are the reduced particle size according
 to the medium and to the particle respectively. The infinite
-sum in Eq.~\ref{eq:scatteredfield} can be safely truncated after
-$x_m + 4x_m^{\frac{1}{2}} + 2$ terms.
+sum in \eqref{eq:scatteredfield} can be safely truncated after
+$x_m + 4x_m^{\frac{1}{2}} + 2$ terms\cite{wiscombe80}.
 
-A few comments will aid our intuition. The vector spherical harmonics
-do not depend on the scatterer's properties; the scatterer's influence
-on the external scattered field is completely contained in the coefficients.
-As one would expect, the coefficients $a_n$ and $b_n$ identically converge to
-zero as $n_p$ approaches $n_m$ (i.e. - the limit of no dielectric mismatch).
-The termination condition depends only on $n_m$ and $a_p$. Given a medium
-refractive index of $1.33$, the number of terms varies from approximately
-$50$ for a $\SI{1}{\um}$ sphere to $\num{240}$ for a $\SI{10}{\um}$ sphere.
+A few comments will at this point help to understand how \eqref{eq:gen_norm} through
+\eqref{eq:bn} can be used to track and characterize colloidal particles.
+The vector spherical harmonics do not depend on the scatterer's properties;
+the scatterer's influence on the external scattered field is completely contained
+in the coefficients.
+The coefficients $a_n$ and $b_n$ converge to zero as $n_p$ approaches $n_m$ which
+is the case for index-matched particles.
+The condition for terminating the series in \eqref{eq:scatteredfield} depends only on refractive
+index of the medium and the size of the particle in units of the wavelength. Given a medium
+refractive index of $1.33$ and wavelength of $\SI{447}{\nm}$, the number of terms range from
+approximately $50$ for a $\SI{1}{\um}$ sphere to $\num{240}$ for a $\SI{10}{\um}$ sphere.
 % Should n_p = n_m.. these computations would be a waste!
 
 
@@ -311,9 +326,9 @@ $50$ for a $\SI{1}{\um}$ sphere to $\num{240}$ for a $\SI{10}{\um}$ sphere.
 
 We analyze each of our recorded images to extract information about the particles
 scattering light into the field of view.  Because the scattered wave's electric
-field approximately decays as $~\frac{1}{r}$, each scatterer's influence on the
-resulting image can effectively be isolated to a sub-region of the image; we will
-regard each of these sub-regions as holographic features.  Given an experimental
+field approximately decays as $r^{-1}$, each scatterer's influence on the
+resulting image is confined to a sub-region of the image; we will
+regard each of these regions of interest as holographic features.  Given an experimental
 image, our task will be to isolate these holographic features and fit each
 to the Lorenz-Mie theory.
 
@@ -321,7 +336,7 @@ to the Lorenz-Mie theory.
 \begin{figure}
   \centering
   \includegraphics[width=\textwidth]{hvm_image_analysis}
-  \caption{A schematic of an inline holographic video microscope.}
+  \caption{Depicting the image analysis .}
   \label{fig:image_analysis}
 \end{figure}
 
@@ -335,55 +350,58 @@ We therefore fit to a normalized image $b(x,y)$ as
 \begin{align}
   b(x,y) &= \frac{ I(x,y) - I_d(x,y)}{ I_{bg}(x,y) - I_d(x,y)} 
 \end{align}
-where $I(x,y)$ is the measured intensity (e.g. - raw image),
-$I_{bg}(x,y)$ is the background intensity,
+where $I(x,y)$ is the image recorded by the camera,
+$I_{bg}(x,y) = \abs{\einc(\vec{r})}^2$ is the background intensity,
 $I_d(x,y)$ is the dark count of the camera.
 Fig.~\ref{fig:image_analysis}(a) demonstrates the effect of normalization.
 
-The normalized image may or may not contain holographic features. In addition,
-our estimate of the center of a holographic feature will serve as an initial estimate
-for the inplane position of the associated scatterer. We refer to these two tasks as
-feature detection and feature localization. A common heuristic is to condense the
+The normalized image may or may not contain holographic features. If a feature
+is detected,
+our estimate of it's center will serve as an initial estimate
+for the in-plane position of the associated scatterer.
+Feature detection and feature localization are the first two steps in analyzing
+normalized holograms. A common heuristic is to condense the
 extended holographic features into localized blobs and then to use a standard
-centroid finding algorithm on the transformed image. In this way, the centers
+centroid finding algorithm\cite{crocker96} on the transformed image. In this way, the centers
 of each blob will correspond to the center of a holographic feature. Fig.~\ref{fig:image_analysis}(b)
 summarizes this heuristic algorithm. An in-depth study of this algorithm, as well
 as machine-learning alternatives will be presented in \autoref{ch:cascade}.
 
 We fit each localized holographic feature to the Lorenz-Mie theory
-via a non-linear least squares fitting algorithm known as the Levenberg-Marquardt
-algorithm, otherwise known as damped least-squares. The Levenberg-Marquardt
-algorithm interpolates between the gradient descent (a damped first order algorithm)
-and the Gauss-Newton algorithm (a second order algorithm directed towards the nearest
-minimum). As with many fitting algorithms, this method will generally find a local
-minima which may not be a global minima. The fitting procedure will
-progressively find model parameters which minimize the chi-square difference
-with the experimental image. The procedure terminates when one of three
-conditions are met:
+with the Levenberg-Marquardt algorithm, otherwise known as damped least-squares.
+The Levenberg-Marquardt algorithm interpolates between gradient descent which is a damped
+first order algorithm, 
+and the Gauss-Newton algorithm which is a second order algorithm directed towards the nearest
+minimum. As with many fitting algorithms, this method find a local
+minimum which may not be a global minimum. The fitting procedure will
+progressively find model parameters that minimize the chi-square statistic differences
+between the model and the experimental image. The procedure terminates when one of three
+conditions is met:
 \begin{enumerate}
 \item the magnitude of the gradient drops below a threshold
-\item the iterative change in chi-square drops below some threshold
-\item a maximum number of iterations is exceeded
+\item the incremental change in chi-square drops below a predetermined threshold
+\item a maximum number of iterations is exceeded.
 \end{enumerate}
 The final model parameters are interpreted as the actual parameters of the
 scatterer. This procedure is repeated through an entire video sequence.
 
 \section{Best Practices}
 
-Choices in instrumentation, sample preparation, and analysis may impact
-the resulting parameter estimates. In this section we outline considerations
+Choices in instrumentation, sample preparation, and analysis may influence
+the resulting parameter estimates. In this section, we outline considerations
 and best practices for achieving optimal results by maximizing the
-resulting signal-to-noise ratio (SNR) of the image.
+signal-to-noise ratio (SNR) of the image.
 
 \subsection{Instrumentation}
 
-Our inline holographic microscope is simply a compound microscope with
+Our inline holographic microscope is a compound microscope with
 coherent illumination and therefore requires only a few pieces of equipment:
-a coherent illumination source, an objective, a tube lens, and a digital
-camera. The choice of equipment and their relative settings will
-ultimately set the signal-to-noise ratio of each holographic feature.
+a coherent illumination source, an objective lens, a tube lens, and a digital
+camera. The choice of components and their relative settings
+set the signal-to-noise ratio of each holographic feature.
 
-The objective and tube lens are designed to magnify and relay the
+The objective lens and tube lens are designed to magnify and relay the
+intensity distribution in 
 focal plane image to the camera. The size of a pixel in the resulting image
 must accordingly be calibrated. We utilize a micrometer-sized ruler %FIXME
 to measure the size of a single pixel. The magnification of the image
