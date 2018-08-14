@@ -6,12 +6,14 @@
 \input{/home/mark/Latex_Document_Starter/preamble.tex}
 \usepackage{fancyhdr}
 \pagestyle{fancy}
+\usepackage{xcolor}
 
 \newcommand{\uvec}[1]{\boldsymbol{\hat{#1}}}
 \newcommand{\einc}{\vec{E}_{\text{inc}}}
 \newcommand{\escat}{\vec{E}_{\text{s}}}
 \newcommand{\eadd}{\vec{E}_{\text{add}}}
-
+\newcommand{\tbb}[1]{\textcolor{blue}{#1}}
+\newcommand{\tbr}[1]{\textcolor{red}{#1}}
 
 \markboth{Title}{Title}
 
@@ -90,8 +92,14 @@
   \vspace{1.0 in}
   
   $\uvec{x}$ \hspace{1.0 in} $\uvec{y}$ \hspace{1.0 in} $\uvec{z}$
+
+
+  \vspace{1.0 in}
   
   \newpage
+  \begin{equation*}
+   \left [ \left [ \tbb{10},\, \tbb{20},\, \tbr{60},\, \tbr{80} \right ], \left [ \tbb{410},\, \tbb{390},\, \tbr{480},\, \tbr{640} \right ] \right ] 
+  \end{equation*}
   
 
 \item More Content.
