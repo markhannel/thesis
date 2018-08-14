@@ -215,9 +215,9 @@ account is provided in reference \cite{bohren83}.
   \label{fig:hvm_spherical_coords}
 \end{figure}
 
-We begin with a homogeneous, dielectric sphere of radius $a_p$ and refractive
-index $n_p$ situated in a medium with refractive index $n_m$ at a position
-$r_p$. We define a spherical coordinate system whose origin coincides with
+We begin by considering a homogeneous, dielectric sphere of radius $a_p$ and refractive
+index $n_p$ situated at a position $r_p$ in a medium with refractive index $n_m$.
+We define a spherical coordinate system whose origin coincides with
 the sphere as depicted in Fig.~\ref{fig:hvm_spherical_coords}
 The incident beam is modeled as a plane wave of the form
 \eqref{eq:incidentfield} which propagates toward
@@ -332,14 +332,12 @@ regard each of these regions of interest as holographic features.  Given an expe
 image, our task will be to isolate these holographic features and fit each
 to the Lorenz-Mie theory.
 
-
 \begin{figure}
   \centering
   \includegraphics[width=\textwidth]{hvm_image_analysis}
   \caption{Depicting the image analysis .}
   \label{fig:image_analysis}
 \end{figure}
-
 
 The entire image analysis procedure is depicted in Fig.~\ref{fig:image_analysis}.
 Image normalization is a necessary pre-processing step; Normalizing
@@ -370,13 +368,12 @@ as machine-learning alternatives will be presented in \autoref{ch:cascade}.
 We fit each localized holographic feature to the Lorenz-Mie theory
 with the Levenberg-Marquardt algorithm, otherwise known as damped least-squares.
 The Levenberg-Marquardt algorithm interpolates between gradient descent which is a damped
-first order algorithm, 
-and the Gauss-Newton algorithm which is a second order algorithm directed towards the nearest
-minimum. As with many fitting algorithms, this method find a local
-minimum which may not be a global minimum. The fitting procedure will
-progressively find model parameters that minimize the chi-square statistic differences
-between the model and the experimental image. The procedure terminates when one of three
-conditions is met:
+first order algorithm, and the Gauss-Newton algorithm which is a second order
+algorithm directed towards the nearest minimum. As with many fitting algorithms,
+this method find a local minimum which may not be a global minimum. The fitting
+procedure will progressively find model parameters that minimize the
+chi-square statistic differences between the model and the experimental image.
+The procedure terminates when one of three conditions is met:
 \begin{enumerate}
 \item the magnitude of the gradient drops below a threshold
 \item the incremental change in chi-square drops below a predetermined threshold
@@ -401,76 +398,81 @@ camera. The choice of components and their relative settings
 set the signal-to-noise ratio of each holographic feature.
 
 The objective lens and tube lens are designed to magnify and relay the
-intensity distribution in 
-focal plane image to the camera. The size of a pixel in the resulting image
-must accordingly be calibrated. We utilize a micrometer-sized ruler %FIXME
-to measure the size of a single pixel. The magnification of the image
-reduces the intensity by a factor of the magnification squared yet
-we want to maximize the signal in the recorded image.
-For our the dynamic range and exposure
-period of the digital camera sets a lower and upper bound for intensity
-of light arriving at the camera surface. To increase the signal-to-noise
+intensity distribution in the focal plane to the camera.
+The size of a pixel in the resulting image
+must accordingly be calibrated. We use a calibrated reticle (Ted Pella) to
+gauge the size of a single pixel.%FIXME
+The dynamic range and exposure period of the digital camera set lower and
+upper bounds, respectively, for the intensity of the illumination.
+To increase the signal-to-noise
 ratio, it is desirable to maximize the intensity of the image without
-saturating any one pixel of the camera. Given an exposure period
-and a dynamic range, one would estimate the maximum relative intensity
-that is expected over the course of the  experiment and then modulate the
-intensity to ensure the image is never saturated.
+saturating the camera. 
 
 A high numerical aperture (NA) objective ensures that large-angle scattered
-light contributes to the final image. In all of our Saglimbeni et. al. report using a
-$\num{0.3}$ NA objective to track colloidal particles trapped in a diamond
-anvil cell\cite{saglimbeni16}. With this low-NA objective, it was necessary
-to account for the clipping of high spatial frequency in order to reasonably
-fit each holographic feature. For consistency, 
+light contributes to the final image. Saglimbeni \emph{et al.}, for example,
+were obliged to use a $\num{0.3}$ NA objective to track colloidal particles
+trapped in a diamond anvil cell\cite{saglimbeni16}; as a result they found it necessary
+to account for clipping of high spatial frequency in order to reasonably
+fit each holographic feature. The NA 1.45 objective we used in our instrument
+avoids such clipping.
 
 \subsection{Sample Preparation}
 
 Bright-field microscopy has a limited longitudinal resolution known as a
-depth of focus. For magnifications of $\num{40}$x or higher, the depth
+depth of focus. For magnifications of $\num{40}\times$ or higher, the depth
 of focus is less than or equal to $\SI{1.0}{\um}$. With coherent
-illumination, the longitudinal resolution is limited either by the
+illumination, the longitudinal range is limited either by the
 coherence length of the laser or the signal-to-noise ratio of the
-recorded intensity: in practice the longitudinal resolution far
+recorded intensity: in practice the longitudinal range far
 exceeds the sample height. For this reason, HVM samples must be
 diluted relative to the volume of the sample above the field
 of view rather than the area. In our setup, the field of view
-subtends a $\SI{80}{\um}$x$\SI{65}{\um}$ area and a sealed sample
+subtends a $\SI{80x65}{\um}$ area and a sealed sample
 or flow cell has a depth of approximately $\SI{20}{\um}$. Therefore,
-a sample number density of $\SI{1E7}{\per\ml}$ would amount to
+a sample number density of $\SI{1E7}{\per\milli\liter}$ would correspond to
 one scatterer in the field of view.
 
 The long coherence length of the laser has another effect: every
-smudge and defect scatters light into the field of view. Cleaning
+smudge and defect in the optical train scatters light into the field of view. Cleaning
 the glass surfaces can mitigate some of this unwanted scattering.
 We chemically clean our microscope slides and cover slips
 by immersing each in methanol and then isopropyl alcohol. Immediately
 after the glass is dried by blowing nitrogen over the surface.
-
+Normalization suppresses most of the remaining unwanted interference
+features.
 
 \section{Applications of HVM}
 
 The utility of holographic video microscopy has been demonstrated by many groups
-in a host of applications. By simultaneously measuring the size, refractive index,
+in a host of applications\cite{lee07a,fung12,saglimbeni16}. By simultaneously measuring the size, refractive index,
 and three-dimensional position of individual scatters {\it in situ}, HVM
 offers unparalleled insight into the composition of colloidal samples, as well
 as the microscopic interactions that govern their behavior.
 
-Krishnatreya et al. utilized the technique to measure Boltzmann's constant from the
-size and three dimensional trajectory of a single sedimenting sphere;
-Saglimbeni et al. observed the compression of individual micrometer-sized
+Krishnatreya \emph{et al.} utilized the technique to measure Boltzmann's constant from the
+size and three dimensional trajectory of a single sedimenting sphere \cite{krishnatreya14}.
+Saglimbeni \emph{et al.} observed the compression of individual micrometer-sized
 spheres
-undergoing increased pressure in a diamond anvil cell; By using a sphere
-of known size and refractive index, Shpaisman et al demonstrated HVM as an
-approach for ``spatially resolved microrefractometry''; Fung et al. measured
-the three-dimensional diffusion tensor for clusters of colloidal spheres
-with $\num{1}$\%.
+undergoing increased pressure in a diamond anvil cell\cite{saglimbeni16}. By using a sphere
+of known size and refractive index, Shpaisman \emph{et al.} demonstrated HVM as an
+approach for ``spatially resolved microrefractometry'' \cite{shpaisman12}.
+Fung \emph{et al.} measured the three-dimensional diffusion tensor for
+clusters of colloidal spheres with $\num{1}$\% precision and accuracy \cite{fung13}.
 
 The utility of HVM extends beyond the academic domain as several commercial
-applications have been established. Cheong et.al assess the quality of dairy
-products; Wang et al. gauges the progress of colloidal synthesis reactions;
-Yevick et al. demonstrate the use of HVM in heterogeneous samples.
-
-
+applications have been established. Applications include assessing the quality of dairy
+products \cite{cheong09a}, monitoring protein aggregation in biopharmaceuticals \cite{wang16}, detecting agglomeration in semiconductor polishing slurries \cite{cheong17}, 
+and monitoring contaminants in wastewater \cite{philips17}.
+%\cite{cheong17}, 
+%Applications include
+%
+%
+%
+%performing microrheology \cite{cheong08}, 
+%microrefractometry \cite{shpaisman12}, 
+%and microporosimetry \cite{cheong11} measurements,
+%assessing the quality of dairy products \cite{cheong09a},
+%
 
 %This technique has been demonstrated on both homogeneous
 %and heterogeneous \cite{yevick14,philips17}
@@ -478,14 +480,4 @@ Yevick et al. demonstrate the use of HVM in heterogeneous samples.
 %colloidal clusters \cite{perry12,fung12,fung13}, and aggregates 
 %\cite{wang16,wang16a}, as well as colloidal rods \cite{cheong10} 
 %and other aspherical particles \cite{wang14using,hannel15}.
-%Applications include
-%monitoring protein aggregation in biopharmaceuticals \cite{wang16},
-%detecting agglomeration in semiconductor polishing slurries
-%\cite{cheong17}, 
-%gauging the progress of colloidal synthesis reactions \cite{wang15,wang15a},
-%performing microrheology \cite{cheong08}, 
-%microrefractometry \cite{shpaisman12}, 
-%and microporosimetry \cite{cheong11} measurements,
-%assessing the quality of dairy products \cite{cheong09a},
-%and monitoring contaminants 
-%in wastewater \cite{philips17}.
+%
