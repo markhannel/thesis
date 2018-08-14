@@ -1,54 +1,26 @@
 \chapter{Machine-learning techniques for fast and accurate feature localization in holographic images}
 \label{ch:cascade}
 
-
 \section{Introduction}
 
-
-Holographic particle characterization \cite{lee07a} uses 
-quantitative analysis of holographic video microscopy images to 
-measure the size, shape, and composition of individual colloidal
-particles, in addition to their three-dimensional positions.
-When applied to a stream of dispersed particles, holographic
-characterization measurements provide insights into the
-joint distribution of particle size and composition
-that cannot be obtained in any other way.
-This technique has been demonstrated on both homogeneous
-and heterogeneous \cite{yevick14,philips17}
-dispersions of colloidal spheres, and has been extended to work for 
-colloidal clusters \cite{perry12,fung12,fung13}, and aggregates 
-\cite{wang16,wang16a}, as well as colloidal rods \cite{cheong10} 
-and other aspherical particles \cite{wang14using,hannel15}.
-Applications include
-monitoring protein aggregation in biopharmaceuticals \cite{wang16},
-detecting agglomeration in semiconductor polishing slurries
-\cite{cheong17}, 
-gauging the progress of colloidal synthesis reactions \cite{wang15,wang15a},
-performing microrheology \cite{cheong08}, 
-microrefractometry \cite{shpaisman12}, 
-and microporosimetry \cite{cheong11} measurements,
-assessing the quality of dairy products \cite{cheong09a},
-and monitoring contaminants 
-in wastewater \cite{philips17}.
-
-The critical first step in holographic particle characterization
-is to detect features of interest within a recorded video frame,
-and to localize them well enough to enable subsequent 
-analysis  \cite{crocker96,cheong09,yevick14,krishnatreya14a}.
+The critical first step in analyzing holographic images 
+is to detect features of interest within a recorded frame,
+and to localize them well enough for subsequent analysis\cite{cheong09}.
 False positive and negative detections clearly are undesirable.
 Poor localization slows downstream analysis
-\cite{yevick14,krishnatreya14a} and can prevent fitting algorithms 
-from converging to reasonable results.
+\cite{yevick14} and can prevent fitting algorithms 
+from converging to reasonable results. Previous works
+have demonstrated multiple heuristic algorithms that achieve
+sub-pixel localization error and low false positive rates in
+holographic images of dilute, homogeneous suspensions.\cite{crocker96,cheong09,krishnatreya14a}
+The performance of these algorithms however deteriorates when applied
+to dense or heterogeneous samples. Furthermore, the computational
+complexity of such algorithms currently prohibit real-time applications.
+
 Here, we demonstrate that machine-learning algorithms can meet the
 need for reliable feature detection and precise object localization in
-holographic video microscopy.
-This complements the previously reported \cite{yevick14}
-use of machine-learning regression to estimate
-characteristics such as particle size from holographic
-features that already have been detected, localized
-and isolated by other means.
-With appropriate training, machine-learning algorithms
-surpass standard image-analysis
+holographic video microscopy. With appropriate training,
+machine-learning algorithms surpass standard image-analysis
 techniques in their ability to cope with common image defects
 such as overlapping features.
 They also operate significantly faster, thereby enabling
@@ -57,38 +29,29 @@ hardware.
 
 \begin{figure}[b!]
   \centering
-  \includegraphics[width=0.9\textwidth]{cascade_01}	
-  \caption{Overview of holographic particle characterization. (a) Plane-wave 
-  illumination is scattered by colloidal particles (red spheres). The 
-  field scattered by a particle at $\vec{r}_p$ interferes with the plane wave
-  to produce a hologram in the focal
-  plane of a microscope.
-  (b) Features in a digitally recorded hologram are
-  detected with a machine-learning algorithm before being
-  analyzed with light-scattering 
-  theory to estimate the particles' physical properties.}
-  \label{fig:characterization}
+  \includegraphics[width=\textwidth]{cascade_detection_FINAL}	
+  \caption{ Depicting the problem of feature detection and localization.
+    (a) each extended holographic feature in the recorded image (left)
+    must be localized by a bounding box (right).
+    (b) recapitulating the same task as a mathematical problem. \%\%FIXME: The bounding box values are wrong.. sorry David!} 
+  \label{fig:detection}
 \end{figure}
 
 \section{Detecting and Localizing Holographic Features}
 
-Figure~\ref{fig:characterization} illustrates the challenge of
-recognizing features in holograms.
-Light scattered by a particle 
-spreads as it propagates to the focal plane of a conventional
-microscope.
-There, it interferes with the remainder of the illuminating beam
-to create a pattern of concentric interference fringes.
-The microscope magnifies this interference pattern and
-projects it onto
-the detector of a video camera.
-The intensity variations
-associated with a single colloidal particle
-typically span many pixels in a recorded image
-and display rich internal structure.
-Their scale and complexity render such features difficult to
-recognize by conventional
-particle-tracking techniques.
+Figure~\ref{fig:detection}(a) illustrates the challenge of
+recognizing features in holographic images. For each
+holographic feature in a video frame, return a set of coordinates
+identifying a bounding box centered around the feature. As depicted
+in figure~\ref{fig:detection}(a), features may vary in
+contrast and extent. Additionally, features may overlap or be occluded by
+the edge of the field of view.
+
+Figure~\ref{fig:detection}(b) conveys the computational difficulty
+of automating this task. A two-dimensional array stores the intensity values
+for each pixel in the recorded video frame. An successful analysis of the
+array yields a list whose length corresponds to the number of features and whose
+entries identify the coordinates bounding a particular feature.
   
 \subsection{ Heuristic Algorithms}
 \label{sec:heuristic}
@@ -108,10 +71,10 @@ radial symmetry of typical single-particle holograms'
 symmetry without reference to the underlying image-formation
 mechanism.
 For an image of $N$ pixels on a side, voting algorithms
-have a computational complexity of $\mathcal{O}{N^3 \log N}$ % XXX Do you want to use mathcal?
+have a computational complexity of $\mathcal{O}\left (N^3 \log N \right )$ 
 \cite{hollitt13} whereas the convolution-based orientation alignment
 transform
-runs in $\mathcal{O}{N^2 \log N}$ operations \cite{cheong09}. % XXX Mathcal?
+runs in $\mathcal{O}\left ( N^2 \log N \right )$ operations \cite{cheong09}.
 For this reason, we transform holograms with the
 orientation alignment transform
 to assess the performance of heuristic algorithms,
@@ -158,14 +121,14 @@ coordinates, $(x_p, y_p)$, for every particle in the field
 of view, as well as the extent of the region of interest
 encompassing the scattering pattern.
 The box superimposed on the two-particle hologram in
-Fig.~\ref{fig:characterization}(b) represents a
+Fig.~\ref{fig:detection}(a) represents a
 region of interest centered on one of the particles
 that was computed by a CNN.
 
 Cascade classifiers and convolutional neural networks
 both work by convolving holograms with
 small arrays and interpreting the results.
-They thus require $\mathcal{O}{N^2}$ operations, which % XXX mathcal?
+They thus require $\mathcal{O}\left ( N^2 \right )$ operations, which 
 gives them the potential to run significantly more
 quickly than heuristic algorithms, particularly for
 larger images.
@@ -234,6 +197,17 @@ and the for training the output layers to associate these features
 with regression estimates for the
 locations and extents of detected features.
 
+
+
+\begin{figure}[b!]
+  \centering
+  \includegraphics[width=\textwidth]{rogue_gallery}	
+  \caption{ A random selection of cropped and centered
+  holographic features used in training.} 
+  \label{fig:rogue_gallery}
+\end{figure}
+
+
 Both types of supervised machine-learning algorithms 
 require sets of sample data for training and validation.
 Each training element
@@ -252,103 +226,9 @@ the effort and errors inherent in empirical annotation.
 
 \section{Generating Training and Validation Datasets}
 
-Referring to Fig.~\ref{fig:characterization}, we model the 
-holographic microscope's illumination as a
-plane wave at frequency $\omega$ propagating down the $\hat{z}$ 
-axis (along $-\hat{z}$) and linearly polarized along $\hat{x}$:
-\begin{equation}
-  \label{eq:incidentwave}
-  \vec{E}_0(\vec{r},t)
-  =
-  u_0 \, e^{i k z} e^{i \omega t} \, \hat{x},
-\end{equation}
-where $k = n_m \omega/c$ is the wavenumber of the light
-in a medium of refractive index $n_m$. A particle at position 
-$\vec{r}_p$
-scatters the incident wave, thereby creating the scattered field
-\begin{equation}
-  \label{eq:scatteredwave}
-  \vec{E}_s(\vec{r},t)
-  =
-  u_0 \, e^{i k z_p} \, \vec{f}_s(k[\vec{r} - \vec{r}_p]) \, e^{i \omega t},
-\end{equation}
-where $\vec{f}_s(k\vec{r})$ is the Lorenz-Mie scattering 
-function \cite{bohren83,mishchenko02}. For the particular case
-of scattering by a sphere, $\vec{f}_s(k\vec{r})$ is parameterized
-by the sphere's radius $a_p$ and refractive index $n_p$ \cite{bohren83}.
-The field that reaches point $\vec{r}$ in the focal plane 
-($z = 0$) is the superposition of these two contributions,
-\begin{equation}
-  \label{eq:modelfield}
-  \vec{E}(\vec{r},t) = \vec{E}_0(\vec{r},t) + \vec{E}_s(\vec{r},t).
-\end{equation}
-The dimensionless intensity,
-$b(\vec{r}) \equiv u_0^{-2} \abs{\vec{E}(\vec{r},t)}^2$,  
-is then given by
-\begin{equation}
-  \label{eq:modelintensity}
-  b(\vec{r})
-  =
-  \abs{\hat{x} + e^{i k z_p} \, \vec{f}_s(k[\vec{r} - \vec{r}_p])}^2.
-\end{equation}
 
-In addition to $a_p$ and $n_p$, this model for the
-image formation process depends on a small number of
-parameters that characterize the instrument.
-Our holographic microscope is powered by
-a \SI{15}{\milli\watt} fiber-coupled diode laser (Coherent Cube)
-operating at a vacuum wavelength of 
-$\lambda = \SI{447}{\nm}$.  
-The combination of a half-wave plate and a polarizing 
-beam splitter reduces the
-power incident on the sample to \SI{3}{\milli\watt} and ensures
-that the light is linearly polarized along $\hat{x}$,
-as required by Eq.~\eqref{eq:modelintensity}.
-A $100\times$ oil-immersion objective lens
-(Nikon S-Plan Apo, numerical aperture 1.3) and a matched \SI{200}{\mm}
-tube lens provide a total magnification of \SI{135}{\nm\per pixel}
-on a standard video camera (NEC TI-324AII). The 
-\SI{640 x 480}{pixel} grid is digitized at \SI{8}{bits \per pixel} 
-and recorded as uncompressed digital video at 
-\SI{29.97}{frames\per\second} with a commercial digital video 
-recorder (Pioneer DVR-560H).  The refractive 
-index of the medium, $n_m$, is determined to within a part 
-per ten thousand using an Abbe refractometer (Edmund Scientific).
-
-Having determined the calibration constants,
-we treat the particle's position and properties as 
-adjustable parameters and fit predictions of
-Eq.~\eqref{eq:modelintensity} to experimentally measured holograms.
-To do so, each video frame must first be 
-corrected by subtracting off the camera's dark count 
-\cite{wang16a}, and then
-normalizing by the microscope's background intensity distribution \cite{lee07a}. 
-Such fits typically yield a sphere's position with a precision of 
-\SI{1}{\nm} in the plane and \SI{3}{\nm} axially 
-\cite{cheong09,cheong10a}. 
-Characterization results are similarly precise, 
-with the radius of a micrometer-diameter sphere typically 
-being resolved to within \SI{3}{\nm} and the refractive index to 
-within a part per thousand \cite{krishnatreya14,shpaisman12}.
-
-This excellent performance requires starting 
-estimates for the adjustable parameters that are
-good enough for the fitting 
-algorithm to converge to a globally optimal solution. 
-The fitter computes trial holograms according to
-Eq.~\eqref{eq:modelintensity}, which is computationally 
-expensive.
-It has to perform fewer of these computations when it is
-provided with better estimates for the starting parameters.
-Whereas heurstic localization algorithms meet this need,
-machine-learning algorithms are substantially faster and
-more robust, and can be comparably precise.
-
-\section{Applying Machine Learning 
-to Holographic Particle Localization}
-
-We used Eq.~\eqref{eq:modelintensity} to generate training 
-images of particles with radii ranging from 
+We utilize Eq.~\eqref{eq:gen_norm} - \eqref{eq:bn} to generate training 
+images of spherical scatters with radii ranging from 
 $a_p = \SI{0.25}{\um}$ to \SI{5}{\um}, refractive indexes from 
 $n_p = \num{1.4}$ to \num{2.5}, and axial positions from 
 $z_p = \SI{5}{\um}$ to \SI{50}{\um}. 
@@ -358,7 +238,9 @@ range and is centered at random within
 the field of view.
 Normalized experimental holograms have uncorrelated white
 noise that we model as additive Gaussian noise with a standard
-deviation of five percent.
+deviation of five percent. Fig.~\ref{fig:rogue_gallery} depicts
+\num{16} randomly selected, cropped, and centered holographic features
+used in training.
 
 Our cascade classifier was trained with \num{6000}
 synthetic images of colloidal spheres.
@@ -390,7 +272,7 @@ of training and validation.
   
 \begin{figure}[!t]
   \centering
-  \includegraphics[width=0.75\columnwidth]{cascade_02} % XXX CHECK that this
+  \includegraphics[width=\columnwidth]{cascade_02} % XXX CHECK that this
   %is the figure david used.
   \caption{Each localization technique provided estimates
   for the trajectory of a simulated brownian particle.
