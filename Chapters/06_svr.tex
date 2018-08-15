@@ -57,78 +57,8 @@ in under a millisecond on the same hardware.
 
 \section{Fast Holographic Characterization with Machine Learning}
 
-The in-line holographic microscope used for these studies
-\cite{lee07,lee07a,krishnatreya14} 
-illuminates the sample with a linearly polarized collimated
-laser beam (Coherent Cube, \SI{20}{\mW})
-at a vacuum wavelength of
-$\lambda = \SI{447}{\nm}$.
-The fluence of the \SI{3}{\mm}-diameter beam
-is comparable to that of a conventional microscope illuminator.
-Optical forces and light-induced heating therefore are negligible.
-Light scattered by a sphere
-propagates to the focal plane of a custom-built video microscope \cite{krishnatreya14}
-where it interferes with the undiffracted portion of the original beam.
-The microscope magnifies this interference pattern onto the detector of a grayscale
-video camera (NEC TI 324AII), which records its intensity with a system
-magnification of \SI{135}{\nm\per pixel}.
-Each snapshot in the video stream constitutes a hologram of
-the particles in the channel.
-
-The electric field of the incident beam at position $\vec{r}$ in the focal plane
-may be modeled as a plane wave with spatial dependence
-\begin{equation}
-  \label{eq:incidentfield}
-  \vec{E}_0(\vec{r}) = u_0(\vec{r}) \, e^{i \varphi_0(\vec{r})} \, e^{i k z} \, \hat{x},
-\end{equation}
-where $k = 2 \pi n_m / \lambda$ is
-the wavenumber in a medium of refractive index $n_m$, and
-where $u_0(\vec{r})$ and $\varphi_0(\vec{r})$ account for small variations in the beam's
-amplitude and phase profiles, respectively.
-
-A particle located at $\vec{r}_p$ relative to the center of the focal
-plane scatters the incident illumination,
-$\vec{E}_0(\vec{r}_p)$, to the focal plane as
-\begin{equation}
-  \label{eq:scatteredfield}
-  \vec{E}_s(\vec{r}) 
-  = 
-  E_0(\vec{r}_p) \, 
-  \vec{f}_s\!\left( k (\vec{r} - \vec{r}_p) \vert a_p, n_p \right)),
-\end{equation}
-where $\vec{f}_s(k\vec{r} \vert a_p, n_p)$ is the Lorenz-Mie scattering function 
-\cite{bohren83} that describes how a
-sphere of radius $a_p$ and refractive index $n_p$ scatters an $\hat{x}$-polarized plane wave.
-The measured
-intensity then may be modeled as
-\begin{equation}
-  \label{eq:intensity}
-  I(\vec{r}) 
-  = 
-  \abs{\vec{E}_0(\vec{r}) + \vec{E}_s(\vec{r})}^2.
-\end{equation}
-Normalizing the recorded hologram
-by $I_0(\vec{r}) = \abs{\vec{E}_0(\vec{r})}^2 = u_0^2(\vec{r})$
-suppresses spurious
-structure in the illumination
-and yields a functional form for the normalized hologram
-\cite{lee07a,krishnatreya14},
-\begin{equation}
-  b(\vec{r}) 
-  = \frac{I(\vec{r})}{I_0(\vec{r})}
-  \approx
-  \abs{
-    \hat{x} + 
-    e^{-i k z_p} \vec{f}_s(k(\vec{r} - \vec{r}_p)
-    \vert a_p, n_p)}^2,
-  \label{eq:theory}
-\end{equation}
-that can be calculated with standard software packages
-\footnote{
-See, for example, http://physics.nyu.edu/grierlab/software.html for holographic microscopy software written in the IDL programming language that was used in the present study. A comparable implementation in the python programming language is available at http://manoharan.seas.harvard.edu/holopy/.}
-
 Previous implementations of Lorenz-Mie microscopy \cite{lee07a} 
-fit Eq.~\eqref{eq:theory} to measured holograms using $a_p$, $n_p$
+fit Eq.~\eqref{eq:gen_norm} to measured holograms using $a_p$, $n_p$
 and $\vec{r}_p$ as adjustable parameters.
 These fits are exquisitely sensitive to errors in the particle's
 in-plane position, and so must be performed over the entire
@@ -160,10 +90,10 @@ Figure~\ref{fig:method} schematically represents this process
 for estimating $a_p$ and $n_p$.
 
 An SVM computes its output by comparing
-$b(r)$ with sets of training data, $b_n(r)$,
-that are obtained from Eq.~\eqref{eq:theory} over a range
+$b(r)$ with vectors from a set of training data, $\left \{ b_n(r) \right \}$,
+that are computed with Eq.~\eqref{eq:theory} over a range
 of values of $a_p$, $n_p$ and $z_p$.
-Each training set constitutes one support vector in the space 
+Each computed profile, $b_n(r)$, constitutes one support vector in the space 
 spanned by these parameters.
 To facilitate these comparisons,
 we construct SVMs with radial basis functions
@@ -211,8 +141,7 @@ for values of $\gamma$ and $C$ that vary from their optimal values by
 up to fifty percent. 
 
 We trained SVMs with a 5,000-member training set of radial profiles,
-$b_n(r)$, computed with Eq.~\eqref{eq:theory} using the Lorenz-Mie
-theory.
+$b_n(r)$.
 Parameters for these computed profiles were evenly distributed over a volume in
 the three-dimensional space spanned by
 $\SI{13.5}{\um} \leq z_p \leq \SI{75}{\um}$,
@@ -221,7 +150,7 @@ $1.4 \leq n_p \leq 1.8$ at a resolution of
 \SI{1.35}{\um} in $z_p$, 
 \SI{0.1}{\um} in $a_p$ and 0.1 in $n_p$.
 Training time increases dramatically with 
-the number of training sets, and also with larger values of $C$ and $\gamma$.
+the number of training vectors, and also with larger values of $C$ and $\gamma$.
 Once trained, however, an SVM translates input data vectors into 
 output parameter estimates extremely rapidly.
 
@@ -239,7 +168,7 @@ Sampling the entire parameter space accessible to
 holographic characterization with resolution
 comparable to the precision realized with nonlinear fits
 \cite{lee07a}
-would require more than \num{e10} training sets.
+would require more than \num{e10} training vectors.
 If, however, the system of interest is characterized by a more modest range
 of parameters, then results from an initial SVM analysis
 can be used to generate a comparatively small set of training data
@@ -276,7 +205,8 @@ The sample was prepared by dispersing roughly equal proportions
 of four types of colloidal spheres in water:
 \SI{1}{\um}-diameter and \SI{2}{\um}-diameter 
 spheres made of polystyrene (Thermoscientific Catalog No.\ 5100A and 
-Bangs Laboratories Catalog No.\ SS04N, respectively) and silica (Duke
+Bangs Laboratories Catalog No.\ SS04N, respectively) and similarly
+sized spheres of silica (Duke
 Standards Catalog Nos.\ 8100 and 4202A, respectively).
 Each of these four populations is monodisperse, with a
 standard deviation in the radius of less than 5\%.
@@ -293,9 +223,9 @@ sphere, and is colored by the local density of measurements.
 SVM-mediated holographic characterization clearly identifies
 the four populations of particles and provides estimates for their relative abundances.
 The mode values of the refractive indexes, $n_p \approx \num{1.4}$ 
-and \num{1.6} are consistent with values for silica and polystyrene,
+and \num{1.6}, are consistent with values for silica and polystyrene,
 respectively.  Values for the radii, $a_p \approx \SI{0.5}{\um}$
-and \SI{1}{\um} are consistent with manufacturers'
+and \SI{1}{\um}, are consistent with manufacturers'
 specifications.
 Characterizing multicomponent dispersions
 is a unique capability of holographic particle analysis, and
@@ -321,19 +251,19 @@ dispersed in the medium.
   \centering
   \includegraphics[width=0.9\textwidth]{svr_figure2}
   \caption{Tracking and characterizing a single colloidal sphere.
-    (a) The estimated axial position $z_p(t)$ relative to the focal plane
+    (a) The estimated axial position, $z_p(t)$, relative to the focal plane
     of the microscope of a single polystyrene sphere sedimenting
     through water as it diffuses.  The line is a least-squares fit.
     Insets show the sphere's hologram at the beginning and end
     of the trajectory.
-    (b) The radius $a_p$ and refractive index $n_p$
+    (b) The radius, $a_p$, and refractive index, $n_p$,
     estimated from each hologram in the same sequence, colored
     by time.  Each dot corresponds to values obtained from a single
     hologram.
-    (c) The mean-squared displacement, $\Delta z_p^2(\tau)$ as a function
+    (c) The mean-squared displacement, $\Delta z_p^2(\tau)$, as a function
     of lag time $\tau$ computed from the data in (a), including
     statistical error bars.  The superimposed line is a fit to
-    Eq.~\eqref{eq:einsteinsmoluchowsky}.}
+    Eq.~\eqref{eq:einsteinsmoluchowsky}.}\cite{yevick14}
   \label{fig:values}
 \end{figure}
 
@@ -347,9 +277,8 @@ diffusing as it sedimented through
 deionized water near the midplane of
 a \SI{120}{\um}-deep channel.
 Figure~\ref{fig:values}(a) shows the time-resolved
-trajectory, $z_p(t)$, obtained from a sequence of 4,500 video frames
-recorded at \SI{29.97}{frames\per\second} using iterative
-SVM training.
+trajectory, $z_p(t)$, obtained from a sequence of \num{4,500} video frames
+recorded at \SI{29.97}{frames\per\second}.
 
 Because polystyrene is roughly 5 percent more dense than water,
 the sphere sediments
@@ -360,7 +289,7 @@ the hologram's appearance changes from the beginning
 of the trajectory to the end.
 Despite these changes, the SVMs' estimates for the
 radius and refractive index plotted in Fig.~\ref{fig:values}(b)
-remain clustered around the mean values
+remain clustered around the mean values,
 $a_p = \SI{0.79(2)}{\um}$
 and 
 $n_p = \num{1.600(6)}$.
@@ -422,9 +351,8 @@ bound by an order of magnitude
 \section{Discussion}
 
 The results presented here are typical of the performance of SVMs
-for characterizing and tracking colloidal spheres.
-of a wide
-variety of compositions and sizes over a large axial range.
+for characterizing and tracking colloidal spheres with a wide
+variety of compositions and sizes moving over a large axial range.
 The speed and precision of SVM characterization
 is ideal for monitoring, feedback control and quality assurance
 in any industrial process involving colloidal spheres.
@@ -476,3 +404,6 @@ neural networks are generally more computationally efficient.
 Regardless of implementation, the present results demonstrate
 that machine-learning methods facilitate
 fast and precise measurements of colloidal properties.
+
+
+This work was supported by a research grant from Procter \& Gamble.
