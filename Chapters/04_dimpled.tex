@@ -2,19 +2,20 @@
 \label{ch:dimpled}
 
 \section{Introduction}
-In the previous chapters we have modeled colloidal particles as homogeneous
+In the previous chapters, we have modeled colloidal particles as homogeneous
 dielectric spheres. Many naturally-occurring and synthetically-made particles
-approximate these constraints as surface tension favors a spherical
-geometry and a dielectric mismatch with the medium favors homogeneous inclusions. 
-However, as holographic video microscopy reports the radius of micrometer sized
-spheres with nanometer-scale precision, we must call into question the assumption that
-the scatterer is spherical: how will deviations from a spherical geometry affect our
-results?
+resemble this ideal as surface tension favors the formation of spheres and a dielectric
+mismatch with the medium favors homogeneous inclusions.
+For such particles, the Lorentz-Mie model introduced in \autoref{ch:hvm} is a
+good description. Many other kinds of particles however, are not spherical and
+are not homogeneous. This chapter address how departures from sphericity
+affect the results of holographic characterization.
 
 We will present a series of experimental and simulated results from fitting
 holographic features of imperfect spheres with the Lorenz-Mie theory.
-Our work demonstrates that HVM yields similarly precise 
-and meaningful results for imperfect spheres, provided that their
+Our work demonstrates that HVM yields can measure the size and refractive index
+of imperfect spheres with nearly the same precision as for the ideal
+case, provided that their
 deviation from sphericity is not too pronounced. 
 
 \begin{figure*}[t]
@@ -40,8 +41,8 @@ deviation from sphericity is not too pronounced.
 To experimentally investigate the effect of modeling aspherical scatterers
 as spheres, we synthesize three populations of colloidal particles: ideal spheres,
 spheres with a small dimple, and spheres with a large dimple.
-Each population will be analyzed with HVM by modeling each scatterer
-with the Lorenz-Mie theory.
+Each population is analyzed with HVM by using the Lorenz-Mie theory
+for scattering by a sphere.
 
 Our model system for this work consists of monodisperse
 colloidal particles synthesized through emulsion polymerization of
@@ -90,23 +91,20 @@ colloidal self-assembly
 and are models for colloidal microcapsules \cite{chang64}, which are widely
 used in industrial applications, and tend to buckle into dimpled spheres
 through osmotic stress \cite{chang64,knoche11,jose14}. 
-They are useful for assessing the limits of holographic
+These model particles are useful for assessing the limits of holographic
 characterization because their departure from sphericity is well defined.
 
 \section{Characterizing Spherical and Aspherical Colloidal Particles}
 
-In this section we characterize a sample of individual ideal spheres and
-a sample of dimpled spheres. We prepared each sample for holographic characterization
-by diluting their respective stock solution in water to a volume fraction of
-\num{e-5} and introduced into a \SI{50}{\um}-thick gap between a
-glass microscope slide and a cover slip. 
+We prepared samples for holographic characterization
+by diluting their respective stock dispersion in water to a volume fraction of
+\num{e-5} and introducing the diluted dispersion into a \SI{50}{\um}-thick gap between a
+glass microscope slide and a cover slip. Particles were translated into the
+observation volume for recording under quiescent conditions. 
 
-
-As reviewed in \autoref{ch:hvm}, if the particle may be modeled as
-an ideal isotropic sphere, then $\vec{f}_s(k\vec{r})$ is
-the Lorenz-Mie scattering function \cite{bohren83,mishchenko02}.
-Fitting to a measured hologram
-therefore yields the particle's three-dimensional position $\vec{r}_p$,
+Their holograms were then analyzed with the Lorenz-Mie model, treating each
+particle as if it were a sphere.
+Each fit yields an estimate for the particle's three-dimensional position $\vec{r}_p$,
 its radius $a_p$ and its refractive index $n_p$.
 The data in Fig.~\ref{fig:singleparticle}(e) show results obtained for
 a typical TPM sphere localized in an optical trap that was
@@ -149,7 +147,8 @@ The corresponding estimate for the refractive index,
 ideal spheres.
 In both cases, the distribution of
 values extracted from nonlinear least-squares 
-fits to Eq.~\eqref{eq:lorenzmie} is consistent with single-fit error estimates.
+fits to Eq.~\eqref{eq:gen_norm} with the scattered field provided
+in Eq.~\eqref{eq:scatteredfield} is consistent with single-fit error estimates.
 This agreement suggests that the ideal model can yield quantitative
 results for the characteristics of dimpled spheres, without incurring
 the costs of more realistic modeling.
@@ -237,18 +236,18 @@ not so fast as to incur artifacts due to motion-induced blurring
 Results plotted in Fig.~\ref{fig:distributions} for TPM spheres reveal
 a reasonably symmetric distribution of particle sizes and refractive
 indexes peaked at \SI{0.82(2)}{\um} and \num{1.446(6)}, respectively.
-These values are consistent both with the single-sphere measurements
+These values are consistent with the single-sphere measurements
 reported in Fig.~\ref{fig:singleparticle}.
 The corresponding distributions for dimpled spheres plotted in
 Fig.~\ref{fig:distributions} become increasingly broad and asymmetric
 as the relative size of the dimple increases.
 Particles with \SI{5}{\percent} dimple volumes yield a mean refractive
-index, \num{1.444(6)}, consistent with the ideal spheres' value.
-The mean radius, \SI{0.81(2)}{\um}, is consistent with the
+index, $n_p=\num{1.444(6)}$, consistent with the ideal spheres' value.
+The mean radius, $a_p=\SI{0.81(2)}{\um}$, is consistent with the
   single-sphere result reported in Fig.~\ref{fig:singleparticle}(h).
 Increasing the dimple volume to \SI{10}{\percent} leads to
 substantial deviations, with a mean refractive index of
-\num{1.42(3)}.
+$n_p=\num{1.42(3)}$.
 Some variability can be attributed to the dimpled spheres'
 random orientation in the channel.
 
@@ -261,15 +260,14 @@ with the same software used to analyze experimental data.
 The discrete-dipole approximation treats an object as a three-dimensional
 arrangement of independent microscopic dipole scatterers, each of which
 is illuminated by the incident beam and also by the first-order scattering
-of its neighbors
-\footnote{The ADDA implementation of the discrete-dipole approximation
+of its neighbors\footnote{The ADDA implementation of the discrete-dipole approximation
 \cite{yurkin11} used for this study discretizes the particle volume on a 
 three-dimensional square grid with an effective lattice constant
 roughly one-tenth the wavelength of light in the material.  Typical
 numbers of dipoles range from \num{100} for the smallest particles
-considered to \num{18000} for the largest.}
+considered to \num{18000} for the largest.}.
 The superposition of scattered waves yields an estimate for 
-$\vec{f}_s(k\vec{r})$, which is used to synthesize a hologram.
+$\vec{f}_s(k\vec{r} $ that is used to synthesize a hologram.
 Dimpled spheres are modeled as the superposition of
 two spheres separated by a center-to-center distance $d$, one
 of radius $a_p$ and refractive index $n_p$, and the other of radius
