@@ -9,15 +9,17 @@ and to localize them well enough for subsequent analysis\cite{cheong09}.
 False positive and negative detections clearly are undesirable.
 Poor localization slows downstream analysis
 \cite{yevick14} and can prevent fitting algorithms 
-from converging to reasonable results. Previous works
-have demonstrated multiple heuristic algorithms that achieve
+from converging to reasonable results. Previous studies
+have introduced multiple heuristic algorithms for feature detection and
+localization that achieve
 sub-pixel localization error and low false positive rates in
 holographic images of dilute, homogeneous suspensions.\cite{crocker96,cheong09,krishnatreya14a}
-The performance of these algorithms however deteriorates when applied
-to dense or heterogeneous samples. Furthermore, the computational
-complexity of such algorithms currently prohibit real-time applications.
+The performance of these algorithms, however, deteriorates when applied
+to dense or heterogeneous samples. Furthermore, their computational
+complexity currently prohibits real-time applications.
 
-Here, we demonstrate that machine-learning algorithms can meet the
+The studies described in this chapter demonstrate that machine-learning
+algorithms can meet the
 need for reliable feature detection and precise object localization in
 holographic video microscopy. With appropriate training,
 machine-learning algorithms surpass standard image-analysis
@@ -30,25 +32,26 @@ hardware.
 \begin{figure}[b!]
   \centering
   \includegraphics[width=\textwidth]{cascade_detection_FINAL}	
-  \caption{ Depicting the problem of feature detection and localization.
-    (a) each extended holographic feature in the recorded image (left)
-    must be localized by a bounding box (right).
-    (b) recapitulating the same task as a mathematical problem. \%\%FIXME: The bounding box values are wrong.. sorry David!} 
+  \caption{ Feature detection and localization in holograms of colloidal particles.
+    This holographic microscopy image includes two features due to light scattering by
+    colloidal spheres in the imaging volume. (b) Illustrating the result of detection
+    and localization; both features are detected and the bounding boxes associated with
+    each scatter capture the region of interest around the feature. (c) Although feature
+    detection seems straightforward by visual inspection, it is a more challenging
+  task when posed as a purely mathematical problem.} 
   \label{fig:detection}
 \end{figure}
 
 \section{Detecting and Localizing Holographic Features}
 
 Figure~\ref{fig:detection}(a) illustrates the challenge of
-recognizing features in holographic images. For each
-holographic feature in a video frame, return a set of coordinates
-identifying a bounding box centered around the feature. As depicted
-in figure~\ref{fig:detection}(a), features may vary in
-contrast and extent. Additionally, features may overlap or be occluded by
-the edge of the field of view.
-
-Figure~\ref{fig:detection}(b) conveys the computational difficulty
-of automating this task. A two-dimensional array stores the intensity values
+recognizing features in holographic images: for each
+holographic feature in a video frame, return the set of coordinates
+that identify a bounding box enclosing the feature. As depicted
+in Fig.~\ref{fig:detection}(a), features may vary in
+contrast and in extent. Additionally, features may overlap or be occluded by
+the edge of the field of view. Fig.~\ref{fig:detection}(b) conveys the computational
+difficulty of automating this task. A two-dimensional array stores the intensity values
 for each pixel in the recorded video frame. An successful analysis of the
 array yields a list whose length corresponds to the number of features and whose
 entries identify the coordinates bounding a particular feature.
@@ -120,10 +123,10 @@ Both approaches yield estimates for the in-plane
 coordinates, $(x_p, y_p)$, for every particle in the field
 of view, as well as the extent of the region of interest
 encompassing the scattering pattern.
-The box superimposed on the two-particle hologram in
-Fig.~\ref{fig:detection}(a) represents a
-region of interest centered on one of the particles
-that was computed by a CNN.
+The boxes superimposed on the two-particle hologram in
+Fig.~\ref{fig:detection}(a) represent
+regions of interest centered on the particles
+that were computed by a CNN.
 
 Cascade classifiers and convolutional neural networks
 both work by convolving holograms with
@@ -141,7 +144,7 @@ They work by convolving an image with a sequence of
 selected wavelets, each of which is considered to be a
 ``weak classifier'' for objects of interest.
 An above-threshold response from a linear combination of such
-weak classifiers signifies the presence of a feature of interest
+weak classifiers signifies the presence of a feature
 centered at the point of strongest response.
 Regions containing such above-threshold responses are analyzed
 with the weak classifiers at the next step of the cascade.
@@ -155,10 +158,10 @@ integer arithmetic with highly efficient algorithms.
 The training process determines
 which Haar wavelets constitute useful weak classifiers
 at each level of the cascade, and which combinations best
-serve as strong classifiers for features of interest.
+serve as strong classifiers.
 Training also optimizes the number of stages of increasingly
 fine resolution required to detect features reliably and to
-localize them with a requested precision.
+localize them with a specified precision.
 This approach has been adapted for a wide range of
 object recognition and image segmentation tasks
 \cite{lienhart2002extended}.
@@ -171,8 +174,8 @@ features of interest, such as holograms of colloidal particles.
 For each such feature in a hologram, it yields
 a candidate set of rectangular regions of interest that
 may include multiple estimates for each feature.
-Any such overlapping detections can be coalesced with
-standard methods for non-maximum suppression
+Overlapping detections can be coalesced with
+standard algorithms for non-maximum suppression
 \cite{neubeck06}.
 The center of each resulting rectangle constitutes an
 estimate for the associated feature's position in the focal plane.
@@ -192,7 +195,7 @@ TensorBox \cite{stewart2015endtoend}, an open-source package
 built on the GoogLeNet-OverFeat network \cite{sermanet2013overfeat},
 specifically on Inception v1 \cite{szegedy15}.
 Tensorbox provides a convenient interface for training the
-input layers of Inception to recognize features of interest
+input layers of Inception to recognize holograms of spheres
 and the for training the output layers to associate these features
 with regression estimates for the
 locations and extents of detected features.
@@ -202,8 +205,8 @@ locations and extents of detected features.
 \begin{figure}[b!]
   \centering
   \includegraphics[width=\textwidth]{rogue_gallery}	
-  \caption{ A random selection of cropped and centered
-  holographic features used in training.} 
+  \caption{ A random selection of synthetic
+  holographic features used to train machine-learning algorithms.} 
   \label{fig:rogue_gallery}
 \end{figure}
 
@@ -215,19 +218,20 @@ consists of an image containing
 zero, one or more features together with
 a ``ground truth'' annotation for each feature in that image
 specifying the features' locations and extents.
-Normally, these images are obtained experimentally
-and are annotated by hand.
+Standard practice involves obtaining images experimentally
+and annotating them by hand.
 We instead train with synthetic holograms that are 
 computed with the same light scattering theory \cite{lee07a}
 used to analyze experimental holograms.
 Using the physics of image formation
 for the ground truth for training eliminates 
-the effort and errors inherent in empirical annotation.
+the effort and errors inherent in empirical annotation and is
+one of the original contributions of this work.
 
 \section{Generating Training and Validation Datasets}
 
 
-We utilize Eq.~\eqref{eq:gen_norm} - \eqref{eq:bn} to generate training 
+We utilize Eqs.~\eqref{eq:gen_norm} through \eqref{eq:bn} to generate training 
 images of spherical scatters with radii ranging from 
 $a_p = \SI{0.25}{\um}$ to \SI{5}{\um}, refractive indexes from 
 $n_p = \num{1.4}$ to \num{2.5}, and axial positions from 
@@ -238,8 +242,8 @@ range and is centered at random within
 the field of view.
 Normalized experimental holograms have uncorrelated white
 noise that we model as additive Gaussian noise with a standard
-deviation of five percent. Fig.~\ref{fig:rogue_gallery} depicts
-\num{16} randomly selected, cropped, and centered holographic features
+deviation of five percent. Figure~\ref{fig:rogue_gallery} depicts
+\num{16} randomly selected, cropped, and centered synthetic features
 used in training.
 
 Our cascade classifier was trained with \num{6000}
@@ -272,15 +276,14 @@ of training and validation.
   
 \begin{figure}[!t]
   \centering
-  \includegraphics[width=\columnwidth]{cascade_02} % XXX CHECK that this
+  \includegraphics[width=\columnwidth]{cascade_02} % FIXME CHECK that this
   %is the figure david used.
-  \caption{Each localization technique provided estimates
-  for the trajectory of a simulated brownian particle.
+  \caption{Estimating the simulated trajectory of a Brownian particle.
   (a) Probability distribution functions for the
   localization error achieved by (top) heuristic
   algorithm, (middle) convolutional neural network,
   and (bottom) cascade classifier. 
-  Inset shows expanded view of the subpixel
+  The inset in the top panel shows an expanded view of the heuristic algorithm's subpixel
   resolution. Vertical dashed line indicates single-pixel
   precision.
   (b) Mean-square displacement computed from 
@@ -298,8 +301,9 @@ of training and validation.
   \includegraphics[width=\textwidth]{cascade_03}
   \caption{Localization errors as a function of particle
   radius and refractive index at a height of $z_p = \SI{13.5}{\um}$
-  above the focal plane. (a) Cascade classifier. (b) Convolutional
-  neural network. (c) Rate of false positive detections for the 
+  above the focal plane as obtained with (a) the cascade classifier,
+  and (b) the convolutional neural network.
+  (c) Rate of false positive detections reported by the 
   cascade classifier. (d) Hologram of a \SI{500}{\nm}-diameter silica sphere that was
   overlooked by the cascade classifier.  This particle was localized
   to within one pixel by the CNN.
@@ -365,7 +369,7 @@ is consistent with the median values from Fig.~\ref{fig:msdplot}(a).
 Applying the same techniques across the entire range of particle
 sizes and refractive indexes yields results for the median
 localization error summarized in
-Fig.~\ref{fig:figure3}(a) and \ref{fig:figure3}(b).
+Figs.~\ref{fig:figure3}(a) and \ref{fig:figure3}(b).
 Results from the cascade classifier in Fig.~\ref{fig:figure3}(a)
 range from single-pixel precision under most conditions to 
 more than 20 pixels for the largest spheres we considered.
@@ -376,7 +380,7 @@ the observation window.
 This problem is more pronounced
 for the larger holographic features created by larger scatterers.
 Smaller particles create holograms with low signal-to-noise 
-ratio that can be overlooked by the cascade classifier, leading
+ratio that can be overlooked by the cascade classifier leading
 to false negative detections.
 Such conditions are indicated by white crosses in
 Fig.~\ref{fig:figure3}(a).
@@ -434,7 +438,7 @@ Discrete points overlaid on this image show the
 positions that the heuristic algorithm
 identified as centers of candidate features.
 Of the 10 proposed features, 8 are false positive detections
-and one is poorly localized.
+and one correct localization is poorly localized.
 
 Both machine-learning algorithms perform better than the
 heuristic algorithm for this image.
@@ -537,7 +541,7 @@ rate of a standard video camera.
 The cascade classifier is so computationally efficient
 that it can be deployed usefully on a lightweight
 embedded computer. 
-We demonstrated this by analyzing holograms on
+We demonstrate this by analyzing holograms on
 a Raspberry Pi 3 single-board computer.
 Even though the light-weight computer runs the
 cascade classifier \num{10} times slower than the
@@ -591,9 +595,8 @@ for targeting fast-moving particles.
 Figure~\ref{fig:autotrap}(a) shows the cascade classifier tracking colloidal
 particles in real time as they diffuse in a holographic trapping
 system.
-The instrument uses this tracking information to trap the
-detected particles, as shown in the associated video
-(Visualization 1).
+Position estimates are good enough that holographic traps guided by the
+cascade classifier routinely trap all of particles in the field of view.
 
 Figure~\ref{fig:autotrap}(b) shows typical results obtained with
 the CNN analyzing experimental data.  The image
@@ -673,5 +676,11 @@ processing steps will be taken over by machine-learning algorithms
 as that technology advances.
 
 Open-source software for holographic particle tracking and characterization
-is available online at \url{https://github.com/davidgrier/}.
+is available online at \url{https://github.com/davidgrier/}. 
+This work was supported primarily by the MRSEC program of the
+National Science Foundation through Award no.\ DMR-1420073
+and in part by the SBIR program of the NSF through Award no.\
+IPP-1519057.
+The holographic trapping instrument was developed under the
+MRI program of the NSF through Grant Number DMR-0922680.
 
