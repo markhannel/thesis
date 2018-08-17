@@ -15,15 +15,13 @@ can locate a sphere and resolve its
 radius both to within a few nanometers, and 
 can determine its refractive index to within a part per thousand
 \cite{cheong09,shpaisman12,krishnatreya14}.
-The cost of this powerful technique is the computational burden of
-fitting each hologram pixel-by-pixel to theoretical predictions
-\cite{lee07a,cheong10a}.
+The time cost of this powerful technique is the computational burden of
+either fitting each hologram pixel-by-pixel to theoretical predictions
+\cite{lee07a,cheong10a} or performing a Bayesian inference of the
+model parameters \cite{dimiduk16}.
 Here, we demonstrate that techniques of machine learning
 can reduce the processing time by a factor of a thousand,
 yielding real-time performance.
-%The resulting real-time performance for single-particle
-%characterization is fast enough for in-line process control,
-%and creates new opportunities for soft-matter research.
 
 This chapter describes an approach to fast holographic characterization,
 depicted schematically in Fig.~\ref{fig:method}, that
@@ -58,12 +56,12 @@ in under a millisecond on the same hardware.
 \section{Fast Holographic Characterization with Machine Learning}
 
 Previous implementations of Lorenz-Mie microscopy \cite{lee07a} 
-fit Eq.~\eqref{eq:gen_norm} to measured holograms using $a_p$, $n_p$
+fit Eq.~\eqref{eq:gen_norm} through \eqref{eq:bn} to measured holograms using $a_p$, $n_p$
 and $\vec{r}_p$ as adjustable parameters.
 These fits are exquisitely sensitive to errors in the particle's
 in-plane position, and so must be performed over the entire
 two-dimensional intensity distribution \cite{lee07a}.
-Here, we instead use Eq.~\eqref{eq:theory} to train
+Here, we instead use Eq.~\eqref{eq:gen_norm} through \eqref{eq:bn} to train
 support vector machines, which then are able to estimate 
 $a_p$, $n_p$ and $z_p$ from a hologram's one-dimensional
 radial profile.
