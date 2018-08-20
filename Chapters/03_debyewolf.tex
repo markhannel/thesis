@@ -11,15 +11,15 @@
 
 The model for image formation outlined in \autoref{ch:hvm} provides a full
 vectorial treatment of the propagation of the illuminating plane wave and
-the scattered resulting scattered fields
-up to the focal plane of the objective. From there, it is assumed that the
-objective and tube lens simply magnify and relay the intensity pattern from
+the resulting scattered fields up to the focal plane of the objective.
+From there, it is assumed that the
+objective and tube lens simply magnify and relay the intensity pattern in
 the focal plane to the camera plane.
 This is a base assumption of traditional microscopy and is not unfounded; optics
 manufacturers are economically incentivized to produce quality optics which
 accurately image the specimen plane. However, these optics are optimized for
-incoherent imaging of specimens in the focal plane;
-how well does this venerable assumption hold for coherent imaging of out-of-plane
+incoherent imaging of specimens in the focal plane.
+How well does this venerable assumption hold for coherent imaging of out-of-plane
 scatterers?
 
 In this chapter, we will account for the propagation of the electric fields from
@@ -28,43 +28,34 @@ refraction, reflection, and angular demagnification of the fields as they propag
 through the objective and tube lens before arriving at the camera plane.
 We will attempt a full vectorial treatment throughout and will
 validate any scalar wave approximations made along the way. In many ways our work
-parallels and extends the work of Izen and Ovyrn\cite{izen00} and the work of
-\c{C}apo\u{g}lu\cite{capoglu12} \emph{et al.} In particular, we adopt follow the format of the
+parallels and extends the work of Ovyrn and Izen\cite{izen00} and the work of
+\c{C}apo\u{g}lu\cite{capoglu12} \emph{et al.} In particular, we follow the format of the
 former and adopt the mathematical conventions and machinery of the latter.
-While our work primarily serves to validate the scalar theory
-presented in \autoref{ch:hvm}, we probe any physical limits
+Our work justifies the use of the scalar theory
+presented in \autoref{ch:hvm}and probes the physical limits
 of HVM set by collecting, refocusing, and recording the confluence of the incident
 beam and scattered wave.
 
 
 \section{Modeling the optical train}
 
-%% %FIXME maybe provide a super BRIEF recap of LM up to the focal plane?
-%Figure 1 represents the physical situation underlying our experimental technique.
-%A colloidal sphere with radius $a_p$ and refractive index $n_p$ is contained
-%in a volume of fluid with refractive index $n_m$. The dilute colloidal suspension
-%is contained between a coverslip and glass slide of refractive index $1.5$
-%(for now we neglect the effect of the coverslip). An incident wave of coherent
-%illumination stimulates the colloidal sphere into radiating a spherical wave
-%described by the Lorenz-mie theory. The scattered wave and incident wave continue
-%propagating towards the camera plane.
-
-The optical train for our holographic microscope is quite simple.
-Besides a coherent illumination source, our setup can be reduced to the four
-main components of conventional microscopy: the sample, an objective,
-a tube lens, and a camera. In the previous chapter, we described the
+With the exception of a coherent illumination source, our holographic microscope
+can be reduced to the four essential components of conventional microscopy: the sample,
+an objective, a tube lens, and a camera. In the previous chapter, we described the
 scattering of a plane wave by a spherical scatterer up to the focal plane
 of the objective. We will now evaluate the scattered field and the plane
-wave at several interfaces along the optical axis. Referring to
-Figure %FIXME
+wave at several interfaces as they propagate along the optical axis to the
+camera plane.
+Referring to Figure %FIXME
 we will perform the following calculations:
 \begin{enumerate}
 \item Evaluate the scattered field and incident field at the entrance pupil of the
   objective.
 \item Account for the  $z$ displacement of the particle away from the focal
   plane of the objective.
-\item Compute the scattered field at the exit pupil of the objective by accounting
+\item Compute the scattered field at the exit of the tube lens by accounting
   for the angular demagnification imposed by the objective.
+\item Propagate the resulting fields to the camera plane.
 \end{enumerate}
 
 A distance $z_p + f$ away from the colloidal sphere, the two waves enter the
