@@ -85,71 +85,69 @@ for Soft-Matter Processes}
     %% Sets page numbering to "roman style" i, ii, iii, iv, etc:
     \pagenumbering{roman}
 
-    %%%%%% Title page %%%%%%%%%%%
+    %%%%%% Title page %%%%%%
     \input{Content/titlepage}
     \newpage
     
-    %%%%%% Copyright %%%%%%%%%%%    
+    %%%%%% Copyright %%%%%%
     \input{Content/copyright}
     \doublespacing
     \newpage
     
-    %%%%%%%%%%%%% Blank page %%%%%%%%%%%%%%%%%%
+    %%%%%% Blank page %%%%%%
     \thispagestyle{empty}
     \vspace*{0in}
     \newpage
     
-    %%%%%% Copyright %%%%%%%%%%%
+    %%%%%% Copyright %%%%%%
     \input{Content/dedication}
     \newpage
     
-    %%%%%% Acknowledgments %%%%%%%%%%%
+    %%%%%% Acknowledgments %%%%%%
     \input{Content/acknowledgments}
     
     \newpage
     %\include{preface}
-    %%%%%% Abstract %%%%%%%%%%%
+    %%%%%% Abstract %%%%%%
     \input{Content/abstract}
-    
+
+    %%%%%% Table of Contents %%%%%%
     {
       \hypersetup{linkcolor=black}
       \tableofcontents
     }
     \newpage
-    % \tableofcontents
-    
+
+    %%%%%% List of Figures %%%%%%
     {
       \hypersetup{linkcolor=black}
-%      \phantomsection
-%      \addcontentsline{toc}{section}{List of Figures}
       \listoffigures
     }
     \newpage
-    %\listoffigures
-    
+
+    %%%%%% List of Tables %%%%%%
     {
       \hypersetup{linkcolor=black}
-%      \phantomsection
-%      \addcontentsline{toc}{section}{List of Tables}
       \listoftables
       }
-      \newpage
-    %If you have only one appedix comment this list of appendices out
-    %% \listofappendices
-    %% \addcontentsline{toc}{chapter}{List of Appendices}
-    %% \newpage
+    \newpage
 
-    %% \listoftables
-    %% \listofappendices
+    %%%%%% List of Appendices %%%%%%
+    %If you have only one appedix comment this list of appendices out
+    {
+      \hypersetup{linkcolor=black}
+      \listofappendices
+    }
+    \newpage
  
-    %%%%%%The main pages %%%%%%%%%%%
+    %%%%%% Chapters %%%%%%
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     \pagenumbering{arabic}
     
-    \input{Chapters/01_introduction}
+    \include{Chapters/01_introduction}
     \newpage
 
-    \input{Chapters/02_hvm}
+    \include{Chapters/02_hvm}
     \newpage
     
     \include{Chapters/03_debyewolf}
@@ -167,12 +165,12 @@ for Soft-Matter Processes}
     \include{Chapters/07_synthesis}
     \newpage
     
-    \input{Chapters/08_conclusion}
+    \include{Chapters/08_conclusion}
     \newpage
 
     %%%%% Appendices start %%%%%%%%%%%%%%%%
     %% Comment out the following line if your thesis has no appendix
-%    \appendix
+    % \appendix
     
     %If you have only one appendix copy this line out
     %% \phantomsection
@@ -188,8 +186,13 @@ for Soft-Matter Processes}
     % %\label{app:appendixtitle}
     % %\appcaption{\thechapter \space Appendix Title}
     %
-    % \include{appendix}
-    %% \include{appendix}
+    %\include{appendix}
+
+    \begin{appendices}      
+      \include{Chapters/appendix_01_camera}
+      \include{Chapters/appendix_02_lorenzmie_approx}
+    \end{appendices}
+
     
 
     \clearpage

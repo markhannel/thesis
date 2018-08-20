@@ -12,9 +12,8 @@
 The model for image formation outlined in \autoref{ch:hvm} provides a full
 vectorial treatment of the propagation of the illuminating plane wave and
 the resulting scattered fields up to the focal plane of the objective.
-From there, it is assumed that the
-objective and tube lens simply magnify and relay the intensity pattern in
-the focal plane to the camera plane.
+From there, it is assumed that the objective and tube lens simply magnify and
+relay the intensity pattern in the focal plane to the camera plane.
 This is a base assumption of traditional microscopy and is not unfounded; optics
 manufacturers are economically incentivized to produce quality optics which
 accurately image the specimen plane. However, these optics are optimized for
@@ -31,26 +30,36 @@ validate any scalar wave approximations made along the way. In many ways our wor
 parallels and extends the work of Ovyrn and Izen\cite{izen00} and the work of
 \c{C}apo\u{g}lu\cite{capoglu12} \emph{et al.} In particular, we follow the format of the
 former and adopt the mathematical conventions and machinery of the latter.
-Our work justifies the use of the scalar theory
-presented in \autoref{ch:hvm}and probes the physical limits
-of HVM set by collecting, refocusing, and recording the confluence of the incident
-beam and scattered wave.
+Our work justifies the use of the scalar theory presented in \autoref{ch:hvm} and
+probes the physical limits of HVM set by collecting, refocusing, and recording
+the confluence of the incident beam and scattered wave.
+
+
+\begin{figure}
+  \centering
+  \includegraphics[width=\textwidth]{debye_wolf_schematic.jpg}
+  \caption{Diagram depicting the planes at which the fields will be evaluated.
+    (a) The fields propagate through the focal plane (plane 1) of the objective.
+    (b) The fields collected by the objective's entrance pupil (plane 2).
+    (c) The fields are focused by the tube lens (plane 3) and arrive at the
+    imaging plane (plane 4) of the camera.}
+  \label{fig:debye_schematic}
+\end{figure}
 
 
 \section{Modeling the optical train}
 
 With the exception of a coherent illumination source, our holographic microscope
-can be reduced to the four essential components of conventional microscopy: the sample,
-an objective, a tube lens, and a camera. In the previous chapter, we described the
-scattering of a plane wave by a spherical scatterer up to the focal plane
-of the objective. We will now evaluate the scattered field and the plane
-wave at several interfaces as they propagate along the optical axis to the
-camera plane.
-Referring to Figure %FIXME
-we will perform the following calculations:
+can be reduced to the four essential components of a conventional microscope:
+the sample, an objective, a tube lens, and a camera. In the previous chapter,
+we described the scattering of a plane wave by a spherical scatterer up to
+the focal plane of the objective. We will now evaluate the scattered field and
+the plane wave at several interfaces as they propagate along the optical axis
+to the camera plane. Figure \ref{fig:debye_schematic} illustrates the four planes
+of interest. In the following sections, we will perform the following calculations:
 \begin{enumerate}
-\item Evaluate the scattered field and incident field at the entrance pupil of the
-  objective.
+\item Evaluate the scattered field and incident field at the entrance pupil (plane 2)
+  of the objective.
 \item Account for the  $z$ displacement of the particle away from the focal
   plane of the objective.
 \item Compute the scattered field at the exit of the tube lens by accounting
@@ -58,10 +67,12 @@ we will perform the following calculations:
 \item Propagate the resulting fields to the camera plane.
 \end{enumerate}
 
-A distance $z_p + f$ away from the colloidal sphere, the two waves enter the
-objective pupil. The objective relays the two waves to the tube lens through
-infinity space. The tube lens refocuses the waves such that they arrive at the imaging
-plane magnified.
+\section{Scattering to the entrance pupil}
+
+%A distance $z_p + f$ away from the colloidal sphere, the two waves enter the
+%objective pupil. The objective relays the two waves to the tube lens through
+%infinity space. The tube lens refocuses the waves such that they arrive at the imaging
+%plane magnified.
 
 Our optical model makes use of the Debye-Wolf integral to propagate the
 fields from the tube lens to the camera plane. By computing the
@@ -168,7 +179,7 @@ Finally the resulting image is computed with via the poynting vector integrated 
   \end{equation*}
 
   Note, we will later adopt the direction cosines $(s_x, s_y)$ used in
-  \section{Collection}\\
+  \section{Collection}
   Here we will repeat the conservation of energy arguments present in section
   1, but unlike the plane wave, we will find that the amplitude and 
   polarization of the spherical wave is perturbed by the optical train in a 
