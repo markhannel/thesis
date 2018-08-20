@@ -28,16 +28,15 @@ through the objective and tube lens before arriving at the camera plane.
 We will attempt a full vectorial treatment throughout and will
 validate any scalar wave approximations made along the way. In many ways our work
 parallels and extends the work of Ovyrn and Izen\cite{izen00} and the work of
-\c{C}apo\u{g}lu\cite{capoglu12} \emph{et al.} In particular, we follow the format of the
-former and adopt the mathematical conventions and machinery of the latter.
+\c{C}apo\u{g}lu\cite{capoglu12} \emph{et al.} In particular, we adopt a similar
+approach of the former and adopt the mathematical conventions and machinery of the latter.
 Our work justifies the use of the scalar theory presented in \autoref{ch:hvm} and
 probes the physical limits of HVM set by collecting, refocusing, and recording
 the confluence of the incident beam and scattered wave.
 
-
 \begin{figure}
   \centering
-  \includegraphics[width=\textwidth]{debye_wolf_schematic.jpg}
+  \includegraphics[angle=90,origin=c,width=0.5\textwidth]{debye_wolf_schematic_rot}
   \caption{Diagram depicting the planes at which the fields will be evaluated.
     (a) The fields propagate through the focal plane (plane 1) of the objective.
     (b) The fields collected by the objective's entrance pupil (plane 2).
@@ -45,7 +44,6 @@ the confluence of the incident beam and scattered wave.
     imaging plane (plane 4) of the camera.}
   \label{fig:debye_schematic}
 \end{figure}
-
 
 \section{Modeling the optical train}
 
@@ -56,30 +54,179 @@ we described the scattering of a plane wave by a spherical scatterer up to
 the focal plane of the objective. We will now evaluate the scattered field and
 the plane wave at several interfaces as they propagate along the optical axis
 to the camera plane. Figure \ref{fig:debye_schematic} illustrates the four planes
-of interest. In the following sections, we will perform the following calculations:
+of interest. In the proceeding sections, we will perform the following calculations
+for the scattered field:
 \begin{enumerate}
-\item Evaluate the scattered field and incident field at the entrance pupil (plane 2)
-  of the objective.
-\item Account for the  $z$ displacement of the particle away from the focal
+\item Evaluate the electric field strength factor for the scattered field at
+  the entrance pupil of the objective.
+\item Account for the  $z_p$ displacement of the particle away from the focal
   plane of the objective.
-\item Compute the scattered field at the exit of the tube lens by accounting
-  for the angular demagnification imposed by the objective.
-\item Propagate the resulting fields to the camera plane.
+\item Compute the electric field strength factor at the exit of the tube lens
+  by accounting for the angular demagnification imposed by the objective.
+\item Use the near-field-to-far-field transform to determine the scattered
+  fields at the imaging plane of the camera.
+\end{enumerate}
+Owing to the linearity of our optical system, we may consider the incident field
+and scattered field separately. We will derive the transformations for the
+scattered field first and then summarize the resulting transformation for the
+plane wave.
+
+\subsection{Scattering to the entrance pupil}
+
+In \autoref{ch:hvm} we computed the fields resulting from the scattering of
+a plane wave from a homogeneous spherical inclusion in an otherwise
+homogeneous medium. As depicted in Fig.~\ref{fig:debye_schematic}, we
+propagate the radially expanding scattered fields through the focal plane (plane \num{1} in
+Fig.~\ref{fig:debye_schematic}) and all the way to the objective's entrance pupil a distance
+$z_p + f$ below the particle, where $f$ is the working distance of the objective.
+Our objective  (Nikon Plan Apo, $\num{100}\times$, numerical aperture $\num{1.45}$,
+oil immersion) was manufactured to have a working distance of $\SI{135}{\um}$.
+At this distance, wavelength, and particle size, the scattered field is in the far-zone,
+also known as the Fraunhofer zone, and the wave's $r$ dependence approximately
+takes the following functional form:
+\begin{equation*}
+  \label{eq:strength_factor}
+  \vec{E}(r, \theta, \phi) \approx \frac{\vec{E}(\theta, \phi)e^{ikr}}{r}
+\end{equation*}
+The term $\vec{E}(\theta, \phi)$ is known as the strength factor and it
+has only $\theta$ and $\phi$ dependence. 
+
+Casting the scattered field in terms of it's strength factor will simplify
+several of the ensuing calculations. However, we have embedded an assumption
+into our formalism: whenever the scattered field is not suitably in the far-field
+regime, our formalism will break down. Ovyrn and Izen\cite{izen00} state
+that the adoption of this approximation induces a maximum
+$\SI{2}{\percent}$ error in their domain of interest. We conclude similarly in
+\cite{app:lorenzmie_approx} for our domain of interest.
+
+\section{ Displacement of the scattered field}
+
+The electric field strength factor $\vec{E}(\theta, \phi)$ is independent
+of distance; the fact that the scatterer is a distance $z_p$ away
+from the focal plane will be lost in the near-field-to-far-field transform.
+As described in  ``Introduction to Fourier Optics''\cite{goodman05},
+the scatterer's displacement along the optical axis may be approximated by
+a relative phase shift of the electric field strength factor
+\begin{equation*}
+  \label{eq:entrance_pupil}
+    \vec{E}(\theta, \phi)|_{\text{scatter plane}} = \vec{E}(\theta, \phi)|_{\text{focal plane}} e^{-i\frac{2\pi}{\lambda}z\cos{\theta} }
+  \end{equation*}
+  
+\footnote{In Goodman's text\cite{goodman05}, this would be a negative
+  distance and yet in our geometry we have defined it to be a positive distance.
+  Therefore we adopt Eq. 3-66 of Goodman with the alteration that  $z \rightarrow -z$.}
+
+%The scattered field above gives an electric field strength factor that
+%emanates from the origin of it's coordinate system. In the eyes of the
+%collection step, this will mean that the scatterer is located at the origin
+%of the focal plane. The scatterers we hope to investigate will be staged 
+%some distance z above the focal plane such that the interefence patterns 
+%culiminating in the camera plane will be maximally-information dense.
+
+%Note, we will later adopt the direction cosines $(s_x, s_y)$ used in
+
+\begin{figure}
+  \centering
+  \includegraphics[angle=90,origin=c,width=0.5\textwidth]{debye_geom}
+  \caption{The two spherical geometries necessary for our description.}
+  \label{fig:debye_schematic}
+\end{figure}
+
+\section{Collection}
+The scattered field experiences angular demagnification 
+which imparts a scaling, polarization rotation, and lensing effect on all the rays passing
+through the objective and tube lens. In total this effect can be accounted for by
+a coordinate transformation governed by the abbe-sine condition and by scaling
+each ray to obey the conservation of energy.
+
+The abbe sine-condition is a necessary condition for sharp imaging:
+\begin{equation*}
+  M = \frac{n \sin \, \theta}{n^{\prime} \sin \, \theta^{\prime}}
+  \label{eq:abbe_sine}
+\end{equation*}
+  and exquisitely obeyed my modern optics. Provided Eq.~\eqref{eq:abbe_sine}, a ray entering
+  the objective at angle $\theta$ will exit the tube lens with angle $\theta^{\prime}$ as
+  portrayed in Fig.~\ref{fig:debye_geom}. Additionally, the lens will impart a polarization
+  rotation of $\SI{180}{\degree}$.
+
+Here we will repeat the conservation of energy arguments present in section
+1, but unlike the plane wave, we will find that the amplitude and 
+polarization of the spherical wave is perturbed by the optical train in a 
+$\theta$ dependent fashion. 
+
+  \begin{equation*}
+    \begin{split}
+    \vec{E'}(\theta', \phi')\cdot\hat{\theta'} & = - M \sqrt{ \frac{n'\cos{\theta'}}{n\cos{\theta}}}\vec{E}(\theta, \phi)\cdot\hat{\theta}\\
+    \vec{E'}(\theta', \phi')\cdot\hat{\phi'} & = - M \sqrt{ \frac{n'\cos{\theta'}}{n\cos{\theta}}}\vec{E}(\theta, \phi)\cdot\hat{\phi}
+    \end{split}
+  \end{equation*}
+
+\section{Refocusing the fields to the camera plane}
+The Debye-Wolf integral transforms the electric field strength factor at a lens
+surface to the electric fields present in the focal plane of that lens.
+\begin{equation*}
+  \vec{E}_{img}(x', y') = \frac{i k'}{2 \pi} \iint_{\Omega_{img}} \vec{E'}_s(s'_x, s'_y) e^{-ik'(s'_xx'+s'_yy')}\frac{ds'_xds'_y}{\cos{\theta'}}
+\end{equation*}
+
+There are many things worth mentioning:
+\begin{enumerate}
+\item The Debye Wolf integral takes a field strength factor $\vec{E'}_s$,
+  an integration domain $\Omega_{img}$ and the wavenumber $k'$ as it's inputs.
+  From these inputs, the electric field in the (x'-y') plane is
+  calculated. 
+\item Heuristically, one should imagine that $\Omega_{img}$ dictates how far 
+  away the plane (x'-y') will be (the distance scales with the size of 
+  $\Omega_{img}$), that $k'$ gives the field strength factor the necessary 
+  units to become an electric field and the electric field strength factor 
+  contains most of the information detailing the interference pattern in the
+  x'-y' plane ($k'$ has influence here as well).
+\item This integral in many ways amounts to
+  an inverse of Huygen's rule; a spherical wave is decomposed into a multitude 
+  of plane waves whose phase relations and subsequent inteference produce
+  the same effect as the original spherical wave.
+\item The Debye-Wolf formalism easily accounts for any phase aberration 
+  $\Phi(s'_x,s'_y)$ of the field as it passes through the optical train. To do so, the integrand
+  of the Debye-Wolf integral is multiplied by a phase term $e^{ik'\Phi(s'_x,s'_y)}$.
 \end{enumerate}
 
-\section{Scattering to the entrance pupil}
+With the exception of the $k'$ in the phase term and the $\cos{\theta'}$ 
+modifying the differential element, we should recognize the
+Debye-Wolf integral as a fourier transform. We will discretize this
+fourier transform subject to sampling and aliasing conditions described
+in the appendix. I will simply summarize the reference's result and then
+derive the minor cosmetic changes present in debyewolf.
 
-%A distance $z_p + f$ away from the colloidal sphere, the two waves enter the
-%objective pupil. The objective relays the two waves to the tube lens through
-%infinity space. The tube lens refocuses the waves such that they arrive at the imaging
-%plane magnified.
+\begin{equation*}
+  \begin{split}
+    \vec{E}_{img}( m \Delta_x, n \Delta_y) & \approx \frac{i k' \Delta s'_x \Delta s'_y}{2 \pi} e^{-i2\pi \left ( \frac{s'_{x_o}}{\Delta s'_x N_p} m + \frac{s'_{y_o}}{\Delta s'_yN_q} n \right ) } \vec{E}\left [ m, n \right ] \\
+    \vec{E}\left [ m,n \right ] & = \sum_{p=0}^{N_p-1}\sum_{q=0}^{N_p-1}\vec{G'}\left [p,q\right ] e^{-i2\pi \left ( \frac{pm}{N_p}+\frac{qn}{N_q} \right ) } \\
+    \vec{G'}(s'_x,s'_y) & \doteq \frac{\vec{E'}_s(s'_x,s'_y)}{\cos{\theta'}}e^{-ik'\Phi(s'_x,s'_y)}
+  \end{split}
+\end{equation*}
 
-Our optical model makes use of the Debye-Wolf integral to propagate the
-fields from the tube lens to the camera plane. By computing the
-angular spectrum present at the tube lens plane, we compute the electric fields
-present at the imaging plane. Owing to the linearity of our optical system,
-we consider the incident field and scattered field separately. We summarize the physical
-steps necessary for each wave before discussing the details in section 3 and section 4.
+  
+
+  Let's first reduce the prefactor in $\vec{E}_{img}$:
+  \begin{eqnarray*}
+    \frac{-ik'\Delta s'_x \Delta s'_y}{2 \pi} &=& -i\left ( \frac{k'}{2\pi} \right ) (2 \sin{\theta_{img}}/P)(2 \sin{\theta_{img}}/Q) \\
+    &=& -i \left ( \frac{1}{\lambda'} \right ) \frac{4}{PQ} \left ( \sin{\theta_{img}} \right )^2 \hspace{.5 in} \text{By Equation 132. of Ref.}\\
+    &=& -i \left ( \frac{1}{\lambda'} \right ) \frac{4}{PQ} \left ( \frac{\text{NA}}{Mn'} \right )^2 \\
+    &=& -i \left ( \frac{4}{PQ} \right ) \left ( \frac{\text{NA}^2}{M^2\lambda n'} \right )
+  \end{eqnarray*}
+
+Now reduce the exponential in $\vec{E}_{img}$:
+\begin{eqnarray*}
+  i2\pi \left ( \frac{s'_{x_o}}{\Delta s'_x N_p} m + \frac{s'_{y_o}}{\Delta s'_yN_q} n \right )  &=& i2\pi \left ( \frac{-\sin{\theta_{img}} \left ( 1 - 1/P\right )}{2\sin{\theta_{img}}/P\cdot N_p} m + \frac{-\sin{\theta_{img}}\left ( 1-1/Q\right ) }{2\sin{\theta_{img}}/Q \cdot N_q} n \right ) \\
+  &=& -i\pi \left ( \frac{P - 1}{N_p}m + \frac{Q - 1}{N_q} n \right ) 
+\end{eqnarray*}
+Therefore our expression for $\vec{E}_{img}$ is the following:
+
+\begin{equation*}
+  \vec{E}_{img} \approx -i \left ( \frac{4}{PQ} \right ) \left ( \frac{\text{NA}^2}{M^2\lambda n'} \right ) e^{-i\pi \left ( \frac{P - 1}{N_p}m + \frac{Q - 1}{N_q} n \right ) }\vec{E}\left [ m, n \right ]
+\end{equation*}
+
+
+
 
 Incident field:
 \begin{enumerate}
@@ -100,10 +247,9 @@ for all rays which enter it's pupil.
 \item[4.] Compute the electric fields present at the imaging plane from the angular spectrum in step 3.
 \end{enumerate}
 
-Finally the resulting image is computed with via the poynting vector integrated over pixels.
-
+Finally the resulting image is computed with the poynting vector integrated over each pixel
 \begin{equation*}
-  I = \left | E_{inc} + E_{s} \right |^2 
+  I = \left | E_{inc} + E_{s} \right |^2.
 \end{equation*}
 
 
@@ -131,136 +277,9 @@ Finally the resulting image is computed with via the poynting vector integrated 
   Until image formation, the following steps will exclusively refer to the 
   scattered field.
 
-\section{Scattering by the particle}
-  The reference wave (before traversing the optical train) illuminates the 
-  spherical scatterer. The spherical scatterer emits a spherical wave
-  as a result with some of it's physical properties encoded in the wavefront
-  (namely it's radius, refractive index and position). 
-
-  We can imagine the spherical wave as a surface expanding radially away
-  from the scatterer. When the radial distance $r$ is large enough, the
-  spherical wave's $r$ dependence takes the following functional form:
-  \begin{equation*}
-    \vec{E}(r, \theta, \phi) = \frac{\vec{E}(\theta, \phi)e^{ikr}}{r}
-  \end{equation*}
-  The term $\vec{E}(\theta, \phi)$ is known as the strength factor and it
-  has only a $\phi$ and $\theta$ component (any component in $r$ will attenuate
-  with distance). In what follows, the strength factor will be easier to work
-  with. To this end, we've modified spherical\_field.py to accept a keyword 
-  argument str\_factor which when evaluated as True, spherical\_field returns 
-  the strength factor rather than the electric field.
-
-  At this point we should note two things. First, the electric field strength
-  has units of $ \left [ \vec{E}(\theta, \phi) \right ] = \text{volts}$, and not 
-  volts per meter (this will save some people from later confusion). Secondly,
-  we've tied ourselves to an assumption. 
-  Whenever the scattered field cannot be suitably cast in the above form,
-  our formalism will break down.
-
-\section{ Displacement of the scattered field}
-  The scattered field above gives an electric field strength factor that
-  emanates from the origin of it's coordinate system. In the eyes of the
-  collection step, this will mean that the scatterer is located at the origin
-  of the focal plane. The scatterers we hope to investigate will be staged 
-  some distance z above the focal plane such that the interefence patterns 
-  culiminating in the camera plane will be maximally-information dense.
-
-  To account for the z-displacement of the electric field, we will consult 
-  John Goodman's ``Introduction to Fourier Optics''. In section 3.10.2, he 
-  details
-  how one would propagate an electric field strength factor between parallel
-  planes. In our case, we hope to displace the 
-  angular spectrum from the focal plane to a plane parallel to the focal plane
-  but containing the scatterer. In Goodman's text\cite{goodman05}, this would be a negative
-  distance and yet in our geometry we have defined it to be a positive distance.
-  Therefore we adopt Eq 3-66 of Goodman with the alteration that  $z \rightarrow -z$.
-  \begin{equation*}
-    \vec{E}(\theta, \phi)|_{\text{scatter plane}} = \vec{E}(\theta, \phi)|_{\text{focal plane}} e^{-i\frac{2\pi}{\lambda}z\cos{\theta} }
-  \end{equation*}
-
-  Note, we will later adopt the direction cosines $(s_x, s_y)$ used in
-  \section{Collection}
-  Here we will repeat the conservation of energy arguments present in section
-  1, but unlike the plane wave, we will find that the amplitude and 
-  polarization of the spherical wave is perturbed by the optical train in a 
-  $\theta$ dependent fashion. 
-
-  \begin{equation*}
-    \begin{split}
-    \vec{E'}(\theta', \phi')\cdot\hat{\theta'} & = - M \sqrt{ \frac{n'\cos{\theta'}}{n\cos{\theta}}}\vec{E}(\theta, \phi)\cdot\hat{\theta}\\
-    \vec{E'}(\theta', \phi')\cdot\hat{\phi'} & = - M \sqrt{ \frac{n'\cos{\theta'}}{n\cos{\theta}}}\vec{E}(\theta, \phi)\cdot\hat{\phi}
-    \end{split}
-  \end{equation*}
-
-\section{Refocusing the fields to the camera plane}
-  The Debye-Wolf integral provides a way to propagate an electric field strength
-  factor from one plane to another via an integral formalism. It is given 
-  as:
-
-  \begin{equation*}
-    \vec{E}_{img}(x', y') = \frac{i k'}{2 \pi} \iint_{\Omega_{img}} \vec{E'}_s(s'_x, s'_y) e^{-ik'(s'_xx'+s'_yy')}\frac{ds'_xds'_y}{\cos{\theta'}}
-  \end{equation*}
-
-  There are many things worth mentioning:
-  \begin{enumerate}
-  \item The Debye Wolf integral takes a field strength factor $\vec{E'}_s$,
-    an integration domain $\Omega_{img}$ and the wavenumber $k'$ as it's inputs.
-    From these inputs, the electric field in the (x'-y') plane is
-    calculated. 
-  \item Heuristically, one should imagine that $\Omega_{img}$ dictates how far 
-    away the plane (x'-y') will be (the distance scales with the size of 
-    $\Omega_{img}$), that $k'$ gives the field strength factor the necessary 
-    units to become an electric field and the electric field strength factor 
-    contains most of the information detailing the interference pattern in the
-    x'-y' plane ($k'$ has influence here as well).
-  \item This integral in many ways amounts to
-  an inverse of Huygen's rule; a spherical wave is decomposed into a multitude 
-  of plane waves whose phase relations and subsequent inteference produce
-  the same effect as the original spherical wave.
-  \item The Debye-Wolf formalism easily accounts for any phase aberration 
-    $\Phi(s'_x,s'_y)$ of the field as it passes through the optical train. To do so, the integrand
-    of the Debye-Wolf integral is multiplied by a phase term $e^{ik'\Phi(s'_x,s'_y)}$.
-  \end{enumerate}
-
-  With the exception of the $k'$ in the phase term and the $\cos{\theta'}$ 
-  modifying the differential element, we should recognize the
-  Debye-Wolf integral as a fourier transform. We will discretize this
-  fourier transform subject to sampling and aliasing conditions described
-  in the appendix. I will simply summarize the reference's result and then
-  derive the minor cosmetic changes present in debyewolf.
-
-  \begin{equation*}
-    \begin{split}
-      \vec{E}_{img}( m \Delta_x, n \Delta_y) & \approx \frac{i k' \Delta s'_x \Delta s'_y}{2 \pi} e^{-i2\pi \left ( \frac{s'_{x_o}}{\Delta s'_x N_p} m + \frac{s'_{y_o}}{\Delta s'_yN_q} n \right ) } \vec{E}\left [ m, n \right ] \\
-      \vec{E}\left [ m,n \right ] & = \sum_{p=0}^{N_p-1}\sum_{q=0}^{N_p-1}\vec{G'}\left [p,q\right ] e^{-i2\pi \left ( \frac{pm}{N_p}+\frac{qn}{N_q} \right ) } \\
-      \vec{G'}(s'_x,s'_y) & \doteq \frac{\vec{E'}_s(s'_x,s'_y)}{\cos{\theta'}}e^{-ik'\Phi(s'_x,s'_y)}
-    \end{split}
-  \end{equation*}
-  
-  
-
-  Let's first reduce the prefactor in $\vec{E}_{img}$:
-  \begin{eqnarray*}
-    \frac{-ik'\Delta s'_x \Delta s'_y}{2 \pi} &=& -i\left ( \frac{k'}{2\pi} \right ) (2 \sin{\theta_{img}}/P)(2 \sin{\theta_{img}}/Q) \\
-    &=& -i \left ( \frac{1}{\lambda'} \right ) \frac{4}{PQ} \left ( \sin{\theta_{img}} \right )^2 \hspace{.5 in} \text{By Equation 132. of Ref.}\\
-    &=& -i \left ( \frac{1}{\lambda'} \right ) \frac{4}{PQ} \left ( \frac{\text{NA}}{Mn'} \right )^2 \\
-    &=& -i \left ( \frac{4}{PQ} \right ) \left ( \frac{\text{NA}^2}{M^2\lambda n'} \right )
-  \end{eqnarray*}
-
-Now reduce the exponential in $\vec{E}_{img}$:
-\begin{eqnarray*}
-  i2\pi \left ( \frac{s'_{x_o}}{\Delta s'_x N_p} m + \frac{s'_{y_o}}{\Delta s'_yN_q} n \right )  &=& i2\pi \left ( \frac{-\sin{\theta_{img}} \left ( 1 - 1/P\right )}{2\sin{\theta_{img}}/P\cdot N_p} m + \frac{-\sin{\theta_{img}}\left ( 1-1/Q\right ) }{2\sin{\theta_{img}}/Q \cdot N_q} n \right ) \\
-  &=& -i\pi \left ( \frac{P - 1}{N_p}m + \frac{Q - 1}{N_q} n \right ) 
-\end{eqnarray*}
-Therefore our expression for $\vec{E}_{img}$ is the following:
-
-\begin{equation*}
-  \vec{E}_{img} \approx -i \left ( \frac{4}{PQ} \right ) \left ( \frac{\text{NA}^2}{M^2\lambda n'} \right ) e^{-i\pi \left ( \frac{P - 1}{N_p}m + \frac{Q - 1}{N_q} n \right ) }\vec{E}\left [ m, n \right ]
-\end{equation*}
-
 
   
-  In this work we've sought to produce an image in the camera plane from the
+  In this work we have sought to produce an image in the camera plane from the
   fields present in the particle plane. To achieve such a transformation,
   we've treked through the optical train and accounted for various 
   effects including energy conservation, angular demagnification, polarization
@@ -304,7 +323,17 @@ Therefore our expression for $\vec{E}_{img}$ is the following:
   
 \section{Comparison to Scalar Diffraction Theory}
 
-More work.
+
+\begin{figure}
+  \centering
+  \includegraphics[width=\textwidth]{debye_difference_ps}
+  \caption{Comparing the radial profiles of a holographic snapshot taken
+    in the focal plane of the objective and the imaging plane of the camera.
+    This particular holographic feature is produced by a $\SI{1.0}{\um}$
+    diameter polystyrene particle $\SI{13.5}{\um}$ above the focal plane.}
+  \label{fig:debye_difference_ps}
+\end{figure}
+
 
 \section{Discussion}
 
