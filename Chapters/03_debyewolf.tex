@@ -37,7 +37,7 @@ of HVM set by collecting, refocusing, and recording the confluence of the incide
 beam and scattered wave.
 
 
-\section{Modeling the Optical Train}
+\section{Modeling the optical train}
 
 %% %FIXME maybe provide a super BRIEF recap of LM up to the focal plane?
 %Figure 1 represents the physical situation underlying our experimental technique.
@@ -59,37 +59,36 @@ wave at several interfaces along the optical axis. Referring to
 Figure %FIXME
 we will perform the following calculations:
 \begin{enumerate}
-\item Evaluate the scattered field at the entrance pupil of the objective.
+\item Evaluate the scattered field and incident field at the entrance pupil of the
+  objective.
 \item Account for the  $z$ displacement of the particle away from the focal
   plane of the objective.
 \item Compute the scattered field at the exit pupil of the objective by accounting
   for the angular demagnification imposed by the objective.
 \end{enumerate}
 
-
 A distance $z_p + f$ away from the colloidal sphere, the two waves enter the
 objective pupil. The objective relays the two waves to the tube lens through
 infinity space. The tube lens refocuses the waves such that they arrive at the imaging
 plane magnified.
 
-Our optical model makes use of the debye-wolf integral formalism. By computing the
+Our optical model makes use of the Debye-Wolf integral to propagate the
+fields from the tube lens to the camera plane. By computing the
 angular spectrum present at the tube lens plane, we compute the electric fields
 present at the imaging plane. Owing to the linearity of our optical system,
 we consider the incident field and scattered field separately. We summarize the physical
 steps necessary for each wave before discussing the details in section 3 and section 4.
 
-Since the incident field propagates parallel to the optical axis, we will assume that
-the incident field is only laterally magnified and phase shifted as it traverses the
-optical system.
+Incident field:
 \begin{enumerate}
 \item[1.] Account for the phase displacement on the object side of the objective.
 \item[2.] Account for the position independent lateral magnification.
 \item[3.] Account for the phase displacement on the image side of the tube lens.
 \end{enumerate}
-The scattered wave does not propagate parallel to the optical axis and is therefore
-battered by the objective and tube lens. We will assume the objective is not a
-piece of shit and obeys the abbe-sine condition. In addition, we will trust that the
-objective obeys the conservation of energy for all rays which enter it's pupil.
+
+We will assume the objective lens adequately obeys the abbe-sine condition.
+In addition, we will trust that the objective obeys the conservation of energy
+for all rays which enter it's pupil.
 \begin{enumerate}
 \item[1.] Compute the angular spectrum of the scattered field on a spherical surface
   in the far-field.
@@ -106,7 +105,7 @@ Finally the resulting image is computed with via the poynting vector integrated 
 \end{equation*}
 
 
-  {\bf Propagating the Reference Wave.}\\ 
+\section{Propagating the incident field to the camera plane}
   The reference wave is assumed to be traveling coaxially through the optical
   train. It is collected by the objective, passed through ``infinity'' space
   and then rectified back to a plane wave. In the process, the field is flipped 
@@ -129,7 +128,8 @@ Finally the resulting image is computed with via the poynting vector integrated 
 
   Until image formation, the following steps will exclusively refer to the 
   scattered field.
-   {\bf Scattering.}\\
+
+\section{Scattering by the particle}
   The reference wave (before traversing the optical train) illuminates the 
   spherical scatterer. The spherical scatterer emits a spherical wave
   as a result with some of it's physical properties encoded in the wavefront
@@ -152,11 +152,10 @@ Finally the resulting image is computed with via the poynting vector integrated 
   has units of $ \left [ \vec{E}(\theta, \phi) \right ] = \text{volts}$, and not 
   volts per meter (this will save some people from later confusion). Secondly,
   we've tied ourselves to an assumption. 
-  {\bf Whenever the scattered field cannot
-  suitably be cast in the above form, our formalism will break down.}
+  Whenever the scattered field cannot be suitably cast in the above form,
+  our formalism will break down.
 
-  For the purposes of our 
-  {\bf Displacement.}\\
+\section{ Displacement of the scattered field}
   The scattered field above gives an electric field strength factor that
   emanates from the origin of it's coordinate system. In the eyes of the
   collection step, this will mean that the scatterer is located at the origin
@@ -177,8 +176,8 @@ Finally the resulting image is computed with via the poynting vector integrated 
     \vec{E}(\theta, \phi)|_{\text{scatter plane}} = \vec{E}(\theta, \phi)|_{\text{focal plane}} e^{-i\frac{2\pi}{\lambda}z\cos{\theta} }
   \end{equation*}
 
-  Note, we will later adopt the direction cosines $(s_x, s_y)$ used in Goodman.
-  {\bf Collection.}\\
+  Note, we will later adopt the direction cosines $(s_x, s_y)$ used in
+  \section{Collection}\\
   Here we will repeat the conservation of energy arguments present in section
   1, but unlike the plane wave, we will find that the amplitude and 
   polarization of the spherical wave is perturbed by the optical train in a 
@@ -190,7 +189,8 @@ Finally the resulting image is computed with via the poynting vector integrated 
     \vec{E'}(\theta', \phi')\cdot\hat{\phi'} & = - M \sqrt{ \frac{n'\cos{\theta'}}{n\cos{\theta}}}\vec{E}(\theta, \phi)\cdot\hat{\phi}
     \end{split}
   \end{equation*}
-{\bf Refocusing.}\\
+
+\section{Refocusing the fields to the camera plane}
   The Debye-Wolf integral provides a way to propagate an electric field strength
   factor from one plane to another via an integral formalism. It is given 
   as:
