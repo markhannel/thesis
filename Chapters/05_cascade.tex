@@ -13,7 +13,8 @@ from converging to reasonable results. Previous studies
 have introduced multiple heuristic algorithms for feature detection and
 localization that achieve
 sub-pixel localization error and low false positive rates in
-holographic images of dilute, homogeneous suspensions.\cite{crocker96,cheong09,krishnatreya14a}
+holographic images of dilute, homogeneous suspensions
+\cite{crocker96,cheong09,krishnatreya14a}.
 The performance of these algorithms, however, deteriorates when applied
 to dense or heterogeneous samples. Furthermore, their computational
 complexity currently prohibits real-time applications.
@@ -46,13 +47,14 @@ hardware.
 
 Figure~\ref{fig:detection}(a) illustrates the challenge of
 recognizing features in holographic images: for each
-holographic feature in a video frame, return the set of coordinates
-that identify a bounding box enclosing the feature. As depicted
+feature in a video frame, the goal is to return the set of coordinates
+that define a bounding box enclosing the feature. As depicted
 in Fig.~\ref{fig:detection}(a), features may vary in
-contrast and in extent. Additionally, features may overlap or be occluded by
+contrast and in extent. Additionally, they may overlap or be occluded by
 the edge of the field of view. Fig.~\ref{fig:detection}(b) conveys the computational
-difficulty of automating this task. A two-dimensional array stores the intensity values
-for each pixel in the recorded video frame. An successful analysis of the
+difficulty of automating this task. The intensity values
+for each pixel in the recorded video frame are stored in a two-dimensional
+array. A successful analysis of the
 array yields a list whose length corresponds to the number of features and whose
 entries identify the coordinates bounding a particular feature.
   
@@ -70,8 +72,8 @@ voting algorithms such as the circular Hough transform
 \cite{cheong09,parthasarathy12,allan16trackpy} and
 the orientation alignment transform \cite{krishnatreya14a}.
 Both of these feature-coalescence algorithms rely on the
-radial symmetry of typical single-particle holograms'
-symmetry without reference to the underlying image-formation
+radial symmetry of typical single-particle holograms
+without reference to the underlying image-formation
 mechanism.
 For an image of $N$ pixels on a side, voting algorithms
 have a computational complexity of $\mathcal{O}\left (N^3 \log N \right )$ 
@@ -86,15 +88,15 @@ in \cite{cheong09}.
 
 The peaks created by feature coalescence can be detected
 and their centroids localized as local maxima in the transformed images.
+We use the open-source
+TrackPy implementation \cite{allan16trackpy}
+of the Crocker-Grier algorithm \cite{crocker96} for this step.
 When presented with holograms of well-separated
 colloidal spheres, heuristic algorithms provide
 sub-pixel precision for particle localization
 \cite{cheong09,krishnatreya14a}.
 This easily meets the need to localize
 features for subsequent analysis.
-We use the open-source
-TrackPy implementation \cite{allan16trackpy}
-of the Crocker-Grier algorithm \cite{crocker96}.
 
 Detecting and localizing local maxima can be very
 efficient if the peaks have well-defined widths,
@@ -115,7 +117,8 @@ heuristic feature detection and localization.
 Machine-learning techniques can reduce the computational
 burden of detecting and localizing features of interest in
 holographic microscopy images, and also prove to be more
-robust against false positive and negative feature detections.
+robust against false positive and negative feature detections
+than heuristic algorithms.
 We have implemented two such approaches:
 a cascade of boosted classifiers based on Haar-like wavelets,
 and a deep convolutional neural network (CNN).
@@ -200,8 +203,6 @@ and the for training the output layers to associate these features
 with regression estimates for the
 locations and extents of detected features.
 
-
-
 \begin{figure}[b!]
   \centering
   \includegraphics[width=\textwidth]{rogue_gallery}	
@@ -209,7 +210,6 @@ locations and extents of detected features.
   holographic features used to train machine-learning algorithms.} 
   \label{fig:rogue_gallery}
 \end{figure}
-
 
 Both types of supervised machine-learning algorithms 
 require sets of sample data for training and validation.
@@ -231,7 +231,7 @@ one of the original contributions of this work.
 \section{Generating Training and Validation Datasets}
 
 
-We utilize Eqs.~\eqref{eq:gen_norm} through \eqref{eq:bn} to generate training 
+We use Eqs.~\eqref{eq:gen_norm} through \eqref{eq:bn} to generate training 
 images of spherical scatters with radii ranging from 
 $a_p = \SI{0.25}{\um}$ to \SI{5}{\um}, refractive indexes from 
 $n_p = \num{1.4}$ to \num{2.5}, and axial positions from 
@@ -561,12 +561,12 @@ which corresponds to \SI{25}{frames \per \second}.
     colloidal spheres diffusing through water in a
     holographic optical trapping system.
     Each trace shows 5 seconds of the associated particle's motion.
-    The associated video (Visualization 1) shows the tracking data
-    being used to alternately trap and release the particles.
+    These tracking data were used successfully to trap
+    the particles.
     (b) CNN detection of holographic features.
     The high-contrast feature is created by a \SI{1.5}{\um}
     diameter silica sphere.  The low-contrast feature
-    represents a coliform bacterium in the dispersion.\cite{hannel18}}
+    represents a coliform bacterium in the dispersion \cite{hannel18}.}
   \label{fig:autotrap}
 \end{figure}
 
@@ -627,8 +627,8 @@ reported for synthetic data.
 
 \section{Discussion}
 
-The use of machine-learning algorithms for detecting and
-localizing holographic features enable and enhance a host of 
+Using machine-learning algorithms to detect and
+localize holographic features enables and enhances a host of 
 applications for holographic video microscopy.
 CNNs detect and localize colloidal
 particles faster than conventional image-analysis techniques
@@ -675,8 +675,6 @@ We anticipate that more of these physics-based
 processing steps will be taken over by machine-learning algorithms
 as that technology advances.
 
-Open-source software for holographic particle tracking and characterization
-is available online at \url{https://github.com/davidgrier/}. 
 This work was supported primarily by the MRSEC program of the
 National Science Foundation through Award no.\ DMR-1420073
 and in part by the SBIR program of the NSF through Award no.\
