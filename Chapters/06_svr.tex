@@ -15,7 +15,7 @@ can locate a sphere and resolve its
 radius both to within a few nanometers, and 
 can determine its refractive index to within a part per thousand
 \cite{cheong09,shpaisman12,krishnatreya14}.
-The time cost of this powerful technique is the computational burden of
+The cost of this powerful technique is the computational burden of
 either fitting each hologram pixel-by-pixel to theoretical predictions
 \cite{lee07a,cheong10a} or performing a Bayesian inference of the
 model parameters \cite{dimiduk16}.
@@ -49,19 +49,19 @@ in under a millisecond on the same hardware.
     $n_p$.  The scatter plot shows results for 2,500 spheres
     drawn at random from a mixture of four different types of
     spheres.  Each point is colored by the local density of
-    data points, $\rho(a_p,n_p)$.\cite{yevick14}}
+    data points, $\rho(a_p,n_p)$ \cite{yevick14}.}
   \label{fig:method}
 \end{figure}
 
 \section{Fast Holographic Characterization with Machine Learning}
 
 Previous implementations of Lorenz-Mie microscopy \cite{lee07a} 
-fit Eq.~\eqref{eq:gen_norm} through \eqref{eq:bn} to measured holograms using $a_p$, $n_p$
+fit Eqs.~\eqref{eq:gen_norm} through \eqref{eq:bn} to measured holograms using $a_p$, $n_p$
 and $\vec{r}_p$ as adjustable parameters.
 These fits are exquisitely sensitive to errors in the particle's
 in-plane position, and so must be performed over the entire
 two-dimensional intensity distribution \cite{lee07a}.
-Here, we instead use Eq.~\eqref{eq:gen_norm} through \eqref{eq:bn} to train
+Here, we instead use Eqs.~\eqref{eq:gen_norm} through \eqref{eq:bn} to train
 support vector machines, which then are able to estimate 
 $a_p$, $n_p$ and $z_p$ from a hologram's one-dimensional
 radial profile.
@@ -89,7 +89,7 @@ for estimating $a_p$ and $n_p$.
 
 An SVM computes its output by comparing
 $b(r)$ with vectors from a set of training data, $\left \{ b_n(r) \right \}$,
-that are computed with Eq.~\eqref{eq:theory} over a range
+that are computed with Eqs.~\eqref{eq:gen_norm} through ~\eqref{eq:bn} over a range
 of values of $a_p$, $n_p$ and $z_p$.
 Each computed profile, $b_n(r)$, constitutes one support vector in the space 
 spanned by these parameters.
@@ -261,7 +261,7 @@ dispersed in the medium.
     (c) The mean-squared displacement, $\Delta z_p^2(\tau)$, as a function
     of lag time $\tau$ computed from the data in (a), including
     statistical error bars.  The superimposed line is a fit to
-    Eq.~\eqref{eq:einsteinsmoluchowsky}.\cite{yevick14}}
+    Eq.~\eqref{eq:einsteinsmoluchowsky} \cite{yevick14}.}
   \label{fig:values}
 \end{figure}
 
