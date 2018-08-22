@@ -2,6 +2,47 @@
 \label{app:discretize_dw}
 \appcaption{Appendix C}
 
+
+  In this work we have sought to produce an image in the camera plane from the
+  fields present in the particle plane. To achieve such a transformation,
+  we have treked through the optical train and accounted for various 
+  effects including energy conservation, angular demagnification, polarization
+  rotation, lensing effects and image formation. In doing so, we've
+  implemented the Debye-Wolf formalism via a 2D Fourier transform. To ensure that
+  our sampling rate will not cause aliasing, we impose the following condition on
+  the sampling number $P$ (the same argument applies to the sampling number $Q$):
+  \begin{eqnarray*}
+    \Delta s_x &<& \frac{2 \pi}{k W_x} \hspace{.5 in} \text{Eq 142 in Ref.}\\
+    \frac{2 \sin{\theta_{img}}}{P} &<& \frac{\lambda}{W_x} \\
+    \frac{2 \sin{\theta_{img}}W_x}{\lambda} &<& P \\
+    \frac{2 \text{NA}\cdot W_x}{n\lambda} &<& P 
+  \end{eqnarray*}
+  
+  The field $\vec{E}_{img}$ is discretized into a set of points 
+  $\left ( \Delta_x, \Delta_y \right )$ in the camera plane. We desire that the
+  spacing in the image approximates the real spacing between adjacent 
+  pixels of our camera. As such, we seek to satisfy the relation 
+  $\Delta_x = M\text{mpp}$. However, this is an integer equation which can only
+  be approximately satisfied in general. Pursuing this approximation:
+  \begin{eqnarray*}
+    \Delta_x &\approx& \text{mpp}\cdot M \\
+    \frac{2 \pi}{k' \Delta s_x' N_p} &\approx& \text{mpp}\cdot M \\
+    \frac{\lambda'}{N_P} \frac{1}{\Delta s_x'} &\approx& \text{mpp}\cdot M \\
+    \frac{\lambda'}{N_P} \frac{P}{2 \sin{\theta_{img}}} &\approx& \text{mpp}\cdot M \\
+    \frac{\lambda'}{N_P} \frac{PMn'}{2\text{NA}} &\approx& \text{mpp}\cdot M \\
+    \frac{\lambda}{N_P} \frac{P}{2\text{NA}} &\approx& \text{mpp} \\
+    \frac{P\lambda}{2\text{NA}\cdot\text{mpp}} &\approx& N_p \\
+    \frac{P\lambda}{2\text{NA}\cdot\text{mpp}} &\approx& P+\text{pad}_P \\
+    \left ( \frac{\lambda}{2\text{NA}\cdot\text{mpp}} - 1 \right )P &\approx& \text{pad}_P \\    
+  \end{eqnarray*}
+
+  \begin{equation}
+    \begin{split}
+      P > \frac{2 \text{NA}\cdot W_x}{n\lambda} \\
+      \text{pad}_P  \approx  \left ( \frac{\lambda}{2\text{NA}\cdot\text{mpp}} - 1 \right )P
+    \end{split}
+  \end{equation}
+
   Let's first reduce the prefactor in $\vec{E}_{img}$:
   \begin{eqnarray*}
     \frac{-ik'\Delta s'_x \Delta s'_y}{2 \pi} &=& -i\left ( \frac{k'}{2\pi} \right ) (2 \sin{\theta_{img}}/P)(2 \sin{\theta_{img}}/Q) \\
