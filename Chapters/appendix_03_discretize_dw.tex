@@ -1,0 +1,23 @@
+\SkipTocEntry\chapter{Discretizing the scattered field for the Debye-Wolf integral} 
+\label{app:discretize_dw}
+\appcaption{Appendix C}
+
+  Let's first reduce the prefactor in $\vec{E}_{img}$:
+  \begin{eqnarray*}
+    \frac{-ik'\Delta s'_x \Delta s'_y}{2 \pi} &=& -i\left ( \frac{k'}{2\pi} \right ) (2 \sin{\theta_{img}}/P)(2 \sin{\theta_{img}}/Q) \\
+    &=& -i \left ( \frac{1}{\lambda'} \right ) \frac{4}{PQ} \left ( \sin{\theta_{img}} \right )^2 \hspace{.5 in} \text{By Equation 132. of Ref.}\\
+    &=& -i \left ( \frac{1}{\lambda'} \right ) \frac{4}{PQ} \left ( \frac{\text{NA}}{Mn'} \right )^2 \\
+    &=& -i \left ( \frac{4}{PQ} \right ) \left ( \frac{\text{NA}^2}{M^2\lambda n'} \right )
+  \end{eqnarray*}
+
+Now reduce the exponential in $\vec{E}_{img}$:
+\begin{eqnarray*}
+  i2\pi \left ( \frac{s'_{x_o}}{\Delta s'_x N_p} m + \frac{s'_{y_o}}{\Delta s'_yN_q} n \right )  &=& i2\pi \left ( \frac{-\sin{\theta_{img}} \left ( 1 - 1/P\right )}{2\sin{\theta_{img}}/P\cdot N_p} m + \frac{-\sin{\theta_{img}}\left ( 1-1/Q\right ) }{2\sin{\theta_{img}}/Q \cdot N_q} n \right ) \\
+  &=& -i\pi \left ( \frac{P - 1}{N_p}m + \frac{Q - 1}{N_q} n \right ) 
+\end{eqnarray*}
+Therefore our expression for $\vec{E}_{img}$ is the following:
+
+\begin{equation}
+  \vec{E}_{img} \approx -i \left ( \frac{4}{PQ} \right ) \left ( \frac{\text{NA}^2}{M^2\lambda n'} \right ) e^{-i\pi \left ( \frac{P - 1}{N_p}m + \frac{Q - 1}{N_q} n \right ) }\vec{E}\left [ m, n \right ]
+\end{equation}
+
