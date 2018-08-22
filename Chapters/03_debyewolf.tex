@@ -162,38 +162,48 @@ entrance pupil of the objective to the field strength at the tube lens as
   \end{equation}
 
 \subsection{Refocusing the fields to the camera plane}
-The Debye-Wolf integral transforms the electric field strength factor at a lens
+Finally we utilize a near-field-to-far-field transform to propagate the scattered
+field from the tube lens to the imaging plane.
+The Debye-Wolf diffraction integral transforms the electric field strength factor at a lens
 surface to the electric fields present in the focal plane of that lens.
 \begin{equation}
   \vec{E}_{img}(x', y') = \frac{i k'}{2 \pi} \iint_{\Omega_{img}} \vec{E}_s'(s'_x, s'_y) e^{-ik'(s'_xx'+s'_yy')}\frac{ds'_xds'_y}{\cos{\theta'}}
 \end{equation}
-Several points are worth mentioning:
-\begin{enumerate}
-\item The Debye Wolf integral takes a field strength factor $\vec{E}_s'$,
-  an integration domain $\Omega_{img}$ and the wavenumber $k'$ as its inputs.
-  From these inputs, the electric field in the (x'-y') plane is
-  calculated. 
-\item Heuristically, one should imagine that $\Omega_{img}$ dictates how far 
-  away the plane $(x'-y')$ will be (the distance scales with the size of 
-  $\Omega_{img}$), that $k'$ gives the field strength factor the necessary 
-  units to become an electric field and the electric field strength factor 
-  contains most of the information detailing the interference pattern in the
-  x'-y' plane ($k'$ has influence here as well).
-\item This integral in many ways amounts to
-  an inverse of Huygen's rule; a spherical wave is decomposed into a multitude 
-  of plane waves whose phase relations and subsequent inteference produce
-  the same effect as the original spherical wave.
-\item The Debye-Wolf formalism easily accounts for any phase aberration 
-  $\Phi(s'_x,s'_y)$ of the field as it passes through the optical train. To do so, the integrand
-  of the Debye-Wolf integral is multiplied by a phase term $e^{ik'\Phi(s'_x,s'_y)}$.
-\end{enumerate}
+This integral acts as an inverse of Huygen's principle; a spherical wave is
+decomposed into a multitude of plane waves whose phase relations and subsequent
+interference produce the same effect as the original spherical wave.
+The imperfections present in the optical train are beyond the scope
+of this study, however, the Debye-Wolf integral can easily account for a phase
+aberration  $\Phi(s'_x,s'_y)$ of the field as it passes through the optical train.
+To do so, the integrand of the Debye-Wolf integral is multiplied by a phase term
+$e^{ik'\Phi(s'_x,s'_y)}$.
+
+%Several points are worth mentioning:
+%\begin{enumerate}
+%\item The Debye Wolf integral takes a field strength factor $\vec{E}_s'$,
+%  an integration domain $\Omega_{img}$ and the wavenumber $k'$ as its inputs.
+%  From these inputs, the electric field in the (x'-y') plane is
+%  calculated. 
+%\item Heuristically, one should imagine that $\Omega_{img}$ dictates how far 
+%  away the plane $(x'-y')$ will be (the distance scales with the size of 
+%  $\Omega_{img}$), that $k'$ gives the field strength factor the necessary 
+%  units to become an electric field and the electric field strength factor 
+%  contains most of the information detailing the interference pattern in the
+%  x'-y' plane ($k'$ has influence here as well).
+%\item This integral in many ways amounts to
+%  an inverse of Huygen's rule; a spherical wave is decomposed into a multitude 
+%  of plane waves whose phase relations and subsequent inteference produce
+%  the same effect as the original spherical wave.
+%\item The Debye-Wolf formalism easily accounts for any phase aberration 
+%  $\Phi(s'_x,s'_y)$ of the field as it passes through the optical train. To do so, the integrand
+%  of the Debye-Wolf integral is multiplied by a phase term $e^{ik'\Phi(s'_x,s'_y)}$.
+%\end{enumerate}
 
 With the exception of the $k'$ in the phase term and the $\cos{\theta'}$ 
 modifying the differential element, we should recognize the
 Debye-Wolf integral as a Fourier transform. We will discretize this
 Fourier transform subject to sampling and aliasing conditions described
-in the appendix. Here we summarize and interpret the result.
-
+in the appendix \ref{app:discretize_dw}. Here we summarize and interpret the result
 \begin{equation}
   \begin{split}
     \vec{E}_{img}( m \Delta_x, n \Delta_y) & \approx \frac{i k' \Delta s'_x \Delta s'_y}{2 \pi} e^{-i2\pi \left ( \frac{s'_{x_o}}{\Delta s'_x N_p} m + \frac{s'_{y_o}}{\Delta s'_yN_q} n \right ) } \vec{E}\left [ m, n \right ] \\
@@ -202,56 +212,32 @@ in the appendix. Here we summarize and interpret the result.
   \end{split}
 \end{equation}
 
-  
 
-  Let's first reduce the prefactor in $\vec{E}_{img}$:
-  \begin{eqnarray*}
-    \frac{-ik'\Delta s'_x \Delta s'_y}{2 \pi} &=& -i\left ( \frac{k'}{2\pi} \right ) (2 \sin{\theta_{img}}/P)(2 \sin{\theta_{img}}/Q) \\
-    &=& -i \left ( \frac{1}{\lambda'} \right ) \frac{4}{PQ} \left ( \sin{\theta_{img}} \right )^2 \hspace{.5 in} \text{By Equation 132. of Ref.}\\
-    &=& -i \left ( \frac{1}{\lambda'} \right ) \frac{4}{PQ} \left ( \frac{\text{NA}}{Mn'} \right )^2 \\
-    &=& -i \left ( \frac{4}{PQ} \right ) \left ( \frac{\text{NA}^2}{M^2\lambda n'} \right )
-  \end{eqnarray*}
+\subsection{Propagating the incident field}
 
-Now reduce the exponential in $\vec{E}_{img}$:
-\begin{eqnarray*}
-  i2\pi \left ( \frac{s'_{x_o}}{\Delta s'_x N_p} m + \frac{s'_{y_o}}{\Delta s'_yN_q} n \right )  &=& i2\pi \left ( \frac{-\sin{\theta_{img}} \left ( 1 - 1/P\right )}{2\sin{\theta_{img}}/P\cdot N_p} m + \frac{-\sin{\theta_{img}}\left ( 1-1/Q\right ) }{2\sin{\theta_{img}}/Q \cdot N_q} n \right ) \\
-  &=& -i\pi \left ( \frac{P - 1}{N_p}m + \frac{Q - 1}{N_q} n \right ) 
-\end{eqnarray*}
-Therefore our expression for $\vec{E}_{img}$ is the following:
+The propagation of the incident field through the optical system is easy in
+comparison to the scattered field. The incident field 
 
-\begin{equation}
-  \vec{E}_{img} \approx -i \left ( \frac{4}{PQ} \right ) \left ( \frac{\text{NA}^2}{M^2\lambda n'} \right ) e^{-i\pi \left ( \frac{P - 1}{N_p}m + \frac{Q - 1}{N_q} n \right ) }\vec{E}\left [ m, n \right ]
-\end{equation}
-
-
-
-
-Incident field:
 \begin{enumerate}
 \item[1.] Account for the phase displacement on the object side of the objective.
 \item[2.] Account for the position independent lateral magnification.
 \item[3.] Account for the phase displacement on the image side of the tube lens.
 \end{enumerate}
 
-We will assume the objective lens adequately obeys the Abbe Sine condition.
-In addition, we will trust that the objective obeys the conservation of energy
-for all rays which enter its pupil.
-\begin{enumerate}
-\item[1.] Compute the angular spectrum of the scattered field on a spherical surface
-  in the far-field.
-\item[2.] Apply the apodization caused by the entrance pupil of the objective.
-\item[3.] Account for the direction dependent magnfication. This induces changes in
-  amplitude, phase and direction (thus polarization).
-\item[4.] Compute the electric fields present at the imaging plane from the angular spectrum in step 3.
-\end{enumerate}
-
-Finally the resulting image is computed with the poynting vector integrated over each pixel
-\begin{equation}
-  I = \left | E_{inc} + E_{s} \right |^2.
-\end{equation}
+%We will assume the objective lens adequately obeys the Abbe Sine condition.
+%In addition, we will trust that the objective obeys the conservation of energy
+%for all rays which enter its pupil.
+%\begin{enumerate}
+%\item[1.] Compute the angular spectrum of the scattered field on a spherical surface
+%  in the far-field.
+%\item[2.] Apply the apodization caused by the entrance pupil of the objective.
+%\item[3.] Account for the direction dependent magnfication. This induces changes in
+%  amplitude, phase and direction (thus polarization).
+%\item[4.] Compute the electric fields present at the imaging plane from the angular spectru%m in step 3.
+%\end{enumerate}
 
 
-\section{Propagating the incident field to the camera plane}
+\subsection{Propagating the incident field to the camera plane}
   The reference wave is assumed to be traveling coaxially through the optical
   train. It is collected by the objective, passed through ``infinity'' space
   and then rectified back to a plane wave. In the process, the field is flipped 
@@ -272,12 +258,11 @@ Finally the resulting image is computed with the poynting vector integrated over
     \vec{E}_2 = -\frac{1}{M}\sqrt{\frac{n_1}{n_2}} \vec{E}_1     
   \end{equation}
 
-  Until image formation, the following steps will exclusively refer to the 
-  scattered field.
+  \subsection{Image in the camera plane}
   
   In this work we have sought to produce an image in the camera plane from the
   fields present in the particle plane. To achieve such a transformation,
-  we've treked through the optical train and accounted for various 
+  we have treked through the optical train and accounted for various 
   effects including energy conservation, angular demagnification, polarization
   rotation, lensing effects and image formation. In doing so, we've
   implemented the Debye-Wolf formalism via a 2D Fourier transform. To ensure that
@@ -319,6 +304,15 @@ Finally the resulting image is computed with the poynting vector integrated over
   
 \section{Comparison to Scalar Diffraction Theory}
 
+Having accounted for the propagation of the incident field and the scattered
+field through the optical system, we are now ready to assess the differences
+in the vector theory and scalar theory. We will produce a range of synthetic
+holograms with the vector-based theory over a range %%FIXME.
+We will then fit each synthetic
+hologram to the scalar-based theory outlined in \autoref{ch:hvm} to fit each.
+The difference between the resulting fit parameters and the known scatterer
+properties set a lower bound for the cost of adopting the scalar theory
+over the vector-based theory.
 
 \begin{figure}
   \centering
