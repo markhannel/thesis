@@ -41,13 +41,84 @@ that a trove of quantitative information exists within microscopy images.
 % Reseachers who want access to the deluge of quantitative
 % information able via microscopy have 
 
-\section{Holographic Video Microscopy}
-
-
 
 
 \section{Organization}
-%\section{Outline of Dissertation}
-%\section{Thesis Overview}
 
-This thesis yada yada yada
+% FIXME: Make Chapter part of the href.
+Chapter \ref{ch:hvm} provides an extensive theoretical and practical
+introduction to holographic particle characterization. The primary
+experimental setup for all subsequent experiments is introduced.
+
+In \autoref{ch:debye} we model the optical train to establish the
+physical limits of HPC set by the imaging apparatus. The scattered
+field and incident field are evaluated at several planes along the
+optical train. The refraction of rays through optical element
+may impart a phase shift, a polarization rotation and a scaling
+of complex magnitude. We determine that a scalar theory
+approximation successful accounts for the images arriving in the
+focal plane for the range of scatterers we are interested in.
+
+Chapter \ref{ch:dimpled} presents a series of experimental and
+simulated studies to determine the effective of Lorenz-Mie
+microscopy in characterizing slight aspherical particles.
+Specifically, we synthesize three types of colloidal particles:
+spheres, spheres will small dimples and spheres with large dimples.
+The work of this chapters validates the use of the Lorenz-Mie theory
+for analyzing spheres which have small geometrical deviations from
+ideal sphericity. Additionally, our work determines that the Lorenz-Mie
+theory acts as an effective sphere model for particles with
+pronounced deviations from a spherical geometry and provides
+accurate information on the scatterer.
+
+The first step in holographic particle characterization
+requires detecting and localizing holographic features in experimental
+images. Heuristic algorithms perform admirably for isolated, homogeneous
+features; after tuning the necessary empirical parameters, they achieve
+sub-pixel localization while incurring few false positives. However their
+performance deteriorates when presented overlapping features or even
+heterogenous holographic features (axial range, size and refractive index).
+
+We present in \autoref{ch:cascade} two machine-learning algorithms for
+detecting and localizing holographic features: a convolution
+neural network (CNN) and a cascade classifier. Direct comparison with the
+heuristic algorithm over a range of experimental and synthetic images
+shows promising results. The CNN demonstrates robust feature detection
+for overlapping holograms or even highly heterogeneous holographic features
+in the same image. The cascade classifier's localization precision
+offers is a ten times worse than the CNN, but is also ten times faster than
+the CNN. In fact the cascade classifier is fast enough for real-time
+applications such as high-speed targeting in holographic optical
+trapping systems.
+
+After detecting a holographic feature, an initial estimate of the
+scatter's size, refractive index, and three-dimensional position
+is necessary for the subsequent fit to the Lorenz-Mie theory.
+For homogeneous samples of a single particle type, the fitting procedure
+can be bootstrapped with outside information. For heterogeneous samples
+with disparate sizes or refractive indices, the fitting procedure
+will likely lock onto local minima and return erroneous results for
+the size and refractive index. holographic features to the Lorenz-Mie theory requires
+In \autoref{ch:svr} we demonstrate the use of a support vector machine for
+estimating the size and refractive index of scatterers from snapshots
+of holographic features. Our implementation has several steps. Our fitting
+algorithm usually fits the intensity pattern from \SI{40000}{} pixels;
+We reduce the dimensionality of this problem by analyzing the radial
+profile of the image made by taking an average over angles. In addition
+we produce a SVM for the three properties we need to bootstrap:
+size, refractive index, and height above the focal plane. We demonstrate these
+support vector machines can resolve heterogeneous samples with four greatly
+differing particle properties.
+
+In the previous chapters we have worked towards validating and extending
+the domain of applicability of holographic particle characterization.
+In \autoref{ch:synthesis} we close with a demonstration of its use for
+analyzing the synthesis of \num{3}-methacryloxypropyltrimethoxysilane (TPM) colloidal
+spheres. The synthesis is principally a two-step procedure: a emulsion of monodisperse,
+micrometer sized TPM droplets is prepared and then polymerized.
+A number of experimental parameters and conditions can however affect
+the resulting size of the polymerized spheres. In this chapter we use
+holographic particle characterization to analyze liquid droplets and
+solid TPM spheres. By synthesizing particles under a number of
+differing protocols, we isolate a number of experimental conditions
+that affect particle size.
