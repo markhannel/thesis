@@ -100,17 +100,17 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="1.0349279"
-     inkscape:cx="409.62193"
-     inkscape:cy="1116.9765"
+     inkscape:zoom="1.4636091"
+     inkscape:cx="433.82987"
+     inkscape:cy="905.53485"
      inkscape:document-units="mm"
-     inkscape:current-layer="layer2"
+     inkscape:current-layer="svg854"
      showgrid="false"
      inkscape:measure-start="754.369,906.752"
      inkscape:measure-end="769.331,906.62"
-     inkscape:window-width="1215"
-     inkscape:window-height="1000"
-     inkscape:window-x="1985"
+     inkscape:window-width="1855"
+     inkscape:window-height="1176"
+     inkscape:window-x="65"
      inkscape:window-y="24"
      inkscape:window-maximized="1" />
   <metadata
@@ -121,7 +121,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -157,7 +157,7 @@
          id="tspan7911"
          x="156.52408"
          y="77.170059"
-         style="stroke-width:0.26458332"></tspan></text>
+         style="stroke-width:0.26458332" /></text>
   </g>
   <g
      inkscape:label="Layer 1"
@@ -166,135 +166,27 @@
     <image
        sodipodi:absref="/home/mark/Github/thesis/Figures/04_siliconeoil_calibration_parabola_vz.png"
        xlink:href="04_siliconeoil_calibration_parabola_vz.png"
-       inkscape:export-ydpi="200"
-       inkscape:export-xdpi="200"
-       width="50"
-       height="49.975403"
-       preserveAspectRatio="none"
-       style="image-rendering:optimizeQuality"
+       y="29.700958"
+       x="74.313805"
        id="image1407"
-       x="36.213802"
-       y="29.700958" />
+       style="image-rendering:optimizeQuality"
+       preserveAspectRatio="none"
+       height="49.975403"
+       width="50"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200" />
     <image
        sodipodi:absref="/home/mark/Github/thesis/Figures/06_siliconeoil_calibration_clean_v.png"
        xlink:href="06_siliconeoil_calibration_clean_v.png"
-       inkscape:export-ydpi="200"
-       inkscape:export-xdpi="200"
-       width="50"
-       height="50"
-       preserveAspectRatio="none"
-       style="image-rendering:optimizeQuality"
+       y="29.700958"
+       x="128.54713"
        id="image1429"
-       x="90.447144"
-       y="29.700958" />
-    <g
-       id="g4153"
-       transform="matrix(0.70517824,0,0,0.70517824,27.333701,13.374302)"
+       style="image-rendering:optimizeQuality"
+       preserveAspectRatio="none"
+       height="50"
+       width="50"
        inkscape:export-xdpi="200"
-       inkscape:export-ydpi="200">
-      <g
-         transform="translate(26.889851,-60.495401)"
-         id="g4132">
-        <g
-           id="g4101"
-           transform="translate(-25.565388,62.507375)">
-          <text
-             id="text1581"
-             y="66.960037"
-             x="159.50223"
-             style="font-style:normal;font-weight:normal;font-size:10.58333302px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
-             xml:space="preserve"><tspan
-               style="font-size:2.82222223px;stroke-width:0.26458332"
-               y="66.960037"
-               x="159.50223"
-               id="tspan1579"
-               sodipodi:role="line">90 um</tspan></text>
-          <g
-             id="g4083">
-            <g
-               id="g1562">
-              <rect
-                 y="55.225384"
-                 x="166.07281"
-                 height="1.8632721"
-                 width="33.520756"
-                 id="rect1476"
-                 style="opacity:0.4;fill:#b7bec8;fill-opacity:1;stroke:#000000;stroke-width:0.18754232;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:stroke markers fill" />
-              <rect
-                 y="37.487106"
-                 x="166.07281"
-                 height="1.8632721"
-                 width="33.520756"
-                 id="rect1476-5"
-                 style="opacity:0.4;fill:#b7bec8;fill-opacity:1;stroke:#000000;stroke-width:0.18754232;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:stroke markers fill" />
-              <rect
-                 y="39.35038"
-                 x="166.0728"
-                 height="15.875004"
-                 width="33.520748"
-                 id="rect1510"
-                 style="opacity:0.4;fill:#aaccff;fill-opacity:1;stroke:none;stroke-width:0.26499999;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:stroke markers fill" />
-            </g>
-            <path
-               style="fill:none;stroke:#000000;stroke-width:0.30000001;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:1.2, 0.3;stroke-dashoffset:0;stroke-opacity:1"
-               d="m 162.08119,76.85 h 41.50697"
-               id="path1512"
-               inkscape:connector-curvature="0" />
-            <path
-               style="fill:none;stroke:#000000;stroke-width:0.30000001;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:1.2, 0.3;stroke-dashoffset:0;stroke-opacity:1"
-               d="m 162.08119,55.114 h 37.6048"
-               id="path1512-9"
-               inkscape:connector-curvature="0" />
-            <path
-               style="fill:none;stroke:#000000;stroke-width:0.30000001;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:1.2, 0.3;stroke-dashoffset:0;stroke-opacity:1"
-               d="m 165.97834,39.408 h 37.60982"
-               id="path1512-1"
-               inkscape:connector-curvature="0" />
-            <text
-               xml:space="preserve"
-               style="font-style:normal;font-weight:normal;font-size:10.58333302px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
-               x="195.99695"
-               y="66.960037"
-               id="text1581-2"><tspan
-                 sodipodi:role="line"
-                 id="tspan1579-7"
-                 x="195.99695"
-                 y="66.960037"
-                 style="font-size:2.82222223px;stroke-width:0.26458332">150 um</tspan></text>
-            <path
-               style="fill:none;stroke:#000000;stroke-width:0.30000001;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#Arrow2Mend)"
-               d="M 163.82697,64.071933 V 55.725779"
-               id="path1603"
-               inkscape:connector-curvature="0" />
-            <path
-               style="fill:none;stroke:#000000;stroke-width:0.30000001;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#Arrow2Mend-0)"
-               d="m 163.8212,67.97223 v 8.346154"
-               id="path1603-3"
-               inkscape:connector-curvature="0" />
-            <path
-               style="fill:none;stroke:#000000;stroke-width:0.30000001;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#Arrow2Mend-0-6)"
-               d="m 201.92123,67.97223 v 8.346154"
-               id="path1603-3-6"
-               inkscape:connector-curvature="0" />
-            <path
-               style="fill:none;stroke:#000000;stroke-width:0.30000001;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#Arrow2Mend-0-6-2)"
-               d="M 201.927,64.072 V 40.692268"
-               id="path1603-3-6-1"
-               inkscape:connector-curvature="0" />
-          </g>
-        </g>
-        <image
-           sodipodi:absref="/home/mark/Github/thesis/Figures/just_points.png"
-           xlink:href="just_points.png"
-           width="21.315731"
-           height="21.315731"
-           preserveAspectRatio="none"
-           style="image-rendering:optimizeQuality"
-           id="image4111"
-           x="148.66953"
-           y="98.737526" />
-      </g>
-    </g>
+       inkscape:export-ydpi="200" />
     <text
        inkscape:export-xdpi="200"
        inkscape:export-ydpi="200"
@@ -311,39 +203,154 @@
     <text
        xml:space="preserve"
        style="font-style:normal;font-weight:normal;font-size:10.58333302px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
-       x="84.226151"
+       x="68.351158"
        y="38.981457"
        id="text4157-8"
        inkscape:export-xdpi="200"
        inkscape:export-ydpi="200"><tspan
          sodipodi:role="line"
          id="tspan4155-7"
-         x="84.226151"
+         x="68.351158"
          y="38.981457"
          style="font-size:4.23333311px;stroke-width:0.26458332">(b)</tspan></text>
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:10.58333302px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
-       x="138.12474"
-       y="38.712597"
+       style="font-style:normal;font-weight:normal;font-size:10.58850861px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26471266"
+       x="122.83892"
+       y="38.69313"
        id="text4157-8-9"
        inkscape:export-xdpi="200"
-       inkscape:export-ydpi="200"><tspan
+       inkscape:export-ydpi="200"
+       transform="scale(0.99951129,1.000489)"><tspan
          sodipodi:role="line"
          id="tspan4155-7-2"
-         x="138.12474"
-         y="38.712597"
-         style="font-size:4.23333311px;stroke-width:0.26458332">(c)</tspan></text>
+         x="122.83892"
+         y="38.69313"
+         style="font-size:4.23540258px;stroke-width:0.26471266">(c)</tspan></text>
   </g>
-  <text
-     xml:space="preserve"
-     style="font-style:normal;font-weight:normal;font-size:10.58333302px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
-     x="149.68137"
-     y="68.229752"
-     id="text7994"><tspan
-       sodipodi:role="line"
-       id="tspan7992"
-       x="149.68137"
-       y="68.229752"
-       style="font-size:2.82222223px;stroke-width:0.26458332">Focal Plane</tspan></text>
+  <g
+     id="g929"
+     transform="translate(-67.067374,-46.639845)"
+     inkscape:export-xdpi="200"
+     inkscape:export-ydpi="200">
+    <g
+       inkscape:export-ydpi="200"
+       inkscape:export-xdpi="200"
+       transform="matrix(0.70517824,0,0,0.70517824,-11.014381,59.008521)"
+       id="g4153">
+      <g
+         id="g4132"
+         transform="translate(26.889851,-60.495401)">
+        <g
+           transform="translate(-25.565388,62.507375)"
+           id="g4101">
+          <text
+             xml:space="preserve"
+             style="font-style:normal;font-weight:normal;font-size:10.58333302px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+             x="159.50223"
+             y="66.960037"
+             id="text1581"><tspan
+               sodipodi:role="line"
+               id="tspan1579"
+               x="159.50223"
+               y="66.960037"
+               style="font-size:2.82222223px;stroke-width:0.26458332">90 um</tspan></text>
+          <g
+             id="g4083">
+            <g
+               id="g1562">
+              <rect
+                 style="opacity:0.4;fill:#b7bec8;fill-opacity:1;stroke:#000000;stroke-width:0.18754232;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:stroke markers fill"
+                 id="rect1476"
+                 width="33.520756"
+                 height="1.8632721"
+                 x="166.07281"
+                 y="55.225384" />
+              <rect
+                 style="opacity:0.4;fill:#b7bec8;fill-opacity:1;stroke:#000000;stroke-width:0.18754232;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:stroke markers fill"
+                 id="rect1476-5"
+                 width="33.520756"
+                 height="1.8632721"
+                 x="166.07281"
+                 y="37.487106" />
+              <rect
+                 style="opacity:0.4;fill:#aaccff;fill-opacity:1;stroke:none;stroke-width:0.26499999;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:stroke markers fill"
+                 id="rect1510"
+                 width="33.520748"
+                 height="15.875004"
+                 x="166.0728"
+                 y="39.35038" />
+            </g>
+            <path
+               inkscape:connector-curvature="0"
+               id="path1512"
+               d="m 162.08119,76.85 h 41.50697"
+               style="fill:none;stroke:#000000;stroke-width:0.30000001;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:1.2, 0.3;stroke-dashoffset:0;stroke-opacity:1" />
+            <path
+               inkscape:connector-curvature="0"
+               id="path1512-9"
+               d="m 162.08119,55.114 h 37.6048"
+               style="fill:none;stroke:#000000;stroke-width:0.30000001;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:1.2, 0.3;stroke-dashoffset:0;stroke-opacity:1" />
+            <path
+               inkscape:connector-curvature="0"
+               id="path1512-1"
+               d="m 165.97834,39.408 h 37.60982"
+               style="fill:none;stroke:#000000;stroke-width:0.30000001;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:1.2, 0.3;stroke-dashoffset:0;stroke-opacity:1" />
+            <text
+               id="text1581-2"
+               y="66.960037"
+               x="195.99695"
+               style="font-style:normal;font-weight:normal;font-size:10.58333302px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+               xml:space="preserve"><tspan
+                 style="font-size:2.82222223px;stroke-width:0.26458332"
+                 y="66.960037"
+                 x="195.99695"
+                 id="tspan1579-7"
+                 sodipodi:role="line">150 um</tspan></text>
+            <path
+               inkscape:connector-curvature="0"
+               id="path1603"
+               d="M 163.82697,64.071933 V 55.725779"
+               style="fill:none;stroke:#000000;stroke-width:0.30000001;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#Arrow2Mend)" />
+            <path
+               inkscape:connector-curvature="0"
+               id="path1603-3"
+               d="m 163.8212,67.97223 v 8.346154"
+               style="fill:none;stroke:#000000;stroke-width:0.30000001;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#Arrow2Mend-0)" />
+            <path
+               inkscape:connector-curvature="0"
+               id="path1603-3-6"
+               d="m 201.92123,67.97223 v 8.346154"
+               style="fill:none;stroke:#000000;stroke-width:0.30000001;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#Arrow2Mend-0-6)" />
+            <path
+               inkscape:connector-curvature="0"
+               id="path1603-3-6-1"
+               d="M 201.927,64.072 V 40.692268"
+               style="fill:none;stroke:#000000;stroke-width:0.30000001;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#Arrow2Mend-0-6-2)" />
+          </g>
+        </g>
+        <image
+           sodipodi:absref="/home/mark/Github/thesis/Figures/just_points.png"
+           xlink:href="just_points.png"
+           width="21.315731"
+           height="21.315731"
+           preserveAspectRatio="none"
+           style="image-rendering:optimizeQuality"
+           id="image4111"
+           x="148.66953"
+           y="98.737526" />
+      </g>
+    </g>
+    <text
+       id="text7994"
+       y="113.86397"
+       x="111.33327"
+       style="font-style:normal;font-weight:normal;font-size:10.58333302px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       xml:space="preserve"><tspan
+         style="font-size:2.82222223px;stroke-width:0.26458332"
+         y="113.86397"
+         x="111.33327"
+         id="tspan7992"
+         sodipodi:role="line">Focal Plane</tspan></text>
+  </g>
 </svg>
