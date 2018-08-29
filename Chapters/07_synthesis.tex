@@ -158,18 +158,31 @@ as depicted in Fig.~\ref{fig:flow_prof}(c).
 
 \subsection{Orthogonal validation methods}
 
-
 We used scanning electron microscopy to provide baseline estimates of the
-particles against which to compare holographic characterization measurements.
+particles to compare against holographic characterization measurements.
 Each sample of polymerized spheres were imaged with a MERLIN (Carl Zeiss) field
 emission scanning electron microscope (SEM).
-Typical images are provided in Fig.~\ref{fig:synthesis_stir_rate}(a).
+Typical images are provided in Fig.~\ref{fig:sem_stir_rate}(a).
 SEM images provide a visual check on the sample's uniformity
 and can be used to estimate the colloidal spheres' diameter. While a well calibrated scanning
 electron microscope provides \num{1} to \SI{10}{\nm} resolution of features, sample
 preparation, particularly vacuum decompression and sputter coating, can shrink or
 even swell the sample \cite{yamada85,jung02}. The liquid TPM droplets
 are not amendable to SEM analysis.
+
+A common method for determining the refractive index of colloidal particles
+requires index matching the particles to a solution with a known refractive index.
+This procedure requires dispersing the particles in a solution and therefore
+assumes that the solution does not chemically interact with the particles
+and does not cause appreciable swelling.  Ref.~\cite{vanderwel17} estimated the
+refractive index to be between $\num{1.512}$ and $\num{1.513}$ by index matching
+to a solution of pyridine ($n = \SI{1.509}{}$) and \num{2}- ethylhexyl \num{4}-methoxycinnamate
+($n = \SI{1.545}{}$). We instead estimated the refractive index of polymerized TPM spheres
+from measurements of the refractive index of several dense suspensions of TPM spheres
+dispersed in water. For most colloidal suspensions \cite{alexander81}, the refractive index
+depends linearly on the volume fraction of particles. With measurements of the refractive
+index at multiple volume fractions, we can accurately estimate the refractive index of
+TPM particles. 
 
 \section{Results}
 \subsection{Effect of stir rate}
@@ -183,47 +196,109 @@ In four identical vials with identical stir bars, we placed \SI{15}{\milli\liter
 \SI{29}{\percent} ammonia followed by \SI{200}{\micro\liter} of TPM 
 monomer to \SI{5}{\milli\liter} of DI water. The four samples were then stirred 
 using magnetic stir plates set at \num{500}, \num{700}, \num{900}, and
-\SI{1100}{\minute^{-1}} for \SI{2}{\hour}. % XXX Use rpm instead of min^{-1}?
+\SI{1100}{\minute^{-1}} for \SI{2}{\hour}. 
 The droplets were then polymerized by adding
 \num{2},\num{2}'-azobis(\num{2}-methylpropionitrile, Sigma Aldrich) (AIBN) as a radical initiator and %FIXME: Lot number of AIBN?
 heating the sample to \SI{80}{\celsius} for \SI{2}{\hour}.
-We prepared a sample of the unpolymerized droplets and a sample of polymerized TPM spheres
+We prepared a sample of unpolymerized droplets and a sample of polymerized TPM spheres
 at each of the four spin rates, for a total of eight samples.
-
-The result of holographic particle characterization for the \num{4} polymerized samples
-and the \num{4} unpolymerized samples are summarized in Fig.~\ref{fig:synthesis_stir_rate}(b).
-Each dot represents the average size and refractive index for the associated sample. Error
-bars represent the single median absolute deviation of the associated property.
-The unpolymerized droplets, represented with dashed error, bars have a systematically
-lower refractive index than the polymerized droplets, represented with solid error bars.
-Polymerization changes the chemical makeup of the droplet and generally increases the
-density; both processes might reasonably account for the observed increase.
-Both values greatly exceed the refractive index of bulk TPM oil, which is indicated by
-a dashed line in Fig.~\ref{fig:synthesis_stir_rate}(b).
-Hydrolysis and oligomerization of TPM oil account for three quarters of
-the total change 
-
-Digital SEM images were analyzed with ImageJ to estimate the diameters of \num{10}
-spheres from each sample.
-The average particle diameters were \SI{1.48}{\um}, \SI{1.63}{\um},
-\SI{2.03}{\um}, and \SI{1.82}{\um} for stirring rates \num{500}, \num{700}, \num{900}, and
-\SI{1100}{\minute^{-1}} respectively. We note that the SEM images for the emulsion
-stirred at \SI{1100}{\minute^{-1}} reveal a small population of \SI{100}{\nm}.
 
 \begin{figure}
     \centering
-    \includegraphics[width=\columnwidth]{synthesis_stir_fig}
+    \includegraphics[width=\columnwidth]{sem_stir_analysis}
     \caption{(a) Cropped and scaled SEM images of the polymerized TPM spheres whose
       samples were stirred at \num{500}, \num{700}, \num{900}, and \SI{1100}{\minute^{-1}}.
-      (b)  The result of HPC analysis for the unpolymerized and polymerized
+      (b)  Box and whisker plots summarize the diameters of colloidal spheres estimated from
+      SEM digital images. Each rectangular box extends from the first quartile, $Q_1$, to
+      the third quartile, $Q_3$, of the data; within each box a black line represents the median;
+      the upper whisker extends to largest observed diameter less than $Q_3 + 1.5\, (Q_3 - Q_1)$;
+      the lower whisker extends to the smallest observed diameter greater than $Q_1 - 1.5\, (Q_3 - Q_1)$;
+      data beyond the whiskers are plotted as open circles. }
+    \label{fig:sem_stir_rate}
+\end{figure}
+
+Each of the four samples of polymerized spheres were imaged with an SEM;
+Fig.~\ref{fig:sem_stir_rate}(a) illustrates cropped and scaled snippets of SEM
+images for each sample. Estimates for the diameters for each sample
+were produced by drawing tight-fitting ovals around polymer spheres in the image;
+the average of the each oval's minor and major axis gave an estimate for the
+associated sphere's diameter. This hand-drawing procedure produced estimates
+for \num{50} spheres for each sample, providing a total of \num{200} estimates
+and are summarized in Fig.~\ref{fig:sem_stir_rate}(b).
+The average particle diameters were \SI{1.40}{\um}, \SI{1.52}{\um},
+\SI{1.82}{\um}, and \SI{1.64}{\um} for stirring rates \num{500}, \num{700}, \num{900}, and
+\SI{1100}{\minute^{-1}} respectively; similarly, the standard deviation of particle diameters
+were \SI{0.12}{\um}, \SI{0.13}{\um}, \SI{0.28}{\um}, and \SI{0.32}{\um}.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.7\columnwidth]{abbe_madness}
+    \caption{A scatterplot of the measured refractive index of \num{12} solutions with differing
+      volume fractions of TPM. A linear fit to the data, represented as a solid black line,
+      provides an estimate of the refractive index of polymerized TPM, $n_{\text{p}}$, represented as a red dot.
+      The light blue region encompassing the linear fit denotes a $\SI{95}{\percent}$ prediction interval
+      that bounds the error in our extrapolated estimate of refractive index.
+      The lower dashed line represents the refractive index of water at \SI{532}{\nm}.}
+    \label{fig:abbe}
+\end{figure}
+
+Two similarly prepared samples of TPM spheres were used to estimate the refractive
+index, $n_p$, of the colloidal spheres.
+Each sample was diluted to \num{5} different volume fractions to provide a total of
+\num{12} different suspensions, including the two stock solutions. The refractive index of each
+suspension was measured with an Abbe refractometer;
+the results are summarized in Fig.~\ref{fig:abbe}.
+By assuming a linear relationship between volume fraction and suspension refractive
+index, we estimate the refractive index of TPM colloidal spheres to be \SI{1.506}{}
+with a \SI{95}{\percent} confidence that lies in the range $\left ( 1.499, 1.513 \right ).
+
+%In general, there exists a linear relationship between the volume fraction of colloidal
+%spheres, $\phi$, and the suspension refractive index. We estimate the refractive
+%index of polymerized TPM spheres by extrapolating from our low volume fraction data
+%up to a volume fraction of \num{1}. Our estimate is bounded by a $\SI{95}{\percent}$
+%prediction interval given by
+%\begin{align}
+%  \text{Prediction Interval} &= \hat{n_{\text{p}}} \pm t_{\alpha/2, N-2} \, \sqrt{ S^2 +  S_{\hat{n_{\text{p}}}}^2} \\
+%  S_{\hat{n_{\text{p}}}}^2 &= S^2 \, \left ( \frac{1}{N} + \frac{\left ( \phi^* - \bar{\phi_i} \right )}{Y} \right )\\ 
+%  S^2 &= \frac{\sum_i \left (n_i - (m \, \phi + b )\right )^2}{N-1}\\
+%  S_{\phi\phi} &= \sum_i \phi_i^2 - \left ( \sum_i \phi_i \right )^2 /N
+%\end{align}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.6\columnwidth]{orthogonal_vs_hpc}
+    \caption{(a) The result of HPC analysis for the unpolymerized and polymerized
       emulsions stirred at \num{4} different rates. Solid-lines represent the polymerized
       spheres; dashed-lines represent the unpolymerized droplets; color differentiates the sample by
       spin rate. Each dot represents the
       average diameter and refractive index for a sample. Error bars are set by a single
       median absolute deviation of the measured property for a given sample. The dashed
-      black line provides reference to the refractive index of monomeric TPM oil.}
-    \label{fig:synthesis_stir_rate}
+      black line provides reference to the refractive index of monomeric TPM oil. (b) Probability
+      distributions of diameter as measured by HPC and by SEM analysis. HPC samples the diameter
+      densely enough to allow reasonable kernel density estimation.}
+    \label{fig:hpc_stir_rate}
 \end{figure}
+
+
+The result of holographic particle characterization for the \num{4} polymerized samples
+and the \num{4} unpolymerized samples are summarized in Fig.~\ref{fig:hpc_stir_rate}(b).
+Each dot represents the average size and refractive index for the associated sample. Error
+bars represent the single median absolute deviation of the associated property.
+The unpolymerized droplets, represented with dashed error, bars have a systematically
+lower refractive index than the polymerized droplets, represented with solid error bars.
+Polymerization changes the chemical makeup of the droplet and generally increases the
+density; %% FIXME: Add citation.
+both processes might reasonably account for the observed increase.
+Both values greatly exceed the refractive index of bulk TPM oil, which is indicated by
+a dashed line in Fig.~\ref{fig:synthesis_stir_rate}(b).
+Hydrolysis and oligomerization of TPM oil account for three quarters of
+the total change.
+
+% comment on how close the HPC result is to the abbe result.
+% comment on the slight shrinkage of particles but the closeness of SEM and HPC
+% comment on the amount of data and the ease of preparation in comparing these
+% techniques to HPC.
+
 
 
 \subsection{Effect of heat bath exposure time}
