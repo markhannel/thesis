@@ -232,12 +232,26 @@ were produced by drawing tight-fitting ovals around each polymer sphere in the i
 the average of the each oval's minor and major axes provides an estimate for the
 associated sphere's diameter. This hand-drawing procedure produced estimates
 for \num{50} spheres for each sample, providing a total of \num{200} estimates
-and are summarized in Fig.~\ref{fig:sem_stir_rate}(b).
-The average particle diameters were \SI{1.40}{\um}, \SI{1.52}{\um},
-\SI{1.82}{\um}, and \SI{1.64}{\um} for stirring rates \num{500}, \num{700}, \num{900}, and
-\SI{1100}{\minute^{-1}} respectively; similarly, the standard deviation of particle diameters
-were \SI{0.12}{\um}, \SI{0.13}{\um}, \SI{0.28}{\um}, and \SI{0.32}{\um}.
-The polydispersity of the a sample increases with the stir rate.
+and are summarized in Fig.~\ref{fig:sem_stir_rate}(b). The average 
+diameter, $\bar{d_{\text{p}}}$ and the standard deviation, $\sigma_{d_{\text{p}}}$
+from this analysis for each of the four stir rates are reported
+in table \ref{table:sem_data}. We note here that the polydispersity of the 
+samples increase with the stir rate.
+
+\begin{table}[b!]
+\centering
+\caption{Average size and standard deviation of TPM spheres measured from
+SEM images for each of the four stir rates.}
+\begin{tabular}{rlrrrr}
+\hline
+\hline
+ $\Omega$ & $[\si{\minute^{-1}}]$ & \num{500} & \num{700}& \num{900} & \num{1100} \\
+$\bar{d_{\text{p}}}$ & $[\si{\um}]$ & 1.40 & 1.52 & 1.82 & 1.64 \\ 
+$\sigma_{\text{p}}$ & $[\si{\um}]$ & 0.12 & 0.13 & 0.28 & 0.32 \\ \hline \hline
+\end{tabular}
+\label{table:sem_data}
+\end{table}
+
 
 \begin{figure}
     \centering
@@ -280,13 +294,15 @@ index, we estimate the refractive index of TPM colloidal spheres to be $n_{\text
     \includegraphics[width=0.6\columnwidth]{orthogonal_vs_hpc}
     \caption{(a) The result of HPC analysis for the unpolymerized and polymerized
       emulsions stirred at \num{4} different rates. Solid-lines represent the polymerized
-      spheres; dashed-lines represent the unpolymerized droplets; color differentiates the sample by
-      spin rate. Each dot represents the
+      spheres; dashed-lines represent the unpolymerized droplets; color differentiates
+      the sample by spin rate. Each dot represents the
       average diameter and refractive index for a sample. Error bars are set by a single
       median absolute deviation of the measured property for a given sample. The dashed
-      black line provides reference to the refractive index of monomeric TPM oil. (b) Probability
-      distributions of diameter as measured by HPC and by SEM analysis. HPC samples the diameter
-      densely enough to allow reasonable kernel density estimation.}
+      black line provides reference to the refractive index of monomeric TPM oil. The gray
+      dashed line and transparent blue region signify our early estimate of polymerized
+      TPM's refractive index. (b) Probability distributions of diameter as measured by
+      HPC and by SEM analysis. HPC samples the diameter densely enough to allow
+      reasonable kernel density estimation.}
     \label{fig:hpc_stir_rate}
 \end{figure}
 
