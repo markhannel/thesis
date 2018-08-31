@@ -5,7 +5,7 @@
 
 The earliest reference to emulsion polymerization dates back to
 1909 \cite{bayer1909,finch03} to a patent awarded to Felix Hoffmann and
-co-workers at Farbenfabriken Bayer for their pioneering work in producing
+co-workers at Farbenfabriken Bayer for their pioneering work in manufacturing
 synthetic latex.
 Techniques for polymerizing emulsions have progressed  over the ensuing century
 through intuitive leaps guided by fundamental principles of chemistry
@@ -22,13 +22,14 @@ Assessing characterization results takes considerable time and requires
 expertise in multiple techniques. Preparing samples for measurement,
 furthermore, can change their properties. Correlations among particle
 properties are especially difficult to measure.
-Holographic particle characterization (HPC) can streamline this analysis by providing
+
+Holographic particle characterization can streamline this analysis by providing
 particle-resolved assays of samples' size distributions and compositions rapidly and with
 minimal sample preparation. Holographic characterization works equally
-well for droplets and solid particles. HPC naturally accommodates very heterogeneous
+well for droplets and solid particles. It naturally accommodates very heterogeneous
 samples and reveals correlations between size and composition. Extensions to the technique
 provide particle-resolved morphology measurements from the same data. All of this information
-can be acquired in under a half an hour, which expedites experimentation and can be
+can be acquired in under a half an hour, which expedites systematic assays and can be
 fast enough to provide feedback for process control.
 
 %Holographic assays provide information that is useful for designing synthetic
@@ -49,14 +50,14 @@ techniques to identify factors that influence size selection, polydispersity,
 and surface texture.
 These orthogonal measurements also serve to validate the results observed
 holographically.
-This study extends the work of van der Wel \emph{et. al} \cite{vanderwel17}, which
+This study extends the work of van der Wel \emph{et.} \emph{al} \cite{vanderwel17}, which
 uses conventional characterization techniques to systematically
 characterize the emulsion polymerization protocol for TPM spheres.
 
 \section{Synthesizing TPM spheres}
 
 Since their introduction in 2010 \cite{sacanna10}, TPM spheres have been used to
-study self-assembly \cite{scanna13} and active matter \cite{palacci13}
+study self-assembly \cite{sacanna13} and active matter \cite{palacci13}.
 They are particularly attractive for optical studies because they can be
 simultaneously density matched and index matched to their surrounding
 media \cite{liu16}.
@@ -79,31 +80,31 @@ here to underscore the conditions we varied and to enumerate the
 A detailed account of the polymer chemistry underlying this
 protocol is provided in Ref.~\cite{vanderwel17}.
 
-In this study we investigate the influence of stir rate, concentration of ammonium chloride,
-concentration of TPM oil, and radical initiator choice on the size and refractive index
+The protocols chosen for this study illuminate the influence of stir rate, pH,
+emulsion stoichiometry, and radical initiator choice on the size and refractive index
 of the synthesized particles. While this list is not exhaustive,
 it illustrates choices made in optimizing synthesis protocols and the role
-that holographic characterization can play in \% FIXME conditions.
+that holographic characterization can play in making successful choices.
 
 The synthesis begins with the formation of an emulsion of monodisperse TPM droplets.
 Monomeric TPM, ((3-(trimethoxysilyl)propyl methacrylate, \SI{98}{\percent}, Sigma Aldrich)
-is insoluble in water. When it is added to a basic environment
-(pH $>$ \num{9}) of ammonium chloride (\SI{29}{\percent}) in water,
+is insoluble in water. When it is added to the basic environment
+of ammonium chloride (\SI{29}{\percent}) in water (pH $>$ \num{9}),
 the monomers undergo hydrolysis and become soluble. 
-In a basic environment, these hydrolyzed monomers form insoluble 
-oligomers. As the suspension is stirred, the oligomers condense 
-homogeneously into monodisperse droplets that continue to grow as more oligomers form.
-After \num{2} hours, the abundance of free hydrolyzed monomer is depleted
-causing oligomerization to halt and therefore droplet growth to cease.
+These hydrolyzed monomers then form insoluble 
+oligomers that condense homogeneously into monodisperse droplets.
+These nuclei continue to grow in a well-mixed environment as more oligomers form.
+Once the free hydrolyzed monomer is depleted, oligomerization stops and
+the droplets stop growing.
 The emulsion is then heated to \SI{80}{\degreeCelsius} and a heat activated free radical 
-initiator is introduced to polymerize the droplets and form solid spheres.
+initiator is introduced to polymerize the droplets into solid spheres.
 
 Dissociation of ammonium chloride in water leads to the production of ammonia
 gas, which escapes the solution and reduces its pH.
-To mitigate this effect, the emulsion is formed in a closed vial.
+To mitigate this effect, the emulsion is prepared in a closed vial.
 We use identical \SI{12}{\milli\liter} vials to produce \SI{5}{\milli\liter}
 of colloidal suspension so that the volume of enclosed air, and therefore
-the loss in pH, is consistent across samples. Identical stir bars are used for all syntheses
+the loss in pH, is reproducible from batch to batch. Identical stir bars are used for all syntheses
 to ensure consistent flow properties.
 
 \subsection{Holographic particle characterization}
@@ -115,22 +116,23 @@ The xSight draws a small sample of colloidal suspension through the
 observation volume of a conventional microscope where it is illuminated
 with a laser operating at a vacuum wavelength of \SI{532}{\nm}.
 The instrument's analytical software processes particles' holograms automatically
-and yields the size and refractive index for each observed colloidal spheres
+and yields the size and refractive index for each observed colloidal sphere
 in a fraction of the time we typically spend analyzing an experimental video.
-Because we are only interested in collecting population statistics for the size and refractive
+Because we are interested in collecting population statistics for the size and refractive
 index of our TPM samples, we utilize the xSight rather than our custom-built holographic
 microscope.
 
 The xSight analyzes colloidal dispersions with particle number densities below 
 \SI{E6}{\milli\liter^{-1}} to minimize the occurrence of overlapping holograms.
-This is consistent with our discussion in section \ref{ssec:sample_prep}.
-The emulsification polymerization process described in the previous section
+This limitation is discussed in section \ref{ssec:sample_prep}.
+The emulsion polymerization process described in the previous section
 produces a sample with a number density of \SI{E10}{\milli\liter^{-1}}.
 We therefore dilute each of our samples by a factor of \SI{E4}{} with
 deionized water before analysis.
 
-We analyze \SI{3}{\micro\liter} of each sample by pipetting the diluted dispersion into an
-xCell sample cell and loading the xCell into the xSight. The xSight draws the fluid through
+We analyze each sample by pipetting \SI{100}{\micro\liter} of the diluted dispersion into an
+xCell sample cell and loading the xCell into the xSight. The xSight draws \SI{3}{\micro\liter}
+of the fluid through
 the xCell's \SI{50}{\um} deep observation volume. A ten-minute measurement provides us with
 characterization data for a few thousand colloidal spheres per sample.
 
@@ -152,15 +154,17 @@ characterization data for a few thousand colloidal spheres per sample.
 
 The sample flows between the stationary walls of the xCell with a parabolic, Poiseuille
 profile.
-Particles passing through the observation volume trace the flow profile.
-The xSight uses holographic tracking data to map the flow \cite{cheong10a}, as shown
-in Fig.~\ref{fig:flow_prof}. As illustrated in Fig.~\ref{fig:flow_prof}(a),
-the xCell's walls are located at \SI{90}{\um} and \SI{150}{\um} relative to the
-xSight's focal plane for this particular sample.
-Because the xSight records the $z$-position and mean 
-velocity of all particles moving through the observation volume,
-we are able to fit the flow profile to the anticipated parabolic profile
-as depicted in Fig.~\ref{fig:flow_prof}(b).
+The particles act as passive tracers of this flow.
+The xSight uses holographic tracking data to map the local fluid velocity within
+the channel \cite{cheong10a}, as shown in Fig.~\ref{fig:flow_prof}.
+Each point in Fig.~\ref{fig:flow_prof}(a) represents the measurement speed
+and axial position, $v(z)$, for a single particle.
+As illustrated in Fig.~\ref{fig:flow_prof}(a),
+the particle's axial position is measured relative to the microscope's
+focal plane. The solid curve in Fig.~\ref{fig:flow_prof}(b) is a fit to the
+anticipated parabolic flow profile. Extrapolating to $v(z)=0$ yields the
+axial position of this channel's walls, assuming
+no-slip boundary conditions. 
 The majority of observations fall neatly onto the parabolic profile.
 % Note that velocities should deviate by a small amount due to Brownian motion.
 Some fits, however, deviate markedly. Presumably these data result from fitting
@@ -184,30 +188,33 @@ emission scanning electron microscope (SEM).
 Typical images are provided in Fig.~\ref{fig:sem_stir_rate}(a).
 SEM images provide a visual check on the sample's uniformity
 and can be used to estimate the colloidal spheres' diameter. While a well calibrated scanning
-electron microscope provides \num{1} to \SI{10}{\nm} resolution of features, sample
+electron microscope provides \num{1} to \SI{10}{\nm} spatial resolution, sample
 preparation, particularly exposure to vacuum and sputter coating, can shrink or
 even swell the sample \cite{yamada85,jung02}. The liquid TPM droplets
 are not amendable to SEM analysis.
 
 A common method for determining the refractive index of colloidal particles
-requires index matching the particles to a solution with a known refractive index.
-This procedure requires dispersing the particles in a solution and therefore
-assumes that the solution does not affect the particle's properties, for
+involves index matching the particles to a solution with a known refractive index.
+This procedure requires dispersing the particles in an index-matching solution
+rather than their native medium and therefore necessitates
+that the solution not affect the particle's properties, for
 example by swelling.  Reference~\cite{vanderwel17} estimated the
 refractive index of polymerized TPM colloids to be between $\num{1.512}$ and $\num{1.513}$
 by index matching to a solution of pyridine ($n = \SI{1.509}{}$) and \num{2}-ethylhexyl
 \num{4}-methoxycinnamate ($n = \SI{1.545}{}$). We instead estimate the spheres'
 refractive index by measuring the refractive index of the suspension as a function of
 volume fraction in water. Extrapolating  to \SI{100}{\percent} volume fraction
-thus yields the spheres' refractive index \cite{alexander81} in their native solution.
+yields the spheres' refractive index \cite{alexander81} in their native medium.
 
 \section{Influence of synthesis conditions}
 \subsection{Effect of stir rate}
 
-Stirring the sample while the oligomers condense into droplets suppresses coalescence and
-promotes homogeneous nucleation by uniformly dispersing the hydrolyzed monomer and droplet
-nuclei. %%FIXME CHECK THIS STATEMENT.
-The effect of stir rate on the resulting particle size is, however, less clear.
+Stirring the sample while the oligomers condense into droplets promotes homogeneous
+nucleation by uniformly dispersing the hydrolyzed monomer and droplet nuclei.
+Beyond simply mixing the sample, however, stirring engenders shear forces that can
+also alter droplets size distribution.
+Therefore the effect of stir rate on the resulting particle size should be assessed
+experimentally.
 We investigate the influence of stir rate by producing \num{4} sets of TPM emulsions
 in four identical vials with identical stir bars. Each vial was filled with
 \SI{15}{\micro\liter} of \SI{29}{\percent} ammonia followed by
@@ -216,11 +223,11 @@ The four samples were stirred
 using magnetic stir plates set at \num{500}, \num{700}, \num{900}, and
 \SI{1100}{\minute^{-1}} for \SI{2}{\hour}. 
 The resulting droplets were polymerized by adding
-\num{2},\num{2}'-azobis(\num{2}-methylpropionitrile) (Sigma Aldrich) (AIBN)
+\num{2},\num{2}'-azobis(\num{2}-methylpropionitrile) (AIBN, Sigma Aldrich)
 as a radical initiator and %FIXME: Lot number of AIBN?
 heating the sample to \SI{80}{\celsius} for \SI{2}{\hour}.
 We prepared samples of unpolymerized droplets and samples of polymerized TPM spheres
-at each of the four spin rates, for a total of eight samples.
+at each of the four spin rates for a total of eight samples.
 
 \begin{figure}
     \centering
@@ -238,17 +245,19 @@ at each of the four spin rates, for a total of eight samples.
 
 Each of the four samples of polymerized spheres was imaged with an SEM.
 Figure~\ref{fig:sem_stir_rate}(a) shows cropped and scaled regions of interest
-for each sample. The mean sphere diameter was estimated by analyzing SEM images using
-ImageJ. The diameter of an individual sphere was obtained by
-drawing a tight-fitting ovals around its image;
+for each sample. The mean sphere diameter in a sample was estimated by analyzing
+spheres' images using ImageJ. The diameter of an individual sphere was obtained by
+drawing a tight-fitting oval around its image;
 the average of each oval's minor and major axes provides an estimate for the
-associated sphere's diameter. This hand drawing procedure yielded estimates
-for \num{50} spheres for each sample, providing a total of \num{200} estimates
-that are summarized in Fig.~\ref{fig:sem_stir_rate}(b). The average 
-diameter, $\bar{d_{\text{p}}}$ and the standard deviation, $\sigma_{d_{\text{p}}}$
-from this analysis for each of the four stir rates are reported
-in table \ref{table:sem_data}. From this we conclude that the polydispersity of a
-sample increases with the stir rate.
+associated sphere's diameter. Results of this manual survey are summarized in
+Fig.~\ref{fig:sem_stir_rate}(b). The average 
+diameters, $\avg{d_{\text{p}}}$, and their standard deviations, $\sigma_{d_{\text{p}}}$,
+for each of the four stir rates are reported
+in table \ref{table:sem_data}.
+Any trend in the mean diameter is obscured by the increase in polydispersity
+with increasing stir rate. SEM analysis suggests that this may be
+due to an increase in the population of undersized spheres with increasing
+shear rate.
 
 \begin{table}[b!]
 \centering
@@ -257,13 +266,22 @@ SEM images for each of the four stir rates.}
 \begin{tabular}{rlrrrr}
 \hline
 \hline
- $\Omega$ & $[\si{\minute^{-1}}]$ & \num{500} & \num{700}& \num{900} & \num{1100} \\
-$\bar{d_{\text{p}}}$ & $[\si{\um}]$ & 1.40 & 1.52 & 1.82 & 1.64 \\ 
-$\sigma_{\text{p}}$ & $[\si{\um}]$ & 0.12 & 0.13 & 0.28 & 0.32 \\ \hline \hline
+$\Omega$ & $[\si{\minute^{-1}}]$ & \num{500} & \num{700}& \num{900} & \num{1100} \\
+\hline
+$\avg{d_{\text{p}}}$ & $[\si{\um}]$ & 1.40 & 1.52 & 1.82 & 1.64 \\ 
+$\sigma_{d_{\text{p}}}$ & $[\si{\um}]$ & 0.12 & 0.13 & 0.28 & 0.32 \\ \hline \hline
 \end{tabular}
 \label{table:sem_data}
 \end{table}
 
+Two similarly prepared samples of TPM spheres were used to estimate the refractive
+index, $n_p$, of the colloidal spheres.
+Each sample was diluted to \num{5} different volume fractions to provide a total of
+\num{12} different suspensions, including the two stock samples. The refractive index of each
+suspension was measured with an Abbe refractometer;
+the results are summarized in Fig.~\ref{fig:abbe}.
+By assuming a linear relationship between volume fraction and suspension refractive
+index, we estimate the refractive index of TPM colloidal spheres to be $n_{\text{p}} = \SI{1.506}{}$ with \SI{95}{\percent} confidence that it lies in the range $1.499 \le n_{\text{p}} \le 1.513$.
 
 \begin{figure}
     \centering
@@ -279,15 +297,6 @@ $\sigma_{\text{p}}$ & $[\si{\um}]$ & 0.12 & 0.13 & 0.28 & 0.32 \\ \hline \hline
       The lower dashed line represents the refractive index of water at \SI{532}{\nm}.}
     \label{fig:abbe}
 \end{figure}
-
-Two similarly prepared samples of TPM spheres were used to estimate the refractive
-index, $n_p$, of the colloidal spheres.
-Each sample was diluted to \num{5} different volume fractions to provide a total of
-\num{12} different suspensions, including the two stock samples. The refractive index of each
-suspension was measured with an Abbe refractometer;
-the results are summarized in Fig.~\ref{fig:abbe}.
-By assuming a linear relationship between volume fraction and suspension refractive
-index, we estimate the refractive index of TPM colloidal spheres to be $n_{\text{p}} = \SI{1.506}{}$ with \SI{95}{\percent} confidence that it lies in the range $1.499 \le n_{\text{p}} \le 1.513$.
 
 %In general, there exists a linear relationship between the volume fraction of colloidal
 %spheres, $\phi$, and the suspension refractive index. We estimate the refractive
@@ -362,8 +371,8 @@ and the initiator AIBN. The suspension is continuously stirred at \SI{1100}{\min
 and is thermally coupled to a heat bath set at \SI{80}{\degreeCelsius}.
 We drew \SI{1}{\ul} of the suspension after \num{0}, \num{5}, \num{10}, \num{15},
 \num{20}, \num{40}, and \SI{60}{\min} as the sample undergoes polymerization.
-Each sample was added to \SI{1}{\ml} of room temperature DI water, which effectively
-arrests any continued polymerization.
+Each sample was added to \SI{10}{\ml} of room temperature DI water, which effectively
+arrests any continued polymerization. 
 Each sample was then immediately characterized by the xSight. Figure ~\ref{fig:heat_size_time}
 depicts the result of this chacterization.
 
@@ -388,7 +397,7 @@ Fig.~\ref{fig:heat_size_time}(b) demonstrates a large shift in refractive index
 from \SI{1.485}{} for unpolymerized droplets to a \SI{1.495}{} for the droplets
 exposed to the heat bath for two hours.
 At \num{15} and \SI{20}{\min} the refractive index significantly increases.
-van der Wel \emph{et. al} \cite{vanderwel17} suggest heating the suspension
+Van der Wel \emph{et. al} \cite{vanderwel17} suggest heating the suspension
 for \SI{2}{\hour} to ensure the sample has sufficiently polymerized and is
 stable. Our analysis suggests that a much shorter time may suffice although
 we have not confirmed the resulting stability of the polymerized sample.
@@ -436,10 +445,12 @@ initiator used and not of the particular protocol used to make the emulsion.
 
 \begin{figure}
     \centering
-    \includegraphics[width=0.75\columnwidth]{may_data_summary.png}
-    \caption{The refractive index and diameter of 16 samples of 
-    polymerized TPM.}
-    \label{fig:initiator_data}
+    \includegraphics[width=0.7\columnwidth]{longitudinal_summary.png}
+    \caption{Holographic characterization results for various initiators and
+      emulsion compositions. (a) The refractive index and diameter of all \num{16} samples of 
+      polymerized TPM. (b) Mean diameter as a function of TPM added at fixed ammonium chloride.
+    (c) Mean diameter as a function of ammonium chloride added at fixed TPM.}
+    \label{fig:longitudinal_summary}
 \end{figure}
 
 In making the \si{16} sets of particles to look at the effect of initiator on 
@@ -454,6 +465,15 @@ final droplet. This is less intuitive but perhaps not surprising, as the pH
 affects the rate at which oligomers form and therefore the rate of droplet 
 formation. This leads to more nucleation sites and therefore smaller droplets 
 for the same volume of material. 
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.75\columnwidth]{longitudinal_np.png}
+    \caption{Mean refractive index reported for each radical initiator
+    at fixed TPM}
+    \label{fig:longitudinal_np}
+\end{figure}
+
 
 Comparing batches A to C, each with \SI{100}{\micro \liter} of TPM monomer, and B to D with
 \SI{150}{\micro \liter}, gives the somewhat intuitive result that increasing the amount of TPM

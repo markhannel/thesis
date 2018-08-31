@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="210mm"
+   height="297mm"
+   viewBox="0 0 210 297"
+   version="1.1"
+   id="svg823"
+   inkscape:export-filename="/home/mark/Github/thesis/Figures/longitudinal_summary.png"
+   inkscape:export-xdpi="200"
+   inkscape:export-ydpi="200"
+   inkscape:version="0.92.3 (d244b95, 2018-08-02)"
+   sodipodi:docname="longitudinal_summary.svg">
+  <defs
+     id="defs817" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="1.4"
+     inkscape:cx="396.32797"
+     inkscape:cy="880.62878"
+     inkscape:document-units="mm"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     inkscape:window-width="1855"
+     inkscape:window-height="1176"
+     inkscape:window-x="65"
+     inkscape:window-y="24"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata820">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <image
+       sodipodi:absref="/home/mark/Github/thesis/Figures/may_data_summary.png"
+       xlink:href="/home/mark/Github/thesis/Figures/may_data_summary.png"
+       inkscape:export-ydpi="200"
+       inkscape:export-xdpi="200"
+       width="68.023254"
+       height="65"
+       preserveAspectRatio="none"
+       style="image-rendering:optimizeQuality"
+       id="image1376"
+       x="77.933289"
+       y="21.044064" />
+    <image
+       sodipodi:absref="/home/mark/Github/thesis/Figures/longitudinal_study.png"
+       xlink:href="/home/mark/Github/thesis/Figures/longitudinal_study.png"
+       width="102.3469"
+       height="61.408142"
+       preserveAspectRatio="none"
+       style="image-rendering:optimizeQuality"
+       id="image1398"
+       x="62.599998"
+       y="153.06619" />
+    <image
+       sodipodi:absref="/home/mark/Github/thesis/Figures/longitudinal_study_tpm_on_x.png"
+       xlink:href="/home/mark/Github/thesis/Figures/longitudinal_study_tpm_on_x.png"
+       width="103.04222"
+       height="63.676228"
+       preserveAspectRatio="none"
+       style="image-rendering:optimizeQuality"
+       id="image1387"
+       x="62.599998"
+       y="86.215004" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.58333302px;line-height:1.25;font-family:'URW Gothic L';-inkscape-font-specification:'URW Gothic L';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="51.739185"
+       y="27.644716"
+       id="text1404"><tspan
+         sodipodi:role="line"
+         id="tspan1402"
+         x="51.739185"
+         y="27.644716"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.23333311px;font-family:sans-serif;-inkscape-font-specification:sans-serif;stroke-width:0.26458332">(a)</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.58333302px;line-height:1.25;font-family:'URW Gothic L';-inkscape-font-specification:'URW Gothic L';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="51.648235"
+       y="95.353836"
+       id="text1404-3"><tspan
+         sodipodi:role="line"
+         x="51.648235"
+         y="95.353836"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.23333311px;font-family:sans-serif;-inkscape-font-specification:sans-serif;stroke-width:0.26458332"
+         id="tspan1424">(b)</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.58333302px;line-height:1.25;font-family:'URW Gothic L';-inkscape-font-specification:'URW Gothic L';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="51.648235"
+       y="160.6019"
+       id="text1404-3-7"><tspan
+         sodipodi:role="line"
+         x="51.648235"
+         y="160.6019"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.23333311px;font-family:sans-serif;-inkscape-font-specification:sans-serif;stroke-width:0.26458332"
+         id="tspan1424-5">(c)</tspan></text>
+  </g>
+</svg>
