@@ -1,26 +1,50 @@
 \chapter{Conclusions}
 \label{ch:conclusion}
 
-This thesis validates, extends, and employs holographic
-particle characterization. 
 
-\autoref{ch:debye} validates the use of the scalar theory
-approximation for holographic particle characterization
-with the Lorenz-Mie theory. By fitting synthetic holograms
+This thesis validates, extends, and employs holographic
+particle characterization, a relatively new technique
+for extracting the position, size, and composition
+of micometer-scale scatterers \emph{in situ}. This
+thesis advances the technique by providing a
+firm foundation for the scalar-wave approximation
+in image formation and introduces the effective
+sphere model which expands its domain of applicability.
+In addition we implement machine learning algorithms for
+detecting, localizing, and characterizing holograms; these
+advances greatly reduce the computation time and enable of
+the real-time analysis of dense, heterogeneous samples.
+We then use the technique to investigate the role of
+environment conditions and chemical choices in
+a specific emulsion polymerization process.
+
+Our work in validating the use of the scalar theory
+approximation is provided \autoref{ch:debye}.
+Where possible, we account for the vectorial nature
+of light propagation including reflection, refraction,
+angular demagnification, and polarization rotation
+through the elements of the optical train. By fitting synthetic holograms
 based on a vector-based theory to a scalar theory,
-our simulations determine that for scatterers between the
-sizes of \% insert range, the scalar theory is offers
-the same prediction as a vector-based theory, albeit
-with a less computational overhead. 
+our simulations determine that for scatterers between \SI{0.5}{\um}
+and \SI{10}{\um} with refractive index between \SI{1.4}{} and \SI{1.7}{},
+the scalar theory is provides the same prediction as a vector-based theory,
+albeit with far less computational overhead. 
 
 Fitting holographic features to the Lorenz-Mie theory
 assumes a homogeneous spherical scatterer and yet colloidal particles
 come in many shapes such as aggregates, clusters and rods. In \autoref{ch:dimpled}
-we present a series of experimental and simulated results
+we present a series of experimental and simulated results that demonstrate
+that assuming the particle is spherical yields accurate, sensible results.
 
-
-\autoref{ch:cascade}
+In \autoref{ch:cascade} we consider the first step in analyzing recorded
+images: detecting and localizing holographic features. We trained two machine
+learning algorithms, a cascade classifier and a convolutional neural network (CNN),
+to accomplish these tasks. We compared these two techniques against previously
+employed heuristics for precision, recall, and speed. In all our testing
+the CNN and cascade boast speeds-ups for \num{10} and \num{100} times
+faster processing than our heuristics. 
 
 \autoref{ch:svr}
 
 \autoref{ch:synthesis}
+
