@@ -208,7 +208,7 @@ yields the spheres' refractive index \cite{alexander81} in their native medium.
 
 \section{Influence of synthesis conditions}
 \subsection{Effect of stir rate}
-
+\label{ssec:stir}
 Stirring the sample while the oligomers condense into droplets promotes homogeneous
 nucleation by uniformly dispersing the hydrolyzed monomer and droplet nuclei.
 Beyond simply mixing the sample, however, stirring engenders shear forces that can
@@ -328,32 +328,55 @@ index, we estimate the refractive index of TPM colloidal spheres to be $n_{\text
 
 
 Results of holographic particle characterization for the \num{4} polymerized samples
-and the \num{4} unpolymerized samples are summarized in Fig.~\ref{fig:hpc_stir_rate}(b).
+and the \num{4} unpolymerized samples are summarized in Fig.~\ref{fig:hpc_stir_rate}(a).
 Each dot represents the average size and refractive index for the associated sample.
 Error bars are set by the single median absolute deviation of the associated property.
 The unpolymerized droplets, represented with dashed error bars, have a systematically
 lower refractive index than the polymerized droplets, represented with solid error bars.
+Our extrapolated estimate of the refractive index is provided as a dashed gray
+line with light blue region outlining a \SI{95}{\percent} prediction interval.
 
+Holographic measurements report that the refractive index of the polymerized droplets
+are on average \SI{1.501} which lies just within the prediction interval of our
+previous measurement. The unpolymerized droplets have a systematically lower
+refractive index than their polymerized counterparts.
 Polymerization changes the chemical makeup of the droplet and generally increases the
 density; %% FIXME: Add citation.
-both processes might reasonably account for the observed increase.
+both processes might reasonably account for the observed difference.
 Both values greatly exceed the refractive index of bulk TPM oil, which is indicated by
 a dashed line in Fig.~\ref{fig:hpc_stir_rate}(a).
-Hydrolysis and oligomerization of the TPM comprising the droplet account for three quarters of
-the total change; polymerization of the droplet accounts for the remaining quarter.
+In fact, hydrolysis and oligomerization approximately account for a refractive
+index shift of \SI{0.05} whereas polymerization accounts for the remaining \SI{0.02}
+increase.
 
-\% comment on how close the HPC result is to the abbe result.
-\%  ** They are close but the HPC results are on average systematically lower.
+Fig.~\ref{fig:hpc_stir_rate}(b) shows measurements for the diameter, $d_{\text{p}}$,
+obtained with holography and by SEM image analysis. The range of diameters is set to
+match the range set in Fig.~\ref{fig:hpc_stir_rate}(a), however, a small fraction of the data
+exists below $\SI{1.2}{\um}$. The holographic results incorporate
+more than \num{3000} particle measurements for each of the four syntheses; the population
+of diameters is sampled densely enough to allow a kernel density estimate of the population,
+as depicted in Fig.~\ref{fig:hpc_stir_rate}(b). The average diameter increases with stir
+rate from $\SI{500}{\minute^{-1}}$ to $\SI{900}{\minute^{-2}}$ but then decreases when
+stirred at \SI{1100}{\minute^{-1}}. As the polydispersity greatly increases between
+\SI{900}{\minute^{-1}} to \SI{1100}{\minute^{-1}}, we hypothesize that the stir rate within
+our particular vial induces sheering forces great enough to decompose larger droplets.
 
-\% comment on the slight shrinkage of particles but the closeness of SEM and HPC
-\%  ** Comment on systematically smaller sizes for SEM.
+The SEM analysis and holographic analysis agree in general. All four distributions are
+skew-left such that the skewness increases with stir rate. The largest and smallest
+observed diameters in each sample also coincide. The mean and median diameter
+of the holographic results are systematically larger than the results obtained by
+SEM by a factor of $\SI{5}{\percent}$; presumably this difference can be explained
+by shrinkage during SEM sample prep \cite{yamada85,jung02}.
+
+The holographic results were obtained in a few minutes \emph{in situ} whereas both of
+our orthogonal measurements require considerable sample preparation. 
 
 \% comment on the amount of data and the ease of preparation in comparing these
 \% techniques to HPC. (Low preparation as compared to SEM and to Abbe Refractometry)
 
 \subsection{Effect of heat bath exposure time}
 
-We use heat-activated free-radical initiators to polymerize TPM droplets:
+We use heat-activated free radical initiators to polymerize TPM droplets:
 time spent thermally coupled to a heat bath greatly accelerates polymerization. 
 As observed in Fig.~\ref{fig:hpc_stir_rate}(a), the polymerization of
 liquid TPM droplets can induce a shift of approximately \SI{0.02}{} in refractive index
@@ -374,7 +397,7 @@ We drew \SI{1}{\ul} of the suspension after \num{0}, \num{5}, \num{10}, \num{15}
 Each sample was added to \SI{10}{\ml} of room temperature DI water, which effectively
 arrests any continued polymerization. 
 Each sample was then immediately characterized by the xSight. Figure ~\ref{fig:heat_size_time}
-depicts the result of this chacterization.
+depicts the result of this characterization.
 
 \begin{figure}
     \centering
@@ -387,22 +410,23 @@ depicts the result of this chacterization.
     \label{fig:heat_size_time}
 \end{figure}
 
-Fig.~\ref{fig:heat_size_time} depicts the result of HPC for each
-of the samples. The size of the TPM droplets are on average shrinking
+Fig.~\ref{fig:heat_size_time} shows the results of holographic analysis
+for each of the samples. The diameter of the TPM droplets are on average shrinking
 during polymerization as depicted in Fig.~\ref{fig:heat_size_time}(a),
-although the decrease in size is less than the polydispersity of each sample.
-The decrease in size is approximately \SI{2}{\percent} which is consistent
-with the \SI{7}{\percent} reduction in volume discussed in Ref.~\cite{vanderwel17}.
+although the approximately \SI{2}{\percent} decrease in size is well within the
+polydispersity of each sample and is consistent with the \SI{7}{\percent} reduction
+in volume discussed in Ref.~\cite{vanderwel17}.
 Fig.~\ref{fig:heat_size_time}(b) demonstrates a large shift in refractive index
 from \SI{1.485}{} for unpolymerized droplets to a \SI{1.495}{} for the droplets
-exposed to the heat bath for two hours.
-At \num{15} and \SI{20}{\min} the refractive index significantly increases.
+exposed to the heat bath for two hours. The increase in refractive index occurs almost
+entirely before \SI{20}{\minute} of exposure to \SI{80}{\degreeCelsius}.
 Van der Wel \emph{et. al} \cite{vanderwel17} suggest heating the suspension
 for \SI{2}{\hour} to ensure the sample has sufficiently polymerized and is
-stable. Our analysis suggests that a much shorter time may suffice although
-we have not confirmed the resulting stability of the polymerized sample.
+stable. Our analysis suggests heating for \SI{20}{\minute} will produce
+particles with similar optical properties, although continued polymerization
+may yield more stable particles.
 
-\subsection{Effect of stoichiometry and choice of free-radical initiator}
+\subsection{Effect of emulsion stoichiometry and choice of free radical initiator}
 
 Increasing the amount of TPM oil available in solution could increase the
 average particle diameter, the number of resulting colloidal particles, or both.
@@ -411,9 +435,9 @@ oligomerization and could affect the average particle diameter and polydispersit
 To probe these two variables of droplet formation, we make four batches of droplets
 and label them A, B, C, and D for ease.
 In each batch we add the same \SI{5}{\milli \liter} volume of deionized water
-and vary the amounts of TPM oil and ammonia. Batches A and B each had 
+and vary the amounts of TPM oil and ammonia. Batches A and B contain
 \SI{100}{\micro\liter} of TPM with \si{10} and \SI{20}{\micro\liter} of 
-ammonia added, respectively. Batches C and D had \SI{150}{\micro\liter} of TPM oil, 
+ammonia added, respectively. Batches C and D contain \SI{150}{\micro\liter} of TPM oil, 
 again with \si{10} and \SI{20}{\micro\liter} of ammonia, respectively. 
 
 % FIXME: We do not have results (?) for the unpolymerized droplets from
@@ -425,46 +449,69 @@ again with \si{10} and \SI{20}{\micro\liter} of ammonia, respectively.
 
 % XXX (Add conclusions about initiator- does not seem to matter)
 
-With the four batches described above, we additionally observe the effect of using
-different free radical initiators to polymerize the particles.
+To investigate the choice of free radical initiator, we polymerized each of the four
+above emulsions with four different initiators.
 Two water-insoluble initiators, AIBN and
-\num{1},\num{1}'-azobis(cyclohexanecarbonitrile) (ACHN), and two water-soluble 
-initiators, potassium persulfate (KPS) and ammonium persulfate APS), were 
-used. To compare initiators, one \SI{5}{\milli \liter} suspension of from emulsion droplets
-in batches A, B, C, and D were 
-made in a \SI{12}{\milli \liter} vial and then equally divided into four % five in reality.. but see below
-\SI{1.5}{\milli \liter} microcentrifuge tubes.
-% One tube was left unpolymerized.
-The four tubes were then polymerized at \SI{80}{\celsius} 
-for \SI{12}{\hour} on a shaker at \SI{750}{\minute^{-1}} % XXX Again, rpm vs mins^{-1}
-to prevent sedimentation.
-We added a different free radical initiator to each tube and repeated the process with four
-different emulsions for a total of 
-\num{16} measurements to ensure that any observations were the result of the 
-initiator used and not of the particular protocol used to make the emulsion.
+\num{1},\num{1}'-azobis(cyclohexanecarbonitrile) (ACHN, Sigma Aldrich),
+and two water-soluble  initiators, potassium persulfate (KPS, Sigma Aldrich) and
+ammonium persulfate (APS, Sigma Aldrich), were chosen.
+Sixteen samples were prepared such that each of the four stoichiometric
+assays were polymerized with each of the four radical initiators.
+Specifically, for each of the four stoichiometric assays, four \SI{1}{\milli\liter} of
+samples of emulsion droplets were prepared in \SI{1.5}{\milli\liter} microcentrifuge tubes.
+Each \SI{1}{\milli\liter} sample is individually combined with \SI{1}{\milli\gram} of
+a specific initiator.
+All sixteen samples were then polymerized at \SI{80}{\celsius} for \SI{12}{\hour}.
+on a shaker set at \SI{750}{\minute^{-1}} \footnote{The shaker is set \SI{750}{\minute^{-1}}
+  to hopefully yield monodisperse particles as discussed in section \ref{ssec:stir}.}.
+The resulting polymerized spheres were then individually analyzed by the xSight
+with the same method previously described.
 
 \begin{figure}
     \centering
     \includegraphics[width=0.7\columnwidth]{longitudinal_summary.png}
     \caption{Holographic characterization results for various initiators and
-      emulsion compositions. (a) The refractive index and diameter of all \num{16} samples of 
-      polymerized TPM. (b) Mean diameter as a function of TPM added at fixed ammonium chloride.
-    (c) Mean diameter as a function of ammonium chloride added at fixed TPM.}
+      emulsion compositions. (a) The average refractive index and diameter of
+      all \num{16} samples of polymerized TPM spheres.
+     (b) Mean diameter as a function of TPM added at fixed ammonium chloride.
+     (c) Mean diameter as a function of ammonium chloride added at fixed TPM.}
     \label{fig:longitudinal_summary}
 \end{figure}
 
-In making the \si{16} sets of particles to look at the effect of initiator on 
-the particles, we can also make observations about the effects of varying 
-the amount of TPM and the pH on the size of the resulting droplets. To hold 
-the pH constant, we can compare sample A to C and sample B to D. This gives 
-the fairly intuitive result that increasing the amount of TPM increases the 
-size of the final droplet. Holding the amount of TPM constant and varying 
-the pH, which means comparing A to B and C to D, shows that increasing the 
-pH of the environment during droplet formation decreases the size of the 
-final droplet. This is less intuitive but perhaps not surprising, as the pH 
-affects the rate at which oligomers form and therefore the rate of droplet 
-formation. This leads to more nucleation sites and therefore smaller droplets 
-for the same volume of material. 
+Fig.~\ref{fig:longitudinal_summary}(a) shows the results from all \num{16} datasets.
+The average diameter and refractive from the \num{3000} or so measurements from each analysis
+are portrayed as points with error bars extending to one median absolute deviation
+of the associated parameter. While the data appears to cluster around batch, discerning
+trends from this plot are nearly impossible. Conversely we readily identify
+trends in Fig.~\ref{fig:longitudinal_summary}(b) and (c) which unpack
+the two dependent variables from the three parameters we varied.
+
+Fig.~\ref{fig:longitudinal_summary}(b) fixes the initiator choice and the
+amount of ammonium chloride added to isolate the influence of TPM added
+to the resulting average particle diameter. Qualitatively, we can see that
+choice of initiator had little to no effect in determining average particle
+diameter. In the first row, each of the four assays have \SI{10}{\micro\liter}
+of ammonium chloride added; in this regime, an increase in TPM oil strictly
+caused an increase in average particle diameter. IN the second row, each of the four
+assays have \SI{20}{\micro\liter} of ammonium chloride added; in this regime, an
+increase in TPM oil has little to no effect in determining the average particle diameter.
+
+Fig.~\ref{fig:longitudinal_summary}(b) is similar to (a) and  fixes the initiator choice
+but instead fixes the amount of TPM added to isolate the influence of ammonium chloride added
+to the resulting average particle diameter. All eight assays convey the same message:
+an increase in ammonium chloride results in a decrease in average particle diameter.
+
+The result of this assays tells a compelling story. The choice of initiator plays little
+to no role in determining average particle size; this is sensible as the emulsification
+of TPM oil determines the droplet size and polymerization is thought to only
+shrink the particle. The concentration of ammonium chloride increases the pH and
+therefore increases the rate at which TPM hydrolizes and oligomerizes. Faster
+rates of nucleation yield more droplets and reduce the average particle size.
+At low concentrations of ammonium chloride, the oligomerization process is slower
+and yields fewer droplets; more TPM oil in this context provides more oligomerized
+TPM to grow droplets. At high concentrations of ammonium chloride, the oligomerization
+process occurs quickly and yield many droplets; more TPM oil in this context provides more droplets.
+
 
 \begin{figure}
     \centering
@@ -474,20 +521,20 @@ for the same volume of material.
     \label{fig:longitudinal_np}
 \end{figure}
 
-
-Comparing batches A to C, each with \SI{100}{\micro \liter} of TPM monomer, and B to D with
-\SI{150}{\micro \liter}, gives the somewhat intuitive result that increasing the amount of TPM
-monomer increases the size of the final droplet. On the other hand, comparing A to B with
-\SI{10}{\micro \liter} ammonia and C to D with \SI{15}{\micro \liter} ammonia shows that
-increasing the pH of the environment during droplet formation decreases the size of the 
-final droplet. This is less intuitive but perhaps not surprising, as the pH 
-affects the rate at which oligomers form and, therefore, the rate of droplet 
-formation. Increasing the pH results in more nucleation sites and therefore smaller droplets 
-for the same volume of material. 
+The results presented in Fig.~\ref{fig:longitudinal_summary}(a) also detail information
+on the average refractive index of polymerized TPM spheres. Although polymerization
+has little effect on the distribution of particle diameters, we have demonstrated
+polymerization induces a sizable change in refractive index when polymerizing TPM
+droplets into solid spheres. Fig.~\ref{fig:longitudinal_np} therefore isolates the
+variables of droplet formation, namely the amount of TPM and ammonium chloride added,
+and isolates the influence of initiator choice on the average refractive index.
+Interestingly HPC determines no discernible change in the resulting refractive index
+even between the water-insoluble initiators, AIBN and ACHN
+(represented in yellow and red respectively) and the water-soluble initiators, APS and KPS (represented in blue and green respectively).
 
 Under certain conditions, TPM droplets are known to form dimpled spheres when polymerized
 with the water-soluble initiators APS and KPS due to the ejection of low molecular weight
-oligomers \cite{sacanna11}. %FIXME Check reference.
+oligomers \cite{sacanna11}.
 Therefore, one might think that TPM spheres polymerized with these initiators would be
 made of on average higher molecular weight oligomers and have a higher refractive index
 than pa. However, under the conditions observed here where no dimple was formed, there
@@ -495,6 +542,33 @@ was no observable difference in particle size or refractive index between the in
 used.
 
 \section{Discussion}
+
+We have demonstrated the use of holographic particle characterization
+to investigate the emulsion polymerization of TPM. Our study examines the
+role certain synthesis protocols play in determining the
+size and refractive index of the resulting polymerized spheres. Specifically,
+we investigate the role of stir rate, the time spent heat-activated, stoichiometry, and choice of
+free radical initiator.
+
+The polydispersity in particle diameter was found to increase
+with stir rate. While an initial increase with particle diameter is observed with increasing
+stir rate, we believe the increase in polydispersity confounds this trend.
+Unlike the orthogonal techniques we used to support our analysis,
+holography can provide immediate feedback on the size and refractive index of unpolymerized
+droplets. By periodically sampling the distribution of sizes and refractive indexes of
+droplets undergoing polymerization, we determined that changes in the optical properties
+of TPM spheres mostly occur in the first \SI{20}{\minute}. Finally, we observed
+influence of emulsion stoichiometry and free radical initiator.
+With our particular synthesis, we isolated a complex
+relationship between the pH of the solution and the amount of TPM added
+during emulsification: at low pH, increases in TPM yield \emph{larger}
+particles and at high pH, increases in TPM yield \emph{more} particles.
+
+We chose the synthesis of TPM as it is a model system for many colloidal studies, yet holography
+can be used to diagnose the relationship between environment conditions and
+particle properties for other syntheses. Future studies may employ concentration
+measurements to better resolve the complex relationship between the many existing
+synthesis parameters.
 
 \section{Acknowledgment}
 
@@ -504,5 +578,3 @@ Additional support was provided by the SBIR program of the
 National Science Foundation through Award Number IPP-1519057.
 The FESEM was purchased with financial support from the MRI program
 of the National Science Foundation under Award DMR-0923251.
-
-\% FIXME David please check the acknowledgment
