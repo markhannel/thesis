@@ -48,27 +48,31 @@ images typically rely on heuristic models intended to emulate
 the perception of vision.
 These heuristics identify regions of contrast as features
 of interest and employ various image analysis techniques to estimate
-the position, shape, and cross-sectional area \cite{jahne97,}.
-By modeling image formation as the culmination of light scattering,
-several techniques aspire to extract maximal quantitative information
+the position, shape, and cross-sectional area of objects in the
+field of view \cite{jahne97,gonzalez06,castleman96,pratt16,jain89}.
+The field of quantitative microscopy has advanced recently with the
+introduction of techniques that model the physics of image formation
+to extract maximal quantitative information
 from microscopic images \cite{lee07,bierbaum2017}.
-Here we advance holographic particle characterization (HPC),
-a quantitative microscopy technique, for measuring
+This thesis describes advances in holographic particle characterization (HPC),
+a microscopy technique for measuring
 the three-dimensional position, size, and refractive index of
-colloidal scatterers \emph{in situ}.
+colloidal particles \emph{in situ}.
 
-This thesis provides a firm foundation for the technique both by
+This work develops a formal foundation for the technique both by
 advancing the theory of image formation in holographic microscopy
 and also by reporting a suite of validation measurements
 that establish the limits of precision and accuracy that can be
-obtained from measurements based on holograms. In challenging
-the assumptions inherent to the technique, we also establish the
-effective sphere model as an appropriate first-order model for
-light scattering off of aspherical particles. Furthermore
-we address the computational difficulties of detecting and localizing
-holographic features, as well as estimating scatterer properties, by
-training machine-learning algorithms. Finally, we demonstrate the use
-of HPC in optimizing a protocol for synthesizing monodisperse
+obtained with holographic video microscopy. In challenging
+the assumptions inherent to the technique, we also introduce the
+effective sphere model as a first-order model for
+light scattering by aspherical particles that yields useful
+characterization data.
+Furthermore we describe how to mitigate the computational complexities
+of detecting,localizing, and analyzing holographic features by
+applying machine-learning algorithms to each stage of the analysis.
+Finally, we demonstrate a real-world application
+of HPC for optimizing the synthesis of monodisperse
 colloidal spheres with size control.
 
 \section{Organization}
@@ -79,31 +83,31 @@ introduction to holographic particle characterization. The primary
 experimental setup for all subsequent experiments is introduced and
 a set of best practices are proposed for precision measurements. 
 
-In \autoref{ch:debye} we model the optical train to establish the
-physical limits of HPC set by the imaging apparatus. The scattered
+In \autoref{ch:debye}, we model the optical train to establish the
+physical limits of HPC that are set by the imaging apparatus. The scattered
 field and incident field are evaluated at several planes along the
 optical train. The refraction of rays through each optical element
 may impart a phase shift, a polarization rotation, and a scaling
 of complex magnitude. We determine that a scalar theory
 approximation successful accounts for the images arriving in the
-focal plane for the range of scatterers we are interested in.
+focal plane for the domain of parameters we are interested in.
 
-Chapter \ref{ch:dimpled} presents a series of experimental and
-simulated studies to determine the effectiveness of Lorenz-Mie
-microscopy in characterizing slightly aspherical particles.
+Chapter \ref{ch:dimpled} presents a series of experimental studies and
+simulations that describe the effectiveness of Lorenz-Mie
+microscopy for characterizing slightly aspherical particles.
 Specifically, we synthesize and characterize three types of colloidal
-particles: spheres, spheres will small dimples and spheres with large dimples.
-The work of this chapters validates the use of the Lorenz-Mie theory
+particles: spheres, spheres will small dimples, and spheres with large dimples.
+This study validates the use of the Lorenz-Mie theory
 for analyzing spheres which have small deviations from
-ideal sphericity. 
+ideal sphericity and sets the stage for the effective-sphere model.
 
 The first step in holographic particle characterization
 requires detecting and localizing holographic features in experimental
 images. Heuristic algorithms perform admirably for isolated, homogeneous
 features; after tuning the necessary empirical parameters, they achieve
-sub-pixel localization while incurring few false positives. However their
-performance deteriorates when presented overlapping features or even
-heterogenous holographic features (axial range, size and refractive index).
+sub-pixel localization while incurring few false positives. Their
+performance deteriorates, however, when they are presented with overlapping features or
+with heterogeneous samples whose particles have disparate characteristics.
 We present in \autoref{ch:cascade} two machine-learning algorithms for
 detecting and localizing holographic features: a convolution
 neural network (CNN) and a cascade classifier. Direct comparison with the
@@ -113,15 +117,15 @@ for overlapping holograms or even heterogeneous holographic features
 in the same image and extends the domain of HPC to more dense, heterogeneous
 samples. The cascade classifier's localization precision
 is ten times worse than the CNN, but is also ten times faster than
-the CNN. In fact the cascade classifier is fast enough for real-time
+the CNN. We show that the cascade classifier is fast enough for real-time
 applications such as high-speed targeting in holographic optical
 trapping systems.
 
-After detecting a holographic feature, initial estimates of the
+After a holographic feature has been detected, initial estimates of the
 scatter's size, refractive index, and three-dimensional position
 are necessary for subsequent fitting to the Lorenz-Mie theory.
 For homogeneous samples of a single particle type, the fitting procedure
-can be initialized with outside information. For heterogeneous samples
+can be initialized with a priori information. For heterogeneous samples
 with disparate sizes or refractive indices, the fitting procedure
 will likely lock onto local minima and return erroneous results for
 the size and refractive index.
@@ -136,8 +140,8 @@ samples with four greatly differing particle properties.
 
 In the previous chapters we have worked towards validating and extending
 the domain of applicability of holographic particle characterization.
-In \autoref{ch:synthesis} we close with a demonstration of its use for
-optimizing the synthesis of \num{3}-methacryloxypropyltrimethoxysilane (TPM) colloidal
+In \autoref{ch:synthesis}, we close with a demonstration of its use for
+optimizing the synthesis of 3-(trimethoxysilyl)propyl methacrylate (TPM) colloidal
 spheres. The synthesis is principally a two-step procedure: an emulsion of monodisperse,
 micrometer sized TPM droplets is prepared and then polymerized.
 A number of experimental parameters and conditions can however affect
