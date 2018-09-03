@@ -2,6 +2,7 @@
 \label{ch:conclusion}
 
 
+
 This thesis validates, extends, and employs holographic
 particle characterization, a relatively new technique
 for extracting the position, size, and composition
@@ -18,14 +19,14 @@ We then use the technique to investigate the role of
 environment conditions and chemical choices in
 a specific emulsion polymerization process.
 
-Our work in validating the use of the scalar theory
-approximation is provided \autoref{ch:debye}.
-Where possible, we account for the vectorial nature
+In \autoref{ch:debye} we justified the use of the scalar theory
+approximation is outlined in \autoref{ch:hvm}.
+Where possible, we accounted for the vectorial nature
 of light propagation including reflection, refraction,
 angular demagnification, and polarization rotation
 through the elements of the optical train. By fitting synthetic holograms
 based on a vector-based theory to a scalar theory,
-our simulations determine that for scatterers between \SI{0.5}{\um}
+our simulations determined that for scatterers between \SI{0.5}{\um}
 and \SI{10}{\um} with refractive index between \SI{1.4}{} and \SI{1.7}{},
 the scalar theory is provides the same prediction as a vector-based theory,
 albeit with far less computational overhead. 
@@ -33,16 +34,26 @@ albeit with far less computational overhead.
 Fitting holographic features to the Lorenz-Mie theory
 assumes a homogeneous spherical scatterer and yet colloidal particles
 come in many shapes such as aggregates, clusters and rods. In \autoref{ch:dimpled}
-we present a series of experimental and simulated results that demonstrate
-that assuming the particle is spherical yields accurate, sensible results.
+we presented a series of experimental and simulated results that demonstrate
+that the Lorenz-Mie theory provides a first-order approximation for light scattering
+off of aspherical particles. For micrometer sized particles with small deviations
+from a spherical geometry, fitting to the Lorenz-Mie theory measures
+an effective size and refractive index.
 
-In \autoref{ch:cascade} we consider the first step in analyzing recorded
+In \autoref{ch:cascade} we considered the first step in analyzing recorded
 images: detecting and localizing holographic features. We trained two machine
 learning algorithms, a cascade classifier and a convolutional neural network (CNN),
 to accomplish these tasks. We compared these two techniques against previously
-employed heuristics for precision, recall, and speed. In all our testing
-the CNN and cascade boast speeds-ups for \num{10} and \num{100} times
-faster processing than our heuristics. 
+employed heuristics for precision, recall, and speed. Our tests demonstrate that
+the CNN and cascade respectively boast speeds-ups of \num{10} and \num{100} times
+faster processing than our heuristics. The CNN can robustly detect and accurately
+localize highly overlapping, high-contrast features with exceedingly few false positives.
+The Haar-based cascade classifier provides single-pixel rather than
+sub-pixel precision yet its speed and modest computational requirements provide
+real-time localization and detection abilities. We demonstrated that the cascade
+classifiers can operate as a high-speed targeting system for a holographic
+optical trapping system where single-pixel precision suffices to capture
+rapidly diffusing targets.
 
 \autoref{ch:svr}
 
