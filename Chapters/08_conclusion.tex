@@ -1,26 +1,24 @@
 \chapter{Conclusions}
 \label{ch:conclusion}
 
-
-
 This thesis validates, extends, and employs holographic
 particle characterization, a relatively new technique
 for extracting the position, size, and composition
-of micometer-scale scatterers \emph{in situ}. This
-thesis advances the technique by providing a
+of micometer-scale scatterers \emph{in situ}. We
+advance the technique by providing a
 firm foundation for the scalar-wave approximation
 in image formation and introduces the effective
 sphere model which expands its domain of applicability.
 In addition we implement machine learning algorithms for
 detecting, localizing, and characterizing holograms; these
-advances greatly reduce the computation time and enable of
+advances greatly reduce the computation time and enable
 the real-time analysis of dense, heterogeneous samples.
 We then use the technique to investigate the role of
 environment conditions and chemical choices in
 a specific emulsion polymerization process.
 
 In \autoref{ch:debye} we justified the use of the scalar theory
-approximation is outlined in \autoref{ch:hvm}.
+approximation outlined in \autoref{ch:hvm}.
 Where possible, we accounted for the vectorial nature
 of light propagation including reflection, refraction,
 angular demagnification, and polarization rotation
@@ -28,17 +26,17 @@ through the elements of the optical train. By fitting synthetic holograms
 based on a vector-based theory to a scalar theory,
 our simulations determined that for scatterers between \SI{0.5}{\um}
 and \SI{10}{\um} with refractive index between \SI{1.4}{} and \SI{1.7}{},
-the scalar theory is provides the same prediction as a vector-based theory,
+the scalar theory provides the same prediction as a vector-based theory,
 albeit with far less computational overhead. 
 
 Fitting holographic features to the Lorenz-Mie theory
-assumes a homogeneous spherical scatterer and yet colloidal particles
-come in many shapes such as aggregates, clusters and rods. In \autoref{ch:dimpled}
+assumes a homogeneous, spherical scatterer and yet colloidal particles
+come in many shapes such as aggregates, clusters, and rods. In \autoref{ch:dimpled}
 we presented a series of experimental and simulated results that demonstrate
 that the Lorenz-Mie theory provides a first-order approximation for light scattering
 off of aspherical particles. For micrometer sized particles with small deviations
-from a spherical geometry, fitting to the Lorenz-Mie theory measures
-an effective size and refractive index.
+from a spherical geometry, fitting to the Lorenz-Mie theory yields
+an effective size and refractive index measurement.
 
 In \autoref{ch:cascade} we considered the first step in analyzing recorded
 images: detecting and localizing holographic features. We trained two machine
@@ -47,15 +45,55 @@ to accomplish these tasks. We compared these two techniques against previously
 employed heuristics for precision, recall, and speed. Our tests demonstrate that
 the CNN and cascade respectively boast speeds-ups of \num{10} and \num{100} times
 faster processing than our heuristics. The CNN can robustly detect and accurately
-localize highly overlapping, high-contrast features with exceedingly few false positives.
+localize highly overlapping, differing contrast features with exceedingly few false positives.
 The Haar-based cascade classifier provides single-pixel rather than
 sub-pixel precision yet its speed and modest computational requirements provide
 real-time localization and detection abilities. We demonstrated that the cascade
-classifiers can operate as a high-speed targeting system for a holographic
+classifier can operate as a high-speed targeting system for a holographic
 optical trapping system where single-pixel precision suffices to capture
 rapidly diffusing targets.
 
-\autoref{ch:svr}
+Fitting holographic features to the Lorenz-Mie theory is computationally intensive
+and sensitive to initial estimates of the particle's parameters. For heterogeneous
+samples with disparate properties, a single initial estimate may not suffice
+to accurately measure each scatterer's properties. In \autoref{ch:svr} we
+addressed these pain points by analyzing holographic features with a trained set
+of three support vector machines which estimate the diameter, refractive index
+and distance from the focal plane, respectively. Each support vector
+machine is provided a hologram's radial profile, the intensity averaged over
+polar angles, and yields an estimate of the particle's properties. Although
+this analysis yields one-tenth the precision and accuracy of non-linear fitting,
+it proceeds one-thousand times faster. We experimentally determined that
+support vector machines can easily analyze a dense suspension of four
+disparate particle types. For assays requiring the full precision of non-linear
+fitting, support vector machines can therefore bootstrap subsequent fitting with sufficiently
+close initial estimates and enable detailed analysis of heterogeneous samples.
 
-\autoref{ch:synthesis}
+We conclude our work in \autoref{ch:synthesis} by demonstrating the use of holographic
+particle characterization in investigating protocol choices in the synthesis of
+3-(trimethoxysilyl)propyl methacrylate (TPM) colloidal spheres.
+The synthesis of TPM particles is a two-step process: emulsion formation and subsequent
+polymerization. Stirring during emulsion formation maintains well-mixed conditions for
+nucleating TPM droplets and keeps the sample from phase separating. We determined
+that increasing the stir rate initially increases average particle diameter
+before yielding polydisperse samples. These holographic characterization results
+of diameters for polymerized spheres were corroborated by SEM analysis. Additionally,
+our refractive index measurements were corroborated by Abbe refractometry of many
+dilute suspensions of TPM spheres. Our holographic results were also able to measure
+the diameters and refractive indexes of TPM liquid droplets and demonstrated the large
+increase in refractive index between monomeric TPM oil and oligomerized liquid TPM.
+By periodically sampling a sample undergoing heat-activated polymerization, we
+determined that the polymerization process ends after approximately \SI{20}{\minute}.
+Finally, we synthesized four emulsions of liquid droplets with
+binary choices in TPM oil and ammonium chloride concentration. Each of the four
+emulsions were then polymerized with four initiators, two water-soluble and two
+water-insoluble, to produce a total of sixteen polymerized spheres.
+These holographic assays reveal no dependence between particle properties and initiator choice;
+they do, however, uncover a complex relationship between the resulting sphere diameters
+and stoichiometry. For low concentrations of ammonium chloride,
+an increase in TPM added will create larger droplets. For high concentrations of ammonium
+chloride, an increase in TPM will generate more droplets.
+
+
+
 
