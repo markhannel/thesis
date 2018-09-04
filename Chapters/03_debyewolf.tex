@@ -125,7 +125,11 @@ sizes and locations that we consider here. %% FIXME: Check this claim and possib
 \begin{figure}
   \centering
   \includegraphics[width=0.75\textwidth]{debye_geom}
-  \caption{The two spherical geometries necessary for our description.}
+  \caption{The two spherical geometries necessary for our description. The un-primed coordinates
+    describe the spherical geometry for waves entering the entrance pupil; the primed coordinates
+    describe the spherical geometry for waves exiting the tube lens. $\theta_{\text{obj}}$ and
+    $\theta_{\text{img}}$ maximal half-angle of the cone of light that can enter or exit the
+    the objective lens and tube lens, respectively (Ref. \cite{capoglu12}, Fig. 13).
   \label{fig:debye_geom}
 \end{figure}
 
@@ -300,12 +304,12 @@ The image in the camera plane is then
 
 Having accounted for the propagation of the incident field and the scattered
 field through the optical system, we are now ready to assess the differences
-in the vector theory and scalar theory. We will produce a range of synthetic
-holograms with the vector-based theory over a range \% Insert range.%%FIXME.
-We will then fit each synthetic hologram to the scalar theory as outlined
-in \autoref{ch:hvm}. The degree to which the resulting fit parameters differ
-from the known scatterer properties set a lower bound for the error of adopting
-the scalar theory in favor of the vector-based theory.
+in the vector theory and the scalar theory. As shown in Fig.~\ref{fig:debye_difference_ps},
+the two theories produce nearly identical holograms for a \SI{1.0}{\um} diameter
+polystyrene particle with refractive index $n_{\text{p}}=1.59$ displaced
+\SI{13.5}{\um} above the focal plane; the difference in intensity at each
+pixel in the respective holograms is below the sensitivity of our camera.
+
 
 \begin{figure}
   \centering
@@ -316,6 +320,22 @@ the scalar theory in favor of the vector-based theory.
     diameter polystyrene particle $\SI{13.5}{\um}$ above the focal plane.}
   \label{fig:debye_difference_ps}
 \end{figure}
+
+\subsection{Fitting vector-based holograms to a scalar theory}
+
+To systematically assess the differences in the two theories, we produce
+numerous synthetic holograms over a wide range of scatterer properties.
+Specifically, we generate holographic images of spherical scatterers with radii from
+$a_{\text{p}}=\SI{0.5}{\um}$ to $\SI{5}{\um}$, refractive indexes from
+$n_{\text{p}}= \SI{1.4}{}$ to $\SI{1.8}{}$, and displacements from the focal plane,
+$z_{\text{p}}=\SI{5}{\um}$ to $\SI{50}{\um}$.
+We then fit each synthetic hologram to the scalar theory as outlined
+in \autoref{ch:hvm}. The degree to which the resulting fit parameters differ
+from the known scatterer properties set a lower bound for the error of adopting
+the scalar theory in favor of the vector theory.
+
+The results of
+
 
 
 \section{Discussion}
