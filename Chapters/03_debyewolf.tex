@@ -128,8 +128,8 @@ sizes and locations that we consider here. %% FIXME: Check this claim and possib
   \caption{The two spherical geometries necessary for our description. The un-primed coordinates
     describe the spherical geometry for waves entering the entrance pupil; the primed coordinates
     describe the spherical geometry for waves exiting the tube lens. $\theta_{\text{obj}}$ and
-    $\theta_{\text{img}}$ maximal half-angle of the cone of light that can enter or exit the
-    the objective lens and tube lens, respectively (Ref. \cite{capoglu12}, Fig. 13).
+    $\theta_{\text{img}}$ maximal half-angle of the cone of light that can enter or exit
+    the objective lens and tube lens, respectively (Ref. \cite{capoglu12}, Fig. 13).}
   \label{fig:debye_geom}
 \end{figure}
 
@@ -308,38 +308,50 @@ in the vector theory and the scalar theory. As shown in Fig.~\ref{fig:debye_diff
 the two theories produce nearly identical holograms for a \SI{1.0}{\um} diameter
 polystyrene particle with refractive index $n_{\text{p}}=1.59$ displaced
 \SI{13.5}{\um} above the focal plane; the difference in intensity at each
-pixel in the respective holograms is below the sensitivity of our camera.
+pixel in the respective holograms is well below the sensitivity of our camera.
 
 
 \begin{figure}
   \centering
-  \includegraphics[width=\textwidth]{debye_difference_ps}
-  \caption{Comparing the radial profiles of a holographic snapshot taken
+  \includegraphics[width=\textwidth]{debyewolf_differences}
+  \caption{(a) Holographic images produced in the focal plane of the objective lens and
+    the imaging plane of the camera, and an image of their differences.
+    (b) Radial profiles of holographic snapshots taken
     in the focal plane of the objective and the imaging plane of the camera.
-    This particular holographic feature is produced by a $\SI{1.0}{\um}$
+    These particular holographic features were produced by a $\SI{1.0}{\um}$
     diameter polystyrene particle $\SI{13.5}{\um}$ above the focal plane.}
   \label{fig:debye_difference_ps}
 \end{figure}
 
-\subsection{Fitting vector-based holograms to a scalar theory}
-
-To systematically assess the differences in the two theories, we produce
-numerous synthetic holograms over a wide range of scatterer properties.
-Specifically, we generate holographic images of spherical scatterers with radii from
+To systematically assess the differences in the two theories,  we generate holographic
+images in the camera plane of spherical scatterers with radii from
 $a_{\text{p}}=\SI{0.5}{\um}$ to $\SI{5}{\um}$, refractive indexes from
 $n_{\text{p}}= \SI{1.4}{}$ to $\SI{1.8}{}$, and displacements from the focal plane,
 $z_{\text{p}}=\SI{5}{\um}$ to $\SI{50}{\um}$.
-We then fit each synthetic hologram to the scalar theory as outlined
+We then fit each synthetic hologram to the scalar theory representing
+images in the focal plane of the objective lens, as outlined
 in \autoref{ch:hvm}. The degree to which the resulting fit parameters differ
 from the known scatterer properties set a lower bound for the error of adopting
-the scalar theory in favor of the vector theory.
-
-The results of
-
-
+the scalar theory in favor of the vector theory. Over the majority of the
+range, the error in diameter and axial displacement are bounded by $\SI{1}{\nm}$
+while the error in refractive index is bounded by $\SI{0.001}{}$; in all three
+parameters, the maximum error is less than the reported resolution of
+the technique \cite{krishnatreya14}.
 
 \section{Discussion}
 
-Not much to discuss yet.
+In this chapter we provided a detailed treatment of the scattered field
+and incident field as they propagate through the optical train to the camera
+to produce an image. We determined that the images formed in the focal plane
+and the camera plane differ by less than our camera's sensitivity despite
+the effects of refraction, reflection, lateral magnification, and angular
+demagnification. The additional computational complexity greatly increases
+the time spent analyzing holograms.
+
+The image in the focal plane can be modified to incorporate certain
+optical limitations, such as low-NA imaging \cite{saglimbeni16}.
+Our formalism easily accommodates phase-aberrations including spherical aberrations
+caused by the optical train and can be used to model holographic images
+produced with non-ideal optics.
 
 
