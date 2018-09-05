@@ -35,13 +35,13 @@ the superposition of the incident beam and scattered wave.
 
 \begin{figure}
   \centering
-  \includegraphics[angle=-90,origin=c,width=0.85\textwidth]{debye_wolf_schematic_2}
+  \includegraphics[width=0.95\textwidth]{debyewolf_schematic}
   \caption{Diagram depicting the planes at which the fields are evaluated.
     (a) The fields propagate through the focal plane (plane 1) of the objective,
     are collected by the objective's entrance pupil (plane 2), focused by the tube lens (plane 3)
     and arrive at the imaging plane (plane 4) of the camera. (b) and (c) illustrate the
     discretization of the electric field strength factor at plane 2 and 3 respectively.
-    (d) illustrates the discretization of the electric field at the imaging plane.}
+    (d) illustrates the discretization of the electric field at the imaging plane, plane 4.}
   \label{fig:debye_schematic}
 \end{figure}
 
@@ -110,7 +110,8 @@ regime, the wave's radial dependence can be factored out from its angular depend
   \vec{E}_s(r, \theta, \phi) \approx  \vec{E}_s(\theta, \phi) \frac{e^{ikr}}{r}.
 \end{equation}
 The term $\vec{E}_s(\theta, \phi)$ is known as the strength factor and
-depends only on the polar angle $\theta$ and the azimuthal angle $\phi$. 
+depends only on the polar angle $\theta$ and the azimuthal angle $\phi$.
+% FIXME: Maybe you want to see it encapsulates the electric fields angular dependence?
 For computational ease, we parameterize the strength factor as $\vec{E}_s(s_x, s_y)$
 with the direction cosines $s_x=\cos{\phi}\sin{\theta}$ and $s_y = \sin{\phi}\cos{\theta}$.
 
@@ -332,11 +333,16 @@ We then fit each synthetic hologram to the scalar theory representing
 images in the focal plane of the objective lens, as outlined
 in \autoref{ch:hvm}. The degree to which the resulting fit parameters differ
 from the known scatterer properties set a lower bound for the error of adopting
-the scalar theory in favor of the vector theory. Over the majority of the
-range, the error in diameter and axial displacement are bounded by $\SI{1}{\nm}$
-while the error in refractive index is bounded by $\SI{0.001}{}$; in all three
+the scalar theory in favor of the vector theory.
+
+Over the majority of parameter space, the error in diameter and
+axial displacement are bounded by $\SI{1}{\nm}$ while the error
+in refractive index is bounded by $\SI{0.001}{}$; in all three
 parameters, the maximum error is less than the reported resolution of
-the technique \cite{krishnatreya14}.
+the technique \cite{krishnatreya14}. In certain regions of parameter
+space, our discretization scheme could not sufficiently sample the
+highly-oscillatory integrand in Eq.~\eqref{eq:debyewolf} and
+resulting in a camera plane image that did not converge.
 
 \section{Discussion}
 
@@ -345,13 +351,20 @@ and incident field as they propagate through the optical train to the camera
 to produce an image. We determined that the images formed in the focal plane
 and the camera plane differ by less than our camera's sensitivity despite
 the effects of refraction, reflection, lateral magnification, and angular
-demagnification. The additional computational complexity greatly increases
-the time spent analyzing holograms.
+demagnification. Additionally the computational complexity of producing
+the image in the camera plane greatly exceeds that of producing the
+image in the focal plane; for this reason, we recommend the use of the
+scalar theory in fitting experimental holograms with ideal optics.
+For real lenses, some degree of phase-aberrations are imparted by
+the optical train; in the case of non-ideal holographic imaging,
+our theory provides a model which accounts for phase-aberrations,
+including spherical aberrations.
 
-The image in the focal plane can be modified to incorporate certain
-optical limitations, such as low-NA imaging \cite{saglimbeni16}.
-Our formalism easily accommodates phase-aberrations including spherical aberrations
-caused by the optical train and can be used to model holographic images
-produced with non-ideal optics.
+
+%For certain optical limitations, such as low-NA imaging \cite{saglimbeni16},
+%the image in the focal plane can be successfully modified without a theory
+%explaining the propagation of fields through the optical train.
+%Our formalism accommodates phase-aberrations caused by the optical train
+%and can be used to model holographic images produced with non-ideal optics.
 
 
