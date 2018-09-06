@@ -16,12 +16,12 @@ From there, the model assumes implicitly that the optical train
 simply magnifies the intensity pattern and relays it to the camera plane.
 This is a fundamental assumption of traditional microscopy and is justified
 by a century of optical engineering devoted to minimizing aberrations.
-These optical systems are, however, optimized for incoherent imaging of
+Conventional optical systems are, however, optimized for incoherent imaging of
 specimens located in the focal plane.
-This chapter assesses how well the linear magnification assumption works for
+This chapter assesses how well the linear-magnification assumption works for
 coherent imaging of scatters located far from the focal plane. To do this, we will
 account for the propagation of the light's electric field from
-the specimen plane to the imaging plane. Our model includes the
+the specimen plane to the imaging plane. Our model accounts for the
 refraction, reflection, lateral magnification, and angular demagnification
 of the fields as they propagate through the objective lens and tube lens
 before arriving at the camera plane. We will attempt a full vectorial
@@ -35,13 +35,13 @@ the superposition of the incident beam and scattered wave.
 
 \begin{figure}
   \centering
-  \includegraphics[angle=-90,origin=c,width=0.85\textwidth]{debye_wolf_schematic_2}
+  \includegraphics[width=0.95\textwidth]{debyewolf_schematic}
   \caption{Diagram depicting the planes at which the fields are evaluated.
-    (a) The fields propagate through the focal plane (plane 1) of the objective,
-    are collected by the objective's entrance pupil (plane 2), focused by the tube lens (plane 3)
-    and arrive at the imaging plane (plane 4) of the camera. (b) and (c) illustrate the
-    discretization of the electric field strength factor at plane 2 and 3 respectively.
-    (d) illustrates the discretization of the electric field at the imaging plane.}
+    (a) The fields propagate through the focal plane (plane \#1) of the objective,
+    are collected by the objective's entrance pupil (plane \#2), focused by the tube lens (plane 3)
+    and arrive at the imaging plane (plane \#4) of the camera. (b) and (c) illustrate the
+    discretization of the electric field strength factor at plane \#2 and \#3 respectively.
+    (d) illustrates the discretization of the electric field at the imaging plane, plane \#4.}
   \label{fig:debye_schematic}
 \end{figure}
 
@@ -54,21 +54,21 @@ we described the scattering of a plane wave by a spherical scatterer up to
 the focal plane of the objective. We will now evaluate the scattered field and
 the plane wave at several interfaces as they propagate along the optical axis
 to the camera plane. Figure \ref{fig:debye_schematic}(a) illustrates the four planes
-of interest. In the preceding sections, we will perform the following calculations
+of interest. In the following sections, we will perform the following calculations
 for the scattered field:
 \begin{enumerate}
 \item Evaluate the electric field strength factor for the scattered field at
-  the entrance pupil of the objective.
+  the entrance pupil of the objective, plane \#\num{2}.
 \item Account for the axial displacement of the particle away from the focal
   plane of the objective.
-\item Compute the electric field strength factor at the exit of the tube lens
+\item Compute the electric field strength factor at the exit of the tube lens, plane \#3,
   by accounting for the angular demagnification imposed by the objective.
 \item Use a near-field-to-far-field transform to determine the scattered
-  fields at the imaging plane of the camera.
+  fields at the imaging plane of the camera, plane \#4.
 \end{enumerate}
-Fig. \ref{fig:debye_schematic}(b) presents the geometries used to define the
+Figure \ref{fig:debye_schematic}(b) presents the geometries used to define the
 fields at the entrance pupil of the objective, at the tube lens, and at the camera's
-imaging plane (planes \num{2}, \num{3}, and \num{4} respectively).
+imaging plane, planes \#\num{2}, \#\num{3}, and \#\num{4}, respectively.
 The linearity of our optical system allows us to consider the incident field
 and scattered field separately. We will derive the transformations for the
 scattered field first and then summarize the corresponding transformation for the
@@ -76,7 +76,7 @@ plane wave.
 
 \subsection{Scattering to the entrance pupil}
 
-In \autoref{ch:hvm} we computed the fields resulting from the scattering of
+In \autoref{ch:hvm}, we computed the fields resulting from the scattering of
 a plane wave by a homogeneous sphere embedded in an otherwise
 homogeneous medium. As depicted in Fig.~\ref{fig:debye_schematic}(a), we
 propagate the radially expanding scattered fields through the focal plane (plane \num{1} in
@@ -91,13 +91,13 @@ $z_p + f$ below the particle, where $f$ is the focal length of the objective.
 \end{figure}
 
 During this transit, the fields reflect and refract at the water-glass interface as they
-exit the sample volume. Fig.~\ref{fig:waterglass} illustrates the Fresnel transmission
+exit the sample volume. Fig.~\ref{fig:waterglass} presents the Fresnel transmission
 coefficients for rays incident on the interface at angle $\theta$.
 Because the scattered fields we record are dominated by low-angle scattering,
 we safely neglect the reflection and refraction at this interface. Furthermore,
 because we utilize an
-oil-immersion objective whose oil refractive index, $n_{\text{oil}}$,
-nearly matches glass, we also neglect the secondary refraction at the
+oil-immersion objective whose refractive index, $n_{\text{oil}}$,
+nearly matches that of glass, we also neglect the secondary refraction at the
 glass-oil interface treated by Ovryn and Izen \cite{izen00}.
 
 Our objective  (Nikon Plan Apo, $\num{100}\times$, numerical aperture $\num{1.45}$,
@@ -110,7 +110,8 @@ regime, the wave's radial dependence can be factored out from its angular depend
   \vec{E}_s(r, \theta, \phi) \approx  \vec{E}_s(\theta, \phi) \frac{e^{ikr}}{r}.
 \end{equation}
 The term $\vec{E}_s(\theta, \phi)$ is known as the strength factor and
-depends only on the polar angle $\theta$ and the azimuthal angle $\phi$. 
+depends only on the polar angle $\theta$ and the azimuthal angle $\phi$.
+% FIXME: Maybe you want to see it encapsulates the electric fields angular dependence?
 For computational ease, we parameterize the strength factor as $\vec{E}_s(s_x, s_y)$
 with the direction cosines $s_x=\cos{\phi}\sin{\theta}$ and $s_y = \sin{\phi}\cos{\theta}$.
 
@@ -125,20 +126,22 @@ sizes and locations that we consider here. %% FIXME: Check this claim and possib
 \begin{figure}
   \centering
   \includegraphics[width=0.75\textwidth]{debye_geom}
-  \caption{The two spherical geometries necessary for our description.}
+  \caption{The two spherical geometries necessary for our description. The un-primed coordinates
+    describe the spherical geometry for waves entering the entrance pupil; the primed coordinates
+    describe the spherical geometry for waves exiting the tube lens. $\theta_{\text{obj}}$ and
+    $\theta_{\text{img}}$ maximal half-angle of the cone of light that can enter or exit
+    the objective lens and tube lens, respectively (Ref. \cite{capoglu12}, Fig. 13).}
   \label{fig:debye_geom}
 \end{figure}
 
 \subsection{ Displacement of the scattered field}
 
-The electric field strength factor $\vec{E}(\theta, \phi)$ is independent
+The electric field strength factor, $\vec{E}(\theta, \phi)$, is independent
 of distance and will be assumed to be originating from
 the origin of the focal plane in the near-field-to-far-field transform rather
 than the particle's location a distance $z_p$ above.
 Following Goodman\cite{goodman05}, we account for the scatterer's displacement
-along the optical axis with a relative phase shift
-\footnote{The sign convention used here is appropriate for a scattered positioned
-a distance $z_p$ in the $-\uvec{z}$ direction.}
+along the optical axis with a relative phase shift\footnote{The sign convention used here is appropriate for a scattered positioned a distance $z_p$ in the $-\uvec{z}$ direction.}.
 \begin{equation}
   \label{eq:entrance_pupil}
     \vec{E}_s(\theta, \phi)|_{\text{scatterer plane}} \approx \vec{E}_s(\theta, \phi)|_{\text{focal plane}} e^{-i\frac{2\pi}{\lambda}z_p\cos{\theta} }.
@@ -166,7 +169,8 @@ The Abbe sine condition,
   M = \frac{n_m \sin \, \theta}{n^{\prime} \sin \, \theta^{\prime}}
   \label{eq:abbe_sine}
 \end{equation}
-is necessary for sharp imaging \cite{capoglu12} and is rigorously obeyed by modern optics.
+is necessary for sharp imaging \cite{capoglu12} and is rigorously
+satisfied in modern optical designs.
 Here, $M$ is the system's lateral magnification, $n_m$ is the medium's refractive index,
 and $n'\approx 1$ is the refractive index at the camera plane.
 A ray entering the objective lens at angle $\theta$ relative to the optical axis exits
@@ -211,12 +215,12 @@ that $s_x^2+s_y^2 \le \text{NA}/n_{\text{oil}}$. Note that $\cos \, \theta' = \s
   decomposed into a multitude of plane waves whose phase relations and subsequent
   interference produce the same effect as the original spherical wave.
 \item The Debye-Wolf transformation takes $\vec{E}'$, a strength factor with units
-  $\si{\volt\meter}$, defined in spherical coordinates on plane \num{3} and
-  returns the electric field  in cartesian coordinates in plane \num{4}.
+  $\si{\volt\meter}$, defined in spherical coordinates on plane \#\num{3} and
+  returns the electric field  in cartesian coordinates in plane \#\num{4}.
 \item The transformation appears to be distance agnostic; the distance
-  between plane \num{3} and \num{4} never explicitly appears. However the domain
+  between plane \#\num{3} and \#\num{4} never explicitly appears. However the domain
   of integration, $\Omega_{\text{img}}$, is limited by the Abbe sine condition
-  such that the planes \num{3} and plane \num{4} must be separated by $M \, f$.
+  such that the planes \#\num{3} and plane \#\num{4} must be separated by $M \, f$.
 \end{enumerate}
 
 The Debye-Wolf integral can account for phase aberrations, $\Phi(s'_x,s'_y)$,
@@ -275,13 +279,13 @@ To ensure our approximation to the integral \eqref{eq:debyewolf} converges, we
 must appropriately sample the $s_x'$-$s_y'$ grid. In addition, we must mitigate any
 aliasing that may result from the Fourier transform in Eq.~\eqref{eq:complete_dw}.
 Further restricting our discretization scheme, the sampling periods $\Delta_x$
-and $\Delta_y$ should approximate the size of a pixel. These competing constraints
+and $\Delta_y$ should be comparable to the size of a pixel. These competing constraints
 can be cast as an integer equation and approximately solved as demonstrated
 in appendix \ref{app:discretize_dw}.
 
 \subsection{Superposition of the propagated fields}
 
-The propagation of the incident field through the optical system is more easily explained.
+The propagation of the incident plane wave through the optical system is more easily explained.
 The incident field travels parallel to the optical
 axis towards the entrance pupil of the objective. The objective
 and tube lens then laterally magnify the incident field and induce a
@@ -299,27 +303,70 @@ The image in the camera plane is then
 \section{Comparison to Scalar Diffraction Theory}
 
 Having accounted for the propagation of the incident field and the scattered
-field through the optical system, we are now ready to assess the differences
-in the vector theory and scalar theory. We will produce a range of synthetic
-holograms with the vector-based theory over a range \% Insert range.%%FIXME.
-We will then fit each synthetic hologram to the scalar theory as outlined
-in \autoref{ch:hvm}. The degree to which the resulting fit parameters differ
-from the known scatterer properties set a lower bound for the error of adopting
-the scalar theory in favor of the vector-based theory.
+field through the optical system, we are now ready to assess differences
+between the vector theory and the scalar theory. As shown in Fig.~\ref{fig:debye_difference_ps},
+the two theories produce nearly identical holograms for a \SI{1.0}{\um} diameter
+polystyrene particle with refractive index $n_{\text{p}}=1.59$ displaced
+\SI{13.5}{\um} above the focal plane; the difference in intensity at each
+pixel in the respective holograms is well below the sensitivity of our camera.
+
 
 \begin{figure}
   \centering
-  \includegraphics[width=\textwidth]{debye_difference_ps}
-  \caption{Comparing the radial profiles of a holographic snapshot taken
+  \includegraphics[width=\textwidth]{debyewolf_differences}
+  \caption{(a) Holographic images produced in the focal plane of the objective lens and
+    the imaging plane of the camera, and an image of their differences.
+    (b) Radial profiles of holographic snapshots taken
     in the focal plane of the objective and the imaging plane of the camera.
-    This particular holographic feature is produced by a $\SI{1.0}{\um}$
+    These particular holographic features were produced by a $\SI{1.0}{\um}$
     diameter polystyrene particle $\SI{13.5}{\um}$ above the focal plane.}
   \label{fig:debye_difference_ps}
 \end{figure}
 
+To systematically assess the differences in the two theories,
+we use Eq.\eqref{debyewolf} to synthesize holographic
+images as they would appear in the camera plane. Synthetic holograms
+were computed for spheres with radii ranging from
+$a_{\text{p}}=\SI{0.5}{\um}$ to $\SI{5}{\um}$, refractive indexes from
+$n_{\text{p}}= \SI{1.4}{}$ to $\SI{1.8}{}$, and displacements from the focal plane,
+$z_{\text{p}}=\SI{5}{\um}$ to $\SI{50}{\um}$.
+We then fit each synthetic hologram to the scalar theory representing
+images in the focal plane of the objective lens, as described
+in \autoref{ch:hvm}. The degree to which the resulting fit parameters differ
+from the known scatterer properties set a lower bound for the error of adopting
+the scalar theory in favor of the vector theory.
+
+Over the majority of parameter space, the error in diameter and
+axial displacement are bounded by $\SI{1}{\nm}$ while the error
+in refractive index is bounded by $\SI{0.001}{}$; in all three
+parameters, the maximum error is less than the reported resolution of
+the technique \cite{krishnatreya14}. In certain regions of parameter
+space, our discretization scheme could not sufficiently sample the
+highly-oscillatory integrand in Eq.~\eqref{eq:debyewolf}.
+No synthetic holograms are available in this range.
 
 \section{Discussion}
 
-Not much to discuss yet.
+This chapter provides a detailed treatment of the scattered field
+and incident field as they propagate through the optical train to the camera
+to produce an image.
+We determined that the image accounting for
+the effects of refraction, reflection, lateral magnification, and angular
+demagnification does not change the resulting hologram by a measurable amount.
+The existing formulation therefore is optimal in this sense. Additionally the computational complexity of producing
+the image in the camera plane greatly exceeds that of producing the
+image in the focal plane; for this reason, we recommend the use of the
+scalar theory in fitting experimental holograms with ideal optics.
+For real lenses, some degree of phase-aberrations are imparted by
+the optical train; in the case of non-ideal holographic imaging,
+our theory provides a model which accounts for phase-aberrations,
+including spherical aberrations.
+
+
+%For certain optical limitations, such as low-NA imaging \cite{saglimbeni16},
+%the image in the focal plane can be successfully modified without a theory
+%explaining the propagation of fields through the optical train.
+%Our formalism accommodates phase-aberrations caused by the optical train
+%and can be used to model holographic images produced with non-ideal optics.
 
 

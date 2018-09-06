@@ -69,13 +69,32 @@ effective sphere model as a first-order model for
 light scattering by aspherical particles that yields useful
 characterization data.
 Furthermore we describe how to mitigate the computational complexities
-of detecting,localizing, and analyzing holographic features by
+of detecting, localizing, and analyzing holographic features by
 applying machine-learning algorithms to each stage of the analysis.
 Finally, we demonstrate a real-world application
 of HPC for optimizing the synthesis of monodisperse
-colloidal spheres with size control.
+colloidal spheres with size control. A diagram depicting the organization
+of this thesis is provided in Fig.~\ref{fig:intro}.
+
+
 
 \section{Organization}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=\textwidth]{introduction_summary}
+  \caption{Diagram summarizing the organization of this thesis.
+    Chapter \ref{ch:hvm} and \ref{ch:dimpled} use a scalar
+    theory of light scattering to characterize perfect and imperfect
+    colloidal spheres. Chapter \ref{ch:debye} systematically
+    accounts for the propagation of light through the optical
+    train. Chapter \ref{ch:cascade} and \ref{ch:svr} improve
+    image analysis with machine-learning algorithms for detection, localization,
+    and characterization. Chapter \ref{ch:synthesis} demonstrates the use
+    of holographic characterization for optimizing colloidal
+    synthesis.}
+  \label{fig:intro}
+\end{figure}
 
 % FIXME: Make Chapter part of the href.
 Chapter \ref{ch:hvm} provides an extensive theoretical and practical

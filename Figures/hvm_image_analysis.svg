@@ -1,0 +1,586 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="210mm"
+   height="297mm"
+   viewBox="0 0 210 297"
+   version="1.1"
+   id="svg8"
+   inkscape:export-filename="/home/mark/Github/thesis/Figures/hvm_image_analysis.png"
+   inkscape:export-xdpi="200"
+   inkscape:export-ydpi="200"
+   inkscape:version="0.92.3 (d244b95, 2018-08-02)"
+   sodipodi:docname="hvm_image_analysis.svg">
+  <defs
+     id="defs2">
+    <marker
+       inkscape:stockid="Arrow2Send"
+       orient="auto"
+       refY="0.0"
+       refX="0.0"
+       id="Arrow2Send"
+       style="overflow:visible;"
+       inkscape:isstock="true">
+      <path
+         id="path1159"
+         style="fill-rule:evenodd;stroke-width:0.625;stroke-linejoin:round;stroke:#0000ff;stroke-opacity:1;fill:#0000ff;fill-opacity:1"
+         d="M 8.7185878,4.0337352 L -2.2072895,0.016013256 L 8.7185884,-4.0017078 C 6.9730900,-1.6296469 6.9831476,1.6157441 8.7185878,4.0337352 z "
+         transform="scale(0.3) rotate(180) translate(-2.3,0)" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow1Mend"
+       orient="auto"
+       refY="0.0"
+       refX="0.0"
+       id="Arrow1Mend"
+       style="overflow:visible;"
+       inkscape:isstock="true">
+      <path
+         id="path1135"
+         d="M 0.0,0.0 L 5.0,-5.0 L -12.5,0.0 L 5.0,5.0 L 0.0,0.0 z "
+         style="fill-rule:evenodd;stroke:#0000ff;stroke-width:1pt;stroke-opacity:1;fill:#0000ff;fill-opacity:1"
+         transform="scale(0.4) rotate(180) translate(10,0)" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow1Lend"
+       orient="auto"
+       refY="0.0"
+       refX="0.0"
+       id="Arrow1Lend"
+       style="overflow:visible;"
+       inkscape:isstock="true">
+      <path
+         id="path1129"
+         d="M 0.0,0.0 L 5.0,-5.0 L -12.5,0.0 L 5.0,5.0 L 0.0,0.0 z "
+         style="fill-rule:evenodd;stroke:#0000ff;stroke-width:1pt;stroke-opacity:1;fill:#0000ff;fill-opacity:1"
+         transform="scale(0.8) rotate(180) translate(12.5,0)" />
+    </marker>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath916">
+      <rect
+         style="opacity:1;fill:none;fill-opacity:1;stroke:none;stroke-width:26.39999962;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:stroke markers fill"
+         id="rect918"
+         width="39.829243"
+         height="27.78125"
+         x="42.886509"
+         y="58.096333" />
+    </clipPath>
+    <marker
+       inkscape:stockid="Arrow2Send"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="Arrow2Send-9"
+       style="overflow:visible"
+       inkscape:isstock="true">
+      <path
+         inkscape:connector-curvature="0"
+         id="path1159-3"
+         style="fill:#0000ff;fill-opacity:1;fill-rule:evenodd;stroke:#0000ff;stroke-width:0.625;stroke-linejoin:round;stroke-opacity:1"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         transform="matrix(-0.3,0,0,-0.3,0.69,0)" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow2Send"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="Arrow2Send-9-2"
+       style="overflow:visible"
+       inkscape:isstock="true">
+      <path
+         inkscape:connector-curvature="0"
+         id="path1159-3-6"
+         style="fill:#0000ff;fill-opacity:1;fill-rule:evenodd;stroke:#0000ff;stroke-width:0.625;stroke-linejoin:round;stroke-opacity:1"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         transform="matrix(-0.3,0,0,-0.3,0.69,0)" />
+    </marker>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath5944">
+      <rect
+         style="opacity:0.75700001;fill:none;fill-opacity:1;stroke:none;stroke-width:0.5369764;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:stroke markers fill"
+         id="rect5946"
+         width="23.957191"
+         height="24.176508"
+         x="71.859856"
+         y="152.52573"
+         ry="0.71138084" />
+    </clipPath>
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="1.1483725"
+     inkscape:cx="572.99631"
+     inkscape:cy="534.07933"
+     inkscape:document-units="mm"
+     inkscape:current-layer="g5703-1"
+     showgrid="false"
+     inkscape:window-width="1855"
+     inkscape:window-height="1176"
+     inkscape:window-x="65"
+     inkscape:window-y="24"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata5">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <image
+       sodipodi:absref="/home/mark/Github/thesis/Figures/Supplements/Silicone_norm_image.png"
+       xlink:href="Supplements/Silicone_norm_image.png"
+       width="40"
+       height="30"
+       preserveAspectRatio="none"
+       style="image-rendering:optimizeQuality"
+       id="image845"
+       x="137.62909"
+       y="39.03791" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.58333302px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="59.767487"
+       y="30.054314"
+       id="text890"><tspan
+         sodipodi:role="line"
+         id="tspan888"
+         x="59.767487"
+         y="39.418083"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:sans-serif;-inkscape-font-specification:sans-serif;stroke-width:0.26458332" /></text>
+    <g
+       id="g1000"
+       transform="translate(-4.4678094,2.0464438)">
+      <image
+         sodipodi:absref="/home/mark/Github/thesis/Figures/Supplements/VTS_02_1_bg.png"
+         xlink:href="Supplements/VTS_02_1_bg.png"
+         y="16.610683"
+         x="46.860046"
+         id="image868"
+         style="image-rendering:optimizeQuality"
+         preserveAspectRatio="none"
+         height="29.999836"
+         width="39.999775" />
+      <g
+         transform="translate(-0.02846296,-1.0365858)"
+         id="g927">
+        <rect
+           style="opacity:0.52399998;fill:#999999;fill-opacity:1;stroke:none;stroke-width:26.39999962;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:stroke markers fill"
+           id="rect920"
+           width="25.991961"
+           height="6.481286"
+           x="48.476009"
+           y="18.705603" />
+        <text
+           xml:space="preserve"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.58333302px;line-height:1.25;font-family:'URW Gothic L';-inkscape-font-specification:'URW Gothic L';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+           x="48.80814"
+           y="23.287102"
+           id="text894"><tspan
+             sodipodi:role="line"
+             id="tspan892"
+             x="48.80814"
+             y="23.287102"
+             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.23333311px;font-family:sans-serif;-inkscape-font-specification:sans-serif;fill:#ffffff;stroke-width:0.26458332">Background</tspan></text>
+      </g>
+    </g>
+    <g
+       id="g1115"
+       transform="translate(0.00389651)">
+      <image
+         sodipodi:absref="/home/mark/Github/thesis/Figures/Supplements/hvm_dc.png"
+         xlink:href="Supplements/hvm_dc.png"
+         y="57.034031"
+         x="38.895958"
+         id="image834"
+         style="image-rendering:optimizeQuality"
+         preserveAspectRatio="none"
+         height="31.536636"
+         width="44.622993"
+         clip-path="url(#clipPath916)"
+         transform="matrix(1.0189112,0,0,1.079865,-1.6005471,-2.929631)" />
+      <g
+         id="g1108">
+        <rect
+           style="opacity:0.52399998;fill:#999999;fill-opacity:1;stroke:none;stroke-width:26.39999962;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:stroke markers fill"
+           id="rect920-6"
+           width="25.991961"
+           height="6.481286"
+           x="43.684494"
+           y="82.266945" />
+        <text
+           xml:space="preserve"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.58333302px;line-height:1.25;font-family:'URW Gothic L';-inkscape-font-specification:'URW Gothic L';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+           x="44.531345"
+           y="87.085785"
+           id="text894-7"><tspan
+             sodipodi:role="line"
+             id="tspan892-5"
+             x="44.531345"
+             y="87.085785"
+             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.23333311px;font-family:sans-serif;-inkscape-font-specification:sans-serif;fill:#ffffff;stroke-width:0.26458332">Dark Count</tspan></text>
+      </g>
+    </g>
+    <image
+       sodipodi:absref="/home/mark/Github/thesis/Figures/Supplements/Silicone_raw_image.png"
+       xlink:href="Supplements/Silicone_raw_image.png"
+       width="39.999779"
+       height="29.999836"
+       preserveAspectRatio="none"
+       style="fill:#0000ff;fill-opacity:1;stroke:none;stroke-width:26.39999962;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;image-rendering:optimizeQuality"
+       id="image856"
+       x="78.136948"
+       y="39.037994" />
+    <rect
+       style="opacity:0.52399998;fill:#999999;fill-opacity:1;stroke:none;stroke-width:26.39999962;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:stroke markers fill"
+       id="rect920-6-5"
+       width="25.991961"
+       height="6.481286"
+       x="85.140854"
+       y="61.309303" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.58333302px;line-height:1.25;font-family:'URW Gothic L';-inkscape-font-specification:'URW Gothic L';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="86.280197"
+       y="65.652718"
+       id="text894-7-6"><tspan
+         sodipodi:role="line"
+         id="tspan892-5-2"
+         x="86.280197"
+         y="65.652718"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.23333311px;font-family:sans-serif;-inkscape-font-specification:sans-serif;fill:#ffffff;stroke-width:0.26458332">Raw Image</tspan></text>
+    <rect
+       style="opacity:0.52399998;fill:#999999;fill-opacity:1;stroke:none;stroke-width:26.39999962;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:stroke markers fill"
+       id="rect920-6-5-1"
+       width="25.991961"
+       height="6.481286"
+       x="144.6331"
+       y="61.498291" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.58333302px;line-height:1.25;font-family:'URW Gothic L';-inkscape-font-specification:'URW Gothic L';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="145.60812"
+       y="66.317131"
+       id="text894-7-6-2"><tspan
+         sodipodi:role="line"
+         id="tspan892-5-2-7"
+         x="145.60812"
+         y="66.317131"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.23333311px;font-family:sans-serif;-inkscape-font-specification:sans-serif;fill:#ffffff;stroke-width:0.26458332">Normalized</tspan></text>
+    <path
+       style="fill:#0000ff;stroke:#0000ff;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#Arrow2Send)"
+       d="m 120.95238,54.045117 h 11.33928"
+       id="path1120"
+       inkscape:connector-curvature="0" />
+    <image
+       width="40"
+       height="30.000002"
+       preserveAspectRatio="none"
+       style="image-rendering:optimizeQuality"
+       id="image845-0"
+       x="42.392124"
+       y="105.29613"
+       xlink:href="/home/mark/Github/thesis/Figures/Supplements/Silicone_norm_image.png"
+       sodipodi:absref="/home/mark/Github/thesis/Figures/Supplements/Silicone_norm_image.png" />
+    <image
+       sodipodi:absref="/home/mark/Github/thesis/Figures/Supplements/Silicone_ct_image.png"
+       xlink:href="Supplements/Silicone_ct_image.png"
+       width="40"
+       height="30"
+       preserveAspectRatio="none"
+       style="image-rendering:optimizeQuality"
+       id="image3727"
+       x="42.392124"
+       y="151.17114" />
+    <path
+       style="fill:#0000ff;stroke:#0000ff;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#Arrow2Send-9)"
+       d="m 62.382516,136.15184 v 11.33928"
+       id="path1120-6"
+       inkscape:connector-curvature="0" />
+    <image
+       width="40"
+       height="30.000002"
+       preserveAspectRatio="none"
+       style="image-rendering:optimizeQuality"
+       id="image845-06"
+       x="42.392124"
+       y="197.04616"
+       xlink:href="/home/mark/Github/thesis/Figures/Supplements/Silicone_norm_image.png"
+       sodipodi:absref="/home/mark/Github/thesis/Figures/Supplements/Silicone_norm_image.png" />
+    <path
+       style="fill:#0000ff;stroke:#0000ff;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#Arrow2Send-9-2)"
+       d="M 62.382516,182.16122 V 193.5005"
+       id="path1120-6-1"
+       inkscape:connector-curvature="0" />
+    <g
+       id="g5595">
+      <text
+         id="text5559"
+         y="25.862247"
+         x="110.83491"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.58333302px;line-height:1.25;font-family:'URW Gothic L';-inkscape-font-specification:'URW Gothic L';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+         xml:space="preserve"><tspan
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.93888903px;font-family:sans-serif;-inkscape-font-specification:sans-serif;stroke-width:0.26458332"
+           y="25.862247"
+           x="110.83491"
+           id="tspan5557"
+           sodipodi:role="line">Normalization</tspan></text>
+      <rect
+         y="20.647038"
+         x="108.1867"
+         height="7.1363759"
+         width="39.687775"
+         id="rect5561"
+         style="opacity:1;fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.31222668;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:stroke markers fill" />
+    </g>
+    <g
+       id="g5703"
+       transform="translate(0,-0.13816047)">
+      <text
+         id="text5559-2"
+         y="237.55304"
+         x="45.067989"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.58333302px;line-height:1.25;font-family:'URW Gothic L';-inkscape-font-specification:'URW Gothic L';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+         xml:space="preserve"><tspan
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.93888903px;font-family:sans-serif;-inkscape-font-specification:sans-serif;stroke-width:0.26458332"
+           y="237.55304"
+           x="45.067989"
+           id="tspan5557-3"
+           sodipodi:role="line">Center-finding</tspan></text>
+      <rect
+         y="232.33783"
+         x="42.704342"
+         height="7.1363759"
+         width="39.687775"
+         id="rect5561-7"
+         style="opacity:1;fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.31222668;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:stroke markers fill" />
+    </g>
+    <text
+       id="text5623"
+       y="22.186411"
+       x="33.783283"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.58333302px;line-height:1.25;font-family:'URW Gothic L';-inkscape-font-specification:'URW Gothic L';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       xml:space="preserve"><tspan
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.23333311px;font-family:sans-serif;-inkscape-font-specification:sans-serif;stroke-width:0.26458332"
+         y="22.186411"
+         x="33.783283"
+         id="tspan5621"
+         sodipodi:role="line">(a)</tspan></text>
+    <text
+       id="text5623-5"
+       y="108.96098"
+       x="33.783283"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.58333302px;line-height:1.25;font-family:'URW Gothic L';-inkscape-font-specification:'URW Gothic L';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       xml:space="preserve"><tspan
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.23333311px;font-family:sans-serif;-inkscape-font-specification:sans-serif;stroke-width:0.26458332"
+         y="108.96098"
+         x="33.783283"
+         id="tspan5621-9"
+         sodipodi:role="line">(b)</tspan></text>
+    <g
+       transform="translate(82.027664,-0.13816047)"
+       id="g5703-1">
+      <g
+         id="g5934"
+         transform="translate(-7.9644769,0.23039853)">
+        <text
+           xml:space="preserve"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.58333302px;line-height:1.25;font-family:'URW Gothic L';-inkscape-font-specification:'URW Gothic L';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+           x="45.186153"
+           y="237.55304"
+           id="text5559-2-2"><tspan
+             sodipodi:role="line"
+             id="tspan5557-3-9"
+             x="45.186153"
+             y="237.55304"
+             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.93888903px;font-family:sans-serif;-inkscape-font-specification:sans-serif;stroke-width:0.26458332">Non-Linear Fit</tspan></text>
+        <rect
+           style="opacity:1;fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.31222668;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:stroke markers fill"
+           id="rect5561-7-3"
+           width="39.687775"
+           height="7.1363759"
+           x="42.704342"
+           y="232.33783" />
+      </g>
+      <image
+         sodipodi:absref="/home/mark/Github/thesis/Figures/Supplements/experimental.png"
+         xlink:href="Supplements/experimental.png"
+         width="24.751183"
+         height="24.905878"
+         preserveAspectRatio="none"
+         style="image-rendering:optimizeQuality"
+         id="image5737"
+         x="38.695015"
+         y="152.07262" />
+      <path
+         style="opacity:0.75700001;fill:#1a1a1a;fill-opacity:1;stroke:none;stroke-width:1.88976383;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:stroke markers fill"
+         clip-path="none"
+         d="M 160.22266 744.74219 L 160.22266 858.12695 L 311.40234 858.12695 L 311.40234 744.74219 L 160.22266 744.74219 z M 203.99219 775.53906 L 238.00781 775.53906 L 238.00781 809.55469 L 203.99219 809.55469 L 203.99219 775.53906 z "
+         transform="matrix(0.26458333,0,0,0.26458333,-82.027664,0.13816047)"
+         id="rect5751" />
+      <g
+         id="g5785"
+         inkscape:transform-center-x="2.6058779"
+         inkscape:transform-center-y="-1.3363476"
+         transform="translate(45.021475,-14.919579)">
+        <path
+           inkscape:transform-center-y="1.0690781"
+           inkscape:transform-center-x="10.824416"
+           inkscape:connector-curvature="0"
+           id="path5766"
+           d="m -71.053225,176.69706 4.64444,4.61594"
+           style="fill:#ff0000;stroke:#ff0000;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+        <path
+           inkscape:transform-center-y="1.0690781"
+           inkscape:transform-center-x="10.824416"
+           inkscape:connector-curvature="0"
+           id="path5766-1"
+           d="m -66.42304,176.68281 -4.61593,4.64444"
+           style="fill:#ff0000;stroke:#ff0000;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+      </g>
+      <image
+         sodipodi:absref="/home/mark/Github/thesis/Source/figures/0.png"
+         xlink:href="/home/mark/Github/thesis/Source/figures/0.png"
+         width="24"
+         height="24"
+         preserveAspectRatio="none"
+         style="image-rendering:optimizeQuality"
+         id="image5806"
+         x="34.583752"
+         y="104.37846" />
+      <image
+         sodipodi:absref="/home/mark/Github/thesis/Source/figures/1.png"
+         xlink:href="/home/mark/Github/thesis/Source/figures/1.png"
+         width="24"
+         height="24"
+         preserveAspectRatio="none"
+         style="image-rendering:optimizeQuality"
+         id="image5817"
+         x="44.41114"
+         y="110.80408" />
+      <image
+         sodipodi:absref="/home/mark/Github/thesis/Source/figures/2.png"
+         xlink:href="/home/mark/Github/thesis/Source/figures/2.png"
+         width="24"
+         height="24"
+         preserveAspectRatio="none"
+         style="image-rendering:optimizeQuality"
+         id="image5828"
+         x="59.265114"
+         y="119.93284" />
+      <image
+         sodipodi:absref="/home/mark/Github/thesis/Source/figures/3.png"
+         xlink:href="/home/mark/Github/thesis/Source/figures/3.png"
+         width="24"
+         height="24"
+         preserveAspectRatio="none"
+         style="image-rendering:optimizeQuality"
+         id="image5839"
+         x="68.41114"
+         y="134.80408" />
+      <image
+         sodipodi:absref="/home/mark/Github/thesis/Source/figures/4.png"
+         xlink:href="/home/mark/Github/thesis/Source/figures/4.png"
+         width="24"
+         height="24"
+         preserveAspectRatio="none"
+         style="image-rendering:optimizeQuality"
+         id="image5865"
+         x="34.583752"
+         y="198.87251" />
+      <image
+         sodipodi:absref="/home/mark/Github/thesis/Source/figures/5.png"
+         xlink:href="/home/mark/Github/thesis/Source/figures/5.png"
+         width="24"
+         height="24"
+         preserveAspectRatio="none"
+         style="image-rendering:optimizeQuality"
+         id="image5887"
+         x="44.41114"
+         y="190.41533" />
+      <image
+         sodipodi:absref="/home/mark/Github/thesis/Source/figures/6.png"
+         xlink:href="/home/mark/Github/thesis/Source/figures/6.png"
+         width="24"
+         height="24"
+         preserveAspectRatio="none"
+         style="image-rendering:optimizeQuality"
+         id="image5898"
+         x="59.265114"
+         y="181.42979" />
+      <image
+         sodipodi:absref="/home/mark/Github/thesis/Source/figures/7.png"
+         xlink:href="/home/mark/Github/thesis/Source/figures/7.png"
+         width="24"
+         height="24"
+         preserveAspectRatio="none"
+         style="image-rendering:optimizeQuality"
+         id="image5909"
+         x="68.41114"
+         y="170.60106" />
+      <image
+         width="24.982986"
+         height="24.905878"
+         preserveAspectRatio="none"
+         style="image-rendering:optimizeQuality;fill:none"
+         id="image5748"
+         x="71.410873"
+         y="152.07262"
+         xlink:href="/home/mark/Github/thesis/Figures/Supplements/fit_image.png"
+         sodipodi:absref="/home/mark/Github/thesis/Figures/Supplements/fit_image.png"
+         clip-path="url(#clipPath5944)" />
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.58333302px;line-height:1.25;font-family:'URW Gothic L';-inkscape-font-specification:'URW Gothic L';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+         x="23.264462"
+         y="109.09501"
+         id="text5929"><tspan
+           sodipodi:role="line"
+           id="tspan5927"
+           x="23.264462"
+           y="109.09501"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.23333311px;font-family:sans-serif;-inkscape-font-specification:sans-serif;stroke-width:0.26458332">(c)</tspan></text>
+      <rect
+         style="opacity:0.75700001;fill:none;fill-opacity:1;stroke:none;stroke-width:0.5;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:stroke markers fill"
+         id="rect5938"
+         width="24.982986"
+         height="24.905878"
+         x="71.410866"
+         y="152.07262"
+         ry="0.66239494" />
+      <rect
+         style="opacity:0.75700001;fill:none;fill-opacity:1;stroke:none;stroke-width:0.5;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:stroke markers fill"
+         id="rect5940"
+         width="12.268722"
+         height="7.3151531"
+         x="70.208168"
+         y="158.06384"
+         ry="0.66239494" />
+    </g>
+  </g>
+</svg>
