@@ -300,7 +300,7 @@ A few comments help to clarify how Eqs.~\eqref{eq:gen_norm} through
 \eqref{eq:bn} can be used to track and characterize colloidal particles.
 The vector spherical harmonics do not depend on the scatterer's properties;
 the scatterer's influence on the external scattered field is completely contained
-in the coefficients.
+in the expansion coefficients.
 The coefficients $a_n$ and $b_n$ converge to zero as $n_p$ approaches $n_m$, which
 is the case for index-matched particles.
 The condition for terminating the series in \eqref{eq:scatteredfield} depends only on
@@ -379,10 +379,10 @@ scatterer. This procedure is repeated for every feature in every image.
 \section{Best Practices}
 
 Choices in instrumentation, sample preparation, and analysis may influence
-the precision and accuracy of parameters through estimated the holographic
+the precision and accuracy of parameters estimated by holographic
 analysis. In this section, we outline considerations
 and best practices for achieving optimal results by maximizing the
-signal-to-noise ratio (SNR) of the image.
+signal-to-noise ratio (SNR) of the image. 
 
 \subsection{Instrumentation}
 
@@ -401,7 +401,8 @@ The dynamic range and exposure period of the digital camera set lower and
 upper bounds, respectively, for the intensity of the illumination.
 To increase the signal-to-noise
 ratio, it is desirable to maximize the intensity of the image without
-saturating the camera. 
+saturating the camera. A detailed account of digital imaging is
+provided in appendix \ref{app:digital_imaging}.
 
 A high numerical aperture (NA) objective ensures that large-angle scattered
 light contributes to the final image. Saglimbeni \emph{et al.}, for example,
