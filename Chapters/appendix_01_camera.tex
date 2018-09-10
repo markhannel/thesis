@@ -2,39 +2,56 @@
 \label{app:digital_imaging}
 \appcaption{Appendix A}
 
-Modern digital cameras employ an array of photon detectors to measure the
-average intensity over the sensor surface. Each photon detector, referred to as a pixel,
-utilizes the photoelectric effect to convert photons into excited electrons.
-The excited electrons at each pixel are counted, sometimes to single precision, and
-then digitized into $8$-, $12$-, or even $16$-bit integers. Because the number of
+With millions of pixels and the capacity to count tens of thousands of electrons
+at each pixel, digital cameras are an engineering marvel. 
+A basic understanding of how digital images are recorded will elucidate
+our method of image normalization and validate our model for generating synthetic
+hologram images. In this appendix, we will briefly review the physical
+details of a single pixel to explain important imaging effects such as
+dark counts, saturation, and the digitization procedure. For a more detailed account,
+consult reference \cite{nakamura2017}.
+
+\section{Overview of digital imaging}
+
+Digital cameras use an array of photon detectors to measure the
+average intensity over the sensor's surface. Each photon detector, referred to as a pixel,
+employs the photoelectric effect to convert the visible photons striking its surface into
+excited electrons. The array of pixels is exposed to incoming light for a limited
+exposure period, during which excited electrons accumulate at each pixel.
+The excited electrons are counted, sometimes to single precision,
+and digitized into $8$-, $12$-, or even $16$-bit integers. As the number of
 excited electrons is proportional to the number of photons, and the the number of
-photons is in turn proportional to the intensity of the of the image at the
-sensor surface, the array of electron counts serves as a proxy for the intensity
-of the image.
+photons is in turn proportional to the intensity of the image at the
+sensor surface, the array of electron counts serves as a proxy for
+the intensity of the image.
 
-With millions of pixels and the capacity to count tens of thousands of electrons at each pixel,
-digital cameras are an engineering marvel. For our purposes, we will review a few of the physical
-details of a single pixel to explain important imaging effects such as dark counts, saturation,
-and the digitization procedure.
+During an exposure period, a number of electrons can be thermally excited and
+will be included in the count. These erroneously counted electrons are referred to
+as the dark count. The average dark count for a specific exposure period can be measured
+by blocking the camera's sensor with an opaque object and averaging the
+recorded images. The resulting averaged array is called a bias frame. Note that the dark count will increase with
+longer exposure times. For an exposure period of less than \SI{10}{\us}, the dark
+count of our camera is less than \SI{0.5}{\percent} the average intensity 
 
-Pixels are designed to accurately count the number of electrons that are
-excited by incident photons within a given exposure period. A number of physical constraints
-limit the accuracy of each pixels.
 
-During an exposure period, $N_p$ photons of a particular wavelength arrive at a pixel
-surface. Some fraction of the incident photons are converted to excited electrons
-with a wavelength dependent probability known as the quantum efficiency. To be properly
-counted, these excited electrons must survive until the counting procedure has
-accounted for their presence. To this end, each pixel is doped to increase the lifetime
-of excited electrons. In addition, the excited electrons must remain in the bulk so that
-they are not grounded; for this purpose, a biased field is applied. % FIXME: What about mirror charges?
+Each pixel is designed and calibrated to closely approximate a linear relationship
+between the number of photons incident on the pixel and the recorded number of
+electrons excited.
+This linear relationship fails, however, above a certain level of accumulated electrons
+$N_{\text{max}}$.
+For this reason, the registered number of electrons is limited to a maximum value; a
+pixel recording this maximum response is called a saturated pixel and is reporting
+a lower bound for the intensity rather than an interval of intensities.
+Unbiased measurements of intensity requires that no one pixel be saturated.
+For ideal holographic imaging, the illumination should therefore be set such that the brightest pixel is below its saturation level.
 
-During the exposure period, a number of electrons can be thermally excited (as opposed to
-photonically excited) and will be included in the count. These erroneously
-counted electrons are referred to as a dark count. Measuring the average dark count of a
-camera is as easy as recording the average image while an opaque object is blocking the
-camera's sensor. Note that the dark count will increase with the length of the exposure
-period.
+%During an exposure period, $N_p$ photons of a particular wavelength arrive at a pixel
+%surface. Some fraction of the incident photons are converted to excited electrons
+%with a wavelength dependent probability known as the quantum efficiency. To be properly
+%counted, these excited electrons must survive until the counting procedure has
+%accounted for their presence. To this end, each pixel is doped to increase the lifetime
+%of excited electrons. In addition, the excited electrons must remain in the bulk so that
+%they are not grounded; for this purpose, a biased field is applied.
 
 % The number of electrons that can be negative.. scientific cameras have a non-zero
 % floor to maintain gaussian-errors.
@@ -50,15 +67,3 @@ period.
 % What are digital images. How are digital images recorded?
 % Why are you telling them such things?
 % How is it that digital images do not record intensity?
-
-Images in science are ubiquitous; by sampling the intensity over an exposure
-period, a single image encodes a bevy of spatial information that is ripe
-for qualitative and quantitative analysis. Historically, researchers would
-extract this information by hand. Jean-Perrin used a projector, pen and a paper to originally
-measure the diffusion of a polymer bead. Crystallographers such as %FIXME: Add reference.
-traced photographs of crystalline diffraction patterns by hand. Presently researchers utilize
-digital cameras to record and digitize images as arrays of values. 
-
-We utilize a digital camera to record holograms. To fit our experimental holograms to
-theory and to simulate our digital recordings it is necessary to have a basic
-understanding digital images. In this section we will 
