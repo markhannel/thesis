@@ -16,8 +16,9 @@ consult reference \cite{nakamura2017}.
 Digital cameras use an array of photon detectors to measure the
 average intensity over the sensor's surface. Each photon detector, referred to as a pixel,
 employs the photoelectric effect to convert the visible photons striking its surface into
-excited electrons. The array of pixels is exposed to incoming light for a limited
-exposure period, during which excited electrons accumulate at each pixel.
+excited electrons.
+The array of pixels is exposed to incoming light for a limited
+exposure period during which excited electrons accumulate at each pixel.
 The excited electrons are counted, sometimes to single precision,
 and digitized into $8$-, $12$-, or even $16$-bit integers. As the number of
 excited electrons is proportional to the number of photons, and the the number of
@@ -29,21 +30,60 @@ During an exposure period, a number of electrons can be thermally excited and
 will be included in the count. These erroneously counted electrons are referred to
 as the dark count. The average dark count for a specific exposure period can be measured
 by blocking the camera's sensor with an opaque object and averaging the
-recorded images. The resulting averaged array is called a bias frame. Note that the dark count will increase with
-longer exposure times. For an exposure period of less than \SI{10}{\us}, the dark
-count of our camera is less than \SI{0.5}{\percent} the average intensity 
-
+recorded images. The resulting averaged array is called a bias frame.
+Note that the dark count will increase with longer exposure times.
+For an exposure period of less than \SI{10}{\us}, the dark
+count of our camera is less than \SI{0.5}{\percent} the average intensity
+at each pixel. We account for this additive offset by subtracting the bias
+frame from each recorded frame and computed background image.
 
 Each pixel is designed and calibrated to closely approximate a linear relationship
-between the number of photons incident on the pixel and the recorded number of
+between the number of photons incident on its surface and the recorded number of
 electrons excited.
 This linear relationship fails, however, above a certain level of accumulated electrons
 $N_{\text{max}}$.
-For this reason, the registered number of electrons is limited to a maximum value; a
+The registered number of electrons is therefore limited to a maximum value; a
 pixel recording this maximum response is called a saturated pixel and is reporting
 a lower bound for the intensity rather than an interval of intensities.
-Unbiased measurements of intensity requires that no one pixel be saturated.
-For ideal holographic imaging, the illumination should therefore be set such that the brightest pixel is below its saturation level.
+Unbiased measurements of intensity require that no one pixel be saturated.
+For ideal holographic imaging, the illumination should therefore be set such that the
+brightest pixel in the image is below its saturation level.
+
+The photons comprising the image arrive randomly at the camera
+such that the average energy imparted by the photons is equal to the intensity
+integrated over the sensor area and over the exposure period. The fluctuation
+of arriving photons is referred to as shot noise.
+The distribution describing the $n$ photons arriving is modeled as a Poisson distribution,
+\begin{align}
+  P(n, \mu ) &= e^{-\mu} \frac{\mu^n}{n!}.
+  \label{eq:poisson}
+\end{align}
+In the $\mu >> 1$ limit, the Poisson distribution is well-approximated by a Gaussian distribution
+with a mean of $\mu$, and a variance, $\sigma^2$, of $\mu$. We
+illuminate our sample with a \SI{447}{\nm} laser providing at most \SI{25}{\milli\watt}
+through a beam diameter of \SI{3}{\milli\meter}. By imaging with a \SI{100}{\times} objective
+lens and recording with a pixel size of \SI{13.5}{\um}, we expect $\mu$ to be on the
+order of \num{10000} electrons and therefore safely model the distribution
+of $n$ photons arriving follows a Gaussian distribution.
+
+Each pixel of our $8$-bit camera can accommodate approximately \num{30000} electrons before
+their linear response fails and the pixel reports being saturated. In addition, the first
+$32$ values are reserved to account for negative currents and maintain Gaussian
+error in intensity measured. Therefore the units of observed intensity reported by the
+camera correspond to $30000/(256-32) \approx 134$ excited electrons. This error
+caused by flooring the electron readout is known as quantization noise and, in our case,
+is commensurate to the shot noise.
+
+Background measurements reveal that the illumination is not perfectly uniform. The illumination
+deviates as much as \SI{5}{\percent} across the image and is presumably accounted for by the
+long coherence length of the laser imaging dust on and imperfections in the optics.
+The spatial heterogeneity imparted by the structure in the illumination is almost
+entirely accounted for by proper normalization \cite{lee07a}. When fitting holographic
+features or synthesizing holograms, we account for shot noise,
+quantization noise, and background as collectively contributing a Gaussian error
+of \SI{5}{\percent} the average intensity illuminating the sample.
+
+
 
 %During an exposure period, $N_p$ photons of a particular wavelength arrive at a pixel
 %surface. Some fraction of the incident photons are converted to excited electrons
