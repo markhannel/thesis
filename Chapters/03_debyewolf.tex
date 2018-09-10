@@ -214,17 +214,18 @@ that $s_x^2+s_y^2 \le \text{NA}/n_{\text{oil}}$. Note that $\cos \, \theta' = \s
 \item This integral acts as an inverse of Huygen's principle; a spherical wave is
   decomposed into a multitude of plane waves whose phase relations and subsequent
   interference produce the same effect as the original spherical wave.
-\item The Debye-Wolf transformation takes $\vec{E}'$, a strength factor with units
+\item The Debye-Wolf transformation takes $\vec{E}'_s$, a strength factor with units
   $\si{\volt\meter}$, defined in spherical coordinates on plane \#\num{3} and
-  returns the electric field  in cartesian coordinates in plane \#\num{4}.
+  returns the electric field in Cartesian coordinates in plane \#\num{4}.
 \item The transformation appears to be distance agnostic; the distance
   between plane \#\num{3} and \#\num{4} never explicitly appears. However the domain
   of integration, $\Omega_{\text{img}}$, is limited by the Abbe sine condition
   such that the planes \#\num{3} and plane \#\num{4} must be separated by $M \, f$.
 \end{enumerate}
 
-The Debye-Wolf integral can account for phase aberrations, $\Phi(s'_x,s'_y)$,
-due to imperfections in the optical train.
+The Debye-Wolf integral can account for phase aberrations
+due to imperfections in the optical train with an aberration function, $\Phi(s'_x,s'_y)$,
+which measures the deviation of the wavefront from a perfect spherical shape \cite{wolf1959}.
 To do so, the integrand of the Debye-Wolf integral is multiplied by a phase term
 $e^{ik'\Phi(s'_x,s'_y)}$. We will not consider aberrations, however, because
 the goal of this study is to access limitations in hologram formation
@@ -267,9 +268,7 @@ in the appendix \ref{app:discretize_dw}. Here we summarize and interpret the res
 where the the $s_x'$-$s_y'$ plane is discretized into a
 $N_p$ by $N_q$ grid with a sampling period $\Delta s_x'$ along the $s_x'$ axis and
 $\Delta s_y'$ along the $s_y'$ axis, and the $x'$-$y'$ plane is similarly discretized with
-sampling periods $\Delta x$ and $\Delta y$.
-The sampling periods are inversely related such that $\Delta_x = 2\pi \, / \, k' \Delta s_x' N_p$
-and $\Delta_y = 2\pi \, / \, k' \Delta s_y' N_p$.
+sampling periods $\Delta x = 2\pi \, / \, k' \Delta s_x' N_p$ and $\Delta y = 2\pi \, / \, k' \Delta s_y' N_p$.
 Note that the vector functions with parens encasing their arguments represent
 continuous functions whereas those with square brackets encasing their arguments represent
 discrete approximations of continuous functions.
@@ -323,7 +322,7 @@ pixel in the respective holograms is well below the sensitivity of our camera.
   \label{fig:debye_difference_ps}
 \end{figure}
 
-To systematically assess the differences in the two theories,
+To systematically assess the differences between the two theories,
 we use Eq.\eqref{debyewolf} to synthesize holographic
 images as they would appear in the camera plane. Synthetic holograms
 were computed for spheres with radii ranging from
@@ -331,7 +330,7 @@ $a_{\text{p}}=\SI{0.5}{\um}$ to $\SI{5}{\um}$, refractive indexes from
 $n_{\text{p}}= \SI{1.4}{}$ to $\SI{1.8}{}$, and displacements from the focal plane,
 $z_{\text{p}}=\SI{5}{\um}$ to $\SI{50}{\um}$.
 We then fit each synthetic hologram to the scalar theory representing
-images in the focal plane of the objective lens, as described
+images in the focal plane of the objective lens as described
 in \autoref{ch:hvm}. The degree to which the resulting fit parameters differ
 from the known scatterer properties set a lower bound for the error of adopting
 the scalar theory in favor of the vector theory.
@@ -341,7 +340,7 @@ axial displacement are bounded by $\SI{1}{\nm}$ while the error
 in refractive index is bounded by $\SI{0.001}{}$; in all three
 parameters, the maximum error is less than the reported resolution of
 the technique \cite{krishnatreya14}. In certain regions of parameter
-space, our discretization scheme could not sufficiently sample the
+space, our discretization scheme could not adequately sample the
 highly-oscillatory integrand in Eq.~\eqref{eq:debyewolf}.
 No synthetic holograms are available in this range.
 
@@ -350,10 +349,12 @@ No synthetic holograms are available in this range.
 This chapter provides a detailed treatment of the scattered field
 and incident field as they propagate through the optical train to the camera
 to produce an image.
-We determined that the image accounting for
+We determined that accounting for
 the effects of refraction, reflection, lateral magnification, and angular
 demagnification does not change the resulting hologram by a measurable amount.
-The existing formulation therefore is optimal in this sense. Additionally the computational complexity of producing
+The existing formulation therefore is optimal in this sense. This optimality
+was not established before this study. Additionally
+the computational complexity of producing
 the image in the camera plane greatly exceeds that of producing the
 image in the focal plane; for this reason, we recommend the use of the
 scalar theory in fitting experimental holograms with ideal optics.
