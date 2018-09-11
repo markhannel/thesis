@@ -67,10 +67,6 @@ The camera's output is either directed to a DVR (Pioneer 520HS) that records
 it as uncompressed digital video or else is digitized directly (Sensoarray 22555)
 to $\SI{8}{bits\per pixel}$ and at $\SI{29.98}{frames\per\sec}$ and is relayed
 directly to a computer workstation.
-%The digital camera digitizes the resulting intensity
-%pattern to $8$-bits per pixel at $\SI{29.97}{frames / \sec}$ and relays the
-%resulting array of data to either a DVR (Pioneer 520HS) to record
-%on a DVD or directly to the hard disk of a personal computer.
 Each pixel in the camera's $\si{640\times 480}$ array of pixels has a width of
 $\SI{13.5}{\um}$. After $100\times$ magnification, a pixel in the
 image has an effective size of $\SI{0.135}{\um}$.
@@ -167,18 +163,17 @@ formed in the focal plane can be described as
 where $c$ is the speed of light in a vacuum, and $\epsilon_0$ is the vacuum permittivity.
 We assumed here that the medium is non-magnetic ($\mu_r=1$).
 
-The relative contributions of the terms in Eq.~\eqref{eq:image_formation}
-are illustrated in Fig.~\ref{fig:three_contributions} for a $\SI{1.0}{\um}$ diameter
-polystyrene sphere ($n = 1.59$) a distance of $\SI{12}{\um}$ above the imaging plane
-with pixel size $\SI{0.135}{\um}$.
+Figure~\ref{fig:three_contributions}(a) presents a synthetic holographic image
+for a $\SI{1.0}{\um}$ diameter polystyrene sphere ($n = 1.59$) a distance of
+$\SI{12}{\um}$ above the imaging plane with pixel size $\SI{0.135}{\um}$.
+The relative contributions of the terms in Eq.~\eqref{eq:image_formation}(b)
+are illustrated in Fig.~\ref{fig:three_contributions}(b) and (c).
 The first term, $\abs{\einc}^2$, is constant over the field of view and
 incorporates no phase information. The third term,
 $\abs{\escat(\vec{r})}^2$, is also real-valued but is not constant over the field of view.
 The second term, $2\Re\left \{\einc\cdot\escat^*(\vec{r})\right \}$, contributes the
 spatially-varying interference pattern from the phase profile of the scattered wave.
 % Discussion of DC terms? Does DC Stand for duty cycle?
-% Pull out E_0?
-% Discuss relative sizes of terms.
 
 \subsection{Scattering}
 \label{ch:hvm:sec:hvm:ssec:scattering}
@@ -247,9 +242,6 @@ The Lorenz-Mie solution amounts to expressing the incident plane wave as
 a sum of vector spherical harmonics and matching the boundary conditions
 at the surface of the spherical scatterer. After matching the boundary
 conditions\cite{bohren83,mishchenko96}, the resulting external scattering function is
-%The Lorenz-Mie theory
-%constitutes an exact solution for a plane wave scattering off of a
-%dielectric sphere in a homogeneous medium.
 
 \begin{equation}
 \label{eq:scatteredfield}
@@ -317,8 +309,6 @@ index of the medium and the size of the particle in units of the wavelength. Giv
 refractive index of $1.33$ and wavelength of $\SI{447}{\nm}$, the number of terms ranges
 from $50$ for a $\SI{1}{\um}$ diameter sphere to more than $\num{200}$ for a
 $\SI{10}{\um}$ sphere.
-% Should n_p = n_m.. these computations would be a waste!
-
 
 \subsection{Image Analysis}
 
@@ -469,21 +459,3 @@ The utility of HPC extends beyond the academic domain as several commercial
 applications have been established. Applications include assessing the quality of dairy
 products \cite{cheong09a}, monitoring protein aggregation in biopharmaceuticals \cite{wang16}, detecting agglomeration in semiconductor polishing slurries \cite{cheong17}, 
 and monitoring contaminants in wastewater \cite{philips17}.
-%\cite{cheong17}, 
-%Applications include
-%
-%
-%
-%performing microrheology \cite{cheong08}, 
-%microrefractometry \cite{shpaisman12}, 
-%and microporosimetry \cite{cheong11} measurements,
-%assessing the quality of dairy products \cite{cheong09a},
-%
-
-%This technique has been demonstrated on both homogeneous
-%and heterogeneous \cite{yevick14,philips17}
-%dispersions of colloidal spheres, and has been extended to work for 
-%colloidal clusters \cite{perry12,fung12,fung13}, and aggregates 
-%\cite{wang16,wang16a}, as well as colloidal rods \cite{cheong10} 
-%and other aspherical particles \cite{wang14using,hannel15}.
-%

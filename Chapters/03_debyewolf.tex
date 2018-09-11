@@ -1,12 +1,6 @@
 \chapter{Accounting for the vectorial nature of light propagation in holographic microscopy}
 \label{ch:debye}
 
-
-
-%Infinity corrected objectives enable a robust range of placements for the
-%tube lens relative to the back aperture of the objective without noticeable
-%loss in image quality. 
-
 \section{Introduction}
 
 The model for image formation outlined in \autoref{ch:hvm} provides a full
@@ -111,7 +105,6 @@ regime, the wave's radial dependence can be factored out from its angular depend
 \end{equation}
 The term $\vec{E}_s(\theta, \phi)$ is known as the strength factor and
 depends only on the polar angle $\theta$ and the azimuthal angle $\phi$.
-% FIXME: Maybe you want to see it encapsulates the electric fields angular dependence?
 For computational ease, we parameterize the strength factor as $\vec{E}_s(s_x, s_y)$
 with the direction cosines $s_x=\cos{\phi}\sin{\theta}$ and $s_y = \sin{\phi}\cos{\theta}$.
 
@@ -120,7 +113,8 @@ several of the upcoming calculations. Equation~\eqref{eq:strength_factor} howeve
 is only valid when the scattered field is in the far-field regime.
 Ovyrn and Izen\cite{izen00} estimate that adopting this approximation induces a maximum
 $\SI{2}{\percent}$ error in the calculated intensity in the range of particle
-sizes and locations that we consider here. %% FIXME: Check this claim and possible add a reference
+sizes and locations that we consider here.
+%% FIXME: Check this claim and possible add a reference
 % to an appendix that justifies these claims.
 
 \begin{figure}
@@ -146,15 +140,6 @@ along the optical axis with a relative phase shift\footnote{The sign convention 
   \label{eq:entrance_pupil}
     \vec{E}_s(\theta, \phi)|_{\text{scatterer plane}} \approx \vec{E}_s(\theta, \phi)|_{\text{focal plane}} e^{-i\frac{2\pi}{\lambda}z_p\cos{\theta} }.
   \end{equation}
-
-%The scattered field above gives an electric field strength factor that
-%emanates from the origin of its coordinate system. In the eyes of the
-%collection step, this will mean that the scatterer is located at the origin
-%of the focal plane. The scatterers we hope to investigate will be staged 
-%some distance z above the focal plane such that the interefence patterns 
-%culiminating in the camera plane will be maximally-information dense.
-
-%Note, we will later adopt the direction cosines $(s_x, s_y)$ used in
 
 \subsection{Collection}
 In its transit through the optical train from plane \#2 to the camera plane \#3, 
@@ -231,27 +216,6 @@ $e^{ik'\Phi(s'_x,s'_y)}$. We will not consider aberrations, however, because
 the goal of this study is to access limitations in hologram formation
 under ideal conditions.
 
-%Several points are worth mentioning:
-%\begin{enumerate}
-%\item The Debye Wolf integral takes a field strength factor $\vec{E}_s'$,
-%  an integration domain $\Omega_{img}$ and the wavenumber $k'$ as its inputs.
-%  From these inputs, the electric field in the (x'-y') plane is
-%  calculated. 
-%\item Heuristically, one should imagine that $\Omega_{img}$ dictates how far 
-%  away the plane $(x'-y')$ will be (the distance scales with the size of 
-%  $\Omega_{img}$), that $k'$ gives the field strength factor the necessary 
-%  units to become an electric field and the electric field strength factor 
-%  contains most of the information detailing the interference pattern in the
-%  x'-y' plane ($k'$ has influence here as well).
-%\item This integral in many ways amounts to
-%  an inverse of Huygen's rule; a spherical wave is decomposed into a multitude 
-%  of plane waves whose phase relations and subsequent inteference produce
-%  the same effect as the original spherical wave.
-%\item The Debye-Wolf formalism easily accounts for any phase aberration 
-%  $\Phi(s'_x,s'_y)$ of the field as it passes through the optical train. To do so, the integrand
-%  of the Debye-Wolf integral is multiplied by a phase term $e^{ik'\Phi(s'_x,s'_y)}$.
-%\end{enumerate}
-
 With the exception of the $k'$ in the phase term and the $\cos{\theta'}$ 
 modifying the differential element, we should recognize the
 Debye-Wolf integral as a Fourier transform. We will discretize this
@@ -297,7 +261,6 @@ The image in the camera plane is then
 \begin{equation}
   I(x', y') = \preint \left | \vec{E}'_{\text{inc}}(x',y') + \vec{E}'_s(x', y') \right |^2.
 \end{equation}
-
   
 \section{Comparison to Scalar Diffraction Theory}
 
@@ -308,7 +271,6 @@ the two theories produce nearly identical holograms for a \SI{1.0}{\um} diameter
 polystyrene particle with refractive index $n_{\text{p}}=1.59$ displaced
 \SI{13.5}{\um} above the focal plane; the difference in intensity at each
 pixel in the respective holograms is well below the sensitivity of our camera.
-
 
 \begin{figure}
   \centering
@@ -362,12 +324,3 @@ For real lenses, some degree of phase-aberrations are imparted by
 the optical train; in the case of non-ideal holographic imaging,
 our theory provides a model which accounts for phase-aberrations,
 including spherical aberrations.
-
-
-%For certain optical limitations, such as low-NA imaging \cite{saglimbeni16},
-%the image in the focal plane can be successfully modified without a theory
-%explaining the propagation of fields through the optical train.
-%Our formalism accommodates phase-aberrations caused by the optical train
-%and can be used to model holographic images produced with non-ideal optics.
-
-
