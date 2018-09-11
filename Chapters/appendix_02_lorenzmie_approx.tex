@@ -2,17 +2,27 @@
 \label{app:lorenzmie_approx}
 \appcaption{Appendix B}
 
-\section{Estimating the radial component's contribution to the final image}
-
-First we decompose the scattered field into its three spherical
-coordinate components
-
-\begin{align}
-  \escat = \escat\cdot\uvec{\theta}
-\end{align}
+The Lorenz-Mie theory underlies several techniques over including static light scattering
+\cite{zimm48}, imaging through interstellar grains \cite{purcell1969} and sizing large
+air bubbles \cite{hansen85}. In this appendix we examine the validity of
+common approximations for the Lorenz-Mie scattering theory in the context of
+holographic particle characterization.
 
 
-\begin{align}
- I(x,y) &= \preint \left | \einc + \escat \right |^2 \\
-  &= \preint \left [ \right ]
-\end{align}
+\section{Sizing the scattered field's radial component}
+
+
+
+The light scattered by a spherical particle, $\vec{E}_s$, propagates radially and has a
+non-zero, albeit decaying, radial component, $\vec{E}_s\cdot\uvec{r}$.
+For many applications, the scattered wave has propagated sufficiently far that the
+radial component can be safely neglected. For holographic particle characterization,
+the fields may be evaluated as close as the focal plane for the scalar theory
+presented in \autoref{ch:hvm} and as far as the entrance pupil for the vector-based
+theory presented in \autoref{ch:debye}.
+We probe the radial component's contribution to the scattered field by measuring
+the its fractional contribution, $\vec{E}_s\cdot\uvec{r} \, / \abs{\vec{E}_s}$,
+over a range or particle sizes and refractive indexes. The results of this analysis are
+presented in Fig.~\ref{fig:radial}.
+
+
