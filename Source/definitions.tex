@@ -157,3 +157,8 @@
 % for vectors of Greek letters
 \newcommand{\uv}[1]{\ensuremath{\mathbf{\hat{#1}}}} % for unit vector
 \newcommand{\avg}[1]{\left< #1 \right>} % for average
+
+% For capital chapter references.
+\let\orgautoref\autoref
+\providecommand{\Autoref}[1]{\def\chapterautorefname{Chapter}\orgautoref{#1}}
+\renewcommand{\autoref}[1]{\def\chapterautorefname{chapter}\orgautoref{#1}}
