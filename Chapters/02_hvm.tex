@@ -46,8 +46,14 @@ optional bright-field illumination.
 
 \begin{figure}
   \centering
-  \includegraphics[width=0.75\columnwidth]{hvm_setup.png}
-  \caption{A schematic of an inline holographic video microscope.}
+  \includegraphics[width=0.75\columnwidth]{hvm_setup_with_blue.png}
+  \caption{A schematic of an inline holographic video microscope. A fiber
+    coupled diode laser provides laser illumination. The relative orientation
+    of a half-wave plate and a polarizing beam splitter allow beam attenuation.
+    A sample, not depicted above, rests just above the inverted objective.
+    The laser illumination and the light scattered by the sample
+    are collected, magnified and relayed by the objective lens
+    and tube lens to a digital camera.}
   \label{fig:hvm_setup}
 \end{figure}
 
@@ -96,10 +102,10 @@ at the focal plane of the objective.
 
 \begin{figure}
   \centering
-  \includegraphics[width=\textwidth]{hvm_image_formation}
+  \includegraphics[width=\textwidth]{hvm_image_formation_new}
   \caption{A time series depicting the image formation process. (a) The incident
     electric field propagates in the $+\hat{z}$ direction. (b) The
-    incident field passes through a spherical scatterer causing a
+    incident field then passes through a spherical scatterer causing a
     spherically expanding scattered wave in response. (c) The incident
     field and the scattered field combine at the focal plane to produce
     an image.}
@@ -135,7 +141,9 @@ dependence.
   \caption{Depicting the three contributions to a holographic image. (a) The
     resulting intensity from a micrometer-sized scatterer above the focal plane.
     (b) The three contributions shown separately. (c) The magnitude of intensity
-  for each term normalized by the intensity of the incident field.}
+    contributions for each term normalized by the intensity of the incident
+    field. Note that the middle term has negative contributions but the
+    total image is strictly positive.}
   \label{fig:three_contributions}
 \end{figure}
 
@@ -209,10 +217,10 @@ more comprehensive account is provided in reference \cite{bohren83}.
 \begin{figure}
   \centering
   \includegraphics[width=0.5\columnwidth]{hvm_spherical_coords}
-  \caption{Spherical coordinates for describing the Lorenz-Mie theory.
+  \caption{Spherical coordinates used to describe the Lorenz-Mie theory.
     The origin of the coordinate system rests at the center of the
     spherical scatterer. For viewing ease, the positive $\uvec{z}$ direction
-  is depicted upwards, the opposite of Fig.~\ref{fig:image_formation}.}
+    is depicted upwards, the opposite of Fig.~\ref{fig:image_formation}.}
   \label{fig:hvm_spherical_coords}
 \end{figure}
 
@@ -328,7 +336,7 @@ to the Lorenz-Mie theory.
   \caption{(a) Raw image combines with the barkground and dark count
     images to produce a normalized frame. (b) Centroid finding on a transformed
     image reveals a holographic feature. (c) A cropped feature is compared
-  against generated holograms to reveal the scatterer's properties.}
+    against many synthetic holograms to reveal the scatterer's properties.}
   \label{fig:image_analysis}
 \end{figure}
 
