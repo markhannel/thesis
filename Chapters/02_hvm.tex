@@ -30,7 +30,7 @@ characterization.
 \section{Experimental setup}
 \label{ch:hvm:sec:hvm}
 
-Fig.~\ref{fig:hvm_setup} presents our custom-built in-line holographic
+Figure~\ref{fig:hvm_setup} presents our custom-built in-line holographic
 microscope. Our setup illuminates the sample plane with a blue
 ($\SI{447}{nm}$ vacuum wavelength), linearly polarized laser beam
 (Coherent Cube). The axis of polarization is aligned to within
@@ -49,10 +49,10 @@ optional bright-field illumination.
   \includegraphics[width=0.75\columnwidth]{hvm_setup_with_blue.png}
   \caption{A schematic of an inline holographic video microscope. A fiber
     coupled diode laser provides laser illumination. The relative orientation
-    of a half-wave plate and a polarizing beam splitter allow beam attenuation.
+    of a half-wave plate and a polarizing beam splitter allow for beam attenuation.
     A sample, not depicted above, rests just above the inverted objective.
     The laser illumination and the light scattered by the sample
-    are collected, magnified and relayed by the objective lens
+    are collected, magnified, and relayed by the objective lens
     and tube lens to a digital camera.}
   \label{fig:hvm_setup}
 \end{figure}
@@ -64,9 +64,9 @@ numerical aperture $\num{1.45}$, oil immersion) and then focused
 by a $\SI{200}{\mm}$ tube lens onto a grayscale CCD camera
 (NEC TI-324AII).
 The camera's output is either directed to a DVR (Pioneer 520HS) that records
-it as uncompressed digital video or else is digitized directly (Sensoarray 22555)
-to $\SI{8}{bits\per pixel}$ and at $\SI{29.98}{frames\per\sec}$ and is relayed
-directly to a computer workstation.
+it as uncompressed digital video or else is digitized directly (Sensoray 2255S)
+to $\SI{8}{bits\per pixel}$ at $\SI{29.98}{frames\per\sec}$ and is relayed
+to a computer workstation.
 Each pixel in the camera's $\si{640\times 480}$ array of pixels has a width of
 $\SI{13.5}{\um}$. After $100\times$ magnification, a pixel in the
 image has an effective size of $\SI{0.135}{\um}$.
@@ -113,7 +113,7 @@ at the focal plane of the objective.
 \label{ch:hvm:sec:hvm:ssec:overview}
 
 The image formation process at the focal plane of the objective
-is depicted in Fig.~\ref{fig:image_formation}. Fig.~\ref{fig:image_formation}(a)
+is depicted in Fig.~\ref{fig:image_formation}. Figure~\ref{fig:image_formation}(a)
 shows the coherent illumination, or incident field $\einc (\vec{r})$, propagating in the $+\hat{z}$ direction
 through the sample and toward the focal plane of the objective. We model the incident field
 as a plane wave polarized in the $\hat{x}$ direction, 
@@ -143,9 +143,9 @@ dependence.
   \label{fig:three_contributions}
 \end{figure}
 
-As the incident illumination propagates freely through the sample, scatterers
-whose refractive index differs from the medium's will emit a diverging scattered wave,
-$\escat(\vec{r})$, in response. Fig.~\ref{fig:image_formation}(b) depicts the incident
+As the incident illumination propagates through the sample, scatterers
+will emit a diverging scattered wave,
+$\escat(\vec{r})$, in response. Figure~\ref{fig:image_formation}(b) depicts the incident
 field and resulting scattered field propagating toward the focal plane.
 For the scatterers of interest in this study, the scattered field is dominated by
 forward scattering and the scatterer absorbs a negligible proportion of the
@@ -161,7 +161,7 @@ formed in the focal plane can be described as
     &= \preint\left (\abs{\einc}^2 + 2\Re\left \{\einc\cdot\escat^*\right \} + \abs{\escat}^2 \right ) \label{eq:image_formation}
 \end{align}
 where $c$ is the speed of light in a vacuum, and $\epsilon_0$ is the vacuum permittivity.
-We assumed here that the medium is non-magnetic ($\mu_r=1$).
+We assume here that the medium is non-magnetic ($\mu_r=1$).
 
 Figure~\ref{fig:three_contributions}(a) presents a synthetic holographic image
 for a $\SI{1.0}{\um}$ diameter polystyrene sphere ($n = 1.59$) a distance of
@@ -186,7 +186,7 @@ We therefore model the scattered field as
   \escat(\vec{r}) = E_0(\vec{r}_p)\, \vec{f}_s \left ( k \left ( \vec{r} - \vec{r}_p \right ) \right ) ,
 \end{equation}
 where $E_0(\vec{r}_p)$ is the amplitude of the wave illuminating the scatterer at $\vec{r}_p$,
-and $\vec{f}_s(k\vec{r})$ describes how the particle $s$ scatters $\hat{x}$-polarized light.
+and $\vec{f}_s(k\vec{r})$ describes how the particle scatters $\hat{x}$-polarized light.
 The scattering function $\vec{f}_s(k\vec{r})$ depends inherently on the shape, size,
 and composition of the scatterer. When the scattered field is adequately described by
 \eqref{eq:gen_scattered}, the image in the focal plane linearly scales with the
@@ -220,15 +220,15 @@ more comprehensive account is provided in reference \cite{bohren83}.
 \end{figure}
 
 We begin by considering a homogeneous, dielectric sphere of radius $a_p$ and refractive
-index $n_p$ situated at a position $r_p$ in a medium with refractive index $n_m$.
+index $n_p$ situated at a position, $\vec{r}_p$, in a medium with refractive index $n_m$.
 We define a spherical coordinate system whose origin coincides with
 the sphere as depicted in Fig.~\ref{fig:hvm_spherical_coords}
-The incident beam is modeled as a plane wave of the form
-\eqref{eq:incidentfield} which propagates toward
+The incident beam is modeled as a plane wave as described by
+Eq.~\eqref{eq:incidentfield} that propagates toward
 the scatterer from the $-\hat{z}$ direction. The scattering event
 leads to three fields, namely the incident field, an external scattered
 field, and an internal scattered field, all of which must match boundary conditions
-at the surface of the sphere.  Based on the work of Kla\u{c}ka \emph{et al}~\cite{klacka07},
+at the surface of the sphere.  Based on the work of Kla\u{c}ka \emph{et al.}~\cite{klacka07},
 we conclude that the electrostatic
 potential at the surface of a micrometer-scale sphere would have to be implausibly high
 ($\SI{E8}{V}$) before surface charge or current would appreciably affect the scattering
@@ -245,10 +245,10 @@ conditions\cite{bohren83,mishchenko96}, the resulting external scattering functi
 
 \begin{equation}
 \label{eq:scatteredfield}
-  \vec{f}_s(k \vec{r}) = \sum_{n=1}^\infty \, f_n \, \left(
+  \vec{f}_s(k \vec{r}) = \sum_{n=1}^\infty \, f_n \, \left [
     i a_n \, \vec{N}^{(3)}_{e1n}(k \vec{r}) - b_n \,
     \vec{M}^{(3)}_{o1n}(k \vec{r})
-    \right),
+    \right ],
 \end{equation}
 where $f_n=i^n (2n+1)/[n(n+1)]$, and $\vec{M}^{(3)}_{o1n}(k\vec{r})$ and 
 $\vec{N}^{(3)}_{e1n}(k\vec{r})$ are the vector spherical harmonics,
@@ -314,8 +314,8 @@ $\SI{10}{\um}$ sphere.
 
 We analyze each of our recorded images to extract information about the particles
 scattering light into the field of view.  Because the scattered wave's electric
-field approximately decays as $r^{-1}$, each scatterer's influence on the
-resulting image is confined to a limited region of the image; we will
+field approximately decays as $r^{-1}$, each scatterer's influence is
+confined to a limited region of the image; we will
 refer to each of these regions of interest as holographic features.  Given an experimental
 image, our task will be to isolate these holographic features and fit each
 to the Lorenz-Mie theory.
@@ -323,7 +323,7 @@ to the Lorenz-Mie theory.
 \begin{figure}
   \centering
   \includegraphics[width=0.8\textwidth]{hvm_image_analysis.png}
-  \caption{(a) Raw image combines with the barkground and dark count
+  \caption{(a) Raw image is combined with the background and dark count
     images to produce a normalized frame. (b) Centroid finding on a transformed
     image reveals a holographic feature. (c) A cropped feature is compared
     against many synthetic holograms to reveal the scatterer's properties.}
@@ -331,7 +331,7 @@ to the Lorenz-Mie theory.
 \end{figure}
 
 The entire image analysis procedure is depicted in Fig.~\ref{fig:image_analysis}.
-Image normalization is a necessary pre-processing step; Normalizing
+Image normalization is a useful pre-processing step; Normalizing
 the image eliminates the incident beam's magnitude $\abs{\einc}^2$
 as a fitting parameter and mitigates contributions of additional
 scatterers.
@@ -346,29 +346,29 @@ Fig.~\ref{fig:image_analysis}(a) demonstrates the effect of normalization.
 
 The normalized image may or may not contain holographic features. If a feature
 is detected,
-our estimate of its center will serve as an initial estimate
+our estimate for its center will serve as an initial estimate
 for the in-plane position of the associated scatterer.
 Feature detection and feature localization are the first two steps in analyzing
 normalized holograms. A common heuristic is to coalesce the
 extended holographic features into localized blobs and then to use a standard
 centroid finding algorithm\cite{crocker96} on the transformed image. In this way,
 the center of each blob will correspond to the center of a holographic feature.
-Fig.~\ref{fig:image_analysis}(b)
+Figure~\ref{fig:image_analysis}(b)
 summarizes this heuristic algorithm. An in-depth study of this algorithm, as well
 as machine-learning alternatives will be presented in \autoref{ch:cascade}.
 
 We fit each localized holographic feature to the Lorenz-Mie theory
 with the Levenberg-Marquardt algorithm, otherwise known as damped least-squares.
 The Levenberg-Marquardt algorithm interpolates between gradient descent which is a damped
-first order algorithm, and the Gauss-Newton algorithm which is a second order
+first-order algorithm, and the Gauss-Newton algorithm which is a second-order
 algorithm directed towards the nearest minimum. As with many fitting algorithms,
 this method find a local minimum which may not be globally optimal. The fitting
 procedure progressively finds model parameters that minimize the
 chi-square metric for differences between the model and the experimental image.
 The procedure terminates when one of three conditions is met:
 \begin{enumerate}
-\item the magnitude of the gradient drops below a threshold
-\item the incremental change in chi-square drops below a predetermined threshold
+\item the magnitude of the gradient drops below a threshold,
+\item the incremental change in chi-square drops below a predetermined threshold,
 \item a maximum number of iterations is exceeded.
 \end{enumerate}
 The final model parameters are interpreted as the actual parameters of the
@@ -392,9 +392,9 @@ determine the signal-to-noise ratio of each holographic feature.
 
 The objective lens and tube lens are designed to magnify and relay the
 intensity distribution in the focal plane to the camera.
-The size of a pixel in the resulting image
-must accordingly be calibrated. We use a calibrated reticle (Ted Pella 2280-13) to
-gauge the size of a single pixel.%FIXME
+The size of a pixel in the resulting image must be calibrated.
+We use a calibrated reticle (Ted Pella 2280-13) to
+gauge the size of a single pixel.
 The dynamic range and exposure period of the digital camera set lower and
 upper bounds, respectively, for the intensity of the illumination.
 To increase the signal-to-noise
@@ -403,11 +403,11 @@ saturating the camera. A detailed account of digital imaging is
 provided in appendix \ref{app:digital_imaging}.
 
 A high numerical aperture (NA) objective ensures that large-angle scattered
-light contributes to the final image. Saglimbeni \emph{et al.}, for example,
+light contributes to the final image. Saglimbeni, \emph{et al.}, for example,
 were obliged to use a $\num{0.3}$ NA objective to track colloidal particles
 trapped in a diamond anvil cell\cite{saglimbeni16}; as a result they found it necessary
 to account for clipping of high spatial frequency in order to reasonably
-fit each holographic feature. The NA 1.45 objective we used in our instrument
+fit each holographic feature. The NA \num{1.45} objective used in our instrument
 avoids such clipping.
 
 \subsection{Sample preparation}
@@ -418,19 +418,19 @@ of focus is less than or equal to $\SI{1.0}{\um}$. With coherent
 illumination, the longitudinal range is limited either by the
 coherence length of the laser or by the signal-to-noise ratio of the
 recorded intensity: in practice the longitudinal range far
-exceeds the sample height. For this reason, HPC samples must be
+exceeds the sample thickness. For this reason, HPC samples must be
 diluted to ensure that not too many particles occupy the observation
 volume. In our setup, the field of view
 subtends a $\SI{80x65}{\um}$ area and a sealed sample
 or flow cell has a depth of approximately $\SI{20}{\um}$. Therefore,
-a sample number density of $\SI{E7}{\per\milli\liter}$ would correspond to
+a sample number density of $\SI{E7}{\milli\liter^{-1}}$ would correspond to
 one scatterer in the field of view.
 
 The long coherence length of the laser has another effect: every
 smudge and defect in the optical train scatters light into the field of view. Cleaning
 the glass surfaces can mitigate some of this unwanted scattering.
 We chemically clean our microscope slides and cover slips
-by immersing each in methanol and then isopropyl alcohol. Immediately
+by immersing each in methanol and then isopropyl alcohol \cite{goldfinger1970}. Immediately
 after the glass is dried by blowing nitrogen over the surface.
 Normalization according to Eq.~\ref{eq:gen_norm} suppresses most of the remaining
 unwanted interference features.
@@ -443,16 +443,17 @@ and three-dimensional position of individual scatters {\it in situ}, holographic
 microscopy offers unparalleled insight into the composition of colloidal samples, as well
 as the microscopic interactions that govern their behavior.
 
-A sampling of just a few published studies illustrates the breadth of this technique's
-applications.
-Krishnatreya \emph{et al.} utilized the technique to measure Boltzmann's constant from the
-size and three dimensional trajectory of a single sedimenting sphere \cite{krishnatreya14}.
-Saglimbeni \emph{et al.} observed the compression of individual micrometer-sized
-spheres
-undergoing increased pressure in a diamond anvil cell\cite{saglimbeni16}. By using a sphere
-of known size and refractive index, Shpaisman \emph{et al.} demonstrated HPC as an
-approach for ``spatially resolved microrefractometry'' \cite{shpaisman12}.
-Fung \emph{et al.} measured the three-dimensional diffusion tensor for
+A sampling of just a few published studies illustrates the breadth of this
+technique's applications. Krishnatreya, \emph{et al.}~utilized the technique to
+measure Boltzmann's constant from the size and three dimensional trajectory of
+a single sedimenting sphere \cite{krishnatreya14}. Saglimbeni,
+\emph{et al.}~observed the compression of individual micrometer-sized
+spheres undergoing increased pressure in a diamond anvil cell
+\cite{saglimbeni16}. By using a
+sphere of known size and refractive index,
+Shpaisman, \emph{et al.} demonstrated HPC as an approach for
+``spatially resolved microrefractometry'' \cite{shpaisman12}.
+Fung, \emph{et al.} measured the three-dimensional diffusion tensor for
 clusters of colloidal spheres with $\num{1}$\% precision and accuracy \cite{fung13}.
 
 The utility of HPC extends beyond the academic domain as several commercial
