@@ -48,7 +48,7 @@ the assumptions inherent to the technique, we also introduce the
 effective sphere model as a first-order model for
 light scattering by aspherical particles that yields useful
 characterization data.
-Furthermore we describe how to mitigate the computational complexities
+We furthermore describe how to mitigate the computational complexities
 of detecting, localizing, and analyzing holographic features by
 applying machine-learning algorithms to each stage of the analysis.
 Finally, we demonstrate a real-world application
@@ -84,9 +84,9 @@ physical limits of HPC that are set by the imaging apparatus. The scattered
 field and incident field are evaluated at several planes along the
 optical train. The refraction of rays through each optical element
 may impart a phase shift, a polarization rotation, and a scaling
-of complex magnitude. We determine that a scalar theory
-approximation successful accounts for the images arriving in the
-focal plane for the domain of parameters we are interested in.
+of complex magnitude. We demonstrate that the approximate scalar theory
+agrees with the vectorial theory for the broad domain of
+scatterer properties consider in this thesis.
 
 \Autoref{ch:dimpled} presents a series of experimental studies and
 simulations that describe the effectiveness of Lorenz-Mie
@@ -105,7 +105,7 @@ sub-pixel localization while incurring few false positives. Their
 performance deteriorates, however, when they are presented with overlapping
 features or with heterogeneous samples whose particles have disparate
 characteristics. We present in \autoref{ch:cascade} two machine-learning
-algorithms for detecting and localizing holographic features: a convolution
+algorithms for detecting and localizing holographic features: a convolutional
 neural network (CNN) and a cascade classifier. Direct comparison with the
 heuristic algorithm over a range of experimental and synthetic images
 shows promising results. The CNN demonstrates robust feature detection
@@ -118,10 +118,10 @@ applications such as high-speed targeting in holographic optical
 trapping systems.
 
 After a holographic feature has been detected, initial estimates of the
-scatter's size, refractive index, and three-dimensional position
+scatterer's size, refractive index, and three-dimensional position
 are necessary for subsequent fitting to the Lorenz-Mie theory.
 For homogeneous samples of a single particle type, the fitting procedure
-can be initialized with a priori information. For heterogeneous samples
+can be initialized with \emph{a priori} information. For heterogeneous samples
 with disparate sizes or refractive indices, the fitting procedure
 will likely lock onto local minima and return erroneous results for
 the size and refractive index.
@@ -134,7 +134,7 @@ estimate the size, refractive index, and height above the focal plane.
 We demonstrate these support vector machines can rapidly resolve heterogeneous
 samples with four greatly differing particle properties.
 
-In the previous chapters we have worked towards validating and extending
+The previous chapters are dedicated to validating and extending
 the domain of applicability of holographic particle characterization.
 In \autoref{ch:synthesis}, we close with a demonstration of its use for
 optimizing the synthesis of 3-(trimethoxysilyl)propyl methacrylate (TPM)
@@ -142,7 +142,7 @@ colloidal spheres. The synthesis is principally a two-step procedure:
 an emulsion of monodisperse, micrometer sized TPM droplets is prepared
 and then polymerized. A number of experimental parameters and conditions
 can however affect the resulting size of the polymerized spheres. In this
-chapter we use holographic particle characterization to analyze
+chapter, we use holographic particle characterization to analyze
 liquid droplets and solid TPM spheres. By synthesizing particles under a
 number of differing protocols, we isolate a number of experimental conditions
 that affect particle size.
