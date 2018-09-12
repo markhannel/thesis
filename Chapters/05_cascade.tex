@@ -44,7 +44,7 @@ hardware.
   \label{fig:detection}
 \end{figure}
 
-\section{Detecting and Localizing Holographic Features}
+\section{Detecting and localizing holographic features}
 
 Figure~\ref{fig:detection}(a) illustrates the challenge of
 recognizing features in holographic images: for each
@@ -59,7 +59,7 @@ array. A successful analysis of the
 array yields a list whose length corresponds to the number of features and whose
 entries identify the coordinates bounding a particular feature.
   
-\subsection{ Heuristic Algorithms}
+\subsection{Heuristic algorithms}
 \label{sec:heuristic}
 
 One practical method for detecting holographic features and 
@@ -113,7 +113,7 @@ This can create a bottleneck
 for
 heuristic feature detection and localization.
 
-\subsection{Machine-Learning Algorithms}
+\subsection{Machine-learning algorithms}
 
 Machine-learning techniques can reduce the computational
 burden of detecting and localizing features of interest in
@@ -229,8 +229,7 @@ for the ground truth for training eliminates
 the effort and errors inherent in empirical annotation and is
 one of the original contributions of this work.
 
-\section{Generating Training and Validation Datasets}
-
+\section{Generating training and validation datasets}
 
 We use Eqs.~\eqref{eq:gen_norm} through \eqref{eq:bn} to generate training 
 images of spherical scatters with radii ranging from 
@@ -273,7 +272,7 @@ drawn from the ground truth for the image-formation process.
 CNN training converged after \num{50000} cycles
 of training and validation.
 
-\subsection{Precision and Accuracy}
+\subsection{Precision and accuracy}
   
 \begin{figure}[!t]
   \centering
@@ -417,7 +416,7 @@ The CNN performs substantially
 better, with fewer than one false positive per thousand
 frames.
 
-\subsection{Multiple Particles}
+\subsection{Multiple particles}
 
 The results presented so far apply to holograms of single
 particles.
@@ -482,7 +481,7 @@ The principal benefit of machine-learning algorithms, however,
 is their ability to detect features rapidly, even on
 low-power computational platforms.
 
-\subsection{Computation Speed}
+\subsection{Computation speed}
 
 \begin{table}[b!]
 \centering
@@ -552,7 +551,7 @@ Reducing the resolution by half, improves the
 Raspberry Pi's detection time to \SI{40}{\ms} per image 
 which corresponds to \SI{25}{frames \per \second}.
 
-\subsection{Experimental Demonstrations}
+\subsection{Experimental demonstrations}
 \label{sec:experiment}
 
 \begin{figure}[!b]
