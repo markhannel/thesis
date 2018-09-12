@@ -2,15 +2,22 @@
 \label{app:discretize_dw}
 \appcaption{Appendix C}
 
-\section{Validating the far-field approximation}
+ \Autoref{ch:debye} presents a model for propagating the incident and
+ scattered electric fields through the optical train to a digital camera.
+ Eqs.~\eqref{strength_factor} through \eqref{magnification} account for the
+ refraction, reflection and angular demagnification of the electric
+ field strength factor up to the tube lens.
+ The Debye-Wolf integral, Eq.~\eqref{eq:debye}, transforms the
+ electric field strength factor at the tube lens into the electric field present in the
+ imaging plane. We have implemented this transformation as a discrete Fourier
+ transform as shown in Eq.~\eqref{complete_dw}. This appendix described an appropriate
+ discretization of the Fourier transform such that the Debye-Wolf integral converges
+ and the spacing in the image plane approximates the size of a pixel.
 
-
-  In this work we have sought to produce an image in the camera plane from the
-  fields present in the particle plane. To achieve such a transformation,
-  we have treked through the optical train and accounted for various 
-  effects including energy conservation, angular demagnification, polarization
-  rotation, lensing effects and image formation. In doing so, we've
-  implemented the Debye-Wolf formalism via a 2D Fourier transform. To ensure that
+\section{Appropriately sampling the electric field strength factor}
+  As presented in Fig.~\ref{debye_schematic}, there are three discrete grids
+  necessary in 
+  To ensure that
   our sampling rate will not cause aliasing, we impose the following condition on
   the sampling number $P$ (the same argument applies to the sampling number $Q$):
   \begin{eqnarray*}
