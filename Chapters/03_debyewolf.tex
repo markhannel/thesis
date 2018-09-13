@@ -21,7 +21,7 @@ of the fields as they propagate through the objective lens and tube lens
 before arriving at the camera plane. We will attempt a full vectorial
 treatment throughout and will validate any scalar wave approximations
 made along the way. Our approach extends the work of
-Ovyrn and Izen\cite{izen00} by incorporating the methods of \c{C}apo\u{g}lu \emph{et al.}
+Ovyrn and Izen\cite{izen00} by incorporating the methods of \c{C}apo\u{g}lu, \emph{et al.}
 \cite{capoglu12}. 
 The result of this analysis justifies the use of the scalar theory presented in \autoref{ch:hvm} and
 establishes the physical limits of HPC set by collecting, refocusing, and recording
@@ -58,7 +58,7 @@ for the scattered field:
 \item Compute the electric field strength factor at the exit of the tube lens, plane \#3,
   by accounting for the angular demagnification imposed by the objective.
 \item Use a near-field-to-far-field transform to determine the scattered
-  fields at the imaging plane of the camera, plane \#4.
+  fields at the imaging plane of the camera, plane \#\num{4}.
 \end{enumerate}
 Figure \ref{fig:debye_schematic}(b) presents the geometries used to define the
 fields at the entrance pupil of the objective, at the tube lens, and at the camera's
@@ -73,13 +73,13 @@ plane wave.
 In \autoref{ch:hvm}, we computed the fields resulting from the scattering of
 a plane wave by a homogeneous sphere embedded in an otherwise
 homogeneous medium. As depicted in Fig.~\ref{fig:debye_schematic}(a), we
-propagate the radially expanding scattered fields through the focal plane (plane \num{1} in
-Fig.~\ref{fig:debye_schematic}) and onward to the objective's entrance pupil a distance
+propagate the radially expanding scattered fields through the focal plane (plane \#\num{1} in
+Figure~\ref{fig:debye_schematic}) and onward to the objective's entrance pupil a distance
 $z_p + f$ below the particle, where $f$ is the focal length of the objective.
 \begin{figure}
   \centering
-  \includegraphics[width=0.73\textwidth]{waterglass}
-  \caption{The Fresnel transmission coefficients for $s-$ and $p$-polarized
+  \includegraphics[width=0.6\textwidth]{waterglass}
+  \caption{The Fresnel transmission coefficients for $s$- and $p$-polarized
   waves refracting through a water-glass interface.}
   \label{fig:waterglass}
 \end{figure}
@@ -135,7 +135,7 @@ of distance and will be assumed to be originating from
 the origin of the focal plane in the near-field-to-far-field transform rather
 than the particle's location a distance $z_p$ above.
 Following Goodman\cite{goodman05}, we account for the scatterer's displacement
-along the optical axis with a relative phase shift\footnote{The sign convention used here is appropriate for a scattered positioned a distance $z_p$ in the $-\uvec{z}$ direction.}.
+along the optical axis with a relative phase shift\footnote{The sign convention used here is appropriate for a scattered positioned a distance $z_p$ in the $-\uvec{z}$ direction.},
 \begin{equation}
   \label{eq:entrance_pupil}
     \vec{E}_s(\theta, \phi)|_{\text{scatterer plane}} \approx \vec{E}_s(\theta, \phi)|_{\text{focal plane}} e^{-i\frac{2\pi}{\lambda}z_p\cos{\theta} }.
@@ -151,7 +151,7 @@ each ray to obey the conservation of energy.
 
 The Abbe sine condition,
 \begin{equation}
-  M = \frac{n_m \sin \, \theta}{n^{\prime} \sin \, \theta^{\prime}}
+  M = \frac{n_m \sin \, \theta}{n^{\prime} \sin \, \theta^{\prime}},
   \label{eq:abbe_sine}
 \end{equation}
 is necessary for sharp imaging \cite{capoglu12} and is rigorously
@@ -176,8 +176,7 @@ For computational ease, we again adopt direction cosines $s'_x = \cos \, \phi'\s
 $s'_y=\sin{\phi'}\sin{\theta'}$ such that the electric field strength
 factor exiting the tube lens is parameterized as $\vec{E}_s^{\prime}(s'_x, s'_y)$. Under this
 coordinate transformation, the Abbe sine condition given by Eq.~\eqref{eq:abbe_sine} can
-readily be seen as a linear scaling of the magnitudes of the direction cosines
-
+readily be seen to be a linear scaling of the magnitudes of the direction cosines:
 \begin{equation}
   M = \frac{n_m \sqrt{s_x^2 + s_y^2 }}{n^{\prime} \sqrt{s_x^{\prime 2} + s_y^{\prime 2} }}.
   \label{eq:magnification}
@@ -204,22 +203,24 @@ that $s_x^2+s_y^2 \le \text{NA}/n_{\text{oil}}$. Note that $\cos \, \theta' = \s
   $\si{\volt\meter}$, defined in spherical coordinates on plane \#\num{3} and
   returns the electric field in Cartesian coordinates in plane \#\num{4}.
 \item The transformation appears to be distance agnostic; the distance
-  between plane \#\num{3} and \#\num{4} never explicitly appears. However the domain
-  of integration, $\Omega_{\text{img}}$, is limited by the Abbe sine condition
-  such that the planes \#\num{3} and plane \#\num{4} must be separated by $M \, f$.
+  between plane \#\num{3} and plane \#\num{4} never appears explicitly.
+  In fact, the distance from the tube lens to the camera is taken into
+  account because the domain
+  of integration, $\Omega_{\text{img}}$, is limited by the Abbe sine condition.
+  Planes \#\num{3} and plane \#\num{4} accordingly must be separated by $M \, f$.
 \end{enumerate}
 
 The Debye-Wolf integral can account for phase aberrations
 due to imperfections in the optical train with an aberration function, $\Phi(s'_x,s'_y)$,
-which measures the deviation of the wavefront from a perfect spherical shape \cite{wolf1959}.
+that measures the deviation of the wavefront from a perfect spherical shape \cite{wolf1959}.
 To do so, the integrand of the Debye-Wolf integral is multiplied by a phase term
 $e^{ik'\Phi(s'_x,s'_y)}$. We will not consider aberrations, however, because
 the goal of this study is to access limitations in hologram formation
 under ideal conditions.
 
 With the exception of the $k'$ in the phase term and the $\cos{\theta'}$ 
-modifying the differential element, we should recognize the
-Debye-Wolf integral as a Fourier transform. We will discretize this
+modifying the differential element, the
+Debye-Wolf integral resembles a Fourier transform. We will discretize this
 Fourier transform subject to sampling and aliasing conditions described
 in the appendix \ref{app:discretize_dw}. Here we summarize and interpret the result:
 \begin{equation}
@@ -234,7 +235,7 @@ where the the $s_x'$-$s_y'$ plane is discretized into a
 $N_p$ by $N_q$ grid with a sampling period $\Delta s_x'$ along the $s_x'$ axis and
 $\Delta s_y'$ along the $s_y'$ axis, and the $x'$-$y'$ plane is similarly discretized with
 sampling periods $\Delta x = 2\pi \, / \, k' \Delta s_x' N_p$ and $\Delta y = 2\pi \, / \, k' \Delta s_y' N_p$.
-Note that the vector functions with parens encasing their arguments represent
+Note that the vector functions with parentheses encasing their arguments represent
 continuous functions whereas those with square brackets encasing their arguments represent
 discrete approximations of continuous functions.
 
@@ -286,7 +287,7 @@ pixel in the respective holograms is well below the sensitivity of our camera.
 \end{figure}
 
 To systematically assess the differences between the two theories,
-we use Eqs.\eqref{eq:strength_factor} through \eqref{eq:debyewolf} to synthesize holographic
+we use Eqs.~\eqref{eq:strength_factor} through \eqref{eq:debyewolf} to synthesize holographic
 images as they would appear in the camera plane. Synthetic holograms
 were computed for spheres with radii ranging from
 $a_{\text{p}}=\SI{0.5}{\um}$ to $\SI{5}{\um}$, refractive indexes from
@@ -321,7 +322,8 @@ the computational complexity of producing
 the image in the camera plane greatly exceeds that of producing the
 image in the focal plane; for this reason, we recommend the use of the
 scalar theory in fitting experimental holograms with ideal optics.
-For real lenses, some degree of phase-aberrations are imparted by
+For real lenses, some degree of phase aberrations are imparted by
 the optical train; in the case of non-ideal holographic imaging,
-our theory provides a model which accounts for phase-aberrations,
-including spherical aberrations.
+our theory provides a model that accounts for phase aberrations,
+including spherical aberrations arising from particles' distance
+above the focal plane.

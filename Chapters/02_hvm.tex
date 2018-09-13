@@ -264,7 +264,7 @@ and
   + \cos\phi \, \frac{dP^1_n(\cos\theta)}{d\theta} \,
   \frac{1}{\rho} \frac{d}{d\rho}\left[ j_n(\rho)\right] \, \uvec{\theta} \\
   - \frac{\sin\phi}{\sin\theta} \, P^1_n(\cos\theta) \,
-  \frac{1}{\rho}\frac{d}{d\rho}\left[\rho j_n(\rho)\right] \, \uvec{\phi}
+  \frac{1}{\rho}\frac{d}{d\rho}\left[\rho j_n(\rho)\right] \, \uvec{\phi}.
 \end{multline}
 Here, $\rho = kr$ is the reduced radial coordinate,
 $P^1_n(\cos\theta)$ is the associated Legendre polynomial of the
@@ -272,7 +272,6 @@ first kind, and $j_n(\rho)$ is the spherical Bessel function of the
 first kind of order $n$.
 The expansion coefficients $a_n$ and $b_n$ in Eq.~(\ref{eq:scatteredfield})
 are given by \cite{bohren83}
-
 \begin{equation}
   \label{eq:an}
   a_n = \frac{n_p^2 \, j_n(x_p) \left[x_m \, j_n(x_m)\right]^\prime -
@@ -288,16 +287,12 @@ and
     j_n(x_p) \left[x_m \, h^{(1)}_n(x_m)\right]^\prime -
     h^{(1)}_n(x_m) \left[x_p \, j_n(x_p)\right]^\prime},
 \end{equation}
-
 where primes denote derivatives of function with respect to the argument
 of the embedded special function, and $x_m = \frac{2\pi n_m}{\lambda} a_p$
-and $x_p = \frac{2\pi n_p}{\lambda} a_p$ are the reduced particle size according
-to the medium and to the particle respectively. The infinite
-sum in \eqref{eq:scatteredfield} can be safely truncated after
+and $x_p = \frac{2\pi n_p}{\lambda} a_p$ are the reduced particle size associated
+with the medium and the particle respectively. The infinite
+sum in Eq.~\eqref{eq:scatteredfield} can be safely truncated after
 $x_m + 4x_m^{\frac{1}{2}} + 2$ terms\cite{wiscombe80}.
-
-A few comments help to clarify how Eqs.~\eqref{eq:gen_norm} through
-\eqref{eq:bn} can be used to track and characterize colloidal particles.
 The vector spherical harmonics do not depend on the scatterer's properties;
 the scatterer's influence on the external scattered field is completely contained
 in the expansion coefficients.
