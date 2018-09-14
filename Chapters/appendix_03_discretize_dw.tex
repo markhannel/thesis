@@ -1,73 +1,73 @@
 \SkipTocEntry\chapter{Discretizing the scattered field for the Debye-Wolf integral} 
 \label{app:discretize_dw}
-\appcaption{Appendix C}
+\appcaption{Appendix B}
 
  \Autoref{ch:debye} presents a model for propagating the incident and
  scattered electric fields through the optical train to a digital camera.
- Eqs.~\eqref{strength_factor} through \eqref{magnification} account for the
- refraction, reflection and angular demagnification of the electric
+ Eqs.~\eqref{eq:strength_factor} through \eqref{eq:magnification} account for the
+ refraction, reflection, and angular demagnification of the electric
  field strength factor up to the tube lens.
- The Debye-Wolf integral, Eq.~\eqref{eq:debye}, transforms the
+ The Debye-Wolf integral, Eq.~\eqref{eq:debyewolf}, transforms the
  electric field strength factor at the tube lens into the electric field present in the
  imaging plane. We have implemented this transformation as a discrete Fourier
- transform as shown in Eq.~\eqref{complete_dw}. This appendix described an appropriate
+ transform as shown in Eq.~\eqref{eq:complete_dw}. This appendix describes an appropriate
  discretization of the Fourier transform such that the Debye-Wolf integral converges
  and the spacing in the image plane approximates the size of a pixel.
+ A more thorough account of this discretization is provided in Ref.~\cite{capoglu12},
+ section 3.4.2.
 
 \section{Appropriately sampling the electric field strength factor}
-  As presented in Fig.~\ref{debye_schematic}, there are three discrete grids
-  necessary in 
-  To ensure that
-  our sampling rate will not cause aliasing, we impose the following condition on
-  the sampling number $P$ (the same argument applies to the sampling number $Q$):
-  \begin{eqnarray*}
-    \Delta s_x &<& \frac{2 \pi}{k W_x} \hspace{.5 in} \text{Eq 142 in Ref.}\\
-    \frac{2 \sin{\theta_{img}}}{P} &<& \frac{\lambda}{W_x} \\
-    \frac{2 \sin{\theta_{img}}W_x}{\lambda} &<& P \\
-    \frac{2 \text{NA}\cdot W_x}{n\lambda} &<& P 
-  \end{eqnarray*}
-  
-  The field $\vec{E}_{img}$ is discretized into a set of points 
-  $\left ( \Delta_x, \Delta_y \right )$ in the camera plane. We desire that the
-  spacing in the image approximates the real spacing between adjacent 
-  pixels of our camera. As such, we seek to satisfy the relation 
-  $\Delta_x = M\text{mpp}$. However, this is an integer equation which can only
-  be approximately satisfied in general. Pursuing this approximation:
-  \begin{eqnarray*}
-    \Delta_x &\approx& \text{mpp}\cdot M \\
-    \frac{2 \pi}{k' \Delta s_x' N_p} &\approx& \text{mpp}\cdot M \\
-    \frac{\lambda'}{N_P} \frac{1}{\Delta s_x'} &\approx& \text{mpp}\cdot M \\
-    \frac{\lambda'}{N_P} \frac{P}{2 \sin{\theta_{img}}} &\approx& \text{mpp}\cdot M \\
-    \frac{\lambda'}{N_P} \frac{PMn'}{2\text{NA}} &\approx& \text{mpp}\cdot M \\
-    \frac{\lambda}{N_P} \frac{P}{2\text{NA}} &\approx& \text{mpp} \\
-    \frac{P\lambda}{2\text{NA}\cdot\text{mpp}} &\approx& N_p \\
-    \frac{P\lambda}{2\text{NA}\cdot\text{mpp}} &\approx& P+\text{pad}_P \\
-    \left ( \frac{\lambda}{2\text{NA}\cdot\text{mpp}} - 1 \right )P &\approx& \text{pad}_P \\    
-  \end{eqnarray*}
+  Figure~\ref{fig:debye_schematic} presents the discretization scheme for the
+  three grids in our computation: plane \#2 and
+  plane \#3, where we evaluate the scattered field's electric field strength factor, and
+  plane \#4, where we evaluate the fields comprising the image.
+  While our formalism allows for unequal spacing in the $x$- and $y$-direction,
+  we assume that the spacings in each direction are identical and
+  therefore drop subscripts denoting direction.
+  The spacings in plane \#2,
+  $\Delta s$, and plane \#3, $\Delta s^{\prime}$ are linearly
+  related by the Abbe sine condition, Eq.~\eqref{eq:magnification};
+  specifying one spacing dictates the other. The direction cosine, $s$, is bounded by the numerical
+  aperture of the objective lens such that $\abs{s}\le \text{NA} /n$
+  where $NA$ is the numerical aperture of the objective and $n$ is the refractive index
+  the immersion oil.
+  Sampling plane \#2 $P$ times therefore results in a spacing $\Delta s = 2\, \text{NA}/(n\,P)$.
 
+  The scattered field has an extent of size $W$ in the focal plane of the objective
+  wherein the amplitude is non-negligible. We impose the condition
+  $\Delta s < \lambda/W$ to prevent aliasing and derive a condtion
+  on the sampling number $P$ \cite{capoglu12},
   \begin{equation}
-    \begin{split}
-      P > \frac{2 \text{NA}\cdot W_x}{n\lambda} \\
-      \text{pad}_P  \approx  \left ( \frac{\lambda}{2\text{NA}\cdot\text{mpp}} - 1 \right )P
-    \end{split}
+    P > \frac{2 \text{NA}\, W}{n\lambda}.
   \end{equation}
-
-  Let's first reduce the prefactor in $\vec{E}_{img}$:
-  \begin{eqnarray*}
-    \frac{-ik'\Delta s'_x \Delta s'_y}{2 \pi} &=& -i\left ( \frac{k'}{2\pi} \right ) (2 \sin{\theta_{img}}/P)(2 \sin{\theta_{img}}/Q) \\
-    &=& -i \left ( \frac{1}{\lambda'} \right ) \frac{4}{PQ} \left ( \sin{\theta_{img}} \right )^2 \hspace{.5 in} \text{By Equation 132. of Ref.}\\
-    &=& -i \left ( \frac{1}{\lambda'} \right ) \frac{4}{PQ} \left ( \frac{\text{NA}}{Mn'} \right )^2 \\
-    &=& -i \left ( \frac{4}{PQ} \right ) \left ( \frac{\text{NA}^2}{M^2\lambda n'} \right )
-  \end{eqnarray*}
-
-Now reduce the exponential in $\vec{E}_{img}$:
-\begin{eqnarray*}
-  i2\pi \left ( \frac{s'_{x_o}}{\Delta s'_x N_p} m + \frac{s'_{y_o}}{\Delta s'_yN_q} n \right )  &=& i2\pi \left ( \frac{-\sin{\theta_{img}} \left ( 1 - 1/P\right )}{2\sin{\theta_{img}}/P\cdot N_p} m + \frac{-\sin{\theta_{img}}\left ( 1-1/Q\right ) }{2\sin{\theta_{img}}/Q \cdot N_q} n \right ) \\
-  &=& -i\pi \left ( \frac{P - 1}{N_p}m + \frac{Q - 1}{N_q} n \right ) 
-\end{eqnarray*}
-Therefore our expression for $\vec{E}_{img}$ is the following:
-
-\begin{equation}
-  \vec{E}_{img} \approx -i \left ( \frac{4}{PQ} \right ) \left ( \frac{\text{NA}^2}{M^2\lambda n'} \right ) e^{-i\pi \left ( \frac{P - 1}{N_p}m + \frac{Q - 1}{N_q} n \right ) }\vec{E}\left [ m, n \right ]
-\end{equation}
-
+  
+  The field $\vec{E}_{img}$ is evaluated on a grid with spacing $\Delta$
+  in the imaging plane of the camera, plane \#4. Ideally the spacing in the image
+  should well-approximate the real spacing between adjacent 
+  pixels of the camera after magnification, $M$:
+  \begin{equation}
+  \Delta_x \approx M\, \text{mpp}.
+  \end{equation}        
+  While sampling the plane \#3 $P$ times, the above equation is overly constrained and
+  can not in general be satisfied. We can, however, pad the electric field strength factor
+  at plane \#3 with zeros: the numerical aperture of the system sets these values to
+  zero. By padding the electric field strength factor with $p$ zeros,
+  the Fourier transform in Eq.~\ref{eq:complete_dw} will be effectively
+  interpolating high frequency responses but will not actually increase or decrease
+  the spatial resolution of the result. With zero padding, the spacing in the imaging
+  plane is
+  \begin{equation}
+  \Delta = \frac{\lambda P}{\left ( P + p \right ) 2\, \text{NA}}.
+  \end{equation} 
+  The approximation $\Delta \approx \text{mpp} \, M$  necessitates that the
+  padding $p$ must approximately satisfy
+  \begin{equation}
+    p \approx P \left ( \frac{\lambda}{2 \, \text{NA} \, \text{mpp}} - 1 \right ).
+    \label{eq:padding_approx}
+  \end{equation}
+  Equation~\ref{eq:padding_approx} can not in general be solved exactly as $p$
+  must be an integer. For the cases we considered, a $p$ value of approximately
+  one-tenth of $P$ led to a \SI{0.5}{\percent} mismatch between the pixel size
+  and the spacing $\Delta$. If necessary, the image can be slightly interpolated
+  or extrapolated to a grid corresponding to the real pixel locations.
+  
