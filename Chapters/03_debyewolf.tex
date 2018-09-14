@@ -188,9 +188,9 @@ Finally we utilize a near-field-to-far-field transform to propagate the scattere
 field from the tube lens to the imaging plane.
 The Debye-Wolf diffraction integral transforms the electric field strength factor at a lens
 surface to the scattered field, $\vec{E}_{s,\text{img}}$, present in the focal plane of that
-lens:
+lens \cite{wolf1959},
 \begin{equation}
-  \vec{E}_{s,\text{img}}(x', y') = \frac{i k'}{2 \pi} \iint_{\Omega_{\text{img}}} \vec{E}_s'(s'_x, s'_y) \frac{e^{-ik'(s'_xx'+s'_yy')}}{\cos{\theta'}}ds'_xds'_y 
+  \vec{E}_{s,\text{img}}(x', y') = \frac{i k'}{2 \pi} \iint_{\Omega_{\text{img}}} \vec{E}_s'(s'_x, s'_y) \frac{e^{-ik'(s'_xx'+s'_yy')}}{\cos{\theta'}}ds'_xds'_y ,
   \label{eq:debyewolf}
 \end{equation}
 where $k'$ is the wavenumber in the medium above the camera and $\Omega_{\text{img}}$
